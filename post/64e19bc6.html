@@ -1,0 +1,1047 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JavaWeb期末复习 | cout&lt;&lt;&quot;金缕衣&quot;;</title><meta name="author" content="下完这场雨"><meta name="copyright" content="下完这场雨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JavaWeb期末重点复习知识点： servlet程序 深刻理解servlet程序的含义、生存周期、部署及调用。  Servlet 运行在服务端的Java 小程序 ，是sun公司提供一套规范（接口），用来处理客户端请求、响应给浏览器的动态资源。 但servlet的实质就是java代码，通过java的API动态地向客户端输出内容。 servlet规范：包含三个技术点 　　1）servlet技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb期末复习">
+<meta property="og:url" content="http://example.com/post/64e19bc6.html">
+<meta property="og:site_name" content="cout&lt;&lt;&quot;金缕衣&quot;;">
+<meta property="og:description" content="JavaWeb期末重点复习知识点： servlet程序 深刻理解servlet程序的含义、生存周期、部署及调用。  Servlet 运行在服务端的Java 小程序 ，是sun公司提供一套规范（接口），用来处理客户端请求、响应给浏览器的动态资源。 但servlet的实质就是java代码，通过java的API动态地向客户端输出内容。 servlet规范：包含三个技术点 　　1）servlet技术">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/javawebfuxi.jpg">
+<meta property="article:published_time" content="2024-06-26T12:01:22.000Z">
+<meta property="article:modified_time" content="2024-06-26T12:34:27.215Z">
+<meta property="article:author" content="下完这场雨">
+<meta property="article:tag" content="xurunbo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/javawebfuxi.jpg"><link rel="shortcut icon" href="/img/icon.png"><link rel="canonical" href="http://example.com/post/64e19bc6.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 下完这场雨","link":"链接: ","source":"来源: cout<<\"金缕衣\";","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JavaWeb期末复习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-26 20:34:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="//code.tidio.co/xysdkaby5vgv2dt8e9zgdqsu6wh59g43.js" async></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/mystyle.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4770397_jz6ucve7mog.css<link rel="stylesheet" href="/css/ancientPoetry.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/me.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/javawebfuxi.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="cout&lt;&lt;&quot;金缕衣&quot;;"><img class="site-icon" src="/img/logo3.png"/><span class="site-name">cout&lt;&lt;&quot;金缕衣&quot;;</span></a></span><div id="wearher"></div><div id="tp-weather-widget"></div><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JavaWeb期末复习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-26T12:01:22.000Z" title="发表于 2024-06-26 20:01:22">2024-06-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-26T12:34:27.215Z" title="更新于 2024-06-26 20:34:27">2024-06-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/">期末考试</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">13.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>51分钟</span></span><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/post/64e19bc6.html" data-flag-title="JavaWeb期末复习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/post/64e19bc6.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/post/64e19bc6.html" itemprop="commentCount"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="JavaWeb期末"><a href="#JavaWeb期末" class="headerlink" title="JavaWeb期末"></a>JavaWeb期末</h1><h2 id="重点复习知识点："><a href="#重点复习知识点：" class="headerlink" title="重点复习知识点："></a>重点复习知识点：</h2><hr>
+<h3 id="servlet程序"><a href="#servlet程序" class="headerlink" title="servlet程序"></a>servlet程序</h3><ol>
+<li>深刻理解servlet程序的含义、生存周期、部署及调用。</li>
+</ol>
+<p><strong>Servlet</strong> <strong>运行在服务端的Java</strong> <strong>小程序</strong> ，是sun公司提供一套规范（接口），<strong>用来处理客户端请求、响应给浏览器的动态资源。</strong> 但servlet的实质就是java代码，通过java的API动态地向客户端输出内容。</p>
+<p>servlet规范：包含三个技术点</p>
+<p>　　1）servlet技术</p>
+<p>　　2）filter技术—过滤器</p>
+<p>　　3）listener技术—监听器</p>
+<p><strong>Servlet</strong> <strong>的</strong> API（<strong>生命周期</strong> ）分为三个阶段，分别是<strong>初始化阶段，运行阶段和销毁阶段</strong></p>
+<p>1）初始化阶段</p>
+<p>通过调用init（）方法实现Servlet的初始化工作。在Servlet的整个生命周期内，它的init（）方法只被调用一次。</p>
+<p>2）运行阶段</p>
+<p>在Servlet的整个生命周期内，<strong>对于****servlet</strong> <strong>的每一次访问请求，servlet</strong> <strong>容器都会调用一次servlet</strong> <strong>的service</strong> <strong>（）方法，并且创建新的ServletRequest</strong> <strong>和ServletResponse</strong> <strong>对象</strong> ，也就是说，service（）方法在Servlet的整个生命周期内会被调用多次。</p>
+<p>3）销毁阶段</p>
+<p><strong>当服务器关闭或Web</strong> <strong>应用被移出容器时，Servlet</strong> <strong>随着Web</strong> <strong>应用的销毁而销毁</strong> <strong>。</strong> 在销毁Servlet之前，Servlet容器会调用Servlet的<strong>destroy()</strong> 方法，以便让Servlet对象<strong>释放它所占用的资源</strong>。在Servlet的整个生命周期内，它的destroy()方法也只<strong>被调用一次</strong>。</p>
+<p>Servlet的部署和访问</p>
+<p>打开【servers】选项卡，选中<strong>部署</strong>web应用的Tomcat服务器，右键单击并选择【Add and Remove】选项，进入部署web应用的界面，选中”chapter03”，单击【Add】按钮，将chapter03项目添加到Tomcat服务器中，单击【finish】按钮，完成web应用的部署。</p>
+<p>接下来启动eclipse中的Tomcat服务器，在浏览器的地址栏上输入地址”<a target="_blank" rel="noopener" href="http://localhost:8080/chapter03/TestServlet01%22**%E8%AE%BF%E9%97%AE**TestServlet01">http://localhost:8080/chapter03/TestServlet01&quot;**访问**TestServlet01</a></p>
+<br />
+
+<p>1、请列举Servlet接口中的方法，并分别说明这些方法的特点及其作用。</p>
+<p>Servlet接口中有<strong>init</strong> <strong>、service</strong> <strong>、destroy</strong> <strong>、getServletConfig</strong> <strong>和getServletInfo</strong> 这 5个方法，这些方法的特点及其作用具体如下：</p>
+<p>1）init(ServletConfig config)方法，该方法在服务器对Servlet第一次访问时调用，负责<strong>Servlet</strong> <strong>初始化</strong> 工作。在一个Servlet的生命周期中<strong>只执行一次</strong>。该方法接收一个ServletConfig类型的参数，Servlet容器可以通过这个参数向Servlet传递初始化配置信息。</p>
+<p>2）<strong>service(ServletRequest request</strong> <strong>，ServletResponse response)</strong> 方法，该方法<strong>负责响应用户的请求</strong> ，当容器接收到客户端访问Servlet对象的请求时，就会调用此方法。</p>
+<p>3）destroy()方法，该方法方法负责<strong>释放Servlet</strong> <strong>对象占用的资源</strong> 。当Servlet对象被销毁时，容器会调用此方法。</p>
+<p>4）getServletConfig()方法，<strong>该方法返回容器调用init(ServletConfig config)</strong> <strong>方法时传递给Servlet</strong> <strong>的ServletConfig</strong> <strong>对象</strong> <strong>。</strong></p>
+<p>5）getServletInfo()方法，该方法<strong>返回一个字符串</strong> ，其中包含了关于Servlet的信息，例如，作者、版本和版权等信息。</p>
+<br />
+
+<p>2、简述ServletContext接口的三个主要作用。</p>
+<p><strong>1</strong> <strong>）获取Web</strong> <strong>应用程序的初始化参数</strong></p>
+<p><strong>2</strong> <strong>）实现多个Servlet对象共享数据</strong></p>
+<p><strong>3</strong> <strong>）读取Web</strong> <strong>应用下的资源文件</strong></p>
+<br />
+
+<p>2、&lt;!– 配置Servlet –&gt;</p>
+<p>&lt;servlet&gt;</p>
+<p>&lt;servlet-name&gt;xxx&lt;&#x2F;servlet-name&gt;</p>
+<p>&lt;servlet-class&gt;xxx.xxx.xxx&lt;&#x2F;servlet-class&gt;</p>
+<p>&lt;&#x2F;servlet&gt;</p>
+<p>&lt;!– 配置Servlet映射路径 –&gt;</p>
+<p>&lt;servlet-mapping&gt;</p>
+<p>&lt;servlet-name&gt;xxx&lt;&#x2F;servlet-name&gt;</p>
+<p>&lt;url-pattern&gt;&#x2F;xxx&lt;&#x2F;url-pattern&gt;</p>
+<p>&lt;&#x2F;servlet-mapping&gt;</p>
+<p>3、在程序中的部署和使用。</p>
+<h3 id="9大内置对象"><a href="#9大内置对象" class="headerlink" title="9大内置对象"></a>9大内置对象</h3><ol>
+<li>深刻理解9大内置对象的含义，以及重点对象的方法及存储范围</li>
+</ol>
+<p>9大内置对象的含义：</p>
+<p>1.<strong>request****：对象主要用于</strong> <strong>处理客户端</strong> <strong>请求</strong> ，在（页面转发，获取cookie）用到</p>
+<p>2.<strong>response****：用于处理</strong> <strong>响应客户端</strong> <strong>请求</strong> ，在（页面重定向）中使用</p>
+<p>3.session：在网络中被称为<strong>会话</strong> ，一个会话就是浏览器与服务器之间的一次通话（保存登录状态时）</p>
+<p>4.application：就像全局变量，用于<strong>保存应用程序中的共有数据</strong> （上传时获取真实路径）</p>
+<p>5.out：对象用于在web浏览器内<strong>输出信息</strong> ，数据输出完，要及时关闭输出流</p>
+<p>6.pageContext：用于<strong>获取页面的上下文</strong> ，通过此对象可以获取页面的其他8个内置对象</p>
+<p>7.config:用于<strong>取得服务器的配置信息</strong></p>
+<p>8.page:<strong>代表jsp本身，只有在jsp页面内才是合法的</strong></p>
+<p>9.exception:用于<strong>处理</strong> jsp页面发生的<strong>异常</strong></p>
+<p>下面的好像是重点对象</p>
+<p>pageContext JSP页面容器 –&gt;当前页面有效</p>
+<p>request 请求对象 –&gt;同一次请求有效(请求转发还是有效，重定向[两次请求]无效)</p>
+<p>session 会话对象 –&gt;同一次会话有效(只要不关闭或者切换浏览器)</p>
+<p>application 全局对象 –&gt;全局有效(整个项目有效，切换浏览器有效，关闭server、其他项目无效)</p>
+<br />
+
+<p>1、请求转发与重定向的异同点如下：</p>
+<ol>
+<li>请求转发和重定向都可以实现访问一个资源时转向当前应用资源</li>
+<li>请求转发是一次请求一次响应，而重定向为两次请求两次响应</li>
+</ol>
+<p>3）一般情况下应该使用请求转发，减少浏览器对服务器的访问，减轻服务器压力</p>
+<p>4）如果需要改变浏览器的地址栏，或更改浏览器的刷新按钮的功能时需要使用重定向</p>
+<br />
+
+<p>2、Request</p>
+<p>Request.setCharacterEncoding&#x3D;”UTF-8”;</p>
+<p>String request.getParameter(String name);</p>
+<p>String[] request.getParameterValue(String name);</p>
+<p>RequestDispatcher request.getRequestDispatcher(String path);</p>
+<p>request.getRequestDispatcher.forward(request,response);</p>
+<p>Public void setAttribute(string name,object );</p>
+<p>Public object getAttribute(string name);</p>
+<p>Public void removeAttribute(string name);</p>
+<p>3、response</p>
+<p>response.setHeader(“refresh”,”2”);</p>
+<p>response.setHeader(“refresh”,”3;URL&#x3D;hello.jsp”) ;</p>
+<p>response.sendRedirect(String location) ;</p>
+<p>response.addCookie(Coolie cookie) ;</p>
+<h3 id="cookie和session的关系"><a href="#cookie和session的关系" class="headerlink" title="cookie和session的关系"></a>cookie和session的关系</h3><ol>
+<li>深刻理解cookie和session的关系。</li>
+</ol>
+<p>1.Cookie</p>
+<p>通俗讲，是访问某些网站后在本地存储的一些网站相关信息，下次访问时减少一些步骤。更准确的说法是：Cookies是服务器在本地机器上存储的小段文本并随每一个请求发送至同一服务器，是在客户端保持状态的方案。</p>
+<p>Cookie的主要内容包括：名字，值，过期时间，路径和域。</p>
+<p>2.Session</p>
+<p>存在服务器的一种用来存放用户数据的类HashTable结构。</p>
+<p>浏览器第一次发送请求时，服务器自动生成了一HashTable和一Session ID来唯一标识这个HashTable，并将其通过响应发送到浏览器。浏览器第二次发送请求会将前一次服务器响应中的Session ID放在请求中一并发送到服务器上，服务器从请求中提取出Session ID，并和保存的所有Session ID进行对比，找到这个用户对应的HashTable。</p>
+<p>一般这个值会有个时间限制，超时后毁掉这个值，默认30分钟。</p>
+<p>当用户在应用程序的 Web页间跳转时，存储在 Session 对象中的变量不会丢失而是在整个用户会话中一直存在下去。</p>
+<p>Session的实现方式和Cookie有一定关系。建立一个连接就生成一个session id。</p>
+<p>++Cookie++ ++与Session++ ++主要有如下区别：++</p>
+<p>1）Cookie和HttpSession是<strong>保存会话相关数据的技术</strong>，其中Cookie将信息存储在++浏览器端++ ，是客户端技术，Session将数据保存在++服务器端++ ，是服务器端技术</p>
+<p>2）Cookie是基于HTTP协议中的Set-Cookie响应头和Cookie请求头进行工作的</p>
+<p>3）默认情况下HttpSession是基于一个名称为JSESSIONID 的特殊Cookie工作的</p>
+<p>4）浏览器对Cookie具有严格的限制，一个网站能在浏览器中保存多少Cookie是有限制的</p>
+<p>5）HttpSession默认是基于Cookie运作的。</p>
+<br />
+
+<br />
+
+<p>2、<strong>cookie</strong></p>
+<p>Public Cookie(string name,string value)</p>
+<p>Public string getName()</p>
+<p>Public string getValue()</p>
+<p>Public void setMaxAge(int expiry)</p>
+<p>Public void addCookie(Cookie cookie)</p>
+<p>Public Cookie[] getCookies()</p>
+<p>3、<strong>session</strong></p>
+<p>public String getId()</p>
+<p>public boolean isNew()</p>
+<p>public void setMaxInactiveInterval(int interval)</p>
+<p>public int getMaxInactiveInterval()</p>
+<p>public long getCreationTime()</p>
+<p>public long getLastAccessedTime()</p>
+<p>public void setAttribute(String name, Object value)</p>
+<p>public Object getAttribute(String name)</p>
+<p>public void removeAttribute(String name)</p>
+<p>public void invalidate()</p>
+<br />
+
+<h3 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h3><p>1、JSP基本结构：java程序段、声明、输出表达式</p>
+<p>&lt;% java程序段 %&gt;</p>
+<p>&lt;%! 声明 %&gt;</p>
+<p>&lt;%&#x3D; %&gt;相当于out.print()</p>
+<p>out.println()和out.print()效果是一样的。如果要换行&lt;&#x2F;br&gt;</p>
+<p>2、JSP注释：&lt;!– HTML注释 –&gt;、&#x2F;&#x2F;java语句注释、&#x2F;* java程序段注释…*&#x2F;、&lt;%– jsp注释 –%&gt;</p>
+<p>3、文档UTF-8设置</p>
+<p>打开Eclisps软件时整体设置–属性;</p>
+<p>项目属性设置;</p>
+<p>request.setCharacterEncoding&#x3D;”UTF-8”;;</p>
+<p>response.setCharacterEncoding&#x3D;”UTF-8”;</p>
+<p>4、重点JSP指令：</p>
+<p>&lt;%@ page language&#x3D;”java” contentType&#x3D;”text&#x2F;html;charset&#x3D;utf-8” pageEncoding&#x3D;”utf-8” %&gt;</p>
+<p>&lt;%@ page errorPage&#x3D;”…” iserrorPage&#x3D;”true” %&gt;</p>
+<p>&lt;%@ page import&#x3D;”…” %&gt;</p>
+<p>&lt;%@ include file&#x3D;”…” %&gt;</p>
+<p>动作指令：</p>
+<p>&lt;jsp:include page&#x3D;”…” flush&#x3D;”true”&#x2F;&gt;</p>
+<p>&lt;jsp:include page&#x3D;”…” flush&#x3D;”true”&gt;</p>
+<p>&lt;jsp:param name&#x3D;”…” value&#x3D;”…”&gt;</p>
+<p>&lt;&#x2F;jsp:include&gt;</p>
+<p>&lt;jsp:forward page&#x3D;”…”&gt;</p>
+<p>&lt;jsp:param name&#x3D;”…” value&#x3D;”…” &#x2F;&gt;</p>
+<p>&lt;jsp:forward&gt;</p>
+<p>跳转方式：</p>
+<p>&lt;a href&#x3D;”…?param&#x3D;…&amp;param1&#x3D;…&amp;…”&gt;</p>
+<p>重定向：(两次请求，地址栏看的到变化，数据丢失)</p>
+<p>response.sendRedirect(“相对路径”);</p>
+<p>请求转发：（一次请求，地址栏看不到改变，数据不丢失，可以getParameter数据，也可以getAttribute数据）</p>
+<p>request.getRequestDispatcher(“相对路径”).forward(request,response);</p>
+<h3 id="过滤器-监听器"><a href="#过滤器-监听器" class="headerlink" title="过滤器&amp;&amp;监听器"></a>过滤器&amp;&amp;监听器</h3><ol>
+<li>理解概念、原理，掌握配置。</li>
+</ol>
+<p>过滤器</p>
+<p>Filter被称作过滤器或者拦截器，其基本功能就是<strong>对****Servlet</strong> <strong>容器调用Servlet</strong> <strong>的过程进行拦截</strong> ，从而在Servlet进行响应处理前后实现一些特殊功能。</p>
+<p>Filter工作原理（执行流程）</p>
+<p>当客户端发出Web资源的请求时，Web<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=%E6%9C%8D%E5%8A%A1%E5%99%A8&tn=24004469_oem_dg&rsv_dl=gh_pl_sl_csd" title="服务器">服务器</a>根据应用程序配置文件设置的过滤规则进行检查，若客户请求满足过滤规则，则对客户请求／响应进行拦截，对请求头和请求数据进行检查或改动，并依次通过过滤器链，最后把请求／响应交给请求的Web资源处理。请求信息在过滤器链中可以被修改，也可以根据条件让请求不发往资源处理器，并直接向客户机发回一个响应。当资源处理器完成了对资源的处理后，响应信息将逐级逆向返回。同样在这个过程中，用户可以修改响应信息，从而完成一定的任务。</p>
+<p>监听器</p>
+<p>Servlet监听器用于<strong>监听一些重要事件的发生</strong>，监听器对象可以在事情发生前、发生后可以做一些必要的处理。</p>
+<br />
+
+<p>2、简述Servlet事件监听器的作用。（写出三点）</p>
+<p>1）监听Web应用程序中ServletContext、HttpSession和ServletRequest等域对象的创建和销毁过程。</p>
+<p>2）监听ServletContext、HttpSession和ServletRequest等域对象属性的修改。</p>
+<p>3）感知绑定到HttpSession域中某个对象的状态。</p>
+<br />
+
+<ol>
+<li>过滤器处理过程：对请求、响应进行过滤；对数据放行。</li>
+</ol>
+<p>3、Filter过滤器就是一个实现了javax.servlet.Filter接口的类：</p>
+<p>实现三个核心方法：init()、destroy()、doFilter()；</p>
+<p>其中init()、destroy()原理、执行时机同Servlet一样；</p>
+<p>过滤器为了实现过滤谁，需要配置拦截谁，过程类似servlet；</p>
+<p>拦截路径或通配符拦截；</p>
+<p>过滤器链：可以配置多个过滤器，过滤器的先后顺序是由&lt;filter-mapping&gt;的位置决定。</p>
+<p>dispatcher请求方式：</p>
+<p>request：拦截HTTP请求 get post;</p>
+<p>forward：只拦截通过请求转发方式的请求;</p>
+<p>通过doFilter()处理拦截，并且通过chain.doFilter(request，response)放行；</p>
+<p>4、在程序中的部署和使用，网站统一字符编码过滤器的使用。</p>
+<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><p>第9章重点记忆归纳：**++（题目分布：简答、程序）++**</p>
+<p>1.理解JDBC存在的意义、概念、原理。</p>
+<p>概念：Java DataBase Connectivity:使用Java代码发送sql语句的技术就是jdbc技术</p>
+<p>作用：与数据建立起连接，使java能实现对数据库的操作。</p>
+<p>++请简述什么是++ ++JDBC++ ++。++</p>
+<p>JDBC的全称是<strong>Java</strong> <strong>数据库连接</strong> （Java Database Connectivity），它是一套<strong>用于执行****SQL</strong> 语句的Java API。应用程序可通过这套API连接到关系数据库，并使用SQL语句来完成对数据库中数据的查询、更新和删除等处理。</p>
+<p>++简述++ ++JDBC++ ++的实现步骤。++</p>
+<p>JDBC的<strong>实现步骤</strong> 如下：</p>
+<p>1）加载并注册数据库驱动</p>
+<p>2）通过DriverManager获取数据库连接</p>
+<p>3）通过Connection对象获取Statement对象</p>
+<p>4）使用Statement执行SQL语句</p>
+<p>5）操作ResultSet结果集</p>
+<p>6）关闭连接，释放资源</p>
+<p>请编写一个用于读取数据库中users表信息的JDBC程序，要求分别获取字段id、name、password和email字段的值。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Example01</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 注册数据库的驱动</span></span><br><span class="line"></span><br><span class="line">**DriverManager.registerDriver(<span class="keyword">new</span> <span class="title class_">com</span>.mysql.jdbc.Driver());**</span><br><span class="line"></span><br><span class="line">**Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);**</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.通过DriverManager获取数据库连接</span></span><br><span class="line"></span><br><span class="line">**<span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://localhost:3306/jdbc&quot;</span>;**</span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;itcast&quot;</span>;</span><br><span class="line"></span><br><span class="line">**<span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(url, username, password);**</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.通过Connection对象获取Statement对象</span></span><br><span class="line"></span><br><span class="line">**<span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> conn.createStatement();**</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.使用Statement执行SQL语句。</span></span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select \* from users&quot;</span>;</span><br><span class="line"></span><br><span class="line">**<span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> stmt.executeQuery(sql);**</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 操作ResultSet结果集</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;id \| name \| password \| email \|&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="variable">id</span> <span class="operator">=</span> rs.getInt(<span class="string">&quot;id&quot;</span>); <span class="comment">// 通过列名获取指定字段的值</span></span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> rs.getString(<span class="string">&quot;name&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">psw</span> <span class="operator">=</span> rs.getString(<span class="string">&quot;password&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">email</span> <span class="operator">=</span> rs.getString(<span class="string">&quot;email&quot;</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(id + <span class="string">&quot; \| &quot;</span> + name + <span class="string">&quot; \| &quot;</span> + psw + <span class="string">&quot; \| &quot;</span> + email);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;&#x2F; 6.回收数据库资源</p>
+<p><strong>rs.close();</strong></p>
+<p><strong>stmt.close();</strong></p>
+<p><strong>conn.close();</strong></p>
+<p>2.JDBC API主要功能：通过以下类&#x2F;接口实现</p>
+<p>DriverManager：管理jdbc驱动</p>
+<p>Connection：连接(通过DriverManager产生)</p>
+<p>Statement（PreparedStatement）：增删改查(通过Connection产生)</p>
+<p>CallableStatement：调用数据库中的存储过程&#x2F;存储函数(通过Connection产生)</p>
+<p>Result：返回的结果集(Statement,PreparedStatement产生)</p>
+<p>3.<strong>jdbc</strong> <strong>访问数据库的具体步骤：</strong></p>
+<p><strong>a.</strong> <strong>导入驱动，加载具体的驱动类</strong></p>
+<p><strong>b.</strong> <strong>与数据库建立连接</strong></p>
+<p><strong>c.</strong> <strong>发送sql，执行</strong></p>
+<p><strong>d.</strong> <strong>处理结果集（查询）</strong></p>
+<p><strong>e.</strong> <strong>关闭</strong></p>
+<br />
+
+<br />
+
+<p>4.推荐使用PreparedStatement：原因如下：</p>
+<p>1、编码简便,不易写错</p>
+<p>String name&#x3D;”ls”;</p>
+<p>String password&#x3D;”1234”;</p>
+<p>stmt：</p>
+<p>String sql&#x3D;”insert into user(name，password)values(‘“+name+”‘,’”+password+”‘)”;</p>
+<p><strong>stmt.executeUpdate(sq1);</strong></p>
+<p>pstmt：</p>
+<p>String sql&#x3D;”insert into user(name，password) values(?,?)”;</p>
+<p><strong>pstmt&#x3D;connection.prepareStatement(sq1)</strong>;&#x2F;&#x2F;预编译SQL</p>
+<p><strong>pstmt.setString(1</strong> <strong>，name);</strong></p>
+<p><strong>pstmt.setString(2</strong> <strong>，password);</strong></p>
+<p>2、性能高，预编译速度快。</p>
+<p>3、有效防止SQL注入漏洞。</p>
+<p>stmt：存在被sq1注入的风险</p>
+<p>（例如： 输入用户名：任意值’or 2&#x3D;2– 密码：任意值）</p>
+<p>select count(*)from user where name&#x3D;’”+name+”‘ and password&#x3D;’”+password+”‘;</p>
+<p>select count(*)from user where name&#x3D;’ls’and password&#x3D;’1234’;</p>
+<p>select count(*)from user where name&#x3D;’任意值’or 2&#x3D;2–’and password&#x3D;’任意值’;</p>
+<p>select count(*)from user where name&#x3D;’任意值’or 2&#x3D;2;</p>
+<p>select count(*)from user;</p>
+<p>pstmt：有效防止sql注入</p>
+<br />
+
+<h3 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a><a target="_blank" rel="noopener" href="http://baike.baidu.com/view/1088.htm" title="数据库">数据库</a>连接池</h3><ol>
+<li>重点概念、原理。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="http://baike.baidu.com/view/1088.htm" title="数据库">数据库</a>连接池在初始化时将创建一定数量的数据库连接放到连接池中，当应用程序访问数据库时并不是直接创建Connection，而是向连接池”申请”一个Connection。如果连接池中有空闲的Connection，则将其返回，否则创建新的Connection。使用完毕后，连接池会将该Connection回收，并交付其他的线程使用，以减少创建和断开数据库连接的次数，提高数据库的访问效率。</p>
+<p>2、不用连接池</p>
+<p>Class.forName（）；</p>
+<p>Connection connection &#x3D;DriverManager.getConnection（）；&#x2F;&#x2F;连接指向数据库</p>
+<p>3、用连接池的核心：将连接的指向数据源而不是数据库。</p>
+<p>…-&gt;DataSource ds&#x3D;….</p>
+<p>Connection connection &#x3D;ds.getConnection（）；&#x2F;&#x2F;指向的是数据源的连接</p>
+<p>数据库访问核心-&gt;pstmt&#x2F;stmt-&gt;connection-&gt;1.直接数据库 2.数据源</p>
+<br />
+
+<h3 id="JSP-Model1和JSP-Model2"><a href="#JSP-Model1和JSP-Model2" class="headerlink" title="JSP Model1和JSP Model2"></a>JSP Model1和JSP Model2</h3><ol>
+<li>重点JSP Model1和JSP Model2的原理及使用过程。</li>
+</ol>
+<p>Model1应用了JavaWeb开发当中的两种技术，即<strong>JSP</strong> <strong>和JavaBean</strong> 技术，所以Model1就是<strong>JSP+JavaBean</strong> 模式。其中JSP需要独自完成响应用户的请求并将处理结果返回给用户，同时还需要完成流程的控制处理；而JavaBean进行辅助，如保存从数据库中查询出来的数据等。</p>
+<p>Model 2架构模式是一种把JSP与Servlet联合使用来实现动态内容服务的方法，所以Model2就是<strong>JSP+Servlet+JavaBean</strong> 模式。它吸取了两种技术各自的突出优点，使用JSP生成表达层的内容，使用Servlet完成深层次的处理任务。在Model 2中，<strong>Servlet</strong> <strong>充当控制者的角色，</strong> 负责管理对请求的处理，创建JSP页面所需的JavaBean和对象，同时根据用户的动作决定把哪个JSP页面传给用户。特别要注意，在JSP页面内没有处理逻辑，它仅负责检索原先由Servlet创建的对象或JavaBean，然后从Servlet中提取动态内容插入到静态模板中进行页面显示。</p>
+<p>简述什么是MVC设计模式。</p>
+<p>MVC设计模式是<strong>编程语言的一种软件设计模式</strong> ，提供了一种<strong>按功能对软件进行模块划分</strong> 的方法。MVC设计模式将软件程序分为三个核心模块：模型(Model)、视图(View)和控制器(Controller)。</p>
+<p>简述MVC设计模式中模型(Model)模块的作用。</p>
+<p>MVC设计模式中模型(Model)模块的作用如下：</p>
+<ol>
+<li><strong>管理</strong> 应用程序的<strong>业务数据</strong> 。</li>
+<li><strong>定义访问控制和修改</strong> 这些数据的<strong>业务规则</strong> 。</li>
+<li>当<strong>模型的状态发生改变</strong> 时，它会<strong>通知视图</strong> 发生改变，并<strong>为视图提供查询模型状态的方法</strong> 。</li>
+</ol>
+<br />
+
+<h3 id="文件上传、下载原理"><a href="#文件上传、下载原理" class="headerlink" title="文件上传、下载原理"></a>文件上传、下载原理</h3><ol>
+<li>重点理解文件上传、下载原理。 、</li>
+</ol>
+<p>JSP页面的page指令主要用于设置该页面的各种属性，page指令的language属性的作用是：</p>
+<p>指定JSP页面使用的脚本语言，默认为Java</p>
+<p>Servlet的作用是处理客户端请求并做出响应，Servlet是一个符合特定规范的java程序，是运行在服务器端的一个基于java技术的web组件</p>
+<p>Servlet的生命周期方法有init()、service()、destroy()</p>
+<p>在&lt;servlet&gt;元素中增加&lt;load-on-startup&gt;元素可以指定在容器启动时Servlet的加载次序</p>
+<p>在JSP中使用JDBC语句访问数据库，正确导入SQL类库的语句是：</p>
+<p>&lt;%@ page import&#x3D;”java.sql.*“ %&gt;</p>
+<p>JSP应用程序配置文件的根元素为&lt;web-app&gt;,JSP中的隐式注释为：&lt;%–注释内容–%&gt;,在JSP中如果要导入java.util.*包要使用page指令</p>
+<p>JSP文件请求需要经过翻译阶段 编译阶段 执行阶段三个阶段</p>
+<p>抽象类GenericServlet实现了Servlet接口和ServletConfig接口</p>
+<p>编写Servlet时只需要根据应用的需要，重写doGet()或者doPost()方法即可</p>
+<p>向请求作用域中<strong>存放数据</strong> 可以用request对象的setAttribute(String,Object)方法,取数据可以用getAttribute(String)方法</p>
+<p>JSP和Servlet的关系是：JSP会被翻译成Servlet</p>
+<p>转发不会产生新的request对象，重定向是发送一个新的请求，发送一次请求会产生一个response与request对象</p>
+<p>request对象通过哪个方法是根据组件名称获取提交数据的：getParameter()</p>
+<p>在JSP中，以下哪个方法可以正确获取复选框的值：request.getParameterValues()</p>
+<p>Servlet中获取请求的参数值用getParameter()方法，同名的多个参数使用request.getParameterValues()方法</p>
+<p>以下哪个对象提供了访问和放置页面共享数据的方式：session</p>
+<p>在JSP中，session技术最适合实现购物车的存储</p>
+<p>在JSP页面中，下列（ ）表达式语句可以获取页面请求中名字为title的文本框的内容：</p>
+<p>&lt;%&#x3D;request.getParameter(“title”)%&gt;</p>
+<p>cookie的作用表现在以下方面：</p>
+<p>1.对特定对象的追踪，如访问者的访问次数、最后访问时间、路径等。</p>
+<p>2.统计网页浏览次数。</p>
+<p>3.在cookie有效期内，记录用户登录信息。</p>
+<p>4.实现各种个性化服务，如针对不同用户喜欢以不同的风格展示不同的内容。</p>
+<p>服务器为每一个浏览器分配一个session，但是session不会再浏览器关闭的时候销毁，只有过期或服务器关闭才会销毁。<strong>释放</strong> <strong>session</strong> <strong>对象时，使用</strong> <strong>session</strong> <strong>对象的</strong> <strong>invalidate</strong> <strong>（）方法</strong></p>
+<p>cookie由Netscape公司发明，是最常用的跟踪用户会话的方式。它是由<strong>服务端、客户端</strong> 产生，发送给<strong>浏览器</strong></p>
+<p>我们第一次访问服务器的时候，如果<strong>只是通过请求连接一个</strong> <strong>jsp</strong> <strong>页面，不提交任何信息，会触发哪个事件：建立</strong> <strong>session</strong></p>
+<p>会话跟踪技术可以通过以下哪些技术实现：cookie、session</p>
+<p>在web.xml中使用&lt;filter&gt;和&lt;filter-mapping&gt;标签配置过滤器</p>
+<h3 id="MVC模式"><a href="#MVC模式" class="headerlink" title="MVC模式"></a>MVC模式</h3><p>MVC模式中，M指的是模型Model，V指的是视图View，C指的是控制器Controller</p>
+<p>MVC模式中，<strong>模型对应的组件在：</strong> <strong>JavaBean</strong></p>
+<p>MVC模式中，<strong>视图对应的组件是：</strong> <strong>JSP</strong> <strong>或</strong> <strong>HTML</strong> <strong>文件</strong></p>
+<p>MVC模式中，<strong>控制器的作用是：控制器负责转发请求，对请求进行处理</strong></p>
+<p>M（模型层）指的是：实体类、Service层、dao层</p>
+<p><strong>MVC</strong> <strong>模式的优点有：各司其职，互不干涉、利于分工、利于重用和扩展</strong></p>
+<p>Model1模式下的程序流程控制是在JSP页面中实现的，这使得JSP页面中的嵌入大量的Java代码，Model1模式是JSP + JavaBean的结合，在JSP技术发展的初识阶段被广泛使用，Model2模式(MVC)是在JSP+JavaBean的设计模式基础上加入Servlet来实现程序控制层</p>
+<p>整个MVC的流程就是：用户发送一个请求，首先由<strong>控制层</strong> 接收，然后根据请求去调用<strong>模型层</strong> 处理并返回数据，接着调用相应的<strong>视图层</strong>把数据响应给用户</p>
+<br />
+
+
+
+
+
+
+
+
+
+<h3 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h3><ol>
+<li><strong>JavaBean</strong>技术概念和使用。</li>
+</ol>
+<p>Javabean是Java开发语言中一个可以重复使用的软件组件，它本质上就是一个Java类。</p>
+<p>&lt;jsp:useBean&gt;标签用来声明JavaBean对象</p>
+<p>JSP提供了访问JavaBean属性的标签，如果要将JavaBean的某个属性输出到网页上，可以用&lt;jsp:getProperty&gt;标签。如果要给JavaBean的某个属性赋值，可以用&lt;jsp:setProperty&gt;标签</p>
+<ol>
+<li>EL表达式以及JSTL标签库的基本使用。</li>
+</ol>
+<p>EL表达式定义规则：以$符号开头，内容写在｛｝中，例如：$(test)</p>
+<p>EL表达式的隐形变量：</p>
+<p>pageContext：用来访问JSP的隐形对象。</p>
+<p>pageScope：page对象的Map</p>
+<p>requestScope：request对象的Map</p>
+<p>sessionScope：session对象的MAP</p>
+<p>applicationScope：application对象的MAP</p>
+<p>param：包含请求的参数的字符串MAP</p>
+<p>cookie：按照名称存储请求附带cookie的MAP</p>
+<p>假设我们是想要session中的name值，那么我们可以使用：${sessionScope.name}，</p>
+<p>request.getParamter(name)相当于是${param.name}</p>
+<p>如果我们想要得到一个参数的数组，可以使用：${paramValues.name},当然，返回的是一个数组对象。</p>
+<p>简述Javabean规范都有哪些?</p>
+<p>1）它必须具有一个公共的、无参的构造方法，这个方法可以是编译器自动产生的缺省构造方法。</p>
+<p>2）它提供公共的setter方法和getter方法让外部程序设置和获取JavaBean的属性。</p>
+<p>3）它是一个公有类。</p>
+<p>4）通常需要实现java.io.Serializable，用于序列化。</p>
+<p>++简述定义++ ++EL++ ++标识符的规范。++</p>
+<ol>
+<li>可以由任意顺序的大小写字母、数字和下划线组成</li>
+<li>不能以数字开头</li>
+<li>不能是EL中的保留字，如and、or、gt；</li>
+<li>不能是EL隐式对象，如pageContext；</li>
+<li>不能包含单引号（’）、双引号（”）、减号（-）和正斜线等特殊字符</li>
+</ol>
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="JavaWeb期末题库"><a href="#JavaWeb期末题库" class="headerlink" title="JavaWeb期末题库"></a>JavaWeb期末题库</h2><h3 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h3><ol>
+<li><p>在WEB项目的目录结构中，web.xml文件位于（ C ）中（选择一项）<br>A. Src<br>B. META-INF<br>C. WEB-INF<br>D. WebRoot</p>
+</li>
+<li><p>在Servlet生命周期中，对应服务阶段的方法是（ C ）（选择一项）<br>A. init()<br>B. destroy()<br>C. service()<br>D. initial()</p>
+</li>
+<li><p>在web编程中，对于cookie的作用说法正确的有( A )（选择一项）<br>A. 为了识别不同的用户信息<br>B. 为了简化程序开发<br>C. 为了提高程序执行速度<br>D. 以上说法都不对</p>
+</li>
+<li><p>对于ServletRequest接口的getAttribute()方法，说法正确的是( A )（选择一项）<br>A. 获取指定名称的属性值<br>B. 设置指定属性的值<br>C. 删除指定属性的值<br>D. 以上都不对</p>
+</li>
+<li></li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line"> &lt;servlet&gt;</span><br><span class="line">         &lt;servlet-name&gt;testServlet&lt;/servlet-name&gt;</span><br><span class="line">         &lt;servlet-class&gt;com.accp.servlet.TestServlet&lt;/servlet-class&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br></pre></td></tr></table></figure>
+
+<p>对于以上代码片段，说法正确的是( AB )（选择二项）<br>A. 配置了逻辑名为testServlet的Servlet组件<br>B. 其对于的类的路径是：com.accp.servlet.TestServlet<br>C. 客户端可以通过testServlet访问<br>D. 以上说法都不对</p>
+<ol start="6">
+<li><p>在java Web应用开发中，Servlet程序需要在（ B ）文件中配置。（选择一项）<br>A. Jsp<br>B. web.xml<br>C. struts.xml<br>D. servlet.xml</p>
+</li>
+<li><p>在Java EE中，HttpServletResponse的（ B ）方法用于一个HTTP请求重定向到另一个资源。（选择一项）<br>A. sendURL()<br>B. sendRedirect()<br>C. forward()<br>D. redirectURL()</p>
+</li>
+<li><p>以下哪种格式是正确的URL（ A ）（选择一项）<br>A. <a target="_blank" rel="noopener" href="http://localhost:8080/news/index.jsp/%3E">http://localhost:8080/news/index.jsp\&gt;</a><br>B. <a target="_blank" rel="noopener" href="http://localhost/8080/news/index.jsp/%3E">http://localhost/8080/news/index.jsp\&gt;</a><br>C. <a target="_blank" rel="noopener" href="http://localhost/8080:news/index.jsp/%3E">http://localhost/8080:news/index.jsp\&gt;</a><br>D. http:localhost:&#x2F;&#x2F;8080&#x2F;news&#x2F;index.jsp</p>
+</li>
+<li><p>以下代码中可以正确设置客户端请求编码为UTF-8 的是（ A ）（选择一项）<br>A. request.setCharacterEncoding(“UTF-8”)<br>B. request.setCharset(“UTF-8”)<br>C. request.setContentType(“UTF-8”)<br>D. request.setEncoding(“UTF-8”)</p>
+</li>
+<li><p>通过response的（ A ）方法可以设置响应所采用的字符编码类型。（选择一项）<br>A. setCharacterEncoding()<br>B. setCharset()<br>C. setEncoding()<br>D. setContentType()</p>
+</li>
+<li><p>在部署带有Servlet的Java Web程序时，（ D ）不是必需的。（选择一项）<br>A. web.xml文件<br>B. WEB-INF文件夹<br>C. classes文件夹<br>D. csses文件夹</p>
+</li>
+<li><p>对于servlet在程序中的作用，以下说法正确的是( AB )（选择二项）<br>A. 分离业务逻辑代码与表现层代码<br>B. 让程序执行流程更加清晰<br>C. 加快了程序访问速度<br>D. 大大减少了编码工作量</p>
+</li>
+<li><p>在WEB应用程序开发中，有时会出现Tomcat端口号已经被占用的情况，为此我们需要修改配置文件，下列选项中修改正确的是（ B ）（选择一项）<br>A. 在tomcat目录\bin文件夹\server.xml文件中，修改 Connection的port<br>B. 在tomcat目录\conf文件夹\server.xml文件中，修改 Connector的port<br>C. 在tomcat目录\bin文件夹\server.xml文件中，修改 Connector的port<br>D. 在tomcat目录\conf文件夹\server.xml文件中，修改 Connection的port</p>
+</li>
+<li><p>如果要把一个”accp”字符串信息放在session对象里，则下列正确的是（ A ）（选择一项）<br>A. session.setAttribute(“message”,”accp”);<br>B. session.setAttribute(message,”accp”);<br>C. session.setAttribute(“accp”,”message”);<br>D. session.setAttributes(“message”,”accp”);</p>
+</li>
+<li><p>如果要从session范围取出名为flag的变量，则以下说法正确的是（ A ）（选择一项）<br>A. session.getAttribute(“flag”);<br>B. session.getAttributes(“flag”);<br>C. session.getParameter(“flag”);<br>D. session.get(“flag”);</p>
+</li>
+<li><p>假设session对象中存放了一个Book对象，即：session.setAttribute(“book”,new Book()) , 则取出Book对象的正确语句是（ B ）（选择一项）<br>A. Book book &#x3D; session.getAttribute(“book”)<br>B. Book book &#x3D; (Book)session.getAttribute(“book”)<br>C. Book book &#x3D; session.getValue(“book”)<br>D. Book book &#x3D; (Book)session.getValue(“book”)</p>
+</li>
+<li><p>在JSP中，以下可以实现请求转发的是（ D ）（选择一项）<br>A. request.getRequestDispatcher(“list.jsp”);<br>B. response.getRequestDispatcher(“list.jsp”);<br>C. response.getRequestDispatcher(“list.jsp”).forward(request,response);<br>D. request.getRequestDispatcher(“list.jsp”).forward(request,response);</p>
+</li>
+<li><p>web.xml中预先对Servlet进行初始化设置的代码如下：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">         &lt;param-name&gt;myWord&lt;/param-name&gt;</span><br><span class="line">         &lt;param-value&gt;hello&lt;/param-value&gt;</span><br><span class="line">&lt;/init-param&gt;</span><br></pre></td></tr></table></figure>
+
+<p>则如下获取初始化参数的语句正确的是（ A ）。（选择一项）<br>A. String myWord &#x3D; getInitParameter(“myWord”);<br>B. String myWord &#x3D; getInitParameter(“hello”);<br>C. String myWord &#x3D; getInit(“myWorld”);<br>D. String myWord&#x3D; getInit(“hello”);</p>
+<ol start="19">
+<li><p>以下关于Servlet生命周期说法错误的是（ C ）。（选择一项）<br>A. Servlet容器根据Servlet类的位置加载Servlet类，成功加载后，由0容器创建Servlet的实例<br>B. 对于每一个Servlet实例，init()方法只被调用一次<br>C. 当Servlet容器接收到客户端请求时，调用 Servlet的service()方法以及destory（）方法处理客户端请求<br>D. servlet的实例是由servlet容器创建的，所以实例销毁也由容器业完成</p>
+</li>
+<li><p>以下关于转发和重定向的说法错误的是（ C ）（选择一项）<br>A. 转发通过request的getRequestDispatcher().forward()方法即可实现，它的作用是在多个页面交互过程中实现请求数据的共享。<br>B. 重定向可以理解为是浏览器至少提交了两次请求，它是在客户端发挥作用，通过请求新的地址实现页面转向<br>C. 转发和重定向都可以共享request范围内的数据<br>D. 转发时客户端的URL地址不会发生改变，而重定向时客户端浏览器中显示的是新的URL地址。</p>
+</li>
+<li><p>在J2EE中，给定某Servlet的代码如下，编译运行该文件，以下陈述正确的是（ B ）。（选择一项）</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">Public class Servlet1 extends HttpServlet&#123;</span><br><span class="line">   </span><br><span class="line">         Publicvoid init() throws ServletException&#123;</span><br><span class="line">   </span><br><span class="line">         &#125;</span><br><span class="line">         Publicvoid service(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException&#123;</span><br><span class="line">   </span><br><span class="line">                   PrintWriterout = response.getWriter();</span><br><span class="line">                   out.println(&quot;hello!&quot;);</span><br><span class="line">         &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A. 编译该文件时会提示缺少doGet()或者dopost()方法，编译不能够成功通过<br>B. 编译后，把Servlet1.class放在正确位置，运行该Servlet，在浏览器中会看到输出文字：hello!<br>C. 编译后，把Servlet1.class放在正确位置，运行该Servlet，在浏览器中看不到任何输出的文字<br>D. 编译后，把Servlet1.class放在正确位置，运行该Servlet,在浏览器中会看到运行期错误信息</p>
+<ol start="22">
+<li>J2EE中，Servlet API为使用Cookie,提供了（ A ）类。<br>A. javax.servlet.http.Cookie<br>B. javax.servlet.http.HttpCookie<br>C. javax.servlet. Cookie<br>D. javax.servlet.http.HttpCookie</li>
+</ol>
+<p>23 能够保留请求作用域中数据的转向方式是__D___<br>A. response.forward()<br>B. response.sendRedirect()<br>C. session.getRequestDispatcher().forward(request,response)<br>D. request.getRequestDispatcher().forward(request,response)</p>
+<ol start="24">
+<li><p>JSP中存在如下代码：&lt;%&#x3D;”2”+”4” %&gt;，运行该JSP后，以下说法正确的是( C )（选择一项）<br>A. 没有任何输出<br>B. 输出6<br>C. 输出24<br>D. 指令将引发错误</p>
+</li>
+<li><p>在JSP中，使用（ C ）对象的（ ）方法可完成网页重定向（选择一项）<br>A. request,getRequestDispatcher()<br>B. request,forward()<br>C. response,sendRedirect()<br>D. response,setRequestDispatcher()</p>
+</li>
+<li><p>对于分页查询， 以下说法不正确的是( B )（选择一项）<br>A. 可以减轻服务器压力<br>B. 对于程序开销极大<br>C. 以提高用户体验<br>D. 对于不同数据库有不同的SQL指令</p>
+</li>
+<li><p>对于ServletRequest接口的getAttribute()方法，说法正确的是( A )（选择一项）<br>A. 获取指定名称的属性值<br>B. 设置指定属性的值<br>C. 删除指定属性的值<br>D. 以上都不对</p>
+</li>
+<li><p>对JSTL说法中正确的是( AB )（选择二项）<br>A. foreach用来循环输出集合中的数据<br>B. set标签用来定义变量<br>C. out标签只能输出session中的变量值<br>D. if标签主要用来执行数据库操</p>
+</li>
+<li><p>在JSP页面中，下列（ A ）表达式语句可以获取页面请求中名字为title的文本框的内容。（选择一项）<br>A. &lt;%&#x3D;request.getParameter(“title”)%&gt;<br>B. &lt;%&#x3D;request.getAttribute(“title”)%&gt;<br>C. &lt;%&#x3D;request.getParameterValues(“title”)%&gt;<br>D. &lt;%&#x3D;request.getParameters(“title”)%&gt;</p>
+</li>
+<li><p>jsp在执行过程中经过()阶段，由web容器将之转换成java源代码( A )（选择一项）<br>A. 翻译<br>B. 编译<br>C. 执行<br>D. 响应</p>
+</li>
+<li><p>jsp在执行过程中经过()阶段，会将java源码转换成class文件( B )（选择一项）<br>A. 翻译<br>B. 编译<br>C. 执行<br>D. 响应</p>
+</li>
+<li><p>在JSP的小脚本中，使用以下（ C）语句可以使浏览器重定向到另一个页面（选择一项）<br>A. request.sendRedirect(“<a target="_blank" rel="noopener" href="http://www.jb-aptech.com.cn/">http://www.jb-aptech.com.cn</a>“);<br>B. request.sendRedirect();<br>C. response.sendRedirect(“<a target="_blank" rel="noopener" href="http://www.jb-aptech.com.cn/">http://www.jb-aptech.com.cn</a>“);<br>D. response.sendRedirect();</p>
+</li>
+<li><p>JSP文件test.jsp文件如下所示，运行时，将发生（D）。（选择一项）</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-html</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">   &lt;% String str = null;%&gt;</span><br><span class="line">     str is &lt;%=str%&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>A. 编译阶段出现错误<br>B. 翻译阶段出现错误<br>C. 执行字节码时发生错误<br>D. 运行后，浏览器上显示：str is null</p>
+<ol start="34">
+<li><p>JSP页面的page指令主要用于设置该页面的各种属性，page指令的language属性的作用是（ B ）。（选择一项）<br>A. 将需要的包或类引入到JSP页面中<br>B. 指定JSP页面使用的脚本语言，默认为Java<br>C. 指定JSP页面采用的编码方式，默认为text&#x2F;html<br>D. 服务器所在国家编码</p>
+</li>
+<li><p>在java Web应用开发中，Servlet程序需要在（ B ）文件中配置。（选择一项）<br>A. Jsp<br>B. web.xml<br>C. struts.xml<br>D. servlet.xml</p>
+</li>
+<li><p>在Java EE中，HttpServletResponse的（ B ）方法用于一个HTTP请求重定向到另一个资源。（选择一项）<br>A. sendURL()<br>B. sendRedirect()<br>C. forward()<br>D. redirectURL()</p>
+</li>
+<li><p>在JSP页面中进行访问控制时，一般会使用JSP的( B )内置对象实现对用户的会话跟踪（选择一项）<br>A. Request<br>B. Session<br>C. Response<br>D. Application</p>
+</li>
+<li><p>在JSP页面中有如下Java代码，一共存在（ B）处错误（选择一项）<br>&lt;%</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">    String userName= (String)session.getParameter(&quot;userName&quot;);</span><br><span class="line">         if(userName==null)</span><br><span class="line">         &#123;</span><br><span class="line">   </span><br><span class="line">         %&gt;</span><br><span class="line">         您尚未登录！</span><br><span class="line">         &lt;%</span><br><span class="line">         &#125;</span><br><span class="line">         else</span><br><span class="line">         &#123;</span><br><span class="line">   </span><br><span class="line">         %&gt;</span><br><span class="line">         欢迎您，&lt;%=userName %&gt;</span><br><span class="line">         &lt;%</span><br><span class="line">         &#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>A. 0<br>B. 1<br>C. 2<br>D. 3</p>
+<ol start="39">
+<li><p>在JSP中，以下哪个方法可以正确获取复选框的值( C )（选择一项）<br>A. request.getParameterValue()<br>B. response.setParameterValues()<br>C. request.getParameterValues()<br>D. request.getParameter()</p>
+</li>
+<li><p>在一个jsp页面中包含了这样一种页面元素，&lt;% int i &#x3D; 10; %&gt;这是（ B ）（选择一项）<br>A. 表达式<br>B. 小脚本<br>C. 指令<br>D. 注释</p>
+</li>
+<li><p>在JSP中，以下（ C ）技术最适合实现购物车的存储（选择一项）<br>A. Page<br>B. Request<br>C. Session<br>D. Application</p>
+</li>
+<li><p>以下JSP关键代码的运行效果为（ A ）。（选择一项）</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">         Map map=new HashMap();</span><br><span class="line">         map.put(&quot;a&quot;,&quot;Java&quot;);</span><br><span class="line">         map.put(&quot;b&quot;,&quot;JSP&quot;);</span><br><span class="line">         map.put(&quot;a&quot;,&quot;C#&quot;);</span><br><span class="line">         request.setAttribute(&quot;map&quot;,map);</span><br><span class="line">%&gt;</span><br><span class="line">$&#123;</span><br><span class="line">   map.b&#125;&lt;br/&gt;</span><br><span class="line">$&#123;</span><br><span class="line">   map[&quot;a&quot;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A. JSP<br>C#<br>B. JSP<br>JAVA<br>C. 运行时出现错误<br>D. 什么也不输出。</p>
+<ol start="45">
+<li><p>以下JSP代码运行后的结果为（ B ）。（选择一项）<br>&lt;%int i &#x3D;8;%&gt;<br>&lt;%&#x3D;i+”8”%&gt;<br>A. i8<br>B. 88<br>C. 16<br>D. 编译错误</p>
+</li>
+<li><p>如下JSP代码输出集合中各元素，横线处应填写（ AC ）。（选择二项）</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">         List&lt;String&gt; strs= new ArrayList&lt;String&gt;();</span><br><span class="line">         strs.add(&quot;北京&quot;);</span><br><span class="line">         strs.add(&quot;上海&quot;);</span><br><span class="line">         strs.add(&quot;浙江&quot;);</span><br><span class="line">         request.setAttribute(&quot;strs&quot;,strs);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:forEach var=&quot;strList&quot; items=&quot;___________&quot;&gt;</span><br><span class="line">         &lt;c:out value=&quot;________&quot;&gt;&lt;/c:out&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>A. strs,strs,{strList}<br>B. strList,strList,{strs}<br>C. requestScope.strs,requestScope.strs,{strList}<br>D. strList,strList,{requestScope.strs}</p>
+<ol start="47">
+<li>以下JSP关键代码的功能为输出”姓名：陈小斌”,横线处应填写( AC ).（选择二项）</li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">         Map stus = new HashMap();</span><br><span class="line">         stus.put(&quot;stu1&quot;,&quot;王晓&quot;);</span><br><span class="line">         stus.put(&quot;stu2&quot;,&quot;黄青&quot;);</span><br><span class="line">         stus.put(&quot;stu3&quot;,&quot;陈小斌&quot;);</span><br><span class="line">         request.setAttribute(&quot;stuList&quot;,stus);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>姓名：____________<br>A. ${stuList.stu3}<br>B. ${stuList[stu3]}<br>C. ${stuList[“stu3”]}<br>D. ${stuList.”stu3”}</p>
+<ol start="48">
+<li>如下JSP代码输出集合中各元素，横线处应填写（ AC ）。（选择二项）</li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">         List&lt;String&gt; strs= new ArrayList&lt;String&gt;();</span><br><span class="line">         strs.add(&quot;北京&quot;);</span><br><span class="line">         strs.add(&quot;上海&quot;);</span><br><span class="line">         strs.add(&quot;浙江&quot;);</span><br><span class="line">         request.setAttribute(&quot;strs&quot;,strs);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:forEach var=&quot;strList&quot; items=&quot;___________&quot;&gt;</span><br><span class="line">         &lt;c:out value=&quot;________&quot;&gt;&lt;/c:out&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>A. strs,strs,{strList}<br>B. strList,strList,{strs}<br>C. requestScope.strs,requestScope.strs,{strList}<br>D. strList,strList,{requestScope.strs}</p>
+<ol start="49">
+<li><p>在JSP中，以下哪个方法可以正确获取复选框的值( C )（选择一项）<br>A. request.getParameterValue()<br>B. response.setParameterValues()<br>C. request.getParameterValues()<br>D. request.getParameter()</p>
+</li>
+<li><p>JSP中的有很多内置对象可以方便程序开发，其中不包括（ C ）（选择一项）<br>A. Out<br>B. Request<br>C. Redirect<br>D. Response</p>
+</li>
+<li><p>在一个jsp页面中包含了这样一种页面元素，&lt;% int i &#x3D; 10; %&gt;这是（ B )（选择一项）<br>A. 表达式<br>B. 小脚本<br>C. JSP指令<br>D. 注释</p>
+</li>
+<li><p>在JSP中，以下（ C ）技术最适合实现购物车的存储（选择一项）<br>A. Page<br>B. Request<br>C. Session<br>D. Application</p>
+</li>
+<li><p>在使用表单提交数据时，如果标签的method属性未指定的时候，则以下说法中正确的是（ B ）（选择一项）<br>A. 默认为POST请求<br>B. 默认为GET请求<br>C. 默认为Fast请求<br>D. 编译错误</p>
+</li>
+<li><p>如果要把一个”accp”字符串信息放在session对象里，则下列正确的是（ A ）（选择一项）<br>A. session.setAttribute(“message”,”accp”);<br>B. session.setAttribute(message,”accp”);<br>C. session.setAttribute(“accp”,”message”);<br>D. session.setAttributes(“message”,”accp”);</p>
+</li>
+<li><p>在JSP中，假设表单的method&#x3D;”post”，在发送请求时中文乱码处理的正确做法是（ A ）（选择一项）<br>A. request.setCharacterEncoding(“utf-8”);<br>B. response.setCharacter(“utf-8”);<br>C. request.setContentType(“text&#x2F;html;charset&#x3D;utf-8”);<br>D. response.setContentType(“text&#x2F;html;charset&#x3D;utf-8”);</p>
+</li>
+<li><p>在JSP中，对于数据的共享可通过不同的作用域对象实现，如果该数据仅限当前页面有效，可选择的作用域对象（ A ）。（选择一项）<br>A. PageContext<br>B. Request<br>C. Session<br>D. Application</p>
+</li>
+<li><p>在JSP中，pageContext、request、session、application均提供了存取数据的通用方法，假设已经在session中存入了名为”currentUser”的User对象，则取出该数据的正确语句是（ BC ）（选择二项）<br>A. User user &#x3D; session.getAttribute(“currentUser”);<br>B. User user &#x3D; (User)session.getAttribute(“currentUser”);<br>C. Object user &#x3D; session.getAttribute(“currentUser”);<br>D. String user &#x3D; (String)session.getAttribute(“currentUser”);</p>
+</li>
+</ol>
+<p>58.B 编写一个Filter，需要（ ）<br>A. 继承Filter 类<br>B. 实现Filter 接口<br>C. 继承HttpFilter 类<br>D. 实现HttpFilter接口</p>
+<p>59.ABC 有关会话跟踪技术描述正确的是( )(多选)<br>A. Cookie是Web服务器发送给客户端的一小段信息，客户端请求时，可以读取该信息发送到服务器端<br>B. 关闭浏览器意味着会话ID丢失，但所有与原会话关联的会话数据仍保留在服务器上，直至会话过期<br>C. 在禁用Cookie时可以使用URL重写技术跟踪会话<br>D. 隐藏表单域将字段添加到HTML表单并在客户端浏览器中显示</p>
+<p>60.C 在J2EE中，重定向到另一个页面，以下（ ）语句是正确的<br>A. request . sendRedirect(“http 😕&#x2F; www . svse . com . cn”);<br>B. request . sendRedirect();<br>C. response . sendRedirect(“http: &#x2F;&#x2F; www . svse . com . cn”);<br>D. response .sendRedirect();</p>
+<p>61.B EL表达式，${10 mod3}，执行结果为( )<br>A. 10 mod 3<br>B. 1<br>C. 3<br>D. null</p>
+<p>62.B request.getRequestDispatcher().forward(request,response)称之为( )<br>A. 流转<br>B. 转发<br>C. 重定向<br>D. 导航</p>
+<p>63.BCD 有关Servlet的生命周期说法正确的有( ) (多选)<br>A. Servlet的生命周期由Servlet实例控制<br>B. init()方法在创建完Servlet实例后对其进行初始化，传递的参数为实现ServletContext接口的对象<br>C. service()方法响应客户端发出的请求<br>D. destroy()方法释放Servlet实例</p>
+<p>64.B 在Servlet中，response.getWriter()返回的是________<br>A. JspWriter对象<br>B. PrintWriter对象<br>C. Out对象<br>D. ResponseWriter对象</p>
+<ol start="65">
+<li>在web.xml中使用_____A______标签配置过滤器</li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">A. &lt;filter&gt;和&lt;filter-mapping&gt;</span><br><span class="line">B. &lt;filter-name&gt;和&lt;filter-class&gt;</span><br><span class="line">C. &lt;filter&gt;和&lt;filter-class&gt;</span><br><span class="line">D. &lt;filter-pattern&gt;和&lt;filter&gt;</span><br></pre></td></tr></table></figure>
+
+<p>66.D 在访问Servlet时，在浏览器地址栏中输入的路径是在_______地方配置的</p>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">A. &lt;servlet-name/&gt;</span><br><span class="line">B. &lt;servlet-mapping/&gt;</span><br><span class="line">C. &lt;uri-pattern/&gt;</span><br><span class="line">D. &lt;url-pattern/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>67.A 在JSP页面中，能够完成输出操作的内置对象是 ( )<br>A. out<br>B. response<br>C. request<br>D. config</p>
+<p>68.A 给定以下JSP代码片段，有2个客户依次浏览该JSP;且每个客户只浏览一次，第2个客户会看到浏览器显示（ ）。（请选择一项）</p>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;%int x = 1; %&gt;</span><br><span class="line">&lt;%!int x = 10; %&gt;</span><br><span class="line">X =&lt;%=x%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>A. x&#x3D;1<br>B. x&#x3D;2<br>C. x&#x3D;10<br>D. x&#x3D;11</p>
+<p>69.D 能够保留请求作用域中数据的转向方式是_______<br>A. response.forward()<br>B. response.sendRedirect()<br>C. session.getRequestDispatcher().forward(request,response)<br>D. request.getRequestDispatcher().forward(request,response)</p>
+<p>70.C Login.jsp为登录页面，表单代码如下：</p>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;form action=&quot;index.jsp&quot;method=&quot;post&quot;&gt;</span><br><span class="line">     &lt;input type=&quot;text&quot; name=&quot;name&quot;/&gt;</span><br><span class="line">     &lt;input type=&quot;submit&quot; value=&quot;login&quot;/&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Index.jsp中直接显示用户名，以下哪种代码正确（）</p>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">A. $&#123;</span><br><span class="line"> requestScope.name&#125;</span><br><span class="line">B. &lt;%=name%&gt;</span><br><span class="line">C. $&#123;</span><br><span class="line"> param.name&#125;</span><br><span class="line">D. &lt;%=param.name%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>71.B 某JSP中有如下代码，显示结果为（ ）</p>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">         inta = 5;</span><br><span class="line">         request.setAttribute(&quot;a&quot;,&quot;123&quot;);</span><br><span class="line">         session.setAttribute(&quot;a&quot;,&quot;456&quot;);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:out value=&quot;$&#123;a&#125;&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>A. 5<br>B. 123<br>C. 456<br>D. null</p>
+<p>72.A 在编写过滤器时，需要完成的方法( )<br>A. doFilter()<br>B. doChain()<br>C. doPost()<br>D. doDelete()</p>
+<p>73.B 以下代码执行效果为（ ）：</p>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;c:forEach var  = &quot;i&quot; begin = &quot;1&quot; end =&quot;5&quot; step = &quot;2&quot;&gt;</span><br><span class="line">         &lt;c:outvalue=&quot;$&#123;</span><br><span class="line">   i&#125;&quot;/&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>A. 1 2 3 4 5<br>B. 1 3 5<br>C. i i i<br>D. 15</p>
+<p>74. </p>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">request.setAttribute(&quot;user&quot;,&quot;svse&quot;);         </span><br><span class="line">session.setAttribute(&quot;user&quot;,&quot;bob&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>使用{user}则显示( B)<br>A. null<br>B. svse<br>C. bob<br>D. 啥也没有</p>
+<p>75.A 以下代码执行效果为( )</p>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;c:forEach var = &quot;i&quot; begin =&quot;1&quot; end = &quot;5&quot;&gt;</span><br><span class="line">         &lt;c:outvalue=&quot;$&#123;i&#125;&quot;/&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>A. 1 2 3 4 5<br>B. i i i i i<br>C. 15<br>D. 编译错误</p>
+<ol start="76">
+<li><p>MVC中的 M V C 分别用_______、_______、_____表示（C）<br>A. jsp servlet javabean<br>B. HTml javabean jsp<br>C. javabean jsp servlet<br>D. servlet html jsp</p>
+</li>
+<li></li>
+</ol>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">pageContext.setAttribute(&quot;user&quot;,&quot;tom&quot;);         </span><br><span class="line">request.setAttribute(&quot;user&quot;,&quot;bob&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>显示”bob”,则可以使用( D )<br>A. {request.getAttribute(“user”)}<br>B. {param.user}<br>C. {user}<br>D. {requestScope.user}</p>
+<ol start="78">
+<li><p>以下哪个标签实现了switch功能( C )<br>A. &lt;c:if&gt;<br>B. &lt;c:switch&gt;<br>C. &lt;c:choose&gt;<br>D. &lt;c:case&gt;</p>
+</li>
+<li><p>过滤器使用________B______才能继续传递到下一个过滤器<br>A. request.getRequestDispatcher().forward(request,response);<br>B. doFilter()<br>C. doPut()<br>D. doChain()</p>
+</li>
+</ol>
+<p>80.C如下代码，执行效果为（ C ）</p>
+<figure class="highlight plaintext"><figcaption><span>language-java</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;c:set var=&quot;a&quot; value=&quot;123&quot; /&gt;</span><br><span class="line">&lt;c:out value=&quot;$&#123;</span><br><span class="line">   a&#125;&quot;/&gt;</span><br><span class="line">&lt;c:out value=&quot;a&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>A. 123 123<br>B. a 123<br>C. 123 a<br>D. A a</p>
+<ol start="91">
+<li><p>application对象是_______，而session对象则是__________ （ C ）<br>A. 服务器的一个数据空间，可以让服务器中的所有应用共享数据 &#x2F; 与用户的请求有关<br>B. 应用程序上下文，它允许数据在同一应用程序中的任何Web组件共享 &#x2F; 每个客户专用的<br>C. 存放所有的请求中数据 &#x2F; 存放会话中的所有数据<br>D. HttpApplication类型 &#x2F; 保存用访问应用期间的私有数据</p>
+</li>
+<li><p>下面关于MVC的说法不正确的是 ( D )<br>A. M表示Model层，是存储数据的地方<br>B. View表示视图层，负责向用户显示外观<br>C. Controller是控制层，负责控制流程<br>D. 在MVC架构中 jsp通常做控制层<br>一个具有注脚的文本。</p>
+</li>
+</ol>
+<h3 id="填空题"><a href="#填空题" class="headerlink" title="填空题"></a>填空题</h3><p>1、用户可以有多种方式请求Servlet，如 浏览器直接调用，页面form中提交调用 、超链接调用 、 Servlet调用 等。</p>
+<p>2、out对象的 _out.flush()_方法，功能是输出缓冲的内容。</p>
+<p>3、response对象的_ sendRedirect(URL url)__方法可以将当前客户端的请求转到其他页面去。表单的提交方法包括__get__和___post__方法。</p>
+<p>4、response.setHeader（”Refresh”, “5”）的含义是指 页面刷新时间为 5秒 。</p>
+<p>5、表单标记中的__action___属性用于指定处理表单数据程序url的地址。</p>
+<p>6、使用cookie的基本步骤为：创建cookie对象，设置cookie对象的有效时间 ，传送cookie对象 ， 读取cookie对象 。</p>
+<p>7、Servlet中使用Session对象的步骤为：调用HttpServletRequest.getSession()得到Session对象，查看Session对象，在会话中保存数据。</p>
+<p>8、在Servlet中，主要使用HttpServletResponse类的重定向方法 sendRedirect() 方法实现重定向，以及使用RequestDispatcher类的转发方法 forward() 方法实现转发功能。</p>
+<p>9、Servlet接口定义了三个用于Servlet生命周期的方法，它们是init()、service()、destroy()</p>
+<p>10、Servlet运行于 服务器 端。</p>
+<p>11、使用Servlet处理表单提交时，两个最重要的方法是_ doGet() _和_doPost() 。</p>
+<p>12、Serlvet接口只定义了一个服务方法就是_ service() _。</p>
+<p>13、MVC是三层开发结构，这三个字母按顺序分别代表_ model__、__view 、__controller __。</p>
+<p>14、Filter接口中最主要的方法是 doFilter 方法。</p>
+<p>15、实现Filter接口的类需要重写doFilter方法、init方法、destroy方法。</p>
+<p>16、ServletContext 被创建时的监听类需要实现 ServletContextListener接口。</p>
+<p>17、配置事件监听类的配置文件是 <code>&lt;listener&gt;&lt;listener-class&gt;监听类路径&lt;/listenr-class&gt;&lt;/listener&gt;</code>______</p>
+<p>18、”&#x2F;“的问题。在浏览器发请求时它代表什么含义__代表服务器根目录__,<em>服务器内部跳转时代表什么含义___代表项目根目录</em>____</p>
+<p>19、下面代码有什么问题，请指出：response.setContentType(“text&#x2F;html,charset&#x3D;gbk”);__中间应该是；而不是，</p>
+<p>20、一个完整的JSP页面是由普通的HTML标记、JSP指令标记、JSP动作标记、变量声明与方法声明 、程序片 、表达式、 注释7种要素构成。</p>
+<p>21、JSP页面的基本构成元素，其中变量和方法声明（Declaration）、表达式 （Expression）和Java程序片（Scriptlet）统称为JSP脚本元素 。</p>
+<p>22、指令标记、JSP动作标记统称为 JSP标记 。</p>
+<p>23、”&lt;%!”和”%&gt;“之间声明的方法在整个页面内有效，称为页面的成员方法 。</p>
+<p>24、在”&lt;%!”和”%&gt;“之间声明的变量又称为 页面成员变量 ，其作用范围为整个JSP页面。</p>
+<p>25、JSP页面的程序片中可以插入 HTML 标记。</p>
+<p>26、JSP页面中，输出型注释的内容写在 <code>&quot;&lt;!--&quot; 和 &quot;--&gt;&quot;</code> 之间。</p>
+<p>27、Page指令的属性Language的默认值是 java 。</p>
+<p>28、在Error.jsp页面中，要使用Exception对象，必须设置的指令是&lt;%@page isErrorPage &#x3D; “true”%&gt;.</p>
+<p>29、JSP的__session___对象用来保存单个用户访问时的一些信息。</p>
+<p>30、response对象的_sendRedirect(URL url)___方法可以将当前客户端的请求转到其他页面去。</p>
+<p>31、当客户端请求一个JSP页面时，JSP容器会将请求信息包装在__request__对象中。</p>
+<p>32、在JSP中为内置对象定义了4种作用范围，即Application Scope 、<br>Session Scope 、Page Scope 和Request Scope 四个作用范围。</p>
+<p>33、表单的提交方法包括___post___和____get__方法。</p>
+<p>34、JavaBean是一个 java类，它必须有一个无参的构造方法。</p>
+<p>35、JSP的是内部对象可以直接使用，它是由 web容器 创建的。</p>
+<p>36、在JSP中，页面间对象传递的方法： request 、 session 、 application 、 cookie 等方法。</p>
+<p>37、在jsp页面中，可以用request对象的 getParameterValues() 方法来获取其他页面传递参数值的数组。</p>
+<p>38、在Web服务器端使用JavaBean，将原来页面中程序片完成的功能封装到JavaBean中，这样能很好地实现 业务逻辑层与视图层的分离 。</p>
+<p>39、JavaBean中用一组set方法设置Bean的私有属性值，get方法获得Bean的私有属性值。set和get方法名称与属性名称之间必须对应，也就是：如果属性名称为xxx，那么set和get方法的名称必须为 setXxx() 和 getXxx() 。</p>
+<p>40、使用Bean首先要在JSP页面中使用 import 指令将Bean引入。</p>
+<p>41、控制器主要负责两方面的动作： 把用户的请求分发到相应的模型 ；将模型的改变及时反映到视图上 。</p>
+<p>42、简单地说，JDBC能够完成下列三件事：与一个数据库建立连接（connection）、向数据库发送SQL语句（statement） 、处理数据库返回的结果（resultset） 。</p>
+<p>43、查询结果集ResultSet对象是以统一的行列形式组织数据的，执行ResultSet rs &#x3D; stmt.executeQuery (“select bid,name,author,publish,price from book”);语句，得到的结果集rs第一列显示 bid 字段；而每一次rs只能看到一行，要看到下一行，必须使用 next() 方法移动当前行。ResultSet对象使用 getXXX() 方法获得当前行字段的值。</p>
+<p>44、stmt为Statement对象，执行String sql&#x3D; “delete from book where bid&#x3D;’tp1001’ “;语句后，删除数据库表的记录需要执行stmt.executeUpdate(sql); 语句。</p>
+<p>45、 模型 封装了数据和对数据的操作，是实际进行数据处理计算的地方。 视图 是应用和用户之间的接口，它负责将应用显现给用户和显示模型的状态。控制器 负责视图和模型之间的交互，控制对用户输入的响应、响应方式和流程。</p>
+<p>46、JSTL标签库中，c:forEach标签用来循环输出集合中的数据。</p>
+<p>47、获取request作用域中名为”uname”值的EL表达式是${uname} 。</p>
+<h3 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h3><p>1、说一说Servlet的生命周期?<br><em><strong>Servlet有良好的生存期的定义，包括加载和实例化、初始化、处理请求以及服务结束。这个生存期由Servlet接口的init,service和destroy方法表达。 Servlet被服务器实例化后，容器运行其init方法，请求到达时运行其service方法，service方法自动派遣运行与请求对应的doXXX方法（doGet，doPost）等，当服务器决定将实例销毁的时候调用其destroy方法。</strong></em></p>
+<p>2、JSP和Servlet有哪些相同点和不同点，他们之间的联系是什么？<br><em><strong>JSP是Servlet技术的扩展，本质上是Servlet的简易方式，更强调应用的外表表达。JSP编译后是”类servlet”。Servlet和JSP最主要的不同点在于，Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是Java和HTML可以组合成一个扩展名为.jsp的文件。JSP侧重于视图，Servlet主要用于控制逻辑。</strong></em></p>
+<p>3、什么是Cookie？。<br><em><strong>cookie是Web服务器发送给浏览器的一块信息。浏览器会在本地文件中给每一个Web服务器存储cookie。以后浏览器在给特定的Web服务器发请求的时候，同时会发送所有为该服务器存储的cookie，可以用来在某个WEB站点会话间持久的保持数据，是一种用来跟踪浏览器用户身份的会话方式。</strong></em></p>
+<p>4、什么是session？<br><em><strong>session其实指的就是访问者从到达某个特定主页到离开为止的那段时间。 Session其实是利用Cookie进行信息处理的，当用户首先进行了请求后，服务端就在用户浏览器上创建了一个Cookie，当这个Session结束时，其实就是意味着这个Cookie就过期了。session都是用来跟踪浏览器用户身份的会话方式。</strong></em></p>
+<p>5、session的工作原理是什么？<br><em><strong>session技术中所有的数据都保存在服务器上，客户端每次请求服务器的时候会发送当前会话的sessionid，服务器根据当前sessionid判断相应的用户数据标志，以确定用户是否登录或具有某种权限。</strong></em></p>
+<p>6、cookie和session的区别是什么？<br><em><strong>cookie 和session的区别是：cookie数据保存在客户端，session数据保存在服务器端。无论客户端浏览器做怎么样的设置，session都应该能正常工作。客户端可以选择禁用cookie，但是，session仍然是能够工作的，因为客户端无法禁用服务端的session。</strong></em><br><em><strong>在存储的数据量方面session和cookies也是不一样的。session能够存储任意的Java对象，cookie只能存储String类型的对象。</strong></em></p>
+<p>7、什么是Servlet？<br><em><strong>Servlet是用来处理客户端请求并产生动态网页内容的Java类。Servlet主要是用来处理或者是存储HTML表单提交的数据，产生动态内容，在无状态的HTTP协议下管理状态信息。</strong></em></p>
+<p>8、get请求和post请求有什么区别？<br><em><strong>GET请求会把名值对追加在请求的URL后面。因为URL对字符数目有限制，进而限制了用在客户端请求的参数值的数目。并且请求中的参数值是可见的，因此，敏感信息不能用这种方式传递。<br>POST请求通过把请求参数值放在请求体中来克服GET方法的限制，因此，可以发送的参数的数目是没有限制的。最后，通过POST请求传递的敏感信息对外部客户端是不可见的。</strong></em></p>
+<p>9、Jsp隐式对象是什么意思？有哪些隐式对象？<br><em><strong>JSP隐式对象是页面中的一些Java对象，JSP容器让这些Java对象可以为开发者所使用。开发者不用明确的声明就可以直接使用他们。JSP隐式对象也叫做预定义变量。<br>JSP有9个隐式对象：application、page、request、response、session、exception、out、config、pageContext</strong></em></p>
+<p>10、简述ServletContext接口的三个主要作用。<br><em>1）获取Web应用程序的初始化参数<br>2）实现多个Servlet对象共享数据<br>3）读取Web应用下的资源文件</em></p>
+<p>11、简述请求转发与重定向的异同？<br><em>1、请求转发与重定向的异同点如下：<br>1）请求转发和重定向都可以实现访问一个资源时转向当前应用资源<br>2）请求转发是一次请求一次响应，而重定向为两次请求两次响应<br>3）一般情况下应该使用请求转发，减少浏览器对服务器的访问，减轻服务器压力<br>4）如果需要改变浏览器的地址栏，或更改浏览器的刷新按钮的功能时需要使用重定向</em></p>
+<p>12、简述什么是会话技术？常用会话技术是什么？<br><em>会话过程类似于生活中的打电话过程，它指的是一个客户端（浏览器）与Web服务器之间连续发生的一系列请求和响应过程。在Servlet技术中，提供了两个用于保存会话数据的对象，分别是Cookie和Session。</em></p>
+<p>13、简述过滤器的作用。<br><em>Filter被称作过滤器或者拦截器，其基本功能就是对Servlet容器调用Servlet的过程进行拦截，从而在Servlet进行响应处理前后实现一些特殊功能。</em></p>
+<p>14、简述Filter在Web应用中拦截的过程<br><em>当浏览器访问服务器中的目标资源时，会被Filter拦截，在Filter中进行预处理操作，然后再将请求转发给目标资源。当服务器接收到这个请求后会对其进行响应，在服务器处理响应的过程中，也需要先将响应结果发送给拦截器，在拦截器中对响应结果进行处理后，才会发送给客户端。</em></p>
+<p>15、请简述什么是JDBC。<br><em>JDBC的全称是Java数据库连接（Java Database Connectivity），它是一套用于执行SQL语句的Java API。应用程序可通过这套API连接到关系数据库，并使用SQL语句来完成对数据库中数据的查询、更新和删除等处理。</em></p>
+<p>16、简述JDBC的实现步骤。<br><em>1）加载并注册数据库驱动<br>2）通过DriverManager获取数据库连接<br>3）通过Connection对象获取Statement对象<br>4）使用Statement执行SQL语句<br>5）操作ResultSet结果集<br>6）关闭连接，释放资源</em></p>
+<p>17、请简述JSP的运行原理。<br><em>1）客户端发出请求，请求访问JSP文件。<br>2）JSP容器先将JSP文件转换成一个Java源文件（Java Servlet源程序）。<br>3）如果转换成功，则JSP容器将生成的Java源文件编译成相应的字节码文件</em> .class。<br>4）由Servlet容器加载转换后的Servlet类（.class文件）。<br>5）执行jspService()方法来处理客户端的请求。<br>6）当请求处理完成后，响应对象由JSP容器接收，并将HTML格式的响应信息发送回客户端。*</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">下完这场雨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/post/64e19bc6.html">http://example.com/post/64e19bc6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">cout<<"金缕衣";</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/javawebfuxi.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wx.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.jpg" target="_blank"><img class="post-qr-code-img" src="/img/zfb.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/f2927679.html" title="马克思主义基本原理"><img class="cover" src="/img/makesi1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">马克思主义基本原理</div></div></a></div><div class="next-post pull-right"><a href="/post/a444b428.html" title="排序"><img class="cover" src="/img/paixu.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">排序</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Livere</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="lv-container" data-id="city" data-uid="MTAyMC81OTAyMS8zNTQ4Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/me.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">下完这场雨</div><div class="author-info__description">椿萱并茂，棠棣同馨，松萝共倚，兰桂齐芳。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/666XRB"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/666XRB" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/xideaha?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="https://user.qzone.qq.com/1982830095/infocenter" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:1982830095@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里啊，这里是我的blog，分享一些学习知识。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaWeb%E6%9C%9F%E6%9C%AB"><span class="toc-number">1.</span> <span class="toc-text">JavaWeb期末</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E7%82%B9%E5%A4%8D%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">重点复习知识点：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#servlet%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">servlet程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.2.</span> <span class="toc-text">9大内置对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie%E5%92%8Csession%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.1.3.</span> <span class="toc-text">cookie和session的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSP"><span class="toc-number">1.1.4.</span> <span class="toc-text">JSP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8-%E7%9B%91%E5%90%AC%E5%99%A8"><span class="toc-number">1.1.5.</span> <span class="toc-text">过滤器&amp;&amp;监听器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDBC"><span class="toc-number">1.1.6.</span> <span class="toc-text">JDBC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="toc-number">1.1.7.</span> <span class="toc-text">数据库连接池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSP-Model1%E5%92%8CJSP-Model2"><span class="toc-number">1.1.8.</span> <span class="toc-text">JSP Model1和JSP Model2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E3%80%81%E4%B8%8B%E8%BD%BD%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.9.</span> <span class="toc-text">文件上传、下载原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.10.</span> <span class="toc-text">MVC模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaBean"><span class="toc-number">1.1.11.</span> <span class="toc-text">JavaBean</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaWeb%E6%9C%9F%E6%9C%AB%E9%A2%98%E5%BA%93"><span class="toc-number">1.2.</span> <span class="toc-text">JavaWeb期末题库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E9%A2%98"><span class="toc-number">1.2.1.</span> <span class="toc-text">选择题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A1%AB%E7%A9%BA%E9%A2%98"><span class="toc-number">1.2.2.</span> <span class="toc-text">填空题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E7%AD%94%E9%A2%98"><span class="toc-number">1.2.3.</span> <span class="toc-text">简答题</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/b34cc72c.html" title="逻辑论证1（削弱）"><img src="/img/g10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="逻辑论证1（削弱）"/></a><div class="content"><a class="title" href="/post/b34cc72c.html" title="逻辑论证1（削弱）">逻辑论证1（削弱）</a><time datetime="2025-03-27T11:21:42.000Z" title="发表于 2025-03-27 19:21:42">2025-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/dbde71d8.html" title="组合排列"><img src="/img/g9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="组合排列"/></a><div class="content"><a class="title" href="/post/dbde71d8.html" title="组合排列">组合排列</a><time datetime="2025-03-26T01:18:37.000Z" title="发表于 2025-03-26 09:18:37">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/d9a2d074.html" title="翻译推理"><img src="/img/g8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="翻译推理"/></a><div class="content"><a class="title" href="/post/d9a2d074.html" title="翻译推理">翻译推理</a><time datetime="2025-03-25T01:30:22.000Z" title="发表于 2025-03-25 09:30:22">2025-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ef3d0435.html" title="判断推理_定义判断"><img src="/img/g7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="判断推理_定义判断"/></a><div class="content"><a class="title" href="/post/ef3d0435.html" title="判断推理_定义判断">判断推理_定义判断</a><time datetime="2025-03-19T11:12:43.000Z" title="发表于 2025-03-19 19:12:43">2025-03-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/b49a232a.html" title="判断推理_类比推理"><img src="/img/g6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="判断推理_类比推理"/></a><div class="content"><a class="title" href="/post/b49a232a.html" title="判断推理_类比推理">判断推理_类比推理</a><time datetime="2025-03-18T13:07:12.000Z" title="发表于 2025-03-18 21:07:12">2025-03-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 下完这场雨</div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!<br> <img src="https://haiyong.site/img/icp.png"> <a href="https://beian.miit.gov.cn/#/Integrated/index"  style="color:#87ceeb" target="_blank">豫ICP备2024090942号-1</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+      appKey: 'LssvKROPsftMFNCa4j2AnVL8',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Valine' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://VbfV1mFY.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+        "X-LC-Key": 'LssvKROPsftMFNCa4j2AnVL8',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="592262222" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-lrctype="1" data-preload="none" data-autoplay="false" muted></div><script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js" async></script><script src="/js/weather.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="random" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":60,"height":120,"hOffset":20,"vOffset":-20},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>

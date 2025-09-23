@@ -1,0 +1,120 @@
+/* 诗的容器美化 */
+.poem-wrap {
+    position: relative;
+    width: 730px;
+    max-width: 80%;
+    padding: 30px 20px;
+    margin: 80px auto;
+    text-align: center;
+    background: #f9f9f9;
+    border: 2px solid #d3b3c2; /* 淡雅的边框颜色 */
+    border-radius: 12px; /* 圆角 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 温和的阴影 */
+    transition: all 0.3s ease; /* 平滑过渡效果 */
+}
+
+.poem-wrap:hover {
+    transform: translateY(-5px); /* 悬浮时微微上移 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* 加深阴影 */
+}
+
+/* 标题美化 */
+.poem-wrap h2 {
+    font-size: 36px;
+    font-family: 'Georgia', serif; /* 经典字体 */
+    font-style: italic;
+    margin-top: -50px;
+    margin-bottom: 20px;
+    display: inline-block;
+    color: #c26b86; /* 诗意的淡红色 */
+    letter-spacing: 4px;
+    background: #f9f9f9; /* 与背景融合 */
+    padding: 0 15px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 诗句美化 */
+.poem-wrap p#jinrishici-sentence {
+    font-size: 24px;
+    font-family: 'STKaiti', 'KaiTi', serif; /* 楷体字体，适合古诗 */
+    color: #555; /* 柔和的深灰色 */
+    line-height: 1.8;
+    margin: 30px auto;
+    transition: color 0.3s ease;
+}
+
+.poem-wrap p#jinrishici-sentence:hover {
+    color: #c26b86; /* 悬浮时颜色变化 */
+}
+
+/* 作者和出处美化 */
+.poem-wrap p#info {
+    font-size: 16px;
+    font-family: 'Georgia', serif;
+    color: #888; /* 淡灰色 */
+    margin: 20px auto;
+    transition: color 0.3s ease;
+}
+
+.poem-wrap p#info:hover {
+    color: #555; /* 悬浮时颜色加深 */
+}
+
+/* 左右边框美化 */
+.poem-border {
+    position: absolute;
+    height: 2px;
+    width: 27%;
+    background: linear-gradient(to right, transparent, #d3b3c2, transparent); /* 渐变效果 */
+    top: -2px; /* 与顶部对齐 */
+    transition: width 0.3s ease;
+}
+
+.poem-left {
+    left: 0;
+}
+
+.poem-right {
+    right: 0;
+}
+
+.poem-wrap:hover .poem-border {
+    width: 35%; /* 悬浮时边框宽度变化 */
+}
+
+/* 媒体查询：适配小屏幕 */
+@media (max-width: 685px) {
+    .poem-border {
+        width: 18%;
+    }
+
+    .poem-wrap h2 {
+        font-size: 28px;
+    }
+
+    .poem-wrap p#jinrishici-sentence {
+        font-size: 20px;
+    }
+
+    .poem-wrap p#info {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .poem-wrap {
+        margin-top: 60px;
+        margin-bottom: 20px;
+        padding: 20px 15px;
+    }
+
+    .poem-wrap h2 {
+        margin-top: -40px;
+        font-size: 24px;
+    }
+
+    .poem-border {
+        display: none; /* 小屏幕下隐藏边框 */
+    }
+}

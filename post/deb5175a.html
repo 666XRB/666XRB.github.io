@@ -1,0 +1,2535 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux学习 | cout&lt;&lt;&quot;金缕衣&quot;;</title><meta name="author" content="下完这场雨"><meta name="copyright" content="下完这场雨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="LinuxCentos  VMware16的安装及VMware配置Linux虚拟机(详解版)_vmware16安装-CSDN博客 Linux导言Linux 是一种自由和开放源码的类 UNIX 操作系统。 Linux 英文解释为 Linux is not Unix。 Linux 是在 1991 由林纳斯·托瓦兹在赫尔辛基大学上学时创立的，主要受到 Minix 和 Unix 思想的启发。 本教程，我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习">
+<meta property="og:url" content="http://example.com/post/deb5175a.html">
+<meta property="og:site_name" content="cout&lt;&lt;&quot;金缕衣&quot;;">
+<meta property="og:description" content="LinuxCentos  VMware16的安装及VMware配置Linux虚拟机(详解版)_vmware16安装-CSDN博客 Linux导言Linux 是一种自由和开放源码的类 UNIX 操作系统。 Linux 英文解释为 Linux is not Unix。 Linux 是在 1991 由林纳斯·托瓦兹在赫尔辛基大学上学时创立的，主要受到 Minix 和 Unix 思想的启发。 本教程，我们">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/sky2.jpg">
+<meta property="article:published_time" content="2023-10-21T02:26:35.000Z">
+<meta property="article:modified_time" content="2023-11-20T13:49:24.093Z">
+<meta property="article:author" content="下完这场雨">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/sky2.jpg"><link rel="shortcut icon" href="/img/icon.png"><link rel="canonical" href="http://example.com/post/deb5175a.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 下完这场雨","link":"链接: ","source":"来源: cout<<\"金缕衣\";","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-20 21:49:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="//code.tidio.co/xysdkaby5vgv2dt8e9zgdqsu6wh59g43.js" async></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/mystyle.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4770397_jz6ucve7mog.css<link rel="stylesheet" href="/css/ancientPoetry.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/me.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/sky2.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="cout&lt;&lt;&quot;金缕衣&quot;;"><img class="site-icon" src="/img/logo3.png"/><span class="site-name">cout&lt;&lt;&quot;金缕衣&quot;;</span></a></span><div id="wearher"></div><div id="tp-weather-widget"></div><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-21T02:26:35.000Z" title="发表于 2023-10-21 10:26:35">2023-10-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-20T13:49:24.093Z" title="更新于 2023-11-20 21:49:24">2023-11-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">19.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>67分钟</span></span><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/post/deb5175a.html" data-flag-title="Linux学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/post/deb5175a.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/post/deb5175a.html" itemprop="commentCount"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/">Centos</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_50519965/article/details/116175873?ops_request_misc=%7B%22request_id%22:%22169465038316800188541621%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=169465038316800188541621&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-116175873-null-null.142%5Ev93%5Econtrol&utm_term=vmware16%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4187">VMware16的安装及VMware配置Linux虚拟机(详解版)_vmware16安装-CSDN博客</a></p>
+<h2 id="Linux导言"><a href="#Linux导言" class="headerlink" title="Linux导言"></a>Linux导言</h2><p>Linux 是一种自由和开放源码的类 UNIX 操作系统。</p>
+<p>Linux 英文解释为 <strong>Linux is not Unix</strong>。</p>
+<p>Linux 是在 1991 由林纳斯·托瓦兹在赫尔辛基大学上学时创立的，主要受到 Minix 和 Unix 思想的启发。</p>
+<p>本教程，我们将为大家介绍如何使用 Linux。</p>
+<p>Linux 其实很容易学，相信你们能很快学会。</p>
+<h2 id="适配"><a href="#适配" class="headerlink" title="适配"></a>适配</h2><p> Linux 的发行版本 Centos 为例来为大家介绍 Linux 系统的应用。</p>
+<h2 id="开源-的linux"><a href="#开源-的linux" class="headerlink" title="开源 的linux"></a>开源 的linux</h2><p>Linux 遵循 GNU 通用公共许可证（GPL），任何个人和机构都可以自由地使用 Linux 的所有底层源代码，也可以自由地修改和再发布。</p>
+<p>由于 Linux 是自由软件，任何人都可以创建一个符合自己需求的 Linux 发行版。</p>
+<p>目前市面上较知名的发行版有：Ubuntu、RedHat、CentOS、Debian、Fedora、SuSE、OpenSUSE、Arch Linux、SolusOS 等。</p>
+<img src="/post/deb5175a/image-20231007082555838.png" class="" title="image-20231007082555838">
+
+<h2 id="Linux发行版"><a href="#Linux发行版" class="headerlink" title="Linux发行版"></a>Linux发行版</h2><blockquote>
+<p>以下是五个常用的Linux发行版以及它们的特点和简要介绍：</p>
+<ol>
+<li><p>Ubuntu：</p>
+<ul>
+<li>特点：用户友好、稳定、易用。</li>
+<li>简要介绍：Ubuntu是基于Debian的一款流行的Linux发行版，以其简单易用和广泛的社区支持而受到欢迎。它提供了用户友好的桌面环境（如GNOME），并且有大量的软件包可供选择。</li>
+</ul>
+</li>
+<li><p>CentOS：</p>
+<ul>
+<li>特点：稳定、安全、面向企业。</li>
+<li>简要介绍：CentOS是一款由Red Hat Enterprise Linux（RHEL）源代码重新编译而成的免费、开源的Linux发行版。它以其出色的稳定性和安全性而闻名，并广泛应用于企业服务器环境。</li>
+</ul>
+</li>
+<li><p>Fedora：</p>
+<ul>
+<li>特点：先进、新颖、面向开发者。</li>
+<li>简要介绍：Fedora是由社区推动的创新型Linux发行版，旨在为用户提供最新的软件和技术。它在桌面和服务器上都具有出色的性能，并且对开发者友好，提供了很多开发工具和库。</li>
+</ul>
+</li>
+<li><p>Debian：</p>
+<ul>
+<li>特点：稳定、自由、广泛支持。</li>
+<li>简要介绍：Debian是一款非常稳定的Linux发行版，强调自由软件和广泛的硬件支持。它采用了一种包管理系统（APT），提供了庞大的软件仓库，并有强大的社区支持。</li>
+</ul>
+</li>
+<li><p>openSUSE：</p>
+<ul>
+<li>特点：灵活、易用、面向桌面和服务器。</li>
+<li>简要介绍：openSUSE是一款多功能的Linux发行版，适用于桌面和服务器环境。它注重用户友好性和用户体验，并提供了多种桌面环境选择（如KDE和GNOME）。此外，它还以其易用的包管理器（YaST）而闻名。</li>
+</ul>
+</li>
+</ol>
+<p>这些Linux发行版都有各自的特点和适用场景，选择哪个发行版主要取决于您的需求和熟悉程度。无论选择哪个发行版，都能获得强大的开源操作系统和丰富的软件生态系统。</p>
+</blockquote>
+<h2 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h2><p>Linux 内核最初只是由芬兰人&#x3D;&#x3D;林纳斯·托瓦兹&#x3D;&#x3D;（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。</p>
+<p>Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个基于 POSIX 和 UNIX 的多用户、多任务、支持多线程和多 CPU 的操作系统。</p>
+<p>Linux 能运行主要的 UNIX 工具软件、应用程序和网络协议。它支持 32 位和 64 位硬件。Linux 继承了 Unix 以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。</p>
+<h3 id="Linux-1"><a href="#Linux-1" class="headerlink" title="Linux"></a>Linux</h3><ol>
+<li>Linux内核（最核心的功能）</li>
+<li>系统级应用程序（出厂自带的程序）</li>
+<li><img src="/post/deb5175a/image-20231012081139215.png" class="" title="image-20231012081139215"></li>
+</ol>
+<p><a target="_blank" rel="noopener" href="http://www.kernel.org内核/">www.kernel.org内核</a></p>
+<h2 id="Linux应用领域"><a href="#Linux应用领域" class="headerlink" title="Linux应用领域"></a>Linux应用领域</h2><p>今天各种场合都有使用各种 Linux 发行版，从嵌入式设备到超级计算机，并且在服务器领域确定了地位，通常服务器使用 LAMP（Linux + Apache + MySQL + PHP）或 LNMP（Linux + Nginx+ MySQL + PHP）组合。</p>
+<p>目前 Linux 不仅在家庭与企业中使用，并且在政府中也很受欢迎。</p>
+<ul>
+<li>巴西联邦政府由于支持 Linux 而世界闻名。</li>
+<li>有新闻报道俄罗斯军队自己制造的 Linux 发布版的，做为 G.H.ost 项目已经取得成果。</li>
+<li>印度的 Kerala 联邦计划在向全联邦的高中推广使用 Linux。</li>
+<li>中华人民共和国为取得技术独立，在龙芯处理器中排他性地使用 Linux。</li>
+<li>在西班牙的一些地区开发了自己的 Linux 发布版，并且在政府与教育领域广泛使用，如 Extremadura 地区的 gnuLinEx 和 Andalusia 地区的 Guadalinex。</li>
+<li>葡萄牙同样使用自己的 Linux 发布版 Caixa Mágica，用于 Magalh?es 笔记本电脑和 e-escola 政府软件。</li>
+<li>法国和德国同样开始逐步采用 Linux。</li>
+</ul>
+<h2 id="Linux-Windows"><a href="#Linux-Windows" class="headerlink" title="Linux&amp;Windows"></a>Linux&amp;Windows</h2><p>目前国内 Linux 更多的是应用于服务器上，而桌面操作系统更多使用的是 Windows。主要区别如下</p>
+<img src="/post/deb5175a/image-20231007082725236.png" class="" title="image-20231007082725236">
+
+<h2 id="Linux-系统启动过程"><a href="#Linux-系统启动过程" class="headerlink" title="Linux 系统启动过程"></a>Linux 系统启动过程</h2><p>linux启动时我们会看到许多启动信息。</p>
+<p>Linux系统的启动过程并不是大家想象中的那么复杂，其过程可以分为5个阶段：</p>
+<ul>
+<li>内核的引导。</li>
+<li>运行 init。</li>
+<li>系统初始化。</li>
+<li>建立终端 。</li>
+<li>用户登录系统。</li>
+</ul>
+<blockquote>
+<p>init程序的类型：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>SysV:</strong> init, CentOS 5之前, 配置文件： &#x2F;etc&#x2F;inittab。</li>
+<li><strong>Upstart:</strong> init,CentOS 6, 配置文件： &#x2F;etc&#x2F;inittab, &#x2F;etc&#x2F;init&#x2F;*.conf。</li>
+<li><strong>Systemd：</strong> systemd, CentOS 7,配置文件： &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system、 &#x2F;etc&#x2F;systemd&#x2F;system。</li>
+</ul>
+</blockquote>
+<h3 id="内核引导"><a href="#内核引导" class="headerlink" title="内核引导"></a>内核引导</h3><p>当计算机打开电源后，首先是&#x3D;&#x3D;BIOS开机自检，&#x3D;&#x3D;按照BIOS中设置的启动设备（通常是硬盘）来启动。</p>
+<p>操作系统接管硬件以后，&#x3D;&#x3D;首先读入 &#x2F;boot 目录下的内核文件。&#x3D;&#x3D;</p>
+<h3 id="运行Init"><a href="#运行Init" class="headerlink" title="运行Init"></a>运行Init</h3><p>&#x3D;&#x3D;init 进程是系统所有进程的起点&#x3D;&#x3D;，你可以把它比拟成&#x3D;&#x3D;系统所有进程的老祖宗&#x3D;&#x3D;，&#x3D;&#x3D;没有这个进程，系统中任何进程都不会启动。&#x3D;&#x3D;</p>
+<p>init 程序首先是需要读取配置文件 &#x2F;etc&#x2F;inittab。</p>
+<p>&#x3D;&#x3D;真正的rc启动脚本实际上都是放在&#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;目录下。&#x3D;&#x3D;</p>
+<h4 id="运行级别"><a href="#运行级别" class="headerlink" title="运行级别"></a>运行级别</h4><blockquote>
+<ol>
+<li>运行级别0（halt）：系统关机，无法执行任何任务。</li>
+<li>运行级别1（single user）：单用户模式，系统进入最小化的运行环境，只有root用户可以登录。用于系统维护和故障排除。</li>
+<li>运行级别2（multi-user）：多用户模式，没有图形界面（GUI），支持网络服务。这是命令行模式下的标准运行级别。</li>
+<li>运行级别3（multi-user with networking）：和运行级别2类似，但同时启动网络服务，适用于服务器环境。</li>
+<li>运行级别4（unused）：保留给用户自定义的运行级别。</li>
+<li>运行级别5（graphical）：图形界面（GUI）模式，通常基于X Window系统。适用于桌面系统。</li>
+<li>运行级别6（reboot）：系统重启。</li>
+</ol>
+</blockquote>
+<p>许多程序需要开机启动。它们在Windows叫做”服务”（service），在Linux就叫做”守护进程”（daemon）。</p>
+<p>&#x3D;&#x3D;init进程的一大任务，就是去运行这些开机启动的程序。&#x3D;&#x3D;</p>
+<p>但是，&#x3D;&#x3D;不同的场合需要启动不同的程序&#x3D;&#x3D;，比如用作服务器时，需要启动Apache，用作桌面就不需要。</p>
+<p>Linux允许为不同的场合，分配不同的开机启动程序，这就叫做”运行级别”（runlevel）。也就是说，启动时根据”运行级别”，确定要运行哪些程序。</p>
+<h3 id="系统初始化"><a href="#系统初始化" class="headerlink" title="系统初始化"></a>系统初始化</h3><p>在init的配置文件中有这么一行： si::sysinit:&#x2F;etc&#x2F;rc.d&#x2F;rc.sysinit　它调用执行了&#x2F;etc&#x2F;rc.d&#x2F;rc.sysinit，而rc.sysinit是一个bash shell的脚本，它主要是完成一些系统初始化的工作，rc.sysinit是每一个运行级别都要首先运行的重要脚本。</p>
+<p>&#x3D;&#x3D;它主要完成的工作有：激活交换分区，检查磁盘，加载硬件模块以及其它一些需要优先执行任务。&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">l5:5:wait:/etc/rc.d/rc 5</span><br></pre></td></tr></table></figure>
+
+<h3 id="建立终端"><a href="#建立终端" class="headerlink" title="建立终端"></a>建立终端</h3><p>rc执行完毕后，返回init。这时基本系统环境已经设置好了，各种守护进程也已经启动了。</p>
+<p>init接下来会打开6个终端，以便用户登录系统。在inittab中的以下6行就是定义了6个终端</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1:2345:respawn:/sbin/mingetty tty1</span><br><span class="line">2:2345:respawn:/sbin/mingetty tty2</span><br><span class="line">3:2345:respawn:/sbin/mingetty tty3</span><br><span class="line">4:2345:respawn:/sbin/mingetty tty4</span><br><span class="line">5:2345:respawn:/sbin/mingetty tty5</span><br><span class="line">6:2345:respawn:/sbin/mingetty tty6</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>同时它会显示一个文本登录界面，这个界面就是我们经常看到的登录界面，在这个登录界面中会提示用户输入用户名，而用户输入的用户将作为参数传给login程序来验证用户的身份。</p>
+<h3 id="用户登录系统"><a href="#用户登录系统" class="headerlink" title="用户登录系统"></a>用户登录系统</h3><p>一般来说，用户的登录方式有三种：</p>
+<ul>
+<li>（1）命令行登录</li>
+<li>（2）ssh登录</li>
+<li>（3）图形界面登录</li>
+</ul>
+<p>对于运行级别为5的图形方式用户来说，他们的登录是通过一个图形化的登录界面。登录成功后可以直接进入 KDE、Gnome 等窗口管理器。</p>
+<p>而本文主要讲的还是文本方式登录的情况：当我们看到mingetty的登录界面时，我们就可以输入用户名和密码来登录系统了。</p>
+<p>Linux 的账号验证程序是 login，login 会接收 mingetty 传来的用户名作为用户名参数。</p>
+<p>然后 login 会对用户名进行分析：如果用户名不是 root，且存在 &#x2F;etc&#x2F;nologin 文件，login 将输出 nologin 文件的内容，然后退出。</p>
+<p>这通常用来系统维护时防止非root用户登录。只有&#x2F;etc&#x2F;securetty中登记了的终端才允许 root 用户登录，如果不存在这个文件，则 root 用户可以在任何终端上登录。</p>
+<p>&#x2F;etc&#x2F;usertty文件用于对用户作出附加访问限制，如果不存在这个文件，则没有其他限制。</p>
+<h4 id="图形模式与文字模式的切换方式"><a href="#图形模式与文字模式的切换方式" class="headerlink" title="图形模式与文字模式的切换方式"></a>图形模式与文字模式的切换方式</h4><p>Linux预设提供了六个命令窗口终端机让我们来登录。</p>
+<p>默认我们登录的就是第一个窗口，也就是tty1，这个六个窗口分别为tty1,tty2 … tty6，你可以按下Ctrl + Alt + F1 ~ F6 来切换它们。</p>
+<p>如果你安装了图形界面，默认情况下是进入图形界面的，此时你就可以按Ctrl + Alt + F1 ~ F6来进入其中一个命令窗口界面。</p>
+<p>当你进入命令窗口界面后再返回图形界面只要按下Ctrl + Alt + F7 就回来了。</p>
+<p>&#x3D;&#x3D;如果你用的vmware 虚拟机，命令窗口切换的快捷键为 Alt + Space + F1<del>F6. 如果你在图形界面下请按Alt + Shift + Ctrl + F1</del>F6 切换至命令窗口。&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231007085428743.png" class="" title="image-20231007085428743">
+
+<h3 id="Linux-关机"><a href="#Linux-关机" class="headerlink" title="Linux 关机"></a>Linux 关机</h3><p>在linux领域内大多用在服务器上，很少遇到关机的操作。毕竟服务器上跑一个服务是永无止境的，除非特殊情况下，不得已才会关机。</p>
+<p>正确的关机流程为：sync &gt; shutdown &gt; reboot &gt; halt</p>
+<p>关机指令为：shutdown ，<code>你可以man shutdown 来看一下帮助文档。</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sync 将数据由内存同步到硬盘中。</span><br><span class="line"></span><br><span class="line">shutdown 关机指令，你可以man shutdown 来看一下帮助文档。例如你可以运行如下命令关机：</span><br><span class="line"></span><br><span class="line">shutdown –h 10 ‘This server will shutdown after 10 mins’ 这个命令告诉大家，计算机将在10分钟后关机，并且会显示在登陆用户的当前屏幕中。</span><br><span class="line"></span><br><span class="line">shutdown –h now 立马关机</span><br><span class="line"></span><br><span class="line">shutdown –h 20:25 系统会在今天20:25关机</span><br><span class="line"></span><br><span class="line">shutdown –h +10 十分钟后关机</span><br><span class="line"></span><br><span class="line">shutdown –r now 系统立马重启</span><br><span class="line"></span><br><span class="line">shutdown –r +10 系统十分钟后重启</span><br><span class="line"></span><br><span class="line">reboot 就是重启，等同于 shutdown –r now</span><br><span class="line"></span><br><span class="line">halt 关闭系统，等同于shutdown –h now 和 poweroff</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;不管是重启系统还是关闭系统，首先要运行 <strong>sync</strong> 命令，把内存中的数据写到磁盘中&#x3D;&#x3D;</p>
+<h2 id="Linux系统目录结构"><a href="#Linux系统目录结构" class="headerlink" title="Linux系统目录结构"></a>Linux系统目录结构</h2><p>登录系统后，在当前命令窗口下输入命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls /</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231007090522196.png" class="" title="image-20231007090522196">
+
+<img src="/post/deb5175a/image-20231007090438747.png" class="" title="image-20231007090438747">
+
+<p>以下是对这些目录的解释：</p>
+<ul>
+<li><p><strong>&#x2F;bin</strong>：<br>bin 是 &#x3D;&#x3D;Binaries (二进制文件) 的缩写&#x3D;&#x3D;, 这个目录存放着最经常使用的命令。</p>
+</li>
+<li><p><strong>&#x2F;boot：</strong><br>这里存放的是&#x3D;&#x3D;启动 Linux 时使用的一些核心文件，包括一些连接文件以及镜像文件&#x3D;&#x3D;。</p>
+</li>
+<li><p><strong>&#x2F;dev ：</strong><br>dev 是 Device(设备) 的缩写, 该目录下存放的是 Linux 的外部设备，在 Linux 中访问设备的方式和访问文件的方式是相同的。</p>
+</li>
+<li><p><strong>&#x2F;etc：</strong><br>etc 是 Etcetera(等等) 的缩写,这个目录用来存放所有的&#x3D;&#x3D;系统管理所需要的配置文件和子目录&#x3D;&#x3D;。</p>
+</li>
+<li><p><strong>&#x2F;home</strong>：<br>用户的主目录，在 Linux 中，&#x3D;&#x3D;每个用户都有一个自己的目录&#x3D;&#x3D;，一般该目录名是以用户的账号命名的，如上图中的 alice、bob 和 eve。</p>
+</li>
+<li><p><strong>&#x2F;lib</strong>：<br>lib 是 Library(库) 的缩写这个目录里存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。</p>
+</li>
+<li><p><strong>&#x2F;lost+found</strong>：<br>这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</p>
+</li>
+<li><p><strong>&#x2F;media</strong>：<br>linux 系统会自动识别一些设备，例如U盘、光驱等等，当识别后，Linux 会把识别的设备挂载到这个目录下。</p>
+</li>
+<li><p><strong>&#x2F;mnt</strong>：<br>系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在 &#x2F;mnt&#x2F; 上，然后进入该目录就可以查看光驱里的内容了。</p>
+</li>
+<li><p><strong>&#x2F;opt</strong>：<br>opt 是 optional(可选) 的缩写，这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</p>
+</li>
+<li><p><strong>&#x2F;proc</strong>：<br>proc 是 Processes(进程) 的缩写，&#x2F;proc 是一种伪文件系统（也即虚拟文件系统），存储的是当前内核运行状态的一系列特殊文件，这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。<br>这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping命令，使别人无法ping你的机器：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>&#x2F;root</strong>：<br>&#x3D;&#x3D;该目录为系统管理员，也称作超级权限者的用户主目录。&#x3D;&#x3D;</p>
+</li>
+<li><p><strong>&#x2F;sbin</strong>：<br>s 就是 Super User 的意思，是 Superuser Binaries (超级用户的二进制文件) 的缩写，这里存放的是系统管理员使用的系统管理程序。</p>
+</li>
+<li><p><strong>&#x2F;selinux</strong>：<br>这个目录是 Redhat&#x2F;CentOS 所特有的目录，Selinux 是一个安全机制，类似于 windows 的防火墙，但是这套机制比较复杂，这个目录就是存放selinux相关的文件的。</p>
+</li>
+<li><p><strong>&#x2F;srv</strong>：<br>该目录存放一些服务启动之后需要提取的数据。</p>
+</li>
+<li><p><strong>&#x2F;sys</strong>：</p>
+<p>这是 Linux2.6 内核的一个很大的变化。该目录下安装了 2.6 内核中新出现的一个文件系统 sysfs 。</p>
+<p>sysfs 文件系统集成了下面3种文件系统的信息：针对进程信息的 proc 文件系统、针对设备的 devfs 文件系统以及针对伪终端的 devpts 文件系统。</p>
+<p>该文件系统是内核设备树的一个直观反映。</p>
+<p>当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</p>
+</li>
+<li><p><strong>&#x2F;tmp</strong>：<br>tmp 是 temporary(临时) 的缩写这个目录是用来存放一些临时文件的。</p>
+</li>
+<li><p><strong>&#x2F;usr</strong>：<br>usr 是 unix shared resources(共享资源) 的缩写，这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于 windows 下的 program files 目录。</p>
+</li>
+<li><p><strong>&#x2F;usr&#x2F;bin：</strong><br>系统用户使用的应用程序。</p>
+</li>
+<li><p><strong>&#x2F;usr&#x2F;sbin：</strong><br>超级用户使用的比较高级的管理程序和系统守护程序。</p>
+</li>
+<li><p><strong>&#x2F;usr&#x2F;src：</strong><br>内核源代码默认的放置目录。</p>
+</li>
+<li><p><strong>&#x2F;var</strong>：<br>var 是 variable(变量) 的缩写，这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</p>
+</li>
+<li><p><strong>&#x2F;run</strong>：<br>是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。如果你的系统上有 &#x2F;var&#x2F;run 目录，应该让它指向 run。</p>
+</li>
+</ul>
+<p>在 Linux 系统中，有几个目录是比较重要的，平时需要注意不要误删除或者随意更改内部文件。</p>
+<p><strong>&#x2F;etc</strong>： 上边也提到了，这个是系统中的配置文件，如果你更改了该目录下的某个文件可能会导致系统不能启动。</p>
+<p><strong>&#x2F;bin, &#x2F;sbin, &#x2F;usr&#x2F;bin, &#x2F;usr&#x2F;sbin</strong>: 这是系统预设的执行文件的放置目录，比如 <strong>ls</strong> 就是在 <strong>&#x2F;bin&#x2F;ls</strong> 目录下的。</p>
+<p>值得提出的是 <strong>&#x2F;bin</strong>、**&#x2F;usr&#x2F;bin** 是给系统用户使用的指令（除 root 外的通用用户），而&#x2F;sbin, &#x2F;usr&#x2F;sbin 则是给 root 使用的指令。</p>
+<p><strong>&#x2F;var</strong>： 这是一个非常重要的目录，系统上跑了很多程序，那么每个程序都会有相应的日志产生，而这些日志就被记录到这个目录下，具体在 &#x2F;var&#x2F;log 目录下，另外 mail 的预设放置也是在这里。</p>
+<h2 id="学会使用帮助"><a href="#学会使用帮助" class="headerlink" title="&#x3D;&#x3D;学会使用帮助&#x3D;&#x3D;"></a>&#x3D;&#x3D;学会使用帮助&#x3D;&#x3D;</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">不会的 --help</span><br><span class="line">man 不会的</span><br></pre></td></tr></table></figure>
+
+<h2 id="Linux忘记密码解决办法"><a href="#Linux忘记密码解决办法" class="headerlink" title="Linux忘记密码解决办法"></a>Linux忘记密码解决办法</h2><ol>
+<li><p>&#x3D;&#x3D;在开机时按下Shift键&#x3D;&#x3D;，进入grub菜单。</p>
+</li>
+<li><p>在grub菜单中选择要启动的CentOS内核版本，&#x3D;&#x3D;并按下”e”键进入编辑模式。edit&#x3D;&#x3D;</p>
+</li>
+<li><p>在编辑模式中，找到以”linux16”开头的行，然后在该行的末尾添加以下内容：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rd.break enforcing=0</span><br></pre></td></tr></table></figure>
+
+<p>添加完毕后，按下Ctrl+X或F10来启动系统。</p>
+<ol start="4">
+<li><p>系统启动后，进入emergency mode，并且会挂载根文件系统为只读模式。</p>
+</li>
+<li><p>输入以下命令来重新挂载根文件系统为可写模式：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mount -o remount,rw /sysroot</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>输入以下命令来切换到chroot环境：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chroot /sysroot</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>输入以下命令来重置密码：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">passwd username</span><br></pre></td></tr></table></figure>
+
+<p>其中，”username”为您忘记密码的账户名。</p>
+<ol start="8">
+<li>输入以下命令来重新生成SELinux策略：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">touch /.autorelabel</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>输入以下命令来退出chroot环境：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>输入以下命令来重新挂载根文件系统为只读模式：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mount -o remount,ro /sysroot</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>输入以下命令来重启系统：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<p>系统将会重新启动，并且您可以使用新密码登录您的CentOS Linux系统。请注意，这种方法只适用于您有root权限的情况。如果您没有root权限，您需要联系系统管理员或使用其他方法来重置密码。</p>
+<h2 id="使用命令行学习Linux"><a href="#使用命令行学习Linux" class="headerlink" title="使用命令行学习Linux"></a>使用命令行学习Linux</h2><p>Linux大多使用命令行而不使用图形界面</p>
+<p>&#x3D;&#x3D;命令：本质上就是执行的二进制可执行程序&#x3D;&#x3D;</p>
+<p>优点:快，资源占用少</p>
+<h3 id="FInalShell"><a href="#FInalShell" class="headerlink" title="FInalShell"></a>FInalShell</h3><p><a target="_blank" rel="noopener" href="http://www.hostbuf.com/?install_fs">FinalShell官网 (hostbuf.com)</a></p>
+<p>第三方软件操控Linux</p>
+<p>SSH</p>
+<ol>
+<li>在Vmware里输入ifconfig看到我们虚拟机的<a href="#ip">IP</a></li>
+<li><img src="/post/deb5175a/image-20231012082721816.png" class="" title="image-20231012082721816"></li>
+<li><img src="/post/deb5175a/image-20231012082956881.png" class="" title="image-20231012082956881"></li>
+<li><img src="/post/deb5175a/image-20231012083019511.png" class="" title="image-20231012083019511"></li>
+<li><img src="/post/deb5175a/image-20231012083238491.png" class="" title="image-20231012083238491"></li>
+</ol>
+<p>验证是否连接，二者都输入ls，结果一样！</p>
+<img src="/post/deb5175a/image-20231012083517172.png" class="" title="image-20231012083517172">
+
+<h3 id="虚拟机快照（后悔药）"><a href="#虚拟机快照（后悔药）" class="headerlink" title="&#x3D;&#x3D;虚拟机快照（后悔药）&#x3D;&#x3D;"></a>&#x3D;&#x3D;虚拟机快照（后悔药）&#x3D;&#x3D;</h3><p>通过将当前的虚拟机的状态保存下来，在以后开源通过快照回复虚拟机到保存的状态。</p>
+<p>&#x3D;&#x3D;推荐在关机状态下进行快照&#x3D;&#x3D;</p>
+<p>make: </p>
+<ol>
+<li>在Vmware里右键我们的虚拟机，快照管理器，然后</li>
+<li><img src="/post/deb5175a/image-20231012083830514.png" class="" title="image-20231012083830514"></li>
+<li>转到拍照，然后转到想去的状态。</li>
+</ol>
+<h2 id="Linux的目录结构"><a href="#Linux的目录结构" class="headerlink" title="Linux的目录结构"></a>Linux的目录结构</h2><ol>
+<li><p>没有盘符，&#x3D;&#x3D;只有一个跟目录 &#x2F; 所有的文件都在它下面&#x3D;&#x3D;，windows可以由多个顶级目录CDE<img src="/post/deb5175a/image-20231012084249798.png" class="" title="image-20231012084249798"></p>
+</li>
+<li><p>&#x3D;&#x3D;在Linux里路径的层级关系用   &#x2F;  表示&#x3D;&#x3D;，在window里用   \   表示</p>
+<blockquote>
+<p>形象记忆：windows的w的第一笔画</p>
+<p>Linux右边重变成了&#x2F;-</p>
+</blockquote>
+<p>&#x2F;home&#x2F;xurunbo</p>
+</li>
+<li><p>永远以&#x2F;开始，&#x2F;有两种含义</p>
+<ol>
+<li>根目录</li>
+<li>层次关系</li>
+</ol>
+</li>
+</ol>
+<img src="/post/deb5175a/image-20231012084523777.png" class="" title="image-20231012084523777">
+
+<blockquote>
+<ol>
+<li>&#x2F;test&#x2F;hello.txt</li>
+<li>&#x2F;itheima.txt</li>
+<li>&#x2F;itcast&#x2F;itheima&#x2F;hello.txt</li>
+</ol>
+</blockquote>
+<h2 id="★★★Linux命令入门"><a href="#★★★Linux命令入门" class="headerlink" title="★★★Linux命令入门"></a>★★★Linux命令入门</h2><h3 id="Linux命令基础"><a href="#Linux命令基础" class="headerlink" title="Linux命令基础"></a>Linux命令基础</h3><blockquote>
+<ol>
+<li>什么是命令？</li>
+<li>命令的基本格式？</li>
+</ol>
+</blockquote>
+<p>命令行：Linux的终端，用纯字符的形式操作系统，用各种命令去操作操作系统</p>
+<p>给命令，它给我们字符化反馈</p>
+<p>基础格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">command [-options] [parametet]</span><br></pre></td></tr></table></figure>
+
+<p><strong>command: 命令本身</strong></p>
+<p><strong>-options：可选的一些选项，控制命令的行为细节</strong></p>
+<p><strong>parameter：命令的参数，多数用于命令的指向目标等</strong></p>
+<p>&#x3D;&#x3D;命令，选项，参数&#x3D;&#x3D;</p>
+<h3 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h3><h4 id="ls命令简介"><a href="#ls命令简介" class="headerlink" title="ls命令简介"></a>ls命令简介</h4><blockquote>
+<p>ls作用？</p>
+<p>当前工作目录？</p>
+<p>HOME目录？</p>
+<p>如何形象记忆？</p>
+</blockquote>
+<p>function：列出目录下的内容</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls [-a -l -h] [linux路径]</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下ls得到使当前&#x3D;&#x3D;工作目录&#x3D;&#x3D;下的内容（当前路径）</p>
+<img src="/post/deb5175a/image-20231012085808165.png" class="" title="image-20231012085808165">
+
+<p>&#x3D;&#x3D;当前登录用户的HOME目录作为工作目录，每一个用后都有这个HOME&#x3D;&#x3D;</p>
+<p>ls和ls &#x2F;home&#x2F;xurunbo是等价的</p>
+<img src="/post/deb5175a/image-20231012085639894.png" class="" title="image-20231012085639894">
+
+<p>HOME目录：每一个用户在Linux系统的专属目录&#x2F;home&#x2F;用户</p>
+<h4 id="ls的参数和选项"><a href="#ls的参数和选项" class="headerlink" title="ls的参数和选项"></a>ls的参数和选项</h4><blockquote>
+<p>-a？</p>
+<p>-l？</p>
+<p>-h？</p>
+</blockquote>
+<ol>
+<li><p>-a是all的意思,[&#x3D;&#x3D;可以看到隐藏的文件&#x2F;文件夹&#x3D;&#x3D;]</p>
+<img src="/post/deb5175a/image-20231012090306999.png" class="" title="image-20231012090306999">
+</li>
+<li><p><strong>-l是list的意思，&#x3D;&#x3D;以列表的形式表示&#x3D;&#x3D;，并展示更多的信息，创建时间</strong></p>
+<img src="/post/deb5175a/image-20231012090514715.png" class="" title="image-20231012090514715">
+
+<blockquote>
+<p>二者的混合使用，既可以看到隐藏的东西，又以list的形式看、</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls -a -l /</span><br><span class="line">ls -al /</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231012090706425.png" class="" title="image-20231012090706425">
+</blockquote>
+</li>
+<li><p>&#x3D;&#x3D;-h和-l一般一起出现，显示文件的大小信息&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231012090943537.png" class="" title="image-20231012090943537"></li>
+</ol>
+<p>总结ls -alh一气呵成</p>
+<p>list:动词，列出</p>
+<h3 id="cd-pwd命令"><a href="#cd-pwd命令" class="headerlink" title="cd-pwd命令"></a>cd-pwd命令</h3><h4 id="cd切换工作目录"><a href="#cd切换工作目录" class="headerlink" title="cd切换工作目录"></a>cd切换工作目录</h4><blockquote>
+<p>cd如何切换工作目录？</p>
+<p>cd命令格式？有选项吗？</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd [Linux路径]</span><br></pre></td></tr></table></figure>
+
+<p>默认我们是在当前用户的工作目录如果想切换该怎么办呢?</p>
+<img src="/post/deb5175a/image-20231012091917969.png" class="" title="image-20231012091917969">
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd 空格</span><br></pre></td></tr></table></figure>
+
+<p>回到我们当前用户的工作目录也就是&#x2F;home&#x2F;xurunbo</p>
+<h4 id="pwd命令"><a href="#pwd命令" class="headerlink" title="pwd命令"></a>pwd命令</h4><blockquote>
+<p>pwd命令的作用？</p>
+<p>pwd命令格式？有选项和参数吗？</p>
+<p>pwd如何记忆？</p>
+</blockquote>
+<p>function：&#x3D;&#x3D;查看当前的目录&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;没有选项和参数&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231012092525570.png" class="" title="image-20231012092525570">
+
+<p>pwd：”Print Working Directory”打印工作中(当前)的目录</p>
+<h3 id="相对-绝对路径，和特殊路径符"><a href="#相对-绝对路径，和特殊路径符" class="headerlink" title="相对&#x2F;绝对路径，和特殊路径符"></a>相对&#x2F;绝对路径，和特殊路径符</h3><blockquote>
+<p>相对和绝对路径的概念和写法？</p>
+<p>掌握几种特殊的路径写法？</p>
+<p>当前，上一级如何写？</p>
+</blockquote>
+<p>绝对目录：&#x3D;&#x3D;以 根目录&#x2F; 为起点找到目标文件&#x3D;&#x3D;，路径以&#x2F;开头</p>
+<p>相对路径：&#x3D;&#x3D;从当前目录为起点&#x3D;&#x3D;，找目标文件</p>
+<img src="/post/deb5175a/image-20231012093317268.png" class="" title="image-20231012093317268">
+
+<p>前面的 ~代表当前的工作目录&#x2F;home&#x2F;xurunbo</p>
+<p>&#x2F; 代表根目录</p>
+<p>文件夹名字 代表在这个文件夹下</p>
+<p>特殊路径符</p>
+<blockquote>
+<ol>
+<li>.      表示当前目录</li>
+<li>..           上一级 cd ..</li>
+<li>~       Home目录   &#x3D;&#x3D;&#x2F;home&#x2F;xurunbo  cd</li>
+</ol>
+</blockquote>
+<img src="/post/deb5175a/image-20231012143222052.png" class="" title="image-20231012143222052">
+
+<p>&#x3D;&#x3D;相对路径方便&#x3D;&#x3D;</p>
+<p>例题<img src="/post/deb5175a/image-20231012143648199.png" class="" title="image-20231012143648199"></p>
+<h3 id="mkdir命令-p"><a href="#mkdir命令-p" class="headerlink" title="mkdir命令 -p"></a>mkdir命令 -p</h3><blockquote>
+<ol>
+<li>mkdir是干什么的？</li>
+<li>如何使用？</li>
+<li>如何记忆-p mkdir？</li>
+<li>什么是权限问题？</li>
+</ol>
+</blockquote>
+<p>function：创建新的目录（文件夹）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir [-p] Linux路径</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;-p表示自动创建不存在的父目录，用于创建连续多层级的目录&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231012145501451.png" class="" title="image-20231012145501451">
+
+<img src="/post/deb5175a/image-20231012145634285.png" class="" title="image-20231012145634285">
+
+<p>问题引入；</p>
+<ol>
+<li>创建连续的文件，或者说嵌套的。就无法成功</li>
+<li>需要加-p来完成</li>
+</ol>
+<img src="/post/deb5175a/image-20231012145949680.png" class="" title="image-20231012145949680">
+
+<p>将其理解为 “parents”（父级目录）的缩写。通过使用 <code>-p</code> 参数，<code>mkdir</code> 命令会&#x3D;&#x3D;自动创建指定路径上的所有父级目录，而不需要手动逐级创建。&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;注意权限问题，当我们出了home去操作就无法成功了&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231012150451823.png" class="" title="image-20231012150451823">
+
+<h3 id="touch-cat-more命令"><a href="#touch-cat-more命令" class="headerlink" title="touch-cat-more命令"></a>touch-cat-more命令</h3><blockquote>
+<ol>
+<li>touch是干嘛的？有选项吗？</li>
+<li>cat是干嘛的？有选项吗？</li>
+<li>more是干嘛的？有选项吗？</li>
+</ol>
+</blockquote>
+<h4 id="touch命令-创文件"><a href="#touch命令-创文件" class="headerlink" title="touch命令(创文件)"></a>touch命令(创文件)</h4><blockquote>
+<ol>
+<li>如何使用touch创建文件？</li>
+<li>语法格式？</li>
+<li>如何记忆？</li>
+<li>有选项吗？</li>
+</ol>
+</blockquote>
+<p>function：创建文件.txt………….</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">touch Linux路径</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231012151027144.png" class="" title="image-20231012151027144">
+
+<p>ls -h前缀是d的是文件夹，是-的代表文件</p>
+<img src="/post/deb5175a/image-20231012151135053.png" class="" title="image-20231012151135053">
+
+<p>理解为 “touch”（触摸）文件的意思。通过使用 <code>touch</code> 命令，你可以 “触摸” 文件，即创建一个新的空文件或者更新文件的时间戳，而不改变文件的内容。</p>
+<h4 id="cat命令-查看文件"><a href="#cat命令-查看文件" class="headerlink" title="&#x3D;&#x3D;cat命令(查看文件)&#x3D;&#x3D;"></a>&#x3D;&#x3D;cat命令(查看文件)&#x3D;&#x3D;</h4><blockquote>
+<p>如何使用cat查看文件内容？</p>
+<p>如何记忆？</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat Linux路径</span><br></pre></td></tr></table></figure>
+
+<p><code>cat</code> 命令是用来查看文件内容的命令。它的名字 “cat” 是 “concatenate”（连接）的缩写。通过使用 <code>cat</code> 命令，你可以将一个或多个文件的内容连接起来，并将结果输出到标准输出（通常是终端）。</p>
+<img src="/post/deb5175a/image-20231012151618958.png" class="" title="image-20231012151618958">
+
+<h4 id="more命令-翻页查看文件"><a href="#more命令-翻页查看文件" class="headerlink" title="&#x3D;&#x3D;more命令(翻页查看文件)&#x3D;&#x3D;"></a>&#x3D;&#x3D;more命令(翻页查看文件)&#x3D;&#x3D;</h4><blockquote>
+<ol>
+<li>和cat的区别？</li>
+<li>语法使用？</li>
+<li>如何往下加载？如何退出？</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">more Linux路径</span><br></pre></td></tr></table></figure>
+
+<p>cat是显示全部内容</p>
+<p>more可以像电子书一样看一页一页，空格或者回车往下翻</p>
+<p>q退出</p>
+<img src="/post/deb5175a/image-20231012152539129.png" class="" title="image-20231012152539129">
+
+<h3 id="cp-mv-rm命令"><a href="#cp-mv-rm命令" class="headerlink" title="cp-mv-rm命令"></a>cp-mv-rm命令</h3><blockquote>
+<ol>
+<li>cp是干嘛的？</li>
+</ol>
+</blockquote>
+<h4 id="cp命令-复制-r"><a href="#cp命令-复制-r" class="headerlink" title="cp命令(复制)  -r"></a>cp命令(复制)  -r</h4><blockquote>
+<ol>
+<li>语法格式？</li>
+<li>作用？</li>
+<li>如何记忆-r参数？</li>
+</ol>
+</blockquote>
+<p>function：复制文件夹使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp [-r] 参数1 参数2</span><br><span class="line">参数以是别人的作业，参数2是抄到哪里？target</span><br></pre></td></tr></table></figure>
+
+<p>如果目标不存在就创建并copy</p>
+<img src="/post/deb5175a/image-20231012154116623.png" class="" title="image-20231012154116623">
+
+<p>&#x3D;&#x3D;-r：代表当复制文件夹的时候递归！&#x3D;&#x3D;recursively（递归地）</p>
+<img src="/post/deb5175a/image-20231012155229635.png" class="" title="image-20231012155229635">
+
+<h4 id="mv命令-移动文件"><a href="#mv命令-移动文件" class="headerlink" title="mv命令(移动文件)"></a>mv命令(移动文件)</h4><blockquote>
+<ol>
+<li>语法格式？</li>
+<li>有选项吗？</li>
+<li>改名效果是什么？》</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mv 参数1 参数2</span><br></pre></td></tr></table></figure>
+
+<p>参数一是原来的位置，参数二是新的位置</p>
+<p>&#x3D;&#x3D;参数二是否存在的影响&#x3D;&#x3D;</p>
+<p>移动文件</p>
+<img src="/post/deb5175a/image-20231012160135950.png" class="" title="image-20231012160135950">
+
+<p>改名效果</p>
+<img src="/post/deb5175a/image-20231012160217768.png" class="" title="image-20231012160217768">
+
+<p>移动文件夹</p>
+<img src="/post/deb5175a/image-20231012155848997.png" class="" title="image-20231012155848997">
+
+<p>改名效果“当在同一个路径下移动且    目标不存在，也就是参数二不存在的时候就是改名效果</p>
+<img src="/post/deb5175a/image-20231012155810579.png" class="" title="image-20231012155810579">
+
+<h4 id="rm命令-删除文件-r-f"><a href="#rm命令-删除文件-r-f" class="headerlink" title="&#x3D;&#x3D;rm命令(删除文件)&#x3D;&#x3D; -r -f"></a>&#x3D;&#x3D;rm命令(删除文件)&#x3D;&#x3D; -r -f</h4><blockquote>
+<ol>
+<li>语法格式？</li>
+<li>参数 -r -f作用？记忆方式？</li>
+<li>r是recursively</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm [-r -f] 参数1 参数2 参数3 参数4。。。。。。。。。。。。。。。参数n</span><br></pre></td></tr></table></figure>
+
+<p>参数是被删除的文件</p>
+<p>-r用于删除文件夹</p>
+<p>-f是force是强制删除 而且一般用户的强力删除是没有确认信息的，root跟用户的删除有提示。</p>
+<p>删除文件：</p>
+<img src="/post/deb5175a/image-20231012160707983.png" class="" title="image-20231012160707983">
+
+<p>删除文件夹&#x3D;&#x3D;-r也相当于递归recursively&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231012160747453.png" class="" title="image-20231012160747453">
+
+<p>删除多个&#x3D;&#x3D;追加多个参数就好了&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231012161125487.png" class="" title="image-20231012161125487">
+
+<h4 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h4><p>rm命令支持通配符*用来模糊匹配</p>
+<p>*可以匹配任意内容包括空</p>
+<p>test*表示匹配任何以test结尾的内容</p>
+<p>*test表示匹配任何以test开头的内容</p>
+<p>*test表示匹配任何包含test的内容</p>
+<img src="/post/deb5175a/image-20231012162335928.png" class="" title="image-20231012162335928">
+
+<p>-f（提示给超级用户看的，当你不强力删除的时候）</p>
+<img src="/post/deb5175a/image-20231012163555047.png" class="" title="image-20231012163555047">
+
+<p>超级用户的登录 </p>
+<blockquote>
+<ol>
+<li><pre><code>su - root
+su -
+输入密码
+进入了
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">2. 想退出了直接exit</span><br><span class="line"></span><br><span class="line">3. 删库跑路牢饭管饱</span><br><span class="line"></span><br><span class="line">   rm -rf /*</span><br><span class="line"></span><br><span class="line">   强制删除根目录下的所有文件</span><br><span class="line"></span><br><span class="line">### which-find命令</span><br><span class="line"></span><br><span class="line">1. which如何使用</span><br><span class="line">2. find如何使用？</span><br><span class="line"></span><br><span class="line">#### which(查找命令)</span><br><span class="line"></span><br><span class="line">==命令cd，ls[其实本质就是二进制的可执行程序](#环境变量)==</span><br><span class="line"></span><br><span class="line">1. 语法格式？</span><br><span class="line">2. 查找什么的？</span><br><span class="line"></span><br><span class="line">function找命令的位置</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+which 要查找的命令
+</code></pre>
+</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### find(查找文件)</span><br><span class="line"></span><br><span class="line">==按照文件名==查找</span><br><span class="line"></span><br><span class="line">1. ==(-name)按照文件名查找==</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>   find 起始路径 -name 所查找的文件名<br>   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   在使用 `find` 命令时， `-name` 选项用于指定要查找的文件名。</span><br><span class="line"></span><br><span class="line">   ==如果文件名中不含有空格或其他特殊字符==，则不加双引号和加双引号的效果是相同的。</span><br><span class="line"></span><br><span class="line">   所以最好还是带上</span><br><span class="line"></span><br><span class="line">2. 全盘搜索(/)</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   find &#x2F; -name “test”<br>   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">3. 配合通配符查找</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>    find &#x2F; -name “test*”<br>   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">==按照文件大小查找==</span><br><span class="line"></span><br><span class="line">1. (-size)按照问年间大小查找</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   find 起始路径 -size +|-n[kMG]<br>   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   -size通过文件大小查找，+|-代表大于和小于，n代表大小数字，kMG分别代表kB，MB，GB</span><br><span class="line"></span><br><span class="line">2. ```</span><br><span class="line">   find / -size +10k</span><br><span class="line">   find / -size 10k找的是size=10kb的</span><br><span class="line">   小写k</span><br><span class="line">   find / -size +10M</span><br><span class="line">   find / -size +10G</span><br></pre></td></tr></table></figure></p>
+<h3 id="grep-wc-管道符"><a href="#grep-wc-管道符" class="headerlink" title="grep-wc-管道符"></a>grep-wc-管道符</h3><blockquote>
+<ol>
+<li>如何用grep命令过滤文件内容？</li>
+<li>如何用wc命令统计内容数量?</li>
+<li>管道符是什么？如何使用？</li>
+</ol>
+</blockquote>
+<h4 id="grep命令-过滤文件行-n"><a href="#grep命令-过滤文件行-n" class="headerlink" title="grep命令(过滤文件行)-n"></a>grep命令(过滤文件行)-n</h4><blockquote>
+<p>如何使用和记忆？</p>
+<p>&#x3D;&#x3D;可以作为输入端口?&#x3D;&#x3D;</p>
+</blockquote>
+<p>function:从文件中通过指定关键字过滤文件行，哪一行包含关键字就被过滤出来了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">grep [-n] &quot;关键字&quot; Linux文件路径(可以作为内容的输入端口)</span><br></pre></td></tr></table></figure>
+
+<p>关键字中不带空格和特殊符号的时候加不加“”都是ok的</p>
+<p>&#x3D;&#x3D;推荐加””这个习惯&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231013100905987.png" class="" title="image-20231013100905987">
+
+<p>只要行中包含这个关键字就被过滤出来了</p>
+<img src="/post/deb5175a/image-20231013103729927.png" class="" title="image-20231013103729927">
+
+<p>“g”、“r”、“e”、“p”，然后为每个字母找到一个关键词。例如，“g”可以代表“global”（全局），“r”可以代表“regular”（正则表达式），“e”可以代表“expression”（表达式），“p”可以代表“pattern”（模式）。这样，你可以将grep命令记忆为“全局正则表达式模式”。</p>
+<p>&#x3D;&#x3D;可以作为内容的输入端口)&#x3D;&#x3D;</p>
+<p>和管道符配合使用</p>
+<img src="/post/deb5175a/image-20231013103014377.png" class="" title="image-20231013103014377">
+
+
+
+<h4 id="wc命令-文件内容统计-★★★★★"><a href="#wc命令-文件内容统计-★★★★★" class="headerlink" title="wc命令(文件内容统计)★★★★★"></a>wc命令(文件内容统计)★★★★★</h4><blockquote>
+<p>如何使用和记忆？</p>
+<p>也可以</p>
+</blockquote>
+<p>function：统计文件内容的信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wc [-c|-w|-l-m] Linux文件路径</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;字节数是代表的大小，字符数代表的是字母个数，&#x3D;&#x3D;</p>
+<p> -c, –bytes            print the byte counts<br>  -m, –chars            print the character counts<br>  -l, –lines            print the newline counts</p>
+<p> -L, –max-line-length 显示最长行的长度</p>
+<p> -w, –words                   显示单词计数</p>
+<img src="/post/deb5175a/image-20231013102459475.png" class="" title="image-20231013102459475">
+
+<p>&#x3D;&#x3D;默认是得到，行数，单词数，字节数.&#x3D;&#x3D;</p>
+<p>w是word    c是character，统计单词字符的</p>
+<h4 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h4><p>&#x3D;&#x3D;|&#x3D;&#x3D;</p>
+<p>左边|右边</p>
+<p>左边 | 右边</p>
+<p>都是ok的</p>
+<p>&#x3D;&#x3D;将左边命令得到的结果作为右边命令的输入&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231013103022475.png" class="" title="image-20231013103022475">
+
+<img src="/post/deb5175a/image-20231013103156900.png" class="" title="image-20231013103156900">
+
+<p>只要能产生内容输入的命令都可以和管道符配合使用</p>
+<p>&#x3D;&#x3D;Linux文件路径(可以作为内容的输入端口)&#x3D;&#x3D;</p>
+<p>嵌套使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat test.txt | grep -n &quot;ok&quot; | wc -l</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231013104048797.png" class="" title="image-20231013104048797">
+
+<img src="/post/deb5175a/image-20231013104341314.png" class="" title="image-20231013104341314">
+
+<img src="/post/deb5175a/image-20231013104659495.png" class="" title="image-20231013104659495">
+
+
+
+<h3 id="echo-tali命令-重定向符号"><a href="#echo-tali命令-重定向符号" class="headerlink" title="echo-tali命令-重定向符号"></a>echo-tali命令-重定向符号</h3><blockquote>
+<ol>
+<li>echo如何使用？</li>
+<li>tail如何使用？</li>
+<li>什么是重定向符号?</li>
+<li>加不加”” 有区别吗？</li>
+</ol>
+</blockquote>
+<h4 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h4><blockquote>
+<p>echo是干什么的如何使用？</p>
+</blockquote>
+<p>function:打印语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;要输出的内容&quot;</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;内容比较复制的时候加上””更好&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;hello world&quot;</span><br><span class="line">echo hello world</span><br><span class="line">虽然二者都一样但是后者容易误解为参数</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231013133029898.png" class="" title="image-20231013133029898">
+
+<h4 id="反引号-模板字符"><a href="#反引号-模板字符" class="headerlink" title="反引号&#96;&#96;(模板字符)"></a>反引号&#96;&#96;(模板字符)</h4><blockquote>
+<p>类似python的模板字符串</p>
+</blockquote>
+<p>function :当我们想echo输出命令的内容的时候而不是输出命令的文本</p>
+<img src="/post/deb5175a/image-20231013133447412.png" class="" title="image-20231013133447412">
+
+
+
+<h4 id="重定向-和-写入"><a href="#重定向-和-写入" class="headerlink" title="重定向&gt;和&gt;&gt;(写入)"></a>重定向&gt;和&gt;&gt;(写入)</h4><blockquote>
+<p>如何使用？区分&gt; 和 &gt;&gt;</p>
+</blockquote>
+<p>function:向文件写入内容，修改内容</p>
+<p>&gt; 的时候会覆盖掉原来的内容</p>
+<img src="/post/deb5175a/image-20231013134014901.png" class="" title="image-20231013134014901">
+
+<p>&gt;&gt;的时候会追加在原来的内容的后面</p>
+<img src="/post/deb5175a/image-20231013134054540.png" class="" title="image-20231013134054540">
+
+<p>&#x3D;&#x3D;只要是能产生输出的命令都可以作为&gt;和&gt;&gt;的左值&#x3D;&#x3D;</p>
+<h4 id="tail命令-查看尾-f-num"><a href="#tail命令-查看尾-f-num" class="headerlink" title="tail命令(查看尾) -f -num"></a>tail命令(查看尾) -f -num</h4><blockquote>
+<p>如何使用？</p>
+<p>两个参数都代表什么意思？</p>
+<p>num是简单的-num吗还是-一个确实的参数？</p>
+</blockquote>
+<p>&#x3D;&#x3D;(持续)function:查看一个文件的尾巴的倒数num行数据&#x3D;&#x3D;</p>
+<p><code>tail -num text.txt</code></p>
+<p>num要写一个实际的数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tail -20 text.txt</span><br><span class="line">而不是</span><br><span class="line">tail -num text.txt</span><br></pre></td></tr></table></figure>
+
+<p>默认是看倒数10条数据</p>
+<img src="/post/deb5175a/image-20231013134921569.png" class="" title="image-20231013134921569">
+
+<p>&#x3D;&#x3D;-f监听开始&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231013135204101.png" class="" title="image-20231013135204101">
+
+<p>就可以实时看新的信息了</p>
+<p>&#x3D;&#x3D;开始监听	和指定倒数多少行已经没意义了&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tail -f Linux路径</span><br></pre></td></tr></table></figure>
+
+<p>想要退出就CTRL+C</p>
+<h3 id="VI编辑器"><a href="#VI编辑器" class="headerlink" title="VI编辑器"></a>VI编辑器</h3><img src="/post/deb5175a/image-20231014094248596.png" class="" title="image-20231014094248596">
+
+<blockquote>
+<ol>
+<li><p>&#x3D;&#x3D;命令模式&#x3D;&#x3D;</p>
+<p>所敲的案件编译器都理解为命令，驱动执行不同的功能，不能自由的编辑文本</p>
+</li>
+<li><p>&#x3D;&#x3D;输入模式&#x3D;&#x3D;</p>
+<p>也就是所谓的编辑模式，可以自由的文本便辑</p>
+</li>
+<li><p>&#x3D;&#x3D;底线命令模式&#x3D;&#x3D;</p>
+<p>以：开始，通常用于文件的保存，退出</p>
+</li>
+</ol>
+</blockquote>
+<p>vim&#x3D;vi++</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi Linux文件路径</span><br><span class="line">vim Linux文件路径</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;如果文件路径表示文件就用于编辑已有文件&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;如果文件路径的文件不存在吗就用于编辑新文件&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231014094922363.png" class="" title="image-20231014094922363">
+
+<blockquote>
+<ol>
+<li><p>默认进入的是命令模式</p>
+<ol>
+<li>i，进入输入模式。ESC回到命令模式</li>
+<li>在命令模式下，输入dd删除一行的内容，u是撤销CTRL是反向撤销</li>
+</ol>
+</li>
+<li><p>输入:进入底线命令模式</p>
+<p>wq：保存并退出</p>
+<p>w是写入并保存，但是不退出</p>
+<p>q单独退出，不保存</p>
+<p>输入wq再按下enter</p>
+</li>
+<li><p>默认情况下修改了内容但是不保存想直接退出，是会提示的</p>
+<img src="/post/deb5175a/image-20231014095737998.png" class="" title="image-20231014095737998">
+
+<p>&#x3D;&#x3D;强制退出!q&#x3D;&#x3D;</p>
+<p>命令模式下的快捷键</p>
+<img src="/post/deb5175a/image-20231014095912732.png" class="" title="image-20231014095912732">
+
+<img src="/post/deb5175a/image-20231014100056356.png" class="" title="image-20231014100056356">
+
+<img src="/post/deb5175a/image-20231014100419393.png" class="" title="image-20231014100419393">
+
+<p>gg,G</p>
+<p>dgg,dG</p>
+<p>删除的包含当前行</p>
+<p>底线命令模式下:</p>
+<img src="/post/deb5175a/image-20231014101814961.png" class="" title="image-20231014101814961">
+
+<p>set paste用于保证i输入的时候粘贴的内容不会错乱</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="Linux的root用户"><a href="#Linux的root用户" class="headerlink" title="Linux的root用户"></a>Linux的root用户</h3><p>windows和mac，Linux都是采用多用户的管理模式进行权限管理</p>
+<p>root用户有最大的系统从操作权限</p>
+<p>也就是有的手机root是干嘛的了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su - root</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;su————-S(switch)—-W(which)&#x3D;&#x3D;</p>
+<h3 id="选择用户"><a href="#选择用户" class="headerlink" title="&#x3D;&#x3D;选择用户&#x3D;&#x3D;"></a>&#x3D;&#x3D;选择用户&#x3D;&#x3D;</h3><p>进入root用户</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su [-] 用户名</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;-可选，表示是否在切换环境后是否加载环境变量&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;想要退出当前用户，就用exit或者CTRL+D&#x3D;&#x3D;</p>
+<p>》》》》</p>
+<blockquote>
+<p>一般情况下，普通用户在home内权限是不受限制的</p>
+<p>但是出来home大多数都只有制度和执行权限，没有修改权限</p>
+</blockquote>
+<img src="/post/deb5175a/image-20231014103123239.png" class="" title="image-20231014103123239">
+
+<h3 id="sudo命令"><a href="#sudo命令" class="headerlink" title="sudo命令"></a>sudo命令</h3><blockquote>
+<p>是干什么的？</p>
+<p>每个用户都可以随便使用sudo吗？</p>
+<p>如何给用户添加认证?</p>
+<p>有了sudo认证的普通用户可以方便的进入root吗？如何输？</p>
+</blockquote>
+<p>普通用户出了home就很弱鸡了</p>
+<img src="/post/deb5175a/image-20231014103753012.png" class="" title="image-20231014103753012">
+
+<p>因为sudo是给普通用户的当前命令添加临时的root权限</p>
+<p>但是也不是随便每个用户都可以随便使用sudo的，得有root的认证</p>
+<p>如何认证呢？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">进入root里面</span><br><span class="line">visudo</span><br><span class="line">命令模式下输入G到最下面</span><br><span class="line">用户名 ALL=(ALL)	NOPASSWD: ALL</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
+
+<p>就实现了给用户名添加了sudu认证</p>
+<p>&#x3D;&#x3D;当一个用户有了sudu认证之后，也就是说有了root的钥匙 了，也可以进入root的家&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo su -</span><br><span class="line">就进入了root的家</span><br></pre></td></tr></table></figure>
+
+<h3 id="用户-用户组"><a href="#用户-用户组" class="headerlink" title="用户&amp;用户组"></a>用户&amp;用户组</h3><blockquote>
+<ol>
+<li>用户和用户组和root的关系</li>
+<li>如何创建和删除组？</li>
+<li>普通用户可以创建组吗？</li>
+<li>&#x3D;&#x3D;Linux权限管控的单元式用户级别和用户组级别&#x3D;&#x3D;</li>
+</ol>
+</blockquote>
+<p>Linux：可以配置多个用户</p>
+<p>​	可以配置多个用户组</p>
+<p>用户可以加入到多个用户组中</p>
+<img src="/post/deb5175a/image-20231014170328423.png" class="" title="image-20231014170328423">
+
+<blockquote>
+<p>创建用户组</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">groupadd 用户组名</span><br></pre></td></tr></table></figure>
+
+<p>删除用户组</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">groupdel 用户组名</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;二者必须在root用户执行&#x3D;&#x3D;</p>
+</blockquote>
+<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><blockquote>
+<p>有了用户组后，如何创建用户？</p>
+<p>如何删除用户呢？</p>
+<p>如何查看用户是哪一个组的呢？</p>
+<p>如何修改用户的组呢？</p>
+<p>如何形象记忆-g和-d和-r呢</p>
+</blockquote>
+<p>&#x3D;&#x3D;都得在root下或者sudo执行&#x3D;&#x3D;</p>
+<ol>
+<li><p>创建用户</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">useradd [-g -d] 用户名</span><br></pre></td></tr></table></figure>
+
+<p>-g是用来指定用户的组的，如果没有那就是默认创建一个用户名的组并且加入一个用户。</p>
+<p>-d是用来指定用户home路径，默认是在&#x2F;home&#x2F;用户的</p>
+<blockquote>
+<p>默认创建</p>
+<img src="/post/deb5175a/image-20231014171615773.png" class="" title="image-20231014171615773">
+
+<p>使用-g指定用户的组和使用-d指定用户的home路径</p>
+<img src="/post/deb5175a/image-20231014171913140.png" class="" title="image-20231014171913140">
+
+<p>&#x3D;&#x3D;-g（group组指定用户的组的）&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;-d（directory目录指定用户的home路径）&#x3D;&#x3D;</p>
+</blockquote>
+</li>
+<li><p>删除用户</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">userdel 用户名</span><br></pre></td></tr></table></figure>
+
+<p>这样是删除了这个用户，但是没有删除用户在home目录</p>
+<img src="/post/deb5175a/image-20231014173230467.png" class="" title="image-20231014173230467">
+
+<p>删除彻底</p>
+<img src="/post/deb5175a/image-20231014173344580.png" class="" title="image-20231014173344580">==-r就是recursively删除一个目录（文件夹)就得迭代！==
+</blockquote>
+</li>
+<li><p>查看用户所属的组</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">id 用户名</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231014173729362.png" class="" title="image-20231014173729362">
+
+<p>得到用户名，用户的所属组</p>
+</blockquote>
+</li>
+<li><p>修改用户所属的组</p>
+<p>-a 是add添加到G的组下面</p>
+<p>&#x3D;&#x3D;原来的还在那个组里面，一个用户可以在多个组&#x3D;&#x3D;<a target="_blank" rel="noopener" href="https://blog.csdn.net/wushibo123/article/details/124619123">【2023最新版】Hexo+github搭建个人博客并绑定个人域名_hexo部署github绑定自定义域名-CSDN博客</a></p>
+<p>-G也就是group咯</p>
+<p>这个顺序没必要记忆用-h查看帮助文档</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">usermod -aG 新的组 要被修改的用户名</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231014180447738.png" class="" title="image-20231014180447738">
+</li>
+<li><p>查看所有用户</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231014175019972.png" class="" title="image-20231014175019972">
+</li>
+<li><p>查看所有的组</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls /etc/group</span><br></pre></td></tr></table></figure></li>
+</ol>
+<img src="/post/deb5175a/image-20231014180647822.png" class="" title="image-20231014180647822">
+
+<p><strong>查看组和用户的另一种方法</strong></p>
+<blockquote>
+<p>查看组</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">getent group</span><br><span class="line">等价于</span><br><span class="line">cat /etc/group</span><br></pre></td></tr></table></figure>
+
+<p>查看用户</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">getent passwd</span><br><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<h3 id="查看Linux权限管控信息"><a href="#查看Linux权限管控信息" class="headerlink" title="查看Linux权限管控信息"></a>查看Linux权限管控信息</h3><blockquote>
+<p>如何查看权限？</p>
+<p>认知权限信息?</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls -al</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>第一列代表文件&#x2F;目录的权限。</li>
+<li>&#x3D;&#x3D;第二列代表文件&#x2F;目录的硬链接数&#x3D;&#x3D;。</li>
+<li>第三列代表文件&#x2F;目录的所有者。   <strong>&#x3D;&#x3D;所属用户&#x3D;&#x3D;</strong></li>
+<li>第四列代表文件&#x2F;目录的所属组。</li>
+<li>第五列代表文件&#x2F;目录的大小（以字节为单位）。</li>
+<li>第六列代表文件&#x2F;目录的修改日期和时间。</li>
+<li>第七列代表文件&#x2F;目录的名称。</li>
+</ol>
+<blockquote>
+<p>硬链接数是一个重要的属性，它表示有多少个文件名指向同一个文件或目录。</p>
+<p><a href="#%E7%A1%AC%E8%BF%9E%E6%8E%A5&%E5%88%A0%E9%99%A4">当硬链接数为0时，文件或目录被认为是删除的，占用的磁盘空间会被释放。</a></p>
+<p>只有当所有硬链接都被删除时，文件或目录才会真正被删除。</p>
+</blockquote>
+<img src="/post/deb5175a/image-20231014234949177.png" class="" title="image-20231014234949177">
+
+<p>&#x3D;&#x3D;认知权限信息&#x3D;&#x3D;</p>
+<p>分为10个槽位</p>
+<p>x   xyz  xyz xyz</p>
+<p>&#x3D;&#x3D;从左到右，由近到远&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231014235055002.png" class="" title="image-20231014235055002">
+
+<p>l:表示是<a href="#%E6%9D%83%E9%99%90l">软连接</a>&#x2F;硬连接</p>
+<p><strong>d:directory表示是一个文件夹</strong></p>
+<p><strong>-:表示是一个文件</strong></p>
+<p>&#x3D;&#x3D;r：读，w：写，x：执行&#x3D;&#x3D;</p>
+<p>x——excute</p>
+<blockquote>
+ <img src="/post/deb5175a/image-20231014235553291.png" class="" title="image-20231014235553291">
+
+</blockquote>
+<h3 id="chmod命令"><a href="#chmod命令" class="headerlink" title="chmod命令"></a>chmod命令</h3><blockquote>
+<p>需要iroot权限吗</p>
+<p>-R是干嘛的</p>
+<p>chmod如何形象记忆？（change）（mode）</p>
+<p>谁都可以修改吗？</p>
+</blockquote>
+<p>&#x3D;&#x3D;需要是root或者文件&#x2F;文件夹的所属用户&#x3D;&#x3D;</p>
+<p>》》》《《《</p>
+<h4 id="所属用户"><a href="#所属用户" class="headerlink" title="所属用户"></a>所属用户</h4><p>所属用户是指创建该文件或文件夹的用户，也就是该文件或文件夹的所有者。每个用户都有一个唯一的用户ID（UID）来标识自己。</p>
+<p>所属用户对文件或文件夹有特定的权限，可以控制对其的访问、修改和执行操作。只有所属用户或具有特定权限的用户才能对文件或文件夹进行操作。</p>
+<p>》》》《《《</p>
+<p>function：修改文件，文件夹的权限信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod [-R] 权限 文件或文件夹</span><br></pre></td></tr></table></figure>
+
+<p><code>权限:u(user)=       ,g(group)=        ,o(other)=   </code></p>
+<p>&#x3D;&#x3D;用，号隔开&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231015120120566.png" class="" title="image-20231015120120566"> 
+
+<img src="/post/deb5175a/image-20231015120131004.png" class="" title="image-20231015120131004"> 
+
+<img src="/post/deb5175a/image-20231015120158642.png" class="" title="image-20231015120158642"> 
+
+<img src="/post/deb5175a/image-20231015120208266.png" class="" title="image-20231015120208266"> 
+
+<img src="/post/deb5175a/image-20231015120223520.png" class="" title="image-20231015120223520"> 
+
+<p>rwx</p>
+<p>-必须出现在最后面</p>
+<p>例如你想要rx</p>
+<p>不能写r-x</p>
+<p>遇到-就停止了</p>
+<img src="/post/deb5175a/image-20231015120404566.png" class="" title="image-20231015120404566"> 
+
+<img src="/post/deb5175a/image-20231015120411744.png" class="" title="image-20231015120411744"> 
+
+<hr>
+<p>&#x3D;&#x3D;加了-R就可以迭代的修改文件夹里的所有文件&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231015120609960.png" class="" title="image-20231015120609960"> 
+
+<h3 id="chmodPlus"><a href="#chmodPlus" class="headerlink" title="chmodPlus"></a>chmodPlus</h3><p>&#x3D;&#x3D;RWX:4 2 1&#x3D;&#x3D;</p>
+<p>ugo:x y z</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod xyz [-R] 文件或者文件夹</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>没有任何权限</th>
+<th>—</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>只有x权限</td>
+<td>–x</td>
+</tr>
+<tr>
+<td>2</td>
+<td>只有w权限</td>
+<td>-w-</td>
+</tr>
+<tr>
+<td>3</td>
+<td>有wx权限</td>
+<td>-wx</td>
+</tr>
+<tr>
+<td>4</td>
+<td>只有r权限</td>
+<td>r–</td>
+</tr>
+<tr>
+<td>5</td>
+<td>有r和x权限</td>
+<td>r-x</td>
+</tr>
+<tr>
+<td>6</td>
+<td>有r和w权限</td>
+<td>rw-</td>
+</tr>
+<tr>
+<td>7</td>
+<td>全都有！</td>
+<td>rwx</td>
+</tr>
+</tbody></table>
+<img src="/post/deb5175a/image-20231015122645831.png" class="" title="image-20231015122645831"> 
+
+<p>chmod——-Change Mode</p>
+<h3 id="chown命令"><a href="#chown命令" class="headerlink" title="chown命令"></a>chown命令</h3><blockquote>
+<p>是干什么的？</p>
+<p>如何使用？</p>
+<p>如何形象记忆？[]:[] 类比ls -l得到的每一列的信息</p>
+<p>谁都可以修改吗？</p>
+</blockquote>
+<p>&#x3D;&#x3D;普通用户是没有办法使用chown的&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231015125500572.png" class="" title="image-20231015125500572"> 
+
+<p>人家要不要呢？是没有办法强加的。</p>
+<p>function：修改文件或者文件夹的所属用户或者用户组</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chown [-R] [用户名]:[用户组] 文件或者文件夹的Linux路径</span><br></pre></td></tr></table></figure>
+
+<p>修改所属用户</p>
+<img src="/post/deb5175a/image-20231015124306613.png" class="" title="image-20231015124306613"> 
+
+<img src="/post/deb5175a/image-20231015124317369.png" class="" title="image-20231015124317369"> 
+
+<img src="/post/deb5175a/image-20231015124325153.png" class="" title="image-20231015124325153"> 
+
+<p>修改用户组</p>
+<img src="/post/deb5175a/image-20231015124702807.png" class="" title="image-20231015124702807"> 
+
+<p><strong>&#x3D;&#x3D;-R的修改其子文件都同步修改&#x3D;&#x3D;</strong></p>
+<img src="/post/deb5175a/image-20231015125105195.png" class="" title="image-20231015125105195"> 
+
+
+
+
+
+<h2 id="各类小技巧快捷键CTRL-cdae"><a href="#各类小技巧快捷键CTRL-cdae" class="headerlink" title="各类小技巧快捷键CTRL+cd&lt;–&gt;ae"></a>各类小技巧快捷键CTRL+cd&lt;–&gt;ae</h2><blockquote>
+<p>如何看历史命令？</p>
+<p>强制停止？ CTRL+C</p>
+<p>退出，登出？ CTRL+D</p>
+<p>历史命令搜索的两种方法？!+命令和CTRL+R</p>
+<p>光标移动？</p>
+<p>如何形象记忆CTRL+a和e呢</p>
+</blockquote>
+<ol>
+<li><p>CTRL+C强制停止（程序运行）</p>
+<p>命令写错了直接CTRL+C就是取消掉改行命令了</p>
+</li>
+<li><p>CTRL+D退出，登出，退出账户的登录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python就直接进入python的罕井中了</span><br></pre></td></tr></table></figure>
+
+<p>CTRL+D可以&#x3D;&#x3D;退出某些特定程序的专属页面&#x3D;&#x3D;</p>
+<p><code>但是不能用于退出VI/VIM</code></p>
+</li>
+<li><p>history 查看我们输入过的</p>
+<img src="/post/deb5175a/image-20231015215042584.png" class="" title="image-20231015215042584"> 
+
+<p>序号越大的是最新的</p>
+<p>配合grep和管道符查筛选</p>
+<img src="/post/deb5175a/image-20231015215114208.png" class="" title="image-20231015215114208"> 
+
+<blockquote>
+<ol>
+<li><p>!+命令前缀</p>
+<p>!p</p>
+<pre><code>   他会从history的结果从下往上开始找到第一个开始匹配就执行了
+</code></pre>
+</li>
+</ol>
+<p>&#x3D;&#x3D;历史命令搜索&#x3D;&#x3D;</p>
+<ol start="2">
+<li><p>CTRL+R</p>
+<img src="/post/deb5175a/image-20231015215705653.png" class="" title="image-20231015215705653"> 
+
+<ol>
+<li>按下&lt;-或者-&gt;就可以得到所显示的命令了</li>
+<li>回车直接执行所显示的命令</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p>光标移动CTRL+-&gt;&#x2F;&lt;-</p>
+<blockquote>
+<p>CTRL+&gt;光标向右跳过一个单词</p>
+<p>CTRL+&lt;光标向左跳过一个单词</p>
+<p>上面二者也适用于md文档</p>
+<p>CTRL+a光标跳到开头</p>
+<p>CTRL+e光标跳到结尾</p>
+<p><code>a==（ahead向前）,e==(end末尾)</code></p>
+</blockquote>
+</li>
+<li><p>清屏</p>
+<p><code>clear</code></p>
+<p>或者</p>
+<p>CTRL+L</p>
+<p><strong>&#x3D;&#x3D;l&#x3D;（clean）&#x3D;&#x3D;</strong></p>
+</li>
+</ol>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><blockquote>
+<p>如何使用yum为centos系统安装软件？</p>
+<p>如何使用apt为ubuntu安装软件？</p>
+</blockquote>
+<p>操作系统安装软件的方式</p>
+<ol>
+<li><p>下载安装包自行安装</p>
+<blockquote>
+<p>windows用.exe文件.msi等</p>
+<p>mac用dmg.pkg等</p>
+</blockquote>
+</li>
+<li><p>系统的应用商店内安装</p>
+<blockquote>
+<p>windows的Microsoft Store商店</p>
+<p>Mac的appstore</p>
+</blockquote>
+</li>
+<li><p>&#x3D;&#x3D;Linux系统也同样支持这两种方式&#x3D;&#x3D;</p>
+<blockquote>
+<p><strong><code>centos用yum管理器,ubuntu用apk管理器==</code></strong></p>
+<ol>
+<li><p>用Linux命令行内的&#x3D;&#x3D;“应用商店”&#x3D;&#x3D;—-<strong>yum命令安装软件</strong></p>
+<p><a href="#yum%E5%91%BD%E4%BB%A4">yum命令安装软件</a></p>
+<p><a href="#apt%E4%B8%BAubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6">apt为ubuntu安装软件</a></p>
+</li>
+<li><p>在Linux中，常见的安装包格式有以下几种：</p>
+<ol>
+<li>DEB包：DEB（Debian）是Debian及其衍生发行版（如Ubuntu、Linux Mint等）使用的安装包格式。DEB包以.deb为扩展名，可以使用dpkg命令进行安装、升级和移除。</li>
+<li>&#x3D;&#x3D;RPM包&#x3D;&#x3D;：RPM（Red Hat Package Manager）是Red Hat及其衍生发行版（如Fedora、CentOS等）使用的安装包格式。RPM包以.rpm为扩展名，可以使用yum或dnf命令进行安装、升级和移除。</li>
+<li>&#x3D;&#x3D;TAR包&#x3D;&#x3D;：TAR（Tape Archive）是一种常见的归档文件格式，在Linux中经常用于打包和压缩文件。TAR包通常以.tar为扩展名，可以使用tar命令进行解压和提取。</li>
+<li>压缩包：常见的压缩包格式如GZ、BZ2、XZ等，通常用于将多个文件或目录进行压缩和归档。这些压缩包可以使用相应的解压命令（如gzip、bzip2、xz等）进行解压缩。</li>
+</ol>
+<p><strong>&#x3D;&#x3D;Linux上的软件包管理系统（如yum、apt等）通常会自动处理软件包的依赖关系，因此安装软件时不需要手动下载和安装依赖的软件包。&#x3D;&#x3D;</strong></p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<p>&#x3D;&#x3D;简单总结&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231015224600897.png" class="" title="image-20231015224600897">
+
+<hr>
+<h3 id="yum命令"><a href="#yum命令" class="headerlink" title="yum命令"></a><a name="yum命令">yum命令</a></h3><blockquote>
+<p>干嘛的？</p>
+<p>如何用？</p>
+<p>yum如何形象记忆》？</p>
+<p>和<a href="#curl-O">curl -O</a>的区别？</p>
+</blockquote>
+<h4 id="yum命令语法和作用"><a href="#yum命令语法和作用" class="headerlink" title="yum命令语法和作用"></a>yum命令语法和作用</h4><p>funtion：RPM<strong>包软件管理器</strong>，用于<strong>自动化安装配置LInux的软件，并可以自动解决依赖问题</strong></p>
+<p><code>yum下载的会默认写入环境变量，并且通常可以用systemctl去操作服务状态</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y [install |remove | search] 软件名称</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>install ：安装</li>
+<li>remove :卸载</li>
+<li>search：搜索</li>
+<li>&#x3D;&#x3D;update: 更新&#x3D;&#x3D;</li>
+</ol>
+<hr>
+<ul>
+<li><p>&#x3D;&#x3D;安装软件需要切换到root或者有sudo权限才能正常安装Linux的软件&#x3D;&#x3D;</p>
+</li>
+<li><p>&#x3D;&#x3D;yum需要先联网&#x3D;&#x3D;</p>
+</li>
+</ul>
+<hr>
+<p>（（（（（（（（（（（yum&#x3D;yummy（美味的）<code>操作系统饮用软件</code>））））））））</p>
+<h4 id="install安装一个拓展"><a href="#install安装一个拓展" class="headerlink" title="install安装一个拓展"></a>install安装一个拓展</h4><p>（如果这个过程包含的依赖项也会帮我们安装上）</p>
+<img src="/post/deb5175a/image-20231015222807876.png" class="" title="image-20231015222807876"> 
+
+<h4 id="serach查找-“应用商店”-里面是否有这个软件？"><a href="#serach查找-“应用商店”-里面是否有这个软件？" class="headerlink" title="serach查找&#x3D;&#x3D;“应用商店”&#x3D;&#x3D;里面是否有这个软件？"></a>serach查找&#x3D;&#x3D;“应用商店”&#x3D;&#x3D;里面是否有这个软件？</h4><img src="/post/deb5175a/image-20231015222903089.png" class="" title="image-20231015222903089">
+
+<h4 id="remove卸载掉刚刚安装的wget程序"><a href="#remove卸载掉刚刚安装的wget程序" class="headerlink" title="remove卸载掉刚刚安装的wget程序"></a>remove卸载掉刚刚安装的wget程序</h4><img src="/post/deb5175a/image-20231015223249637.png" class="" title="image-20231015223249637">
+
+<img src="/post/deb5175a/image-20231015223304969.png" class="" title="image-20231015223304969"> 
+
+<p>验证删除掉了</p>
+<h4 id="update更新我们的软件"><a href="#update更新我们的软件" class="headerlink" title="update更新我们的软件"></a>update更新我们的软件</h4><img src="/post/deb5175a/image-20231015223413084.png" class="" title="image-20231015223413084"> 
+
+
+
+<h3 id="ubuntu的apt命令（拓展）"><a href="#ubuntu的apt命令（拓展）" class="headerlink" title="ubuntu的apt命令（拓展）"></a><a name="apt为ubuntu安装软件">ubuntu的apt命令（拓展）</a></h3><p>和centos差不多</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apk [-y] [install | search | update| remove] 软件名字</span><br></pre></td></tr></table></figure>
+
+<h2 id="systmctl命令"><a href="#systmctl命令" class="headerlink" title="systmctl命令"></a>systmctl命令</h2><blockquote>
+<p>如何使用systemctl命令控制软件的启动和关闭</p>
+<p>如何形象记忆Systmctl呢</p>
+</blockquote>
+<h4 id="systmctl命令-1"><a href="#systmctl命令-1" class="headerlink" title="systmctl命令"></a><a name="systemctl">systmctl命令</a></h4><p>&#x3D;&#x3D;能够被systemctl管理的软件，一般也称之为<code>服务</code>&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;<em><strong>systemctl：：system（系统）ctl（control控制）</strong></em>&#x3D;&#x3D;</p>
+<p>function:管理软件的启动停止，开机自启</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start|stop|restart|status|enable|disable 服务名</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>系统内置的服务很多</li>
+<li><ul>
+<li>Networkmanagers</li>
+<li>network</li>
+<li>firewalld</li>
+<li>sshd，ssh服务</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="statues查看服务"><a href="#statues查看服务" class="headerlink" title="statues查看服务"></a>statues查看服务</h4><img src="/post/deb5175a/image-20231016134002273.png" class="" title="image-20231016134002273"> 
+
+<h4 id="stop关闭服务-需要sudo权限"><a href="#stop关闭服务-需要sudo权限" class="headerlink" title="stop关闭服务&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;"></a>stop关闭服务&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;</h4><img src="/post/deb5175a/image-20231016134921469.png" class="" title="image-20231016134921469"> 
+
+<h4 id="再次启动-需要sudo权限"><a href="#再次启动-需要sudo权限" class="headerlink" title="再次启动&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;"></a>再次启动&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;</h4><img src="/post/deb5175a/image-20231016135053481.png" class="" title="image-20231016135053481"> 
+
+<h4 id="启动自启动-需要sudo权限"><a href="#启动自启动-需要sudo权限" class="headerlink" title="启动自启动&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;"></a>启动自启动&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;</h4><img src="/post/deb5175a/image-20231016135530338.png" class="" title="image-20231016135530338">
+
+<h4 id="关闭自启动-需要sudo权限"><a href="#关闭自启动-需要sudo权限" class="headerlink" title="关闭自启动&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;"></a>关闭自启动&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;</h4><img src="/post/deb5175a/image-20231016135553077.png" class="" title="image-20231016135553077"> 
+
+<hr>
+<p>很多软件安装完后都会自动集成到systmctl中</p>
+<p>对于哪些不自动集成到systemctl的软件呢？</p>
+<p>&#x3D;&#x3D;软件!&#x3D;服务&#x3D;&#x3D;</p>
+<p>当然我们也可以<a href="#%E6%89%8B%E5%8A%A8%E6%B7%BB%E5%8A%A0">手动（注册）添加</a></p>
+<img src="/post/deb5175a/image-20231016140008397.png" class="" title="image-20231016140008397">
+
+<h2 id="软连接"><a href="#软连接" class="headerlink" title="软连接"></a>软连接</h2><blockquote>
+<p>什么是软连接？</p>
+<p>如何使用&#x3D;&#x3D;ln命令&#x3D;&#x3D;创建软连接？</p>
+<p>如何形象记忆ln呢？</p>
+</blockquote>
+<h4 id="软连接ln-s"><a href="#软连接ln-s" class="headerlink" title="软连接ln -s"></a>软连接ln -s</h4><p><strong>function：类似Windows的快捷方式，可以将文件，文件夹链接到其他位置</strong></p>
+<p>软链接，它实际上是一个指向原始文件的符号链接，也就是一个<strong>指针</strong></p>
+<p>&#x3D;&#x3D;<strong>ln：（link）（new）</strong>&#x3D;&#x3D;\</p>
+<p>&#x3D;&#x3D;-s:：：（source）&#x2F;set&#x3D;&#x3D;</p>
+<p><strong><code>指定源文件或目录。软链接是指向源文件或目录的特殊文件</code></strong></p>
+<p>用于更新链接的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ln -s 参数1 参数2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>-s选项，创建软连接</li>
+<li>参数1是被链接的文件&#x2F;文件夹</li>
+<li>参数2是要链接到哪?</li>
+</ul>
+<hr>
+<h4 id="s为文件-文件夹添加new-link"><a href="#s为文件-文件夹添加new-link" class="headerlink" title="-s为文件&#x2F;文件夹添加new link"></a>-s为文件&#x2F;文件夹添加new link<a name="权限l"></a></h4><img src="/post/deb5175a/image-20231016142159544.png" class="" title="image-20231016142159544"> 
+
+<hr>
+  <img src="/post/deb5175a/image-20231016143852224.png" class="" title="image-20231016143852224">
+
+<img src="/post/deb5175a/image-20231016143834145.png" class="" title="image-20231016143834145"> 
+
+<p>&#x3D;&#x3D;不要忘记加-s&#x3D;&#x3D;</p>
+<p>创建一个硬链接。硬链接是指向同一个文件的多个文件名，它们共享同样的数据块。在这个命令中，<code>/etc/yum.conf</code>是源文件，<code>~/yum.conf</code>是目标文件，通过执行这条命令，会在当前用户的主目录下创建一个名为<code>yum.conf</code>的硬链接，指向<code>/etc/yum.conf</code>文件。</p>
+<p>硬链接只能在同一个文件系统中创建，而软链接（使用<code>-s</code>选项）可以跨越不同的文件系统。</p>
+<h4 id="软连接和硬连接的区别"><a href="#软连接和硬连接的区别" class="headerlink" title="软连接和硬连接的区别"></a>软连接和硬连接的区别</h4><blockquote>
+<p>软链接和硬链接都是&#x3D;&#x3D;用于创建文件链接的方式&#x3D;&#x3D;它们有以下区别：</p>
+<ol>
+<li><p>软链接是一个特殊的文件，它指向另一个文件或目录，类似于快捷方式。而&#x3D;&#x3D;硬链接是多个文件名指向同一个文件的不同入口，它们共享同样的数据块。&#x3D;&#x3D;</p>
+</li>
+<li><p><strong>软链接可以跨越不同的文件系统，而硬链接只能在同一个文件系统中创建。</strong></p>
+</li>
+<li><p>软链接可以指向目录，而硬链接只能指向文件。&#x3D;&#x3D;软的更灵活&#x3D;&#x3D;</p>
+</li>
+<li><p>当原始文件被删除时，软链接会失效，而硬链接不会受到影响，因为它们共享同样的数据块。</p>
+<blockquote>
+<p><a name="硬连接&删除">硬连接&amp;删除</a>:</p>
+<p>当一个文件被删除时，实际上是删除了该文件在文件系统中的目录项，也就是该文件的文件名和它的数据块之间的映射关系。</p>
+<p><strong>当原始文件被删除时，物理数据块并没有立即被删除。</strong>实际上，文件系统会在<strong>文件的所有硬链接都被删除后，才会释放该文件占用的物理空间</strong>。这是因为文件系统会维护一个引用计数，记录每个文件的硬链接数量。只有当引用计数为0时，文件系统才会释放对应的数据块。</p>
+<img src="/post/deb5175a/image-20231016143325664.png" class="" title="image-20231016143325664"> 
+
+<p>&#x3D;&#x3D;此列就是硬链接数&#x3D;&#x3D;</p>
+<p>即使删除了原始文件，只要还有其他硬链接指向相同的数据块，该数据块就不会被释放。只有当所有硬链接都被删除后，文件系统才会回收相应的物理空间。</p>
+</blockquote>
+</li>
+<li><p>软链接可以使用相对路径或绝对路径创建，而硬链接只能使用相对路径创建。-&gt;&#x3D;&#x3D;相对赢&#x3D;&#x3D;</p>
+</li>
+</ol>
+<p>软链接是一种更加灵活的文件链接方式，而硬链接则更加节省空间，因为多个链接共享同样的数据块。</p>
+</blockquote>
+<h2 id="日期和时区"><a href="#日期和时区" class="headerlink" title="日期和时区"></a>日期和时区</h2><blockquote>
+<p>掌握date命令查看和修改日期时间</p>
+<p>掌握修改Linux系统的时区</p>
+<p>掌握使用ntp进行时间同步和校准</p>
+</blockquote>
+<h4 id="date命令"><a href="#date命令" class="headerlink" title="date命令"></a>date命令</h4><p>function:查看系统的时间</p>
+<p>&#x3D;&#x3D;-d：-d选项用于指定要显示或设置的日期和时间&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;-s设置当前系统的时期&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231016222116358.png" class="" title="image-20231016222116358"> 
+
+<h4 id="d-格式化字符串简单的日期计算"><a href="#d-格式化字符串简单的日期计算" class="headerlink" title="-d+格式化字符串简单的日期计算"></a>-d+格式化字符串简单的日期计算</h4><img src="/post/deb5175a/image-20231016224521198.png" class="" title="image-20231016224521198"> 
+
+<blockquote>
+<p>date -d “+x year|month|date|month|hour|second”  +%……………………………..</p>
+<p>&#x3D;&#x3D;显示标志的时间</p>
+</blockquote>
+<h4 id="s-set-设置当前系统的时期和时间"><a href="#s-set-设置当前系统的时期和时间" class="headerlink" title="-s(set)设置当前系统的时期和时间"></a>-s(set)设置当前系统的时期和时间</h4><ul>
+<li>设置系统的日期和时间为指定日期和时间：<code>date -s &quot;2022-01-01 12:00:00&quot;</code></li>
+<li>显示指定日期和时间的格式化输出<code>date -d &quot;2022-01-01 12:00:00&quot; +&quot;%Y-%m-%d %H:%M:%S&quot;</code></li>
+</ul>
+<hr>
+<p>&#x3D;&#x3D;<strong>格式化字符串含有空格等特殊符号的话加上“”</strong>&#x3D;&#x3D;</p>
+<hr>
+<h4 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h4><p>默认是中国UTC东八区</p>
+<p>》》》</p>
+<p>PDT和CST是时区的缩写，分别代表太平洋夏令时（Pacific Daylight Time）和中部标准时间（Central Standard Time）。</p>
+<img src="/post/deb5175a/image-20231016225115839.png" class="" title="image-20231016225115839"> 
+
+<h4 id="Network-Time-Protocol-ntp-ntpd自动校准时间"><a href="#Network-Time-Protocol-ntp-ntpd自动校准时间" class="headerlink" title="Network Time Protocol::ntp|ntpd自动校准时间"></a>Network Time Protocol::ntp|ntpd自动校准时间</h4><ol>
+<li><p>用<a href="#yum%E5%91%BD%E4%BB%A4">yum</a>安装npt</p>
+<img src="/post/deb5175a/image-20231016225657720.png" class="" title="image-20231016225657720">
+</li>
+<li><p>启动yumd服务</p>
+<img src="/post/deb5175a/image-20231016230324917.png" class="" title="image-20231016230324917"> 
+</li>
+<li><p>启动yumd的自启动服务</p>
+<p>&#x3D;&#x3D;<strong>当ntpd启动后会定期的帮助我们联网校准系统的时间</strong>&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231016230705240.png" class="" title="image-20231016230705240">
+</li>
+<li><p>手动校准</p>
+<blockquote>
+<p>ntpdate -u ntp.aliyun.com</p>
+<p>等待5，6S</p>
+<p>就校准好了！还有偏差</p>
+<img src="/post/deb5175a/image-20231016230957113.png" class="" title="image-20231016230957113"></blockquote>
+</li>
+</ol>
+<h2 id="IP地址主机名"><a href="#IP地址主机名" class="headerlink" title="IP地址主机名"></a><a name="ip">IP</a>地址主机名</h2><h3 id="IP和主机名"><a href="#IP和主机名" class="headerlink" title="IP和主机名"></a>IP和主机名</h3><blockquote>
+<ol>
+<li>什么是IP地址</li>
+<li>什么是主机名</li>
+<li>什么是 &#x3D;&#x3D;域名解析&#x3D;&#x3D;</li>
+</ol>
+</blockquote>
+<h4 id="IPV4和IPV的区别"><a href="#IPV4和IPV的区别" class="headerlink" title="IPV4和IPV的区别"></a>IPV4和IPV的区别</h4><p>IPv4和IPv6是互联网协议（Internet Protocol）的两个版本。</p>
+<ol>
+<li><p>地址空间：&#x3D;&#x3D;IPv4使用32位地址，最多可分配40亿个地址，&#x3D;&#x3D;而I&#x3D;&#x3D;Pv6使用128位地址，可分配的地址数量极其巨大，足以满足未来互联网的需求。&#x3D;&#x3D;</p>
+</li>
+<li><p>地址表示：&#x3D;&#x3D;IPv4地址使用点分十进制表示&#x3D;&#x3D;，如192.168.0.1，而&#x3D;&#x3D;IPv6地址使用冒号分隔的十六进制&#x3D;&#x3D;表示，如2001:0db8:85a3:0000:0000:8a2e:0370:7334。</p>
+<blockquote>
+<p>ipv4:</p>
+<p>a.b.c.d——–192.168.0.1</p>
+<p>a,b,c,d是0-255的数字</p>
+</blockquote>
+</li>
+<li><p>地址配置：IPv4地址通常由网络管理员&#x3D;&#x3D;手动配置或通过动态主机配置协议（DHCP）自动分配&#x3D;&#x3D;，而IPv6地址通常通过无状态地址自动配置（SLAAC）或动态主机配置协议（DHCPv6）自动分配。</p>
+</li>
+<li><p>安全性：IPv6在设计时考虑了安全性，支持IPsec（Internet Protocol Security）协议，可以提供端到端的加密和认证功能。而&#x3D;&#x3D;IPv4需要额外的协议来实现类似的安全性。&#x3D;&#x3D;</p>
+</li>
+<li><p>支持的协议：IPv4支持的协议有限，而IPv6支持更多的协议，如移动IP（Mobile IP）、多播（Multicast）等。</p>
+</li>
+<li><p>网络性能：由于IPv6地址空间更大，IPv6可以减少网络地址转换（NAT）的使用，提高网络性能和连接质量。</p>
+</li>
+</ol>
+<p>总的来说，IPv6相对于IPv4具有更大的地址空间、更好的安全性、更多的协议支持和更好的网络性能，是未来互联网的发展方向。然而，&#x3D;&#x3D;<strong>由于IPv4的广泛应用和设备的兼容性问题，目前IPv4仍然是主要的互联网协议。</strong>&#x3D;&#x3D;</p>
+<h4 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h4><p>&#x3D;&#x3D;因为每一台联网的电脑都会有一个地址，相当于电脑的身份证？&#x3D;&#x3D;</p>
+<blockquote>
+<p>IP地址是互联网中<strong>用于标识设备的一串数字</strong>。可以将其类比为房子的地址</p>
+<p>用来确定设备在网络中的位置和通信的目标。</p>
+</blockquote>
+<p>ipv4:</p>
+<p>a.b.c.d——–192.168.0.1</p>
+<p>a,b,c,d是0-255的数字</p>
+<h4 id="查看虚拟机的IP地址"><a href="#查看虚拟机的IP地址" class="headerlink" title="查看虚拟机的IP地址"></a>查看虚拟机的IP地址</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231017200700611.png" class="" title="image-20231017200700611"> ens33：主网卡
+
+<h4 id="特殊的IP地址"><a href="#特殊的IP地址" class="headerlink" title="特殊的IP地址"></a>特殊的IP地址</h4><p><strong><code>127.0.0.1==本机</code></strong>&#x3D;&#x3D;回环IP&#x3D;&#x3D;</p>
+<p>0.0.0.0</p>
+<ul>
+<li><strong>可以指代本机</strong>，</li>
+<li>确定绑定关系,</li>
+<li>表示所有IP的意思（放行规则设置位0.0.0.表示允许任意IP访问）</li>
+</ul>
+<hr>
+<h4 id="主机名"><a href="#主机名" class="headerlink" title="主机名"></a>主机名</h4><p>function：标识一个计算机</p>
+<img src="/post/deb5175a/image-20231017201035156.png" class="" title="image-20231017201035156"> 
+
+<h4 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h4><p>查看主机</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hostname</span><br></pre></td></tr></table></figure>
+
+<p>就显示了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hostnamectl set-hostname 新的主机名</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231017201242951.png" class="" title="image-20231017201242951"> 
+
+<p>重新登录后就可以了</p>
+<img src="/post/deb5175a/image-20231017201536111.png" class="" title="image-20231017201536111"> 
+
+<h4 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h4><p><strong>ip地址记不住，记住域名就ok了</strong></p>
+<p>baidu</p>
+<p><code>IP地址和域名的映射关系</code></p>
+<h4 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h4><img src="/post/deb5175a/image-20231017202010816.png" class="" title="image-20231017202010816">
+
+<blockquote>
+<ol>
+<li><p>先看自己本机是否记录有对应网站的IP地址&#x3D;&#x3D;<strong>首先</strong>&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231017202135278.png" class="" title="image-20231017202135278">
+</li>
+<li><p>如果没有再联网去DNS服务器找到<a target="_blank" rel="noopener" href="http://www.baidu.com的ip地址/">www.baidu.com的IP地址</a></p>
+</li>
+</ol>
+</blockquote>
+<h4 id="自己添加域名映射"><a href="#自己添加域名映射" class="headerlink" title="自己添加域名映射"></a>自己添加域名映射</h4><p>&#x3D;&#x3D;不用IP地址而是用主机名&#x3D;&#x3D;</p>
+<p>因为finalshell是通过Windows访问Linux</p>
+<blockquote>
+<ol>
+<li><p>管理员身份运行记事本</p>
+</li>
+<li><p>打开hosts文件</p>
+<img src="/post/deb5175a/image-20231017204304997.png" class="" title="image-20231017204304997"> 
+</li>
+<li><p>加上虚拟机的IP地址加上空格和域名</p>
+</li>
+<li><img src="/post/deb5175a/image-20231017204239375.png" class="" title="image-20231017204239375"> 
+</li>
+<li><p>就可以实现域名到IP地址的映射啦</p>
+</li>
+</ol>
+<p>WIN+R输入 ping 和网页地址就可以得到网页的IP地址啦</p>
+</blockquote>
+<h4 id="DHCP自动分配IP地址和其他网络配置信息"><a href="#DHCP自动分配IP地址和其他网络配置信息" class="headerlink" title="DHCP自动分配IP地址和其他网络配置信息"></a>DHCP自动分配IP地址和其他网络配置信息</h4><p>DHCP（Dynamic Host Configuration Protocol）是一种网络协议，用于&#x3D;&#x3D;自动分配IP地址和其他网络配置信息给计算机和其他设备。&#x3D;&#x3D;</p>
+<p>作用类似于租房中介，&#x3D;&#x3D;帮助设备在网络中找到可用的IP地址，并提供其他必要的网络配置&#x3D;&#x3D;。</p>
+<p>》》》</p>
+<p>在DHCP中，你的计算机就是租房的需求方，DHCP服务器就是租房中介。当你的计算机连接到网络时，它会向DHCP服务器发送一个请求，请求一个可用的IP地址和其他网络配置信息。DHCP服务器会检查可用的IP地址池，并为你的计算机分配一个IP地址，并提供其他必要的网络配置，比如子网掩码、默认网关、DNS服务器等。</p>
+<p>此后，你的计算机就能够在网络中正常通信了。</p>
+<h3 id="虚拟机配置固定IP地址"><a href="#虚拟机配置固定IP地址" class="headerlink" title="虚拟机配置固定IP地址"></a>虚拟机配置固定IP地址</h3><blockquote>
+<p>windows如何在VMware中配置Linux的固定IP地址</p>
+</blockquote>
+<ol>
+<li><p>为什么需要固定的IP呢？</p>
+<p>因为我们的虚拟机是通过DHCP服务获取的，会频繁变更</p>
+<p>个人，办公电脑的IP变化与否无所谓，但是我们要远程链接我们的虚拟机，IP地址经常变换就不方便</p>
+</li>
+<li><p>还有我们自己添加的&#x3D;&#x3D;虚拟机的IP地址和主机名的映射&#x3D;&#x3D;如果IP地址频繁更改就需要频繁的在hosts 中修改</p>
+</li>
+</ol>
+<hr>
+<h4 id="Vmware-Workstation配置固定IP"><a href="#Vmware-Workstation配置固定IP" class="headerlink" title="Vmware Workstation配置固定IP"></a>Vmware Workstation配置固定IP</h4><ol>
+<li><p>在VMware中设置</p>
+<img src="/post/deb5175a/image-20231017214638066.png" class="" title="image-20231017214638066"> 
+
+<blockquote>
+<p>子网IP为192.168.88.0，这表示该局域网中的设备可以使用从192.168.88.1到192.168.88.254的IP地址。</p>
+<hr>
+<p>网关的IP地址可以是该局域网中的任何设备的IP地址，通常是路由器的IP地址。将网关设置为192.168.88.1意味着你将局域网中的路由器指定为网关。</p>
+</blockquote>
+</li>
+<li><p>NAT设置</p>
+<img src="/post/deb5175a/image-20231017215011422.png" class="" title="image-20231017215011422"> 
+
+<hr>
+</li>
+<li><p>在LInux的配置文件里配置</p>
+<p>&#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-ens33</p>
+<img src="/post/deb5175a/image-20231017215442839.png" class="" title="image-20231017215442839"> 
+
+<p>&#x3D;&#x3D;目标：把ip修改为192.168.88.86&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231017215645493.png" class="" title="image-20231017215645493"> 
+
+<p>网关是GATEWAY不是NETWAY。。。。。可以设置多个DNS服务器，以备份或提高解析速度。在设置DNS时，你可以指定多个DNS服务器的IP地址，设备将按顺序尝试连接这些服务器，直到成功解析域名或达到超时。</p>
+<p>然后用到<a href="#systmctl%E5%91%BD%E4%BB%A4">systemctl</a>的重启network服务就可以啦</p>
+<img src="/post/deb5175a/image-20231017220109323.png" class="" title="image-20231017220109323"></li>
+</ol>
+<h4 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h4><blockquote>
+<p>DNS（Domain Name System）是用于&#x3D;&#x3D;<strong>将域名转换为相应IP地址的系统</strong>&#x3D;&#x3D;。它充当了互联网上的电话簿，将用户输入的&#x3D;&#x3D;域名翻译成计算机可以理解的IP地址&#x3D;&#x3D;，以便正确地连接到目标服务器。</p>
+<p>网关是192.168.88.2。&#x3D;&#x3D;<strong>通常可以将该网关设置为你的设备的默认DNS服务器</strong>&#x3D;&#x3D;。这样，当你的设备需要解析域名时，它将向网关发出DNS查询请求。</p>
+<p>2.&#x3D;&#x3D;<strong>还可以使用其他可用的公共DNS服务器，如114.114.114.114</strong>&#x3D;&#x3D;。你可以将该IP地址设置为你的设备的DNS服务器，以便使用该服务器来解析域名。</p>
+<p>可以&#x3D;&#x3D;<strong>设置多个DNS服务器，以备份或提高解析速度</strong>。&#x3D;&#x3D;在设置DNS时，你可以指定多个DNS服务器的IP地址，设备将按顺序尝试连接这些服务器，直到成功解析域名或达到超时。</p>
+</blockquote>
+<p>就得到啦固定的IP地址</p>
+<img src="/post/deb5175a/image-20231017220304627.png" class="" title="image-20231017220304627"> 
+
+<p>再利用域名解析，就可以实现自己添加域名映射啦</p>
+<img src="/post/deb5175a/image-20231017220341282.png" class="" title="image-20231017220341282"> 
+
+
+
+<h2 id="网络请求和下载"><a href="#网络请求和下载" class="headerlink" title="网络请求和下载"></a>网络请求和下载</h2><blockquote>
+<p>使用ping测试网络连接的延迟和稳定性。</p>
+<p>使用</p>
+<p>使用</p>
+</blockquote>
+<h3 id="ping命令-c"><a href="#ping命令-c" class="headerlink" title="ping命令 -c"></a>ping命令 -c</h3><p>function ：用于测试网络连接的延迟和稳定性。</p>
+<p>测试一个网站或者IP服务器的状态是否正常</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ping [-c num] 网址(ip或者主机名)</span><br><span class="line">网址可以是一个IP地址或一个域名。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>ping命令比喻为发送一个小信使去询问目标主机是否能够回答，并测量信使返回的时间。</strong></p>
+<p>如果目标主机能够回答，那么ping命令会显示往返时间，这表示网络连接正常。</p>
+<p>如果目标主机无法回答，或者往返时间非常长，那么ping命令会显示超时或延迟较高的信息，这表示网络连接存在问题。</p>
+</blockquote>
+<p>&#x3D;&#x3D;-c：：：count———指定测试次数&#x3D;&#x3D;</p>
+<h3 id="wget命令-b"><a href="#wget命令-b" class="headerlink" title="wget命令 -b"></a>wget命令 -b</h3><p>funtion：非交互式的下载文件&#x3D;&#x3D;用于从指定的URL下载文件。&#x3D;&#x3D;</p>
+<p> <a target="_blank" rel="noopener" href="http://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz">http://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz</a></p>
+<p>阿帕奇hadoop的安装包</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget [-b] url</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;<strong>-b：是在后台下载</strong>&#x3D;&#x3D;并且下载日志保存在wget-log文件下面</p>
+<hr>
+<p>常用选项：</p>
+<ul>
+<li><code>-O</code>：指定下载文件的保存路径和文件名。</li>
+<li><code>-P</code>：指定下载文件的保存路径。</li>
+<li><code>-c</code>：断点续传，如果下载中断，可以从中断的地方继续下载。</li>
+<li><code>-r</code>：递归下载，下载指定URL中的所有文件。</li>
+<li><code>-np</code>：不下载上级目录。</li>
+<li><code>-nH</code>：不创建主机目录。</li>
+<li><code>-nd</code>：不创建目录。</li>
+<li><code>-A</code>：只下载指定后缀名的文件。</li>
+<li><code>-U</code>：设置User-Agent标头，模拟浏览器请求。</li>
+<li><code>-q</code>：静默模式，不显示下载进度。</li>
+<li><code>-h</code>：显示wget命令的帮助信息。</li>
+</ul>
+<img src="/post/deb5175a/image-20231018161110552.png" class="" title="image-20231018161110552"> 
+
+<h3 id="curl命令-O"><a href="#curl命令-O" class="headerlink" title="curl命令 -O"></a>curl命令 -O</h3><p>function：用于&#x3D;&#x3D;从指定的URL获取数据并输出到终端或保存到文件中。&#x3D;&#x3D;</p>
+<p>可以发起网络请求</p>
+<p>可以下载文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl [-O] url</span><br></pre></td></tr></table></figure>
+
+<p><code>curl url</code>获取的是url页面的源代码</p>
+<p><code>cur -O url</code>下载文件，也有对应的进度条</p>
+<p>&#x3D;&#x3D;其中O代表Output（输出）。这是因为使用curl -O命令时，curl会将从URL下载的文件保存到当前目录下，&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231018162603235.png" class="" title="image-20231018162603235"> 
+
+<p>&#x3D;&#x3D;<strong>默认是放在当前工作目录下面的</strong>&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;获取主机的公网IP地址&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231018161623614.png" class="" title="image-20231018161623614"> 
+
+<h3 id="curl和yum的区别"><a href="#curl和yum的区别" class="headerlink" title="curl和yum的区别"></a><a name="curl-O">curl和yum的区别</a></h3><blockquote>
+<p>在Linux中，yum和curl -O&#x3D;&#x3D;都可以用于下载文件，但它们的使用场景和功能略有不同。&#x3D;&#x3D;</p>
+<ol>
+<li>yum下载文件：<br>yum是Linux系统中的&#x3D;&#x3D;包管理器&#x3D;&#x3D;，&#x3D;&#x3D;主要用于安装、更新和删除软件包&#x3D;&#x3D;。它可以从软件源中下载软件包及其依赖项，&#x3D;&#x3D;并自动解决依赖关系&#x3D;&#x3D;。yum下载文件的主要目的是为了安装软件包，&#x3D;&#x3D;下载的文件通常是软件包的<strong>二进制文件或安装脚本</strong>&#x3D;&#x3D;。使用yum下载文件时，可以使用以下命令：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install package_name</span><br></pre></td></tr></table></figure>
+
+<p>yum会根据软件源中的配置文件，从指定的软件源中下载软件包及其依赖项，并自动进行安装。</p>
+<ol start="2">
+<li>curl -O下载文件：<br>curl是一个强大的命令行工具，&#x3D;&#x3D;<strong>用于与网络服务进行数据交互</strong>&#x3D;&#x3D;。它支持各种协议，包括HTTP、HTTPS、FTP等。&#x3D;&#x3D;<strong>curl -O命令用于从指定的URL下载文件，并将文件保存在当前目录下，文件名与URL中的文件名相同</strong>&#x3D;&#x3D;。使用curl -O下载文件时，可以使用以下命令：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -O http://example.com/file.txt</span><br></pre></td></tr></table></figure>
+
+<p>curl -O命令适用于从任何支持的协议下载文件，无论是软件包、文本文件还是其他类型的文件。&#x3D;&#x3D;<strong>它不会自动解决依赖关系，只是简单地下载文件并保存到本地。</strong>&#x3D;&#x3D;</p>
+<p>总结：</p>
+<ul>
+<li>yum下载文件主要用于安装软件包，下载的文件通常是软件包的二进制文件或安装脚本。</li>
+<li>curl -O下载文件适用于从任何支持的协议下载文件，无论是软件包、文本文件还是其他类型的文件。它&#x3D;&#x3D;不会自动解决依赖关系，只是简单地下载文件并保存到本地。&#x3D;&#x3D;</li>
+</ul>
+</blockquote>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><blockquote>
+<p>什么是端口</p>
+<p>netstat命令如何使用</p>
+</blockquote>
+<p>&#x3D;&#x3D;IP&#x3D;&#x3D;是用来在互联网上找到这个计算机</p>
+<p>&#x3D;&#x3D;端口&#x3D;&#x3D;就是这台电脑上面的住户（程序）</p>
+<p>Linux支持六万个端口</p>
+<ul>
+<li>公认端口 用于：&#x3D;&#x3D;系统内置和知名程序使用&#x3D;&#x3D;</li>
+<li><strong>注册端口</strong> 1024-五万 随意使用，用于松散的绑定一些程序&#x2F;服务</li>
+<li>动态端口 ：5w-6w 通常不会固定绑定程序，而是当程序对外网络连接的时候使用</li>
+</ul>
+<img src="/post/deb5175a/image-20231019124053175.png" class="" title="image-20231019124053175">
+
+<h3 id="nmap程序"><a href="#nmap程序" class="headerlink" title="nmap程序"></a>nmap程序</h3><p><strong>扫描指定IP对外暴露的端口</strong></p>
+<ol>
+<li><pre><code>sudo yum -y install nmap
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">2. ```</span><br><span class="line">   nmap 127.0.0.1(IP)</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ol>
+<p>nmap查看系统的端口使用情况</p>
+<img src="/post/deb5175a/image-20231019125045570.png" class="" title="image-20231019125045570">
+
+<h3 id="netstat程序"><a href="#netstat程序" class="headerlink" title="netstat程序"></a>netstat程序</h3><blockquote>
+<p>netstat查看<strong>本机端口</strong>的占用情况</p>
+</blockquote>
+<ol>
+<li><pre><code>sudo yum -y install netstat
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">2. ```</span><br><span class="line">   netstat -anp 端口</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>可以配合管道符和grep</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anp | grep 22</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;anp&#x3D;&#x3D;</p>
+<blockquote>
+<p>a:all 所有链接TCP，UDP。。</p>
+<p>n：numeric数字格式的IP</p>
+<p>p：process进程信息</p>
+</blockquote>
+</li>
+</ol>
+<img src="/post/deb5175a/image-20231019163541554.png" class="" title="image-20231019163541554"> 
+
+<img src="/post/deb5175a/image-20231019131045120.png" class="" title="image-20231019131045120"> 
+
+<p>具体来说，”netstat -anp”会显示以下内容：</p>
+<ul>
+<li>“Proto”列显示网络连接所使用的&#x3D;&#x3D;协议&#x3D;&#x3D;，如TCP或UDP。</li>
+<li>“Recv-Q”和”Send-Q”列显示&#x3D;&#x3D;接收队列和发送队列中的数据量。&#x3D;&#x3D;</li>
+<li>“Local Address”列显示&#x3D;&#x3D;本地计算机的IP地址和端口号。&#x3D;&#x3D;</li>
+<li>“Foreign Address”列显示&#x3D;&#x3D;远程计算机的IP地址和端口号。&#x3D;&#x3D;</li>
+<li>“State”列显示连接的状态，&#x3D;&#x3D;如ESTABLISHED（已建立）、LISTEN（监听）等。&#x3D;&#x3D;</li>
+<li>“PID&#x2F;Program name”列显示<strong>与连接相关的进程ID和进程名称</strong>。</li>
+</ul>
+<p>查看当前系统上所有的网络连接，并了解与这些连接相关的进程和端口信息。</p>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><blockquote>
+<p>进程是什么？</p>
+<p>如何查看进程？关闭进程？</p>
+</blockquote>
+<p>程序运行在操作系统中，是呗操作系统所管理的。</p>
+<p>每个程序在运行的时候，操作系统注册为系统中的一个进程</p>
+<p><strong>并位每个进程都分配一个独有的&#x3D;&#x3D;进程ID&#x3D;&#x3D;</strong></p>
+<h3 id="Linux查看系统的进程信息"><a href="#Linux查看系统的进程信息" class="headerlink" title="Linux查看系统的进程信息"></a>Linux查看系统的进程信息</h3><p>function:查看Linux系统的进程信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ps [-f -e]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ps -ef |grep 进程名</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>p : process  进程</p>
+<p>s :snapshot   快照</p>
+<p>进程快照</p>
+</blockquote>
+<blockquote>
+<p>-f ：full，-e：everything</p>
+<p>-f &#x3D;&#x3D;full&#x3D;&#x3D; format 显示全部的进程</p>
+<p>-e &#x3D;&#x3D;everythiing &#x3D;&#x3D;processes   以完全格式化的形式展示信息</p>
+</blockquote>
+<img src="/post/deb5175a/image-20231019131809628.png" class="" title="image-20231019131809628">
+
+<p>依次为</p>
+<ol>
+<li><p>UID是进程所属的用户ID</p>
+</li>
+<li><p>PID是进程号</p>
+</li>
+<li><p>PPID进程的父PID</p>
+<p>程序不一定是由&#x3D;&#x3D;用户启动的&#x3D;&#x3D;也可能是&#x3D;&#x3D;程序启动程序&#x3D;&#x3D;</p>
+</li>
+<li><p>C是CPU占用率</p>
+</li>
+<li><p>STIME是进程的启动时间  start time</p>
+</li>
+<li><p>TIME是进程占用CPU时间<strong>，累计</strong></p>
+</li>
+<li><p>CMD表示&#x3D;&#x3D;启动路径&#x3D;&#x3D;</p>
+</li>
+</ol>
+<h3 id="查看进程-ps-ef"><a href="#查看进程-ps-ef" class="headerlink" title="查看进程 ps -ef"></a>查看进程 ps -ef</h3><p>先输入”tail”命令会启动一个进程，等待用户输入要查看的文件名或路径。由于没有输入文件名或路径，该进程会一直等待用户输入，因此会阻塞住。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tail</span><br></pre></td></tr></table></figure>
+
+<p>再复制一个标签输入</p>
+<img src="/post/deb5175a/image-20231019132609126.png" class="" title="image-20231019132609126"> 
+
+
+
+<p>&#x3D;&#x3D;<strong>我们输入的命令本身也是一个程序，所以一般不看过滤出来的最后一条结果</strong>&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231019133211697.png" class="" title="image-20231019133211697"> 
+
+<h3 id="关闭进程-kill-9"><a href="#关闭进程-kill-9" class="headerlink" title="关闭进程  kill [-9]"></a>关闭进程  kill [-9]</h3><p>function：关闭进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kill [-9] 进程ID</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;<strong>-9强制关闭掉</strong>&#x3D;&#x3D;</p>
+<p>没有-9就是自我了断，发送信号。</p>
+<img src="/post/deb5175a/image-20231019140045952.png" class="" title="image-20231019140045952"> 
+
+<p>复制一个窗口</p>
+<img src="/post/deb5175a/image-20231019140111107.png" class="" title="image-20231019140111107"> 
+
+<p>查看到该进程的进程ID</p>
+<img src="/post/deb5175a/image-20231019140127988.png" class="" title="image-20231019140127988"> 
+
+<p>文明催关</p>
+<img src="/post/deb5175a/image-20231019140305308.png" class="" title="image-20231019140305308"> 
+
+<p>一般都是关闭的，收到要关闭的信号了，就关闭。</p>
+<p>但有一些流氓</p>
+<img src="/post/deb5175a/image-20231019140428488.png" class="" title="image-20231019140428488"> 
+
+<p>暴力关闭</p>
+<img src="/post/deb5175a/image-20231019140246411.png" class="" title="image-20231019140246411"> 
+
+
+
+
+
+<h2 id="主机状态监控"><a href="#主机状态监控" class="headerlink" title="主机状态监控"></a>主机状态监控</h2><h3 id="系统资源状态监控"><a href="#系统资源状态监控" class="headerlink" title="系统资源状态监控"></a>系统资源状态监控</h3><h4 id="top命令"><a href="#top命令" class="headerlink" title="top命令"></a>top命令</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231020132424008.png" class="" title="image-20231020132424008">
+
+<blockquote>
+<p>-p:  person指定进程好好看</p>
+<p>-d  delay：时间间隔</p>
+<p>-c：command：摄像头仔细的观察完整的命令</p>
+<p>-n ：number设置固定的刷新次数</p>
+<p>-b：”background”，即在后台非交互式地运行。一般配合重定向到指定文件</p>
+<p>-i : inspect 检查，正在运行的进程</p>
+<p>-u：查看指定用户的进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">top -b &gt;1.txt</span><br></pre></td></tr></table></figure>
+
+<p>就可以看到整张，然后more一页一页观看</p>
+</blockquote>
+<h4 id="top的交互式选项"><a href="#top的交互式选项" class="headerlink" title="top的交互式选项"></a>top的交互式选项</h4><blockquote>
+<p>h : help 能看到一些帮助文档</p>
+<p>c :等价于-c  command能让我们看更全面的 启动路径</p>
+<p>i 等价于 inspect 查看正在运行的进程信息</p>
+<hr>
+<p>l :load  ：切换显示平均负载和启动时间信息</p>
+<p>m: mem内存  ：切换显示内存信息</p>
+<p>t : toggle (切换)切换显示CPu的使用情（控制1，2行的显示）</p>
+<hr>
+<p>P : ppercentage根据CPU使用&#x3D;&#x3D;率&#x3D;&#x3D;进行排序</p>
+<p>M:Mem，根据内存大小RES排序</p>
+<p>T:根据时间使用来排序</p>
+<hr>
+<p>E ：切换顶部内存显示单位&#x2F;&#x2F;</p>
+<p>e:切换进程内存显示单位&#x2F;&#x2F;</p>
+<p>f :fields selection 选择要展示的项目&#x3D;&#x3D;<strong>用空格来选择</strong>&#x3D;&#x3D;</p>
+</blockquote>
+<p>&#x3D;&#x3D;PMT,lmt,f,hic&#x3D;&#x3D;</p>
+<p>当然仅仅top就很好用了</p>
+<h4 id="top的实例解释"><a href="#top的实例解释" class="headerlink" title="top的实例解释"></a>top的实例解释</h4><p>&#x3D;&#x3D;默认每5minute刷新一次&#x3D;&#x3D;</p>
+<hr>
+<img src="/post/deb5175a/image-20231020123315381.png" class="" title="image-20231020123315381"> 
+
+<p>top：命令名称</p>
+<p>12：33：06：系统时间</p>
+<p>up 6minuts：启动了6分钟</p>
+<p>2users：有两个用户登录</p>
+<p>Load average：&#x3D;&#x3D;系统平均负载：分<strong>别代表1，5，15分钟的平均负载</strong>&#x3D;&#x3D;</p>
+<hr>
+<img src="/post/deb5175a/image-20231020123445297.png" class="" title="image-20231020123445297"> ==
+
+<p>task：185total：总计有185个子进程</p>
+<p>1 running：有一个进程正在进行</p>
+<p>184sleeping：184个正在睡觉</p>
+<p>stoppped：0个停止了</p>
+<p>0 zomibe：0个是<a href="#%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B">僵尸进程</a></p>
+<hr>
+<img src="/post/deb5175a/image-20231020125142369.png" class="" title="image-20231020125142369"> ==t==
+
+<p>CPU占用率</p>
+<p>13.7us:代表用户cpu占用率</p>
+<p>15.6sy:系统占用cpu占用率</p>
+<hr>
+<img src="/post/deb5175a/image-20231020125905624.png" class="" title="image-20231020125905624"> 
+
+<p>&#x3D;&#x3D;物理内存&#x3D;&#x3D;</p>
+<p>free：剩多少</p>
+<p>used：用了多少</p>
+<p>buff&#x2F;cache：系统缓存</p>
+<img src="/post/deb5175a/image-20231020130128610.png" class="" title="image-20231020130128610"> 
+
+<p>&#x3D;&#x3D;虚拟内存&#x3D;&#x3D;</p>
+<p>总量</p>
+<p>剩余</p>
+<p>用了</p>
+<p>可用</p>
+<p>不太关心</p>
+<hr>
+<img src="/post/deb5175a/image-20231020130758496.png" class="" title="image-20231020130758496"> 
+
+<p>PID:（process ID）：进程ID</p>
+<p>USER：所属用户</p>
+<p>PR：进程优先级</p>
+<p>NI：进程负优先级</p>
+<p>VIRT：所占用的&#x3D;&#x3D;虚拟内存&#x3D;&#x3D;</p>
+<p>RES: 所占用的物理内存</p>
+<p>SHR：所占用的共享内存</p>
+<p>%CPU：所占用的&#x3D;&#x3D;CPU率&#x3D;&#x3D;</p>
+<p>%MEM：进程占用&#x3D;&#x3D;内存率&#x3D;&#x3D;</p>
+<p>TIME+：进程的启动时间</p>
+<p>COMMAND：是进程的&#x3D;&#x3D;启动路径&#x3D;&#x3D;或者&#x3D;&#x3D;文件路径&#x3D;&#x3D;</p>
+<h4 id="僵尸进程"><a href="#僵尸进程" class="headerlink" title="僵尸进程"></a><a name="僵尸进程">僵尸进程</a></h4><p>》》》</p>
+<blockquote>
+<p>僵尸进程是指在操作系统中:</p>
+<p>一个子进程在<strong>完成任务后</strong>，但是其父进程<strong>没有及时回收其资源</strong>，导致子进程的进程描述符仍然存在于进程表中，<strong>但是已经没有运行的实体进程与之对应。这样的进程称为僵尸进程。</strong>&#x3D;&#x3D;僵尸进程不占用系统资源，但是会占用进程表中的一个条目&#x3D;&#x3D;，如果大量的僵尸进程存在，可能会&#x3D;&#x3D;<strong>导致进程表耗尽</strong>，&#x3D;&#x3D;<strong>从而影响系统的正常运行</strong>。</p>
+</blockquote>
+<h3 id="磁盘的信息监控"><a href="#磁盘的信息监控" class="headerlink" title="磁盘的信息监控"></a>磁盘的信息监控</h3><blockquote>
+<p>df如何形象化记忆？</p>
+<p>iostat命令</p>
+</blockquote>
+<h4 id="df命令-h"><a href="#df命令-h" class="headerlink" title="df命令-h"></a>df命令-h</h4><p>function：查看硬盘的使用情况：磁盘空间查看命令，用于显示文件系统的磁盘使用情况，包括磁盘总大小、已用空间、可用空间和文件系统的挂载点等信息。</p>
+<ul>
+<li>d disk</li>
+<li>f free</li>
+<li>&#x3D;&#x3D;查看磁盘的剩余情况&#x3D;&#x3D;&#x3D;</li>
+<li>-h参数则是用来以人类可读的方式显示磁盘空间信息</li>
+<li>h:human人类</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df [-h]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>-h：以易读的方式显示磁盘空间大小；</li>
+<li>-T：显示文件系统类型；</li>
+<li>-i：显示inode的使用情况。</li>
+</ul>
+</blockquote>
+<img src="/post/deb5175a/image-20231020143802455.png" class="" title="image-20231020143802455"> 
+
+
+
+
+
+<h4 id="iostat命令-x-num1-num2"><a href="#iostat命令-x-num1-num2" class="headerlink" title="iostat命令 -x num1 num2"></a>iostat命令 -x num1 num2</h4><blockquote>
+<p>查看系统</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">iostat [-x] [num1 nun2]</span><br><span class="line">num1是delay刷新间隔</span><br><span class="line">num2是刷新次数</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231020144615032.png" class="" title="image-20231020144615032"> 
+
+<ul>
+<li>sda:虚拟机的硬盘</li>
+<li>tps:每秒传输次数</li>
+<li>每秒读</li>
+<li>每秒写</li>
+<li>总读取</li>
+<li>总写出</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">iostat -x</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231020145053322.png" class="" title="image-20231020145053322">
+
+<img src="/post/deb5175a/image-20231020144540410.png" class="" title="image-20231020144540410">
+
+<p>主要看这三个</p>
+<h3 id="网络状态监控"><a href="#网络状态监控" class="headerlink" title="网络状态监控"></a>网络状态监控</h3><h4 id="sar命令"><a href="#sar命令" class="headerlink" title="sar命令"></a>sar命令</h4><blockquote>
+<p>如何形象化记忆？</p>
+</blockquote>
+<p>function：查看网络状态的相关信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sar -n 设备 [num1 num2]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>-n :查看网络</p>
+<p>DEV：表示查看网络接口</p>
+<p>nmu1；是刷新间隔</p>
+<p>num2：是查看次数</p>
+</blockquote>
+<img src="/post/deb5175a/image-20231020145946359.png" class="" title="image-20231020145946359">
+
+<img src="/post/deb5175a/image-20231020150156998.png" class="" title="image-20231020150156998"> 
+
+<blockquote>
+<p>rxKB&#x2F;s：是我们下载的时候接受的数据包大小</p>
+<p>txKB&#x2F;s 是我们上传的时候发送的数据包的大小</p>
+</blockquote>
+<p>还有最后一次的统计数据</p>
+<h4 id="》》》"><a href="#》》》" class="headerlink" title="》》》"></a>》》》</h4><p>Linux中的sar -n 设备 [num1 num2]命令：</p>
+<ol>
+<li>将sar视为<strong>“系统活动报告</strong>”（System Activity Report）<strong>，而-n代表“网络”（Network）。</strong></li>
+<li><strong>设备可以被视为网络接口（例如eth0，eth1等）。</strong></li>
+<li>[num1 num2]表示可选的两个数字参数，可以将其视为&#x3D;&#x3D;时间间隔&#x3D;&#x3D;和&#x3D;&#x3D;刷新次数&#x3D;&#x3D;。</li>
+</ol>
+<blockquote>
+<p>系统活动报告中的网络接口活动情况（System Activity Report）+-n(network)</p>
+</blockquote>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a><a name="环境变量">环境变量</a></h2><blockquote>
+<p>环境变量是干嘛的？</p>
+<p>如何表示的？</p>
+<p>为什么我们在任何目录下都可以使用cd命令呢?</p>
+</blockquote>
+<h3 id="环境变量-1"><a href="#环境变量-1" class="headerlink" title="环境变量"></a>环境变量</h3><p>Linux环境变量是一种&#x3D;&#x3D;<strong>存储在操作系统中的字符串，用于指定操作系统运行程序时所需的各种信息。</strong>&#x3D;&#x3D;</p>
+<p>操作系统在运行的时候，记录的一些关键性信息，<strong>用于辅助系统运行。</strong></p>
+<p>》》</p>
+<p>常见的环境变量包括</p>
+<p>PATH（指定可执行文件的搜索路径）</p>
+<p>HOME（指定当前用户的主目录）</p>
+<p>LANG（指定默认的语言设置）</p>
+<hr>
+<p>当在Linux中运行一个程序时，它会自动读取指定的环境变量</p>
+<h3 id="env命令"><a href="#env命令" class="headerlink" title="env命令"></a>env命令</h3><p>function：查看Linux&#x3D;&#x3D;<strong>系统中的系统变量</strong>&#x3D;&#x3D;</p>
+<p><code>env命令只能查看当前环境中的全局环境变量，而不会显示用户级别的环境变量。</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">env</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>env命令用于显示当前系统的环境变量。</p>
+<p>语法：<br>env [选项] [键值对]… [命令]</p>
+<p>选项：<br>-i，&#x3D;&#x3D;清除现有的环境变量，只使用指定的键值对&#x3D;&#x3D;<br>-u，&#x3D;&#x3D;移除指定的环境变量&#x3D;&#x3D;<br>-h，显示帮助信息</p>
+<p>示例：</p>
+<ol>
+<li><p>显示所有环境变量：<br>env</p>
+</li>
+<li><p>显示指定环境变量的值：<br>env 变量名</p>
+</li>
+<li><p>设置新的环境变量：<br>env 变量名&#x3D;值 命令</p>
+</li>
+<li><p>清除现有的环境变量，只使用指定的键值对：<br>env -i 变量名&#x3D;值 命令</p>
+</li>
+<li><p>移除指定的环境变量：<br>env -u 变量名 命令</p>
+</li>
+</ol>
+</blockquote>
+<img src="/post/deb5175a/image-20231020153930700.png" class="" title="image-20231020153930700"> 
+
+<p>得到的是键值对的数据</p>
+<h3 id="PATH"><a href="#PATH" class="headerlink" title="PATH"></a><a name="PATH">PATH</a></h3><p>为什么我们在任何目录下都可以使用cd命令呢？这就是借助环境变量PAth这个项目的值做到的</p>
+<blockquote>
+<p>PATH环境变量是一个用冒号分隔的目录列表，用于指示系统在哪些路径中查找可执行程序。</p>
+<p>当在命令行上输入一个命令时，系统会按照PATH环境变量所列出的路径顺序&#x3D;&#x3D;<strong>去查找对应的可执行文件</strong>&#x3D;&#x3D;，并执行找到的第一个匹配项。</p>
+<hr>
+<p>这意味着，如果一个可执行文件的路径没有包含在PATH环境变量中，就需要使用完整路径或切换到包含该文件的目录来执行它。</p>
+<p>通过将常用的可执行文件所在的目录添加到PATH环境变量中，可以方便地在任何位置执行这些命令，而不必每次都输入完整的路径</p>
+</blockquote>
+<img src="/post/deb5175a/image-20231020153739977.png" class="" title="image-20231020153739977"> 
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;<strong>PATH指定了默认搜索路径</strong>&#x3D;&#x3D;</p>
+<p>当我们执行cd命令到时候，他就会从PATH里的一个个搜索路径下去找对应的可执行文件</p>
+<h3 id="符号"><a href="#符号" class="headerlink" title="$符号"></a>$符号</h3><blockquote>
+<p>$符号呗用于&#x3D;&#x3D;<strong>取”变量“</strong>&#x3D;&#x3D;</p>
+<p>环境变量记录的信息，除了给操作系统自己使用外，如果我们想取用，就用到了$符号</p>
+<p>取得环境变量的值就可以</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 环境变量名</span><br></pre></td></tr></table></figure>
+
+<p>进阶</p>
+<img src="/post/deb5175a/image-20231020155149829.png" class="" title="image-20231020155149829">
+</blockquote>
+<h3 id="自定义环境变量"><a href="#自定义环境变量" class="headerlink" title="自定义环境变量"></a>自定义环境变量</h3><img src="/post/deb5175a/image-20231020160630278.png" class="" title="image-20231020160630278"> 
+
+<h4 id="创建临时变量"><a href="#创建临时变量" class="headerlink" title="&#x3D;&#x3D;创建临时变量&#x3D;&#x3D;"></a>&#x3D;&#x3D;<strong>创建临时变量</strong>&#x3D;&#x3D;</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export 变量名=变量值</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>重启虚拟机，或者切换用户，都看不到这个变量</p>
+</blockquote>
+<h4 id="创建长久环境变量"><a href="#创建长久环境变量" class="headerlink" title="创建长久环境变量"></a>创建长久环境变量</h4><p>&#x3D;&#x3D;重启不影响&#x3D;&#x3D;</p>
+<p>souce 配置文件</p>
+<p>重新读取</p>
+<ol>
+<li><p>在当前用户下创建</p>
+<img src="/post/deb5175a/image-20231020160926269.png" class="" title="image-20231020160926269"> 
+
+<p>编辑.bashrc</p>
+<img src="/post/deb5175a/image-20231020160953331.png" class="" title="image-20231020160953331"> 
+
+<p>&#x3D;&#x3D;<strong>source ~&#x2F;.bashr</strong>c&#x3D;&#x3D;</p>
+<p>就创建了一个长久的变量</p>
+</li>
+<li><p>在全局用户下创建一个&#x3D;&#x3D;<strong>全局环境变量</strong>&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231020161508885.png" class="" title="image-20231020161508885"> 
+
+<p>编辑&#x2F;etc&#x2F;profile</p>
+<img src="/post/deb5175a/image-20231020161904749.png" class="" title="image-20231020161904749"> 
+
+<p>&#x3D;&#x3D;<strong>source &#x2F;etc&#x2F;profile</strong>&#x3D;&#x3D;</p>
+<img src="/post/deb5175a/image-20231020162110015.png" class="" title="image-20231020162110015"></li>
+</ol>
+<p>全局环境变量可以在env中筛选到</p>
+<p>全局环境变量是在系统范围内定义的，对所有用户都可见。</p>
+<p>source 配置文件</p>
+<p>让自定义的变量生效</p>
+<h3 id="自定义环境变量PATH"><a href="#自定义环境变量PATH" class="headerlink" title="自定义环境变量PATH"></a><a href="#PATH">自定义环境变量PATH</a></h3><ol>
+<li><p>创建一个文件</p>
+<p>并且写入简单的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim mv</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>echo “哈哈哈”</p>
+</blockquote>
+<p>然后修改其权限</p>
+<p>因为默认是不可以执行的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chmod 777 mv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开始执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./mv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>./</code>在Linux中表示当前目录。当您在命令行上运行某个可执行文件时，如果该文件位于当前目录下，那么您需要在命令前&#x3D;&#x3D;<strong>加上<code>./</code>来告诉系统去当前目录中查找该文件并且执行它。</strong>&#x3D;&#x3D;</p>
+<p>.&#x2F;文件 表示使用路径的方式执行文件，需要文件有‘x’执行权限</p>
+<img src="/post/deb5175a/image-20231020164352326.png" class="" title="image-20231020164352326"></li>
+</ol>
+<p>&#x3D;&#x3D;这样知识简单的执行这个文件&#x3D;&#x3D;</p>
+<p>我们输入mv是不可以执行的</p>
+<hr>
+<hr>
+<p>真正是要添加到文件夹下面</p>
+<ol>
+<li><p>我们进入root用户</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir myenv</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim myenv/myenv</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;hello world&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改可执行权限</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 777 myenv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用上面的.&#x2F;可以执行</p>
+</li>
+<li><p>添加到临时环境变量</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export PATH=$PATH:/root/myenv</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;<strong>添加到文件夹下就好了，他是在这个目录下找我们写的可执行文件</strong>&#x3D;&#x3D;</p>
+</li>
+<li><p>测试</p>
+<img src="/post/deb5175a/image-20231020170204411.png" class="" title="image-20231020170204411"> 
+</li>
+<li><hr>
+<p>现在重启后(临时环境变量没有啦)</p>
+<img src="/post/deb5175a/image-20231020170704414.png" class="" title="image-20231020170704414"> 
+
+<hr>
+<p>创建全局环境变量PATH</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231020170848487.png" class="" title="image-20231020170848487"> 
+
+<p>就可以在root，任意位置输入myenv就可以输出helloworld</p>
+</li>
+</ol>
+<h2 id="文件上传和下载"><a href="#文件上传和下载" class="headerlink" title="文件上传和下载"></a>文件上传和下载</h2><blockquote>
+<p>rz,sz命令？</p>
+<p>如何上传和下载文件？</p>
+<p>如何形象化记忆lrzsz</p>
+</blockquote>
+<h3 id="文件的下载"><a href="#文件的下载" class="headerlink" title="文件的下载"></a>文件的下载</h3><img src="/post/deb5175a/image-20231020231404408.png" class="" title="image-20231020231404408"> 
+
+
+
+<p>下面的目录是根据finalshell登录的信息xurunbo</p>
+<p>那就是普通用户</p>
+<p>如果想得到root用户的文件夹</p>
+<p>就root登录</p>
+<p>而不是再shell中简单的切换到root里面</p>
+<h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><p>就从我们主机拖拽文件拖进去就好了</p>
+<h3 id="rz-sz命令"><a href="#rz-sz命令" class="headerlink" title="rz,sz命令"></a>rz,sz命令</h3><blockquote>
+<p>如何形象化记忆？rz和sz</p>
+<p>如何使用呢？</p>
+</blockquote>
+<hr>
+<hr>
+<blockquote>
+<p>不用finalshell的进行传输文件</p>
+<p>而是用命令</p>
+<ol>
+<li><p>安装 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y install lrzsz</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li><strong>R</strong>eceive <strong>Z</strong>ipped（rz）：rz命令是将文件从远程计算机发送到本地计算机，可以将字母R理解为“接收”或“接受”。另外，“Zipped”表示传输的文件通常都是经过压缩处理的，因此将字母Z与rz相关联也有助于记忆。</li>
+<li><strong>S</strong>end <strong>Z</strong>ipped（sz）：sz命令是将文件从本地计算机发送到远程计算机，可以将字母S理解为“发送”或“发出”。同样，“Zipped”表示传输的文件通常都是经过压缩处理的，因此将字母Z与sz相关联也有助于记忆</li>
+</ul>
+</blockquote>
+</li>
+<li><p>rz.sz都需要再findshell里面进行</p>
+<ol>
+<li><p>rz的使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rz</span><br></pre></td></tr></table></figure>
+
+<img src="/post/deb5175a/image-20231020232416582.png" class="" title="image-20231020232416582">
+
+<p>&#x3D;&#x3D;<strong>会默认的下载到当前工作目录下也就是~&#x2F;</strong>&#x3D;&#x3D; </p>
+</li>
+<li><p>sz的使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sz Linux文件</span><br></pre></td></tr></table></figure>
+
+<p>默认会在我们主机的桌面创建一个fsdownload的文件夹，放在里面</p>
+</li>
+</ol>
+<p>&#x3D;&#x3D;<strong>拖拽的形式会更快一些</strong>&#x3D;&#x3D;</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="压缩和解压"><a href="#压缩和解压" class="headerlink" title="压缩和解压"></a>压缩和解压</h2><blockquote>
+<p>如何tar命令&#x3D;&#x3D;压缩或者解压&#x3D;&#x3D;tar&#x2F;gzip文件？</p>
+<p>如何用zip，unzip命令&#x3D;&#x3D;压缩或解压&#x3D;&#x3D;zip文件？</p>
+</blockquote>
+<p>Linux常用:tar，和gzip 和zip</p>
+<p>windows常常用：zip，7zip，rar</p>
+<hr>
+<ul>
+<li>.tar是归档文件，简单的组装到.tar的文件夹内，没有减少太多体积，简单的封装</li>
+<li>.gz常见额外i.tar.gz,gzip使用gzip压缩算法，将文件压缩到一个文件内，可以极大的减少压缩后的体积</li>
+</ul>
+<h3 id="tar命令"><a href="#tar命令" class="headerlink" title="tar命令"></a>tar命令</h3><p>function：压缩文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar [-c -v -z -x -f ]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>-c :（creat创建）创建压缩文件  —压缩模式</p>
+<p>-x  ：(extract提取)创建解压文件—–解压模式</p>
+<p>-z 用gzip的压缩方式,&#x3D;&#x3D;<strong>后缀是.gz或者.tar.gz</strong>&#x3D;&#x3D;</p>
+<p>-v （visual）可视化</p>
+<p>-f 指定&#x3D;&#x3D;压缩的目的地&#x3D;&#x3D;，或者&#x3D;&#x3D;要解压的文件&#x3D;&#x3D;</p>
+<p>-C：指定解压的位置，因为此时f指定的是要解压的文件,所以-C是和解压配合使用的</p>
+</blockquote>
+<h3 id="tar压缩文件"><a href="#tar压缩文件" class="headerlink" title="tar压缩文件"></a>tar压缩文件</h3><ol>
+<li><img src="/post/deb5175a/image-20231021093928848.png" class="" title="image-20231021093928848"> 
+</li>
+<li><pre><code>tar -cvf cvf.tar 1.txt 2.txt 3.txt
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   &#123;% asset_img image-20231021094039705.png image-20231021094039705 %&#125; </span><br><span class="line"></span><br><span class="line">3. &#123;% asset_img image-20231021094102442.png image-20231021094102442 %&#125; </span><br><span class="line"></span><br><span class="line">   &gt; 就得到了一个tar的简单压缩文件，默认是在当前工作目录下</span><br><span class="line">   &gt;</span><br><span class="line">   &gt; f的参数就是指定压缩到哪里</span><br><span class="line">   &gt;</span><br><span class="line">   &gt; ==**f一定在最后,且第一个参数对应的是f的参数**==</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">gzip的压缩方式</span><br><span class="line"></span><br><span class="line">1. ```</span><br><span class="line">   tar -zcvf zcvf.gz 1.txt 2.txt 3.txt</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><img src="/post/deb5175a/image-20231021094426024.png" class="" title="image-20231021094426024"> 
+</li>
+<li><img src="/post/deb5175a/image-20231021094438157.png" class="" title="image-20231021094438157"> 
+
+<p>解压效果非常显著</p>
+</li>
+</ol>
+<h3 id="tar解压文件"><a href="#tar解压文件" class="headerlink" title="tar解压文件"></a>tar解压文件</h3><ol>
+<li><p>解压简单.tar 文件</p>
+</li>
+<li><pre><code>tar -xvf cvf.tar
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   默认是在当前目录下</span><br><span class="line"></span><br><span class="line">3. ```</span><br><span class="line">   tar -xvf cvf.tar -C /test/xvf</span><br></pre></td></tr></table></figure>
+
+指定解压到哪里
+</code></pre>
+</li>
+<li><p>如何解压的是gzip问格式的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar -zxvf cvf.tar</span><br><span class="line">tar -zxvf cvf.gz -C /test/xvf</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>z一定要在前面，告诉他我是解压gzip文件的</p>
+<p>f一定在后面，用来指定**&#x3D;&#x3D;被解压的文件&#x3D;&#x3D;<strong>，和</strong>&#x3D;&#x3D;压缩到哪的文件&#x3D;&#x3D;**</p>
+<p>-C必须单独使用，指定我解压的目的地，和其他参数分开，但是不能帮助创建文件夹</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="zip命令"><a href="#zip命令" class="headerlink" title="zip命令"></a>zip命令</h3><p>&#x3D;&#x3D;好用&#x3D;&#x3D;</p>
+<p>用来zip</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zip [-r] 参数1，2，3，4，</span><br><span class="line">参数一就是要解压的位置</span><br><span class="line">默认是在当前工作目录下</span><br></pre></td></tr></table></figure>
+
+<p>-r就是recursive迭代</p>
+<p>被压缩的目标内有文件夹的时候使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zip test.zip 1.txt 2.txt 3.txt</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zip -r test.zip abc 1.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="unzip命令"><a href="#unzip命令" class="headerlink" title="unzip命令"></a>unzip命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">unzip 文件.zip [-d]</span><br></pre></td></tr></table></figure>
+
+<p>默认解压到当前工作目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">unzip 文件.zip -d 指定目录</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>比tar好用</p>
+<p>没有zip严格</p>
+<p>可以帮忙创建文件夹</p>
+<p>-C用法和tar一样(单独指出)</p>
+<p>&#x3D;&#x3D;<strong>解压的时候同名的文件会被覆盖！</strong>&#x3D;&#x3D;</p>
+</blockquote>
+<p>seeyouagain</p>
+<img src="/post/deb5175a/image-20231021102513209.png" class="" title="image-20231021102513209"> 
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">下完这场雨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/post/deb5175a.html">http://example.com/post/deb5175a.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">cout<<"金缕衣";</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="/img/sky2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wx.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.jpg" target="_blank"><img class="post-qr-code-img" src="/img/zfb.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/563a1179.html" title="Shell脚本"><img class="cover" src="/img/sky5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Shell脚本</div></div></a></div><div class="next-post pull-right"><a href="/post/2feff901.html" title="好听的歌"><img class="cover" src="/img/sky9.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">好听的歌</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Livere</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="lv-container" data-id="city" data-uid="MTAyMC81OTAyMS8zNTQ4Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/me.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">下完这场雨</div><div class="author-info__description">椿萱并茂，棠棣同馨，松萝共倚，兰桂齐芳。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/666XRB"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/666XRB" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/xideaha?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="https://user.qzone.qq.com/1982830095/infocenter" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:1982830095@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里啊，这里是我的blog，分享一些学习知识。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux"><span class="toc-number">1.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E5%AF%BC%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">Linux导言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E9%85%8D"><span class="toc-number">1.2.</span> <span class="toc-text">适配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%BA%90-%E7%9A%84linux"><span class="toc-number">1.3.</span> <span class="toc-text">开源 的linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E5%8F%91%E8%A1%8C%E7%89%88"><span class="toc-number">1.4.</span> <span class="toc-text">Linux发行版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%AE%80%E4%BB%8B"><span class="toc-number">1.5.</span> <span class="toc-text">Linux简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-1"><span class="toc-number">1.5.1.</span> <span class="toc-text">Linux</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F"><span class="toc-number">1.6.</span> <span class="toc-text">Linux应用领域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-Windows"><span class="toc-number">1.7.</span> <span class="toc-text">Linux&amp;Windows</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">1.8.</span> <span class="toc-text">Linux 系统启动过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC"><span class="toc-number">1.8.1.</span> <span class="toc-text">内核引导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8CInit"><span class="toc-number">1.8.2.</span> <span class="toc-text">运行Init</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%BA%A7%E5%88%AB"><span class="toc-number">1.8.2.1.</span> <span class="toc-text">运行级别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.8.3.</span> <span class="toc-text">系统初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E7%BB%88%E7%AB%AF"><span class="toc-number">1.8.4.</span> <span class="toc-text">建立终端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.8.5.</span> <span class="toc-text">用户登录系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%96%87%E5%AD%97%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%88%87%E6%8D%A2%E6%96%B9%E5%BC%8F"><span class="toc-number">1.8.5.1.</span> <span class="toc-text">图形模式与文字模式的切换方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E5%85%B3%E6%9C%BA"><span class="toc-number">1.8.6.</span> <span class="toc-text">Linux 关机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.9.</span> <span class="toc-text">Linux系统目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9"><span class="toc-number">1.10.</span> <span class="toc-text">&#x3D;&#x3D;学会使用帮助&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-number">1.11.</span> <span class="toc-text">Linux忘记密码解决办法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AD%A6%E4%B9%A0Linux"><span class="toc-number">1.12.</span> <span class="toc-text">使用命令行学习Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FInalShell"><span class="toc-number">1.12.1.</span> <span class="toc-text">FInalShell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%BF%AB%E7%85%A7%EF%BC%88%E5%90%8E%E6%82%94%E8%8D%AF%EF%BC%89"><span class="toc-number">1.12.2.</span> <span class="toc-text">&#x3D;&#x3D;虚拟机快照（后悔药）&#x3D;&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.13.</span> <span class="toc-text">Linux的目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%98%85%E2%98%85%E2%98%85Linux%E5%91%BD%E4%BB%A4%E5%85%A5%E9%97%A8"><span class="toc-number">1.14.</span> <span class="toc-text">★★★Linux命令入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E7%A1%80"><span class="toc-number">1.14.1.</span> <span class="toc-text">Linux命令基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ls%E5%91%BD%E4%BB%A4"><span class="toc-number">1.14.2.</span> <span class="toc-text">ls命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ls%E5%91%BD%E4%BB%A4%E7%AE%80%E4%BB%8B"><span class="toc-number">1.14.2.1.</span> <span class="toc-text">ls命令简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ls%E7%9A%84%E5%8F%82%E6%95%B0%E5%92%8C%E9%80%89%E9%A1%B9"><span class="toc-number">1.14.2.2.</span> <span class="toc-text">ls的参数和选项</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cd-pwd%E5%91%BD%E4%BB%A4"><span class="toc-number">1.14.3.</span> <span class="toc-text">cd-pwd命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cd%E5%88%87%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="toc-number">1.14.3.1.</span> <span class="toc-text">cd切换工作目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pwd%E5%91%BD%E4%BB%A4"><span class="toc-number">1.14.3.2.</span> <span class="toc-text">pwd命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9-%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%8C%E5%92%8C%E7%89%B9%E6%AE%8A%E8%B7%AF%E5%BE%84%E7%AC%A6"><span class="toc-number">1.14.4.</span> <span class="toc-text">相对&#x2F;绝对路径，和特殊路径符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir%E5%91%BD%E4%BB%A4-p"><span class="toc-number">1.14.5.</span> <span class="toc-text">mkdir命令 -p</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#touch-cat-more%E5%91%BD%E4%BB%A4"><span class="toc-number">1.14.6.</span> <span class="toc-text">touch-cat-more命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#touch%E5%91%BD%E4%BB%A4-%E5%88%9B%E6%96%87%E4%BB%B6"><span class="toc-number">1.14.6.1.</span> <span class="toc-text">touch命令(创文件)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cat%E5%91%BD%E4%BB%A4-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6"><span class="toc-number">1.14.6.2.</span> <span class="toc-text">&#x3D;&#x3D;cat命令(查看文件)&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#more%E5%91%BD%E4%BB%A4-%E7%BF%BB%E9%A1%B5%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6"><span class="toc-number">1.14.6.3.</span> <span class="toc-text">&#x3D;&#x3D;more命令(翻页查看文件)&#x3D;&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-mv-rm%E5%91%BD%E4%BB%A4"><span class="toc-number">1.14.7.</span> <span class="toc-text">cp-mv-rm命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cp%E5%91%BD%E4%BB%A4-%E5%A4%8D%E5%88%B6-r"><span class="toc-number">1.14.7.1.</span> <span class="toc-text">cp命令(复制)  -r</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mv%E5%91%BD%E4%BB%A4-%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-number">1.14.7.2.</span> <span class="toc-text">mv命令(移动文件)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rm%E5%91%BD%E4%BB%A4-%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-r-f"><span class="toc-number">1.14.7.3.</span> <span class="toc-text">&#x3D;&#x3D;rm命令(删除文件)&#x3D;&#x3D; -r -f</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-number">1.14.7.4.</span> <span class="toc-text">通配符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-wc-%E7%AE%A1%E9%81%93%E7%AC%A6"><span class="toc-number">1.14.8.</span> <span class="toc-text">grep-wc-管道符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#grep%E5%91%BD%E4%BB%A4-%E8%BF%87%E6%BB%A4%E6%96%87%E4%BB%B6%E8%A1%8C-n"><span class="toc-number">1.14.8.1.</span> <span class="toc-text">grep命令(过滤文件行)-n</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#wc%E5%91%BD%E4%BB%A4-%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E7%BB%9F%E8%AE%A1-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-number">1.14.8.2.</span> <span class="toc-text">wc命令(文件内容统计)★★★★★</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%A1%E9%81%93%E7%AC%A6"><span class="toc-number">1.14.8.3.</span> <span class="toc-text">管道符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#echo-tali%E5%91%BD%E4%BB%A4-%E9%87%8D%E5%AE%9A%E5%90%91%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.14.9.</span> <span class="toc-text">echo-tali命令-重定向符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#echo%E5%91%BD%E4%BB%A4"><span class="toc-number">1.14.9.1.</span> <span class="toc-text">echo命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%BC%95%E5%8F%B7-%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6"><span class="toc-number">1.14.9.2.</span> <span class="toc-text">反引号&#96;&#96;(模板字符)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91-%E5%92%8C-%E5%86%99%E5%85%A5"><span class="toc-number">1.14.9.3.</span> <span class="toc-text">重定向&gt;和&gt;&gt;(写入)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tail%E5%91%BD%E4%BB%A4-%E6%9F%A5%E7%9C%8B%E5%B0%BE-f-num"><span class="toc-number">1.14.9.4.</span> <span class="toc-text">tail命令(查看尾) -f -num</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VI%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">1.14.10.</span> <span class="toc-text">VI编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E7%9A%84root%E7%94%A8%E6%88%B7"><span class="toc-number">1.14.11.</span> <span class="toc-text">Linux的root用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E7%94%A8%E6%88%B7"><span class="toc-number">1.14.12.</span> <span class="toc-text">&#x3D;&#x3D;选择用户&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sudo%E5%91%BD%E4%BB%A4"><span class="toc-number">1.14.13.</span> <span class="toc-text">sudo命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7-%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-number">1.14.14.</span> <span class="toc-text">用户&amp;用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-number">1.14.15.</span> <span class="toc-text">用户管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BLinux%E6%9D%83%E9%99%90%E7%AE%A1%E6%8E%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.14.16.</span> <span class="toc-text">查看Linux权限管控信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod%E5%91%BD%E4%BB%A4"><span class="toc-number">1.14.17.</span> <span class="toc-text">chmod命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E5%B1%9E%E7%94%A8%E6%88%B7"><span class="toc-number">1.14.17.1.</span> <span class="toc-text">所属用户</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chmodPlus"><span class="toc-number">1.14.18.</span> <span class="toc-text">chmodPlus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chown%E5%91%BD%E4%BB%A4"><span class="toc-number">1.14.19.</span> <span class="toc-text">chown命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E7%B1%BB%E5%B0%8F%E6%8A%80%E5%B7%A7%E5%BF%AB%E6%8D%B7%E9%94%AECTRL-cdae"><span class="toc-number">1.15.</span> <span class="toc-text">各类小技巧快捷键CTRL+cd&lt;–&gt;ae</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">1.16.</span> <span class="toc-text">软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E5%91%BD%E4%BB%A4"><span class="toc-number">1.16.1.</span> <span class="toc-text">yum命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#yum%E5%91%BD%E4%BB%A4%E8%AF%AD%E6%B3%95%E5%92%8C%E4%BD%9C%E7%94%A8"><span class="toc-number">1.16.1.1.</span> <span class="toc-text">yum命令语法和作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#install%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E6%8B%93%E5%B1%95"><span class="toc-number">1.16.1.2.</span> <span class="toc-text">install安装一个拓展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#serach%E6%9F%A5%E6%89%BE-%E2%80%9C%E5%BA%94%E7%94%A8%E5%95%86%E5%BA%97%E2%80%9D-%E9%87%8C%E9%9D%A2%E6%98%AF%E5%90%A6%E6%9C%89%E8%BF%99%E4%B8%AA%E8%BD%AF%E4%BB%B6%EF%BC%9F"><span class="toc-number">1.16.1.3.</span> <span class="toc-text">serach查找&#x3D;&#x3D;“应用商店”&#x3D;&#x3D;里面是否有这个软件？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#remove%E5%8D%B8%E8%BD%BD%E6%8E%89%E5%88%9A%E5%88%9A%E5%AE%89%E8%A3%85%E7%9A%84wget%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.16.1.4.</span> <span class="toc-text">remove卸载掉刚刚安装的wget程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#update%E6%9B%B4%E6%96%B0%E6%88%91%E4%BB%AC%E7%9A%84%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.16.1.5.</span> <span class="toc-text">update更新我们的软件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu%E7%9A%84apt%E5%91%BD%E4%BB%A4%EF%BC%88%E6%8B%93%E5%B1%95%EF%BC%89"><span class="toc-number">1.16.2.</span> <span class="toc-text">ubuntu的apt命令（拓展）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systmctl%E5%91%BD%E4%BB%A4"><span class="toc-number">1.17.</span> <span class="toc-text">systmctl命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#systmctl%E5%91%BD%E4%BB%A4-1"><span class="toc-number">1.17.0.1.</span> <span class="toc-text">systmctl命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#statues%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.17.0.2.</span> <span class="toc-text">statues查看服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#stop%E5%85%B3%E9%97%AD%E6%9C%8D%E5%8A%A1-%E9%9C%80%E8%A6%81sudo%E6%9D%83%E9%99%90"><span class="toc-number">1.17.0.3.</span> <span class="toc-text">stop关闭服务&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%8D%E6%AC%A1%E5%90%AF%E5%8A%A8-%E9%9C%80%E8%A6%81sudo%E6%9D%83%E9%99%90"><span class="toc-number">1.17.0.4.</span> <span class="toc-text">再次启动&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E8%87%AA%E5%90%AF%E5%8A%A8-%E9%9C%80%E8%A6%81sudo%E6%9D%83%E9%99%90"><span class="toc-number">1.17.0.5.</span> <span class="toc-text">启动自启动&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E8%87%AA%E5%90%AF%E5%8A%A8-%E9%9C%80%E8%A6%81sudo%E6%9D%83%E9%99%90"><span class="toc-number">1.17.0.6.</span> <span class="toc-text">关闭自启动&#x3D;&#x3D;需要sudo权限&#x3D;&#x3D;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.18.</span> <span class="toc-text">软连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E8%BF%9E%E6%8E%A5ln-s"><span class="toc-number">1.18.0.1.</span> <span class="toc-text">软连接ln -s</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#s%E4%B8%BA%E6%96%87%E4%BB%B6-%E6%96%87%E4%BB%B6%E5%A4%B9%E6%B7%BB%E5%8A%A0new-link"><span class="toc-number">1.18.0.2.</span> <span class="toc-text">-s为文件&#x2F;文件夹添加new link</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%92%8C%E7%A1%AC%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.18.0.3.</span> <span class="toc-text">软连接和硬连接的区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E5%8C%BA"><span class="toc-number">1.19.</span> <span class="toc-text">日期和时区</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#date%E5%91%BD%E4%BB%A4"><span class="toc-number">1.19.0.1.</span> <span class="toc-text">date命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#d-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%80%E5%8D%95%E7%9A%84%E6%97%A5%E6%9C%9F%E8%AE%A1%E7%AE%97"><span class="toc-number">1.19.0.2.</span> <span class="toc-text">-d+格式化字符串简单的日期计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#s-set-%E8%AE%BE%E7%BD%AE%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4"><span class="toc-number">1.19.0.3.</span> <span class="toc-text">-s(set)设置当前系统的时期和时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E5%8C%BA"><span class="toc-number">1.19.0.4.</span> <span class="toc-text">时区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Network-Time-Protocol-ntp-ntpd%E8%87%AA%E5%8A%A8%E6%A0%A1%E5%87%86%E6%97%B6%E9%97%B4"><span class="toc-number">1.19.0.5.</span> <span class="toc-text">Network Time Protocol::ntp|ntpd自动校准时间</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">1.20.</span> <span class="toc-text">IP地址主机名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">1.20.1.</span> <span class="toc-text">IP和主机名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IPV4%E5%92%8CIPV%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.20.1.1.</span> <span class="toc-text">IPV4和IPV的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80"><span class="toc-number">1.20.1.2.</span> <span class="toc-text">IP地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84IP%E5%9C%B0%E5%9D%80"><span class="toc-number">1.20.1.3.</span> <span class="toc-text">查看虚拟机的IP地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84IP%E5%9C%B0%E5%9D%80"><span class="toc-number">1.20.1.4.</span> <span class="toc-text">特殊的IP地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">1.20.1.5.</span> <span class="toc-text">主机名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">1.20.1.6.</span> <span class="toc-text">修改主机名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D"><span class="toc-number">1.20.1.7.</span> <span class="toc-text">域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-number">1.20.1.8.</span> <span class="toc-text">域名解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E6%B7%BB%E5%8A%A0%E5%9F%9F%E5%90%8D%E6%98%A0%E5%B0%84"><span class="toc-number">1.20.1.9.</span> <span class="toc-text">自己添加域名映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DHCP%E8%87%AA%E5%8A%A8%E5%88%86%E9%85%8DIP%E5%9C%B0%E5%9D%80%E5%92%8C%E5%85%B6%E4%BB%96%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-number">1.20.1.10.</span> <span class="toc-text">DHCP自动分配IP地址和其他网络配置信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE%E5%9B%BA%E5%AE%9AIP%E5%9C%B0%E5%9D%80"><span class="toc-number">1.20.2.</span> <span class="toc-text">虚拟机配置固定IP地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vmware-Workstation%E9%85%8D%E7%BD%AE%E5%9B%BA%E5%AE%9AIP"><span class="toc-number">1.20.2.1.</span> <span class="toc-text">Vmware Workstation配置固定IP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DNS"><span class="toc-number">1.20.2.2.</span> <span class="toc-text">DNS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%92%8C%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.21.</span> <span class="toc-text">网络请求和下载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ping%E5%91%BD%E4%BB%A4-c"><span class="toc-number">1.21.1.</span> <span class="toc-text">ping命令 -c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wget%E5%91%BD%E4%BB%A4-b"><span class="toc-number">1.21.2.</span> <span class="toc-text">wget命令 -b</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#curl%E5%91%BD%E4%BB%A4-O"><span class="toc-number">1.21.3.</span> <span class="toc-text">curl命令 -O</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#curl%E5%92%8Cyum%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.21.4.</span> <span class="toc-text">curl和yum的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.22.</span> <span class="toc-text">端口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nmap%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.22.1.</span> <span class="toc-text">nmap程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#netstat%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.22.2.</span> <span class="toc-text">netstat程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">1.23.</span> <span class="toc-text">进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF"><span class="toc-number">1.23.1.</span> <span class="toc-text">Linux查看系统的进程信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B-ps-ef"><span class="toc-number">1.23.2.</span> <span class="toc-text">查看进程 ps -ef</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E8%BF%9B%E7%A8%8B-kill-9"><span class="toc-number">1.23.3.</span> <span class="toc-text">关闭进程  kill [-9]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E7%8A%B6%E6%80%81%E7%9B%91%E6%8E%A7"><span class="toc-number">1.24.</span> <span class="toc-text">主机状态监控</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E7%8A%B6%E6%80%81%E7%9B%91%E6%8E%A7"><span class="toc-number">1.24.1.</span> <span class="toc-text">系统资源状态监控</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#top%E5%91%BD%E4%BB%A4"><span class="toc-number">1.24.1.1.</span> <span class="toc-text">top命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#top%E7%9A%84%E4%BA%A4%E4%BA%92%E5%BC%8F%E9%80%89%E9%A1%B9"><span class="toc-number">1.24.1.2.</span> <span class="toc-text">top的交互式选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#top%E7%9A%84%E5%AE%9E%E4%BE%8B%E8%A7%A3%E9%87%8A"><span class="toc-number">1.24.1.3.</span> <span class="toc-text">top的实例解释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B"><span class="toc-number">1.24.1.4.</span> <span class="toc-text">僵尸进程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E7%9A%84%E4%BF%A1%E6%81%AF%E7%9B%91%E6%8E%A7"><span class="toc-number">1.24.2.</span> <span class="toc-text">磁盘的信息监控</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#df%E5%91%BD%E4%BB%A4-h"><span class="toc-number">1.24.2.1.</span> <span class="toc-text">df命令-h</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#iostat%E5%91%BD%E4%BB%A4-x-num1-num2"><span class="toc-number">1.24.2.2.</span> <span class="toc-text">iostat命令 -x num1 num2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81%E7%9B%91%E6%8E%A7"><span class="toc-number">1.24.3.</span> <span class="toc-text">网络状态监控</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sar%E5%91%BD%E4%BB%A4"><span class="toc-number">1.24.3.1.</span> <span class="toc-text">sar命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E3%80%8B%E3%80%8B%E3%80%8B"><span class="toc-number">1.24.3.2.</span> <span class="toc-text">》》》</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.25.</span> <span class="toc-text">环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-1"><span class="toc-number">1.25.1.</span> <span class="toc-text">环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#env%E5%91%BD%E4%BB%A4"><span class="toc-number">1.25.2.</span> <span class="toc-text">env命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PATH"><span class="toc-number">1.25.3.</span> <span class="toc-text">PATH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.25.4.</span> <span class="toc-text">$符号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.25.5.</span> <span class="toc-text">自定义环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F"><span class="toc-number">1.25.5.1.</span> <span class="toc-text">&#x3D;&#x3D;创建临时变量&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%95%BF%E4%B9%85%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.25.5.2.</span> <span class="toc-text">创建长久环境变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8FPATH"><span class="toc-number">1.25.6.</span> <span class="toc-text">自定义环境变量PATH</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.26.</span> <span class="toc-text">文件上传和下载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.26.1.</span> <span class="toc-text">文件的下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="toc-number">1.26.2.</span> <span class="toc-text">上传文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rz-sz%E5%91%BD%E4%BB%A4"><span class="toc-number">1.26.3.</span> <span class="toc-text">rz,sz命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B"><span class="toc-number">1.27.</span> <span class="toc-text">压缩和解压</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tar%E5%91%BD%E4%BB%A4"><span class="toc-number">1.27.1.</span> <span class="toc-text">tar命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6"><span class="toc-number">1.27.2.</span> <span class="toc-text">tar压缩文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6"><span class="toc-number">1.27.3.</span> <span class="toc-text">tar解压文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zip%E5%91%BD%E4%BB%A4"><span class="toc-number">1.27.4.</span> <span class="toc-text">zip命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unzip%E5%91%BD%E4%BB%A4"><span class="toc-number">1.27.5.</span> <span class="toc-text">unzip命令</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/b34cc72c.html" title="逻辑论证1（削弱）"><img src="/img/g10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="逻辑论证1（削弱）"/></a><div class="content"><a class="title" href="/post/b34cc72c.html" title="逻辑论证1（削弱）">逻辑论证1（削弱）</a><time datetime="2025-03-27T11:21:42.000Z" title="发表于 2025-03-27 19:21:42">2025-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/dbde71d8.html" title="组合排列"><img src="/img/g9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="组合排列"/></a><div class="content"><a class="title" href="/post/dbde71d8.html" title="组合排列">组合排列</a><time datetime="2025-03-26T01:18:37.000Z" title="发表于 2025-03-26 09:18:37">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/d9a2d074.html" title="翻译推理"><img src="/img/g8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="翻译推理"/></a><div class="content"><a class="title" href="/post/d9a2d074.html" title="翻译推理">翻译推理</a><time datetime="2025-03-25T01:30:22.000Z" title="发表于 2025-03-25 09:30:22">2025-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ef3d0435.html" title="判断推理_定义判断"><img src="/img/g7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="判断推理_定义判断"/></a><div class="content"><a class="title" href="/post/ef3d0435.html" title="判断推理_定义判断">判断推理_定义判断</a><time datetime="2025-03-19T11:12:43.000Z" title="发表于 2025-03-19 19:12:43">2025-03-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/b49a232a.html" title="判断推理_类比推理"><img src="/img/g6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="判断推理_类比推理"/></a><div class="content"><a class="title" href="/post/b49a232a.html" title="判断推理_类比推理">判断推理_类比推理</a><time datetime="2025-03-18T13:07:12.000Z" title="发表于 2025-03-18 21:07:12">2025-03-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 下完这场雨</div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!<br> <img src="https://haiyong.site/img/icp.png"> <a href="https://beian.miit.gov.cn/#/Integrated/index"  style="color:#87ceeb" target="_blank">豫ICP备2024090942号-1</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+      appKey: 'LssvKROPsftMFNCa4j2AnVL8',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Valine' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://VbfV1mFY.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+        "X-LC-Key": 'LssvKROPsftMFNCa4j2AnVL8',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="592262222" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-lrctype="1" data-preload="none" data-autoplay="false" muted></div><script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js" async></script><script src="/js/weather.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="random" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":60,"height":120,"hOffset":20,"vOffset":-20},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>

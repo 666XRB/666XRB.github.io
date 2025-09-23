@@ -1,0 +1,564 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>组合排列 | cout&lt;&lt;&quot;金缕衣&quot;;</title><meta name="author" content="下完这场雨"><meta name="copyright" content="下完这场雨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="组合排列组合排列方法概述题型特征组合排列：1.题干中给出两组甚至更多的信息，如甲、乙、丙分别来自哪里，并且给出信息之间关系，如“丙比东京人的年龄大，甲和巴黎人不同岁，巴黎人比乙年龄小”，要求猜甲、乙、丙来自于哪里，为典型的组合排列题，逻辑性特别强，类似“柯南”。2.题型特征：有两组及以上对象，且给出两组对象之间的信息，要求通过信息之间的关系来判定“谁是谁”的结果，为组合排列题 排除法与代入法排除法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组合排列">
+<meta property="og:url" content="http://example.com/post/dbde71d8.html">
+<meta property="og:site_name" content="cout&lt;&lt;&quot;金缕衣&quot;;">
+<meta property="og:description" content="组合排列组合排列方法概述题型特征组合排列：1.题干中给出两组甚至更多的信息，如甲、乙、丙分别来自哪里，并且给出信息之间关系，如“丙比东京人的年龄大，甲和巴黎人不同岁，巴黎人比乙年龄小”，要求猜甲、乙、丙来自于哪里，为典型的组合排列题，逻辑性特别强，类似“柯南”。2.题型特征：有两组及以上对象，且给出两组对象之间的信息，要求通过信息之间的关系来判定“谁是谁”的结果，为组合排列题 排除法与代入法排除法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/g9.jpg">
+<meta property="article:published_time" content="2025-03-26T01:18:37.000Z">
+<meta property="article:modified_time" content="2025-03-26T01:29:55.197Z">
+<meta property="article:author" content="下完这场雨">
+<meta property="article:tag" content="判断推理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/g9.jpg"><link rel="shortcut icon" href="/img/icon.png"><link rel="canonical" href="http://example.com/post/dbde71d8.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 下完这场雨","link":"链接: ","source":"来源: cout<<\"金缕衣\";","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '组合排列',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-03-26 09:29:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="//code.tidio.co/xysdkaby5vgv2dt8e9zgdqsu6wh59g43.js" async></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/mystyle.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4770397_jz6ucve7mog.css<link rel="stylesheet" href="/css/ancientPoetry.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/me.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/g9.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="cout&lt;&lt;&quot;金缕衣&quot;;"><img class="site-icon" src="/img/logo3.png"/><span class="site-name">cout&lt;&lt;&quot;金缕衣&quot;;</span></a></span><div id="wearher"></div><div id="tp-weather-widget"></div><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">组合排列</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-03-26T01:18:37.000Z" title="发表于 2025-03-26 09:18:37">2025-03-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-03-26T01:29:55.197Z" title="更新于 2025-03-26 09:29:55">2025-03-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A9%E4%B8%8B%E4%B8%BA%E5%85%AC/">天下为公</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/post/dbde71d8.html" data-flag-title="组合排列"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/post/dbde71d8.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/post/dbde71d8.html" itemprop="commentCount"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="组合排列"><a href="#组合排列" class="headerlink" title="组合排列"></a>组合排列</h1><h2 id="组合排列-1"><a href="#组合排列-1" class="headerlink" title="组合排列"></a>组合排列</h2><h3 id="方法概述"><a href="#方法概述" class="headerlink" title="方法概述"></a>方法概述</h3><h4 id="题型特征"><a href="#题型特征" class="headerlink" title="题型特征"></a>题型特征</h4><p>组合排列：<br>1.题干中给出两组甚至更多的信息，如甲、乙、丙分别来自哪里，并且给出信息之间关系，如“丙比东京人的年龄大，甲和巴黎人不同岁，巴黎人比乙年龄<br>小”，要求猜甲、乙、丙来自于哪里，为典型的组合排列题，逻辑性特别强，类似“柯南”。<br>2.题型特征：<strong>有两组及以上对象，且给出两组对象之间的信息，要求通过信息之间的关系来判定“谁是谁”的结果</strong>，为组合排列题</p>
+<h3 id="排除法与代入法"><a href="#排除法与代入法" class="headerlink" title="排除法与代入法"></a>排除法与代入法</h3><h4 id="排除法"><a href="#排除法" class="headerlink" title="排除法"></a>排除法</h4><blockquote>
+<p><strong>排除法：读一句、排一句</strong></p>
+<p>什么时候用？</p>
+<ul>
+<li>题干条件明确，选项信息完整时，直接通过题干信息用排除来做即可。</li>
+<li>题干条件明确？<ul>
+<li>明确：题干上说的条件都是真的，可以拿来用。</li>
+<li>不明确：题干条件有真有假，“XXX和XX只猜对了一半。”</li>
+</ul>
+</li>
+<li>选项信息完整？<ul>
+<li>完整：题上设计到了x个人，每一个选项也是X个人的情况</li>
+<li>不完整：反之</li>
+</ul>
+</li>
+</ul>
+<p>重要的思维</p>
+<ul>
+<li>需要能从信息中得到”X不是XX”<ul>
+<li>例如“丙比东京人的年龄大，甲和巴黎人不同岁”</li>
+<li>分别可以得到，丙不是东京人，甲不是巴黎人</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>方法：</p>
+<p>（1）快速找到“谁是谁”<br>（2）快速确定“谁不是谁”</p>
+</blockquote>
+<h5 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h5><img src="/post/dbde71d8/image-20250326084402299.png" class="" title="image-20250326084402299"> 
+
+<img src="/post/dbde71d8/image-20250326084326426.png" class="" title="image-20250326084326426"> 
+
+<h4 id="代入法"><a href="#代入法" class="headerlink" title="代入法"></a>代入法</h4><blockquote>
+<p><strong>假设选项正确，代入题干验证是否符合题意</strong></p>
+<p>区分于排除法：</p>
+<ul>
+<li>（1）题干条件确定优先排除<strong>；题干条件不确定</strong>尝试代入 </li>
+<li>（2）<strong>特殊问法</strong>考虑代入： <ul>
+<li>①“<strong>补充&#x2F;添加以下哪项可以推出</strong>” </li>
+<li>②<strong>“可能”“不可能”“符合”“不符合”</strong></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h5 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h5><img src="/post/dbde71d8/image-20250326084527503.png" class="" title="image-20250326084527503">
+
+<blockquote>
+<p> <strong>【注意】题干信息有对有错，优先用代入法。</strong></p>
+</blockquote>
+<img src="/post/dbde71d8/image-20250326084723669.png" class="" title="image-20250326084723669"> 
+
+<blockquote>
+<p>至多有一人参加：其中一个去了能推出另一个没去，但是其中一个没去不能推出另一个去没去。</p>
+</blockquote>
+<h3 id="推理起点"><a href="#推理起点" class="headerlink" title="推理起点"></a>推理起点</h3><blockquote>
+<p>如果题目不符合代入法&#x2F;排除 法的题干要求，要进行推理。</p>
+<p>即找到破题点， 破题点来自于两个，即确定信息和最大信息，组合排列题中 90%以上的题目可以 通过确定信息和最大信息来破题。</p>
+</blockquote>
+<h4 id="确定信息"><a href="#确定信息" class="headerlink" title="确定信息"></a>确定信息</h4><blockquote>
+<p>确定信息：题干中明确给出“<strong>谁＝谁</strong>”的信息.但是做题时，“<strong>谁≠谁</strong>”也很重要，</p>
+</blockquote>
+<h5 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h5><img src="/post/dbde71d8/image-20250326085050621.png" class="" title="image-20250326085050621">
+
+<blockquote>
+<p> 题干条件确定，选项不完整，所以不要考虑排除法；也没有“可 能&#x2F;不可能”的问法，问的是“必然正确”，不考虑代入法，考虑直接推理。</p>
+<p> 不确定张去 A 还是 B，此时要用到“谁≠谁”的思维，确定的 是“张≠C，张≠D”。</p>
+</blockquote>
+<h5 id="排序题"><a href="#排序题" class="headerlink" title="排序题"></a>排序题</h5><blockquote>
+<p>排序题的解题思路：</p>
+<ol>
+<li>先列出 1-7 的顺序，即列表格。</li>
+<li>关注间隔信息，<strong>即谁与谁间隔几个人</strong>，如“戊在丁的右边，中间隔 3 个人”，此时会占据 5 个位置，共有 7 个位置，覆盖的面比较广，所以要找间隔信息。<strong>优先看间隔人多的信息，先放位置占得比较多的</strong>。</li>
+<li>如果问“由此可以推出”，就要用确定信息开始推理；如果问“可能&#x2F;不可能”，可以不看题干，直接考虑代入，但要间隔代入，如果例 2 问的是“可能的是”，代入时要优先代入与乙、丙、戊、丁、庚、己相关的选项，因为如果代入戊，自然而然可以确定丁的位置。所以代入时，优先代入与间隔信息相关的选项，做起来会更快速.</li>
+</ol>
+</blockquote>
+<img src="/post/dbde71d8/image-20250326085340877.png" class="" title="image-20250326085340877"> 
+
+<blockquote>
+<p>七个位置，找间隔。最大间隔为2条件。要放进去起码占5个位置。甲确定了，那么剩下5个放6个位置有两种，但是结合2，5条件只能是戊只能在6的位置</p>
+</blockquote>
+<img src="/post/dbde71d8/image-20250326085746775.png" class="" title="image-20250326085746775">
+
+<img src="/post/dbde71d8/image-20250326085759126.png" class="" title="image-20250326085759126"> 
+
+<blockquote>
+<p> 问“可能&#x2F;不可能”，要优先代入与间隔信息相关的话，题干信息没 有提到“酸菜鱼”，即使代入 A 项，也推不出太多的结果，所以不优先考虑代入 A 项。如果正确答案是 A 项，此时代入到 D 项是代入 3 次，如果代入 D 项对，直 接选择 D 项，如果代入 D 项不对，则可以直接选 A 项，不需要代入。A 项可能性 太多，代入之后会发现几种可能性都不行，代入 A 项会很慢。</p>
+</blockquote>
+<img src="/post/dbde71d8/image-20250326085917422.png" class="" title="image-20250326085917422">
+
+<blockquote>
+<p> A比B晚三个月。那么B-A&#x3D;3.要区分间隔三个月的情况！</p>
+<p> 丙与去家用电器店打工的人是同乡。注意细读。得到丙不干家电。</p>
+</blockquote>
+<h4 id="最大信息"><a href="#最大信息" class="headerlink" title="最大信息"></a>最大信息</h4><blockquote>
+<p><strong>题干中出现次数最多的信息</strong></p>
+<ul>
+<li>题干中出现次数最多的信息，比如提到最多次的人、角色、 名次等。</li>
+</ul>
+<p>但凡一道题需要用最大信息进行推理的，正确率一般都不高，</p>
+<hr>
+<p>什么时候用最大信息：<strong>两个极端情况，没有确定信息和全是确定信息，</strong>考虑用最大信息进行推理。<br>（1）题干中根本没有确定信息，则只能找最大信息。<br>（2）题干中全是确定信息，确定信息太多而不知道从哪里入手解题，考虑用最大信息入手推理&#x2F;.</p>
+</blockquote>
+<h5 id="例题-3"><a href="#例题-3" class="headerlink" title="例题"></a>例题</h5><img src="/post/dbde71d8/image-20250326090212384.png" class="" title="image-20250326090212384"> 
+
+<blockquote>
+<p>找到最大信息是宣传材料破题</p>
+<p>如果题干中确定信息太多，或者根本没有确定信息，用最大信息法， 找最大信息</p>
+</blockquote>
+<img src="/post/dbde71d8/image-20250326090254865.png" class="" title="image-20250326090254865">
+
+<blockquote>
+<p>本题根据条件（3）得不到穿滑板鞋的时间，因为只<strong>提到了“在第二次穿篮球鞋之前”，具体前几天是不确定的</strong>。</p>
+<p>文字游戏的感觉</p>
+<p>（2）“甲乙间隔 3 天”的意思是“甲 XXX 乙”，“乙晚了甲三天”的意思是“甲 XX 乙”，注意区分，绝<strong>大部分的题目强调的都是间隔。</strong></p>
+</blockquote>
+<h4 id="假设法"><a href="#假设法" class="headerlink" title="假设法"></a>假设法</h4><blockquote>
+<p><strong>假设法： 二选一或无确定信息、最大信息</strong></p>
+</blockquote>
+<h5 id="例题-4"><a href="#例题-4" class="headerlink" title="例题"></a>例题</h5><img src="/post/dbde71d8/image-20250326090521379.png" class="" title="image-20250326090521379"> 
+
+<blockquote>
+<p>“当且仅当”的意思，“当且仅当”表示“充要条件”， 即“A 当且仅当 B”的时候，“A→B”和“B→A”都成立（可以说是“且”关系， 这两种情况都成立）。“充要条件”目前考查的方式就是“当且仅当”或者“有 且只有”，二者是一样的。说白了就是“有乙就有丙，有丙就有乙，没乙就没丙， 没丙就没乙”的意思。</p>
+<p>找到了最大信息，但是无法从最大信息入手推理， 则可以假设最大信息“有”或者“无”，即“甲”和“-甲”。</p>
+</blockquote>
+<h2 id="材料题"><a href="#材料题" class="headerlink" title="材料题"></a>材料题</h2><blockquote>
+<ol>
+<li>与非材料题解题方法一致——一则材料、多种技巧 </li>
+<li>通过<strong>材料</strong>直接推出来的结论可以直接<strong>应用于所有题目</strong></li>
+</ol>
+</blockquote>
+<h3 id="例题-5"><a href="#例题-5" class="headerlink" title="例题"></a>例题</h3><img src="/post/dbde71d8/image-20250326090754814.png" class="" title="image-20250326090754814">
+
+<blockquote>
+<p> 题干推出来的，不是前面的题推出来的。。</p>
+</blockquote>
+<img src="/post/dbde71d8/image-20250326090900703.png" class="" title="image-20250326090900703">
+
+<blockquote>
+<p> 当题干没有确定结论或者全都是确定 结论，则用最大信息来解题。</p>
+</blockquote>
+<h3 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h3><p>1.解题方法和非材料题是一样的<br>2.当某题没有附加条件时，得出的结论可以应用于其他题目<br>3.题干信息较多的时候，可以尝试列表<br>4.优先代入与给定信息相关的条件<br>5.设问中给到的信息往往是突破口<br>6.根据自身特点，考虑性价比！</p>
+<blockquote>
+<p>1.如果有特殊的提问方式，问“可能&#x2F;不可能”，直接用代入法解题。<br>2.如果问“由此可知”，当题干条件确定，选项完整，用排除法解题。<br>3.当题干条件确定，选项信息不完整，考虑推理，从确定信息和最大信息入手推理。<br>4.如果题干条件不确定，直接用代入法</p>
+</blockquote>
+<h3 id="组合排列一览"><a href="#组合排列一览" class="headerlink" title="组合排列一览"></a>组合排列一览</h3><img src="/post/dbde71d8/image-20250326091039747.png" class="" title="image-20250326091039747">
+
+<blockquote>
+<p>【注意】组合排列总结：<br>1.根据题量看，确定信息和代入法中问“可能&#x2F;不可能”的题量最大。<br>2.根据难度来看，“最大信息”最难。<br>3.根据解题思维来说，排除法中“谁不是谁”的思维很重要。<br>4.答疑：所有的题目都可以用“谁不是谁”，这是常用的解题思维，不是解题方法。 </p>
+</blockquote>
+<h2 id="日常结论"><a href="#日常结论" class="headerlink" title="日常结论"></a>日常结论</h2><h3 id="题型特征-1"><a href="#题型特征-1" class="headerlink" title="题型特征"></a>题型特征</h3><blockquote>
+<p>日常结论和翻译推理题很像，提问方式为“可以推出”“无法推出”等， 题干中<strong>无明显的逻辑关联词</strong>，则是日常结论题。</p>
+</blockquote>
+<h3 id="解题思维"><a href="#解题思维" class="headerlink" title="解题思维"></a>解题思维</h3><blockquote>
+<p>（1）不选：<strong>逻辑错误、无中生有、偷换概念。</strong><br>①逻辑错误：题干说“A 导致 B”，选项说“B 导致 A”；题干说“如果 A就 B”，选项说“只有 A 才 B”，这样的不选。<br>②无中生有：是考试中最为常见的情况，如果选项的词在题干中压根没有提到过，这就是无中生有，这样的选项不能选。<br>③偷换概念：难点在于偷换概念很难被看出来，比如题干说“水上滑板的日益普及给我们带来了管理问题”，选项说“水上滑板的日益普及给我们带来了管理难题”，“<strong>难题”是“解决不了的问题”，这两者不同</strong>，这样的情况很难看出来。记住一句话叫做“天上不会掉馅饼”</p>
+<p><strong>如果选项中某一句话和题干某句话几乎一模一样，要慎重</strong>，因为是推理题，还要往下推理，一般不会和题干一模一样，所以遇到这样的情况要慎重，看有没有哪个词“跑偏”了。<br>（2）慎选：比较关系、绝对化表达、程度词。<br>（3）优选：从弱原则，出现“可能&#x2F;或许&#x2F;有时”等，越委婉的说法越可能对</p>
+</blockquote>
+<blockquote>
+<ol>
+<li><p>警惕“五大坑王”：更、最、越、首、极，因为这几个词都涉及比较关系，而题干不一定涉及比较关系，比如“更好、最好、越来越好、首要原因、极好”等，都涉及比较关系。</p>
+</li>
+<li><p>如果题干很短，先读文段；如果题干很长，选项代入，如果题干非常长时，读完题干再看选项，把选项代入题干还得重新看，因为题干很长，容易忘，这样很麻烦</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="例题-6"><a href="#例题-6" class="headerlink" title="例题"></a>例题</h3><img src="/post/dbde71d8/image-20250326091456428.png" class="" title="image-20250326091456428"> 
+
+<blockquote>
+<p>脂肪肝会向肝硬化发展”，看起来很相似，注 意“天上不会掉馅饼”。题干说的是“会向肝硬化发展”，即“可能会得肝硬化”， 而选项说“肝硬化是由脂肪肝发展而来的”，选项说的太绝对了，</p>
+</blockquote>
+<img src="/post/dbde71d8/image-20250326091526390.png" class="" title="image-20250326091526390"> 
+
+<blockquote>
+<p>在日常结论题中，出现翻译词，都表示绝对的表述。 日常结论题的选项要“比着来”，当其他选项的表述过于绝对、无中生有的 时候，也只能选择 A 项，本题中 A 项是对题干一定程度上的同义替换</p>
+</blockquote>
+<img src="/post/dbde71d8/image-20250326091703792.png" class="" title="image-20250326091703792">
+
+<blockquote>
+<p> 了强调当题目做不出来的时候，用“最大信息”解题。无人机是最大信息</p>
+</blockquote>
+<h4 id="一览"><a href="#一览" class="headerlink" title="一览"></a>一览</h4><img src="/post/dbde71d8/image-20250326091629031.png" class="" title="image-20250326091629031"> 
+
+<blockquote>
+<p>注意哪些不能选、哪些优选。 </p>
+<p>如果题干无逻辑关联词，选项有，可以排除</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">下完这场雨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/post/dbde71d8.html">http://example.com/post/dbde71d8.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">cout<<"金缕衣";</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86/">判断推理</a></div><div class="post_share"><div class="social-share" data-image="/img/g9.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wx.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.jpg" target="_blank"><img class="post-qr-code-img" src="/img/zfb.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/b34cc72c.html" title="逻辑论证1（削弱）"><img class="cover" src="/img/g10.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">逻辑论证1（削弱）</div></div></a></div><div class="next-post pull-right"><a href="/post/d9a2d074.html" title="翻译推理"><img class="cover" src="/img/g8.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">翻译推理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/b49a232a.html" title="判断推理_类比推理"><img class="cover" src="/img/g6.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-18</div><div class="title">判断推理_类比推理</div></div></a></div><div><a href="/post/3ebef33d.html" title="判断推理2"><img class="cover" src="/img/g5.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-17</div><div class="title">判断推理2</div></div></a></div><div><a href="/post/a7b7a287.html" title="判断推理1"><img class="cover" src="/img/g4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-16</div><div class="title">判断推理1</div></div></a></div><div><a href="/post/ef3d0435.html" title="判断推理_定义判断"><img class="cover" src="/img/g7.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-19</div><div class="title">判断推理_定义判断</div></div></a></div><div><a href="/post/d9a2d074.html" title="翻译推理"><img class="cover" src="/img/g8.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-25</div><div class="title">翻译推理</div></div></a></div><div><a href="/post/b34cc72c.html" title="逻辑论证1（削弱）"><img class="cover" src="/img/g10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-27</div><div class="title">逻辑论证1（削弱）</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Livere</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="lv-container" data-id="city" data-uid="MTAyMC81OTAyMS8zNTQ4Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/me.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">下完这场雨</div><div class="author-info__description">椿萱并茂，棠棣同馨，松萝共倚，兰桂齐芳。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/666XRB"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/666XRB" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/xideaha?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="https://user.qzone.qq.com/1982830095/infocenter" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:1982830095@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里啊，这里是我的blog，分享一些学习知识。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E6%8E%92%E5%88%97"><span class="toc-number">1.</span> <span class="toc-text">组合排列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E6%8E%92%E5%88%97-1"><span class="toc-number">1.1.</span> <span class="toc-text">组合排列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">方法概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E5%9E%8B%E7%89%B9%E5%BE%81"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">题型特征</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E9%99%A4%E6%B3%95%E4%B8%8E%E4%BB%A3%E5%85%A5%E6%B3%95"><span class="toc-number">1.1.2.</span> <span class="toc-text">排除法与代入法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E9%99%A4%E6%B3%95"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">排除法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.1.2.1.1.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E5%85%A5%E6%B3%95"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">代入法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-1"><span class="toc-number">1.1.2.2.1.</span> <span class="toc-text">例题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E7%90%86%E8%B5%B7%E7%82%B9"><span class="toc-number">1.1.3.</span> <span class="toc-text">推理起点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">确定信息</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-2"><span class="toc-number">1.1.3.1.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E9%A2%98"><span class="toc-number">1.1.3.1.2.</span> <span class="toc-text">排序题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">最大信息</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-3"><span class="toc-number">1.1.3.2.1.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%87%E8%AE%BE%E6%B3%95"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">假设法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-4"><span class="toc-number">1.1.3.3.1.</span> <span class="toc-text">例题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%90%E6%96%99%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">材料题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-5"><span class="toc-number">1.2.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA"><span class="toc-number">1.2.2.</span> <span class="toc-text">提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E6%8E%92%E5%88%97%E4%B8%80%E8%A7%88"><span class="toc-number">1.2.3.</span> <span class="toc-text">组合排列一览</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%B8%B8%E7%BB%93%E8%AE%BA"><span class="toc-number">1.3.</span> <span class="toc-text">日常结论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E5%9E%8B%E7%89%B9%E5%BE%81-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">题型特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E7%BB%B4"><span class="toc-number">1.3.2.</span> <span class="toc-text">解题思维</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-6"><span class="toc-number">1.3.3.</span> <span class="toc-text">例题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%A7%88"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">一览</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/b34cc72c.html" title="逻辑论证1（削弱）"><img src="/img/g10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="逻辑论证1（削弱）"/></a><div class="content"><a class="title" href="/post/b34cc72c.html" title="逻辑论证1（削弱）">逻辑论证1（削弱）</a><time datetime="2025-03-27T11:21:42.000Z" title="发表于 2025-03-27 19:21:42">2025-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/dbde71d8.html" title="组合排列"><img src="/img/g9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="组合排列"/></a><div class="content"><a class="title" href="/post/dbde71d8.html" title="组合排列">组合排列</a><time datetime="2025-03-26T01:18:37.000Z" title="发表于 2025-03-26 09:18:37">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/d9a2d074.html" title="翻译推理"><img src="/img/g8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="翻译推理"/></a><div class="content"><a class="title" href="/post/d9a2d074.html" title="翻译推理">翻译推理</a><time datetime="2025-03-25T01:30:22.000Z" title="发表于 2025-03-25 09:30:22">2025-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ef3d0435.html" title="判断推理_定义判断"><img src="/img/g7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="判断推理_定义判断"/></a><div class="content"><a class="title" href="/post/ef3d0435.html" title="判断推理_定义判断">判断推理_定义判断</a><time datetime="2025-03-19T11:12:43.000Z" title="发表于 2025-03-19 19:12:43">2025-03-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/b49a232a.html" title="判断推理_类比推理"><img src="/img/g6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="判断推理_类比推理"/></a><div class="content"><a class="title" href="/post/b49a232a.html" title="判断推理_类比推理">判断推理_类比推理</a><time datetime="2025-03-18T13:07:12.000Z" title="发表于 2025-03-18 21:07:12">2025-03-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 下完这场雨</div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!<br> <img src="https://haiyong.site/img/icp.png"> <a href="https://beian.miit.gov.cn/#/Integrated/index"  style="color:#87ceeb" target="_blank">豫ICP备2024090942号-1</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+      appKey: 'LssvKROPsftMFNCa4j2AnVL8',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Valine' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://VbfV1mFY.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+        "X-LC-Key": 'LssvKROPsftMFNCa4j2AnVL8',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="592262222" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-lrctype="1" data-preload="none" data-autoplay="false" muted></div><script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js" async></script><script src="/js/weather.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="random" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":60,"height":120,"hOffset":20,"vOffset":-20},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>

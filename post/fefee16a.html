@@ -1,0 +1,794 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>HTTP&amp;TomCat&amp;Servelet | cout&lt;&lt;&quot;金缕衣&quot;;</title><meta name="author" content="下完这场雨"><meta name="copyright" content="下完这场雨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="HTTP，TomCat，Servelet   导言Web：全球广域网，也称为万维网(www)，能够通过浏览器访问的网站 JavaWeb：是用Java技术来解决相关web互联网领域的技术栈 了解一下javaweb技术栈B&#x2F;S架构：Browser&#x2F;Server，浏览器&#x2F;服务器架构模式，它的特点是，客户端只需要浏览器，应用程序的逻辑和数据都存储在服务器端。浏览器只需要请求服">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP&amp;TomCat&amp;Servelet">
+<meta property="og:url" content="http://example.com/post/fefee16a.html">
+<meta property="og:site_name" content="cout&lt;&lt;&quot;金缕衣&quot;;">
+<meta property="og:description" content="HTTP，TomCat，Servelet   导言Web：全球广域网，也称为万维网(www)，能够通过浏览器访问的网站 JavaWeb：是用Java技术来解决相关web互联网领域的技术栈 了解一下javaweb技术栈B&#x2F;S架构：Browser&#x2F;Server，浏览器&#x2F;服务器架构模式，它的特点是，客户端只需要浏览器，应用程序的逻辑和数据都存储在服务器端。浏览器只需要请求服">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/b7.jpg">
+<meta property="article:published_time" content="2023-12-31T03:06:22.000Z">
+<meta property="article:modified_time" content="2023-12-31T03:07:47.786Z">
+<meta property="article:author" content="下完这场雨">
+<meta property="article:tag" content="HTTP,TomCat,Servelet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/b7.jpg"><link rel="shortcut icon" href="/img/icon.png"><link rel="canonical" href="http://example.com/post/fefee16a.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 下完这场雨","link":"链接: ","source":"来源: cout<<\"金缕衣\";","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HTTP&TomCat&Servelet',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-31 11:07:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="//code.tidio.co/xysdkaby5vgv2dt8e9zgdqsu6wh59g43.js" async></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/mystyle.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4770397_jz6ucve7mog.css<link rel="stylesheet" href="/css/ancientPoetry.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/me.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/b7.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="cout&lt;&lt;&quot;金缕衣&quot;;"><img class="site-icon" src="/img/logo3.png"/><span class="site-name">cout&lt;&lt;&quot;金缕衣&quot;;</span></a></span><div id="wearher"></div><div id="tp-weather-widget"></div><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HTTP&amp;TomCat&amp;Servelet</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-31T03:06:22.000Z" title="发表于 2023-12-31 11:06:22">2023-12-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-31T03:07:47.786Z" title="更新于 2023-12-31 11:07:47">2023-12-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/javaweb/">javaweb</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/post/fefee16a.html" data-flag-title="HTTP&amp;TomCat&amp;Servelet"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/post/fefee16a.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/post/fefee16a.html" itemprop="commentCount"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="HTTP，TomCat，Servelet"><a href="#HTTP，TomCat，Servelet" class="headerlink" title="HTTP，TomCat，Servelet"></a>HTTP，TomCat，Servelet</h1><img src="/post/fefee16a/image-20231228162222816.png" class="" title="image-20231228162222816"> 
+
+<h2 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h2><p>Web：全球广域网，也称为万维网(www)，能够通过浏览器访问的网站</p>
+<p>JavaWeb：是用Java技术来解决相关web互联网领域的技术栈</p>
+<h2 id="了解一下javaweb技术栈"><a href="#了解一下javaweb技术栈" class="headerlink" title="了解一下javaweb技术栈"></a>了解一下javaweb技术栈</h2><p>B&#x2F;S架构：Browser&#x2F;Server，浏览器&#x2F;服务器架构模式，它的特点是，客户端只需要浏览器，应用程序的逻辑和数据都存储在服务器端。浏览器只需要请求服务器，获取Web资源，服务器把Web资源发送给浏览器即可</p>
+<p>&#x3D;&#x3D;好处：易于维护升级：服务器端升级后，客户端无需任何部署就可以使用到新的版本&#x3D;&#x3D;</p>
+<p>服务器的升级。。。客户端只管使用就ok了</p>
+<img src="/post/fefee16a/image-20231228161933467.png" class="" title="image-20231228161933467"> 
+
+<ul>
+<li><p>静态资源：HTML,CSS,JavaScript;</p>
+<p>三剑客</p>
+</li>
+<li><p>动态资源 Servlet和JSp，负责逻辑处理，实现不同用户登录实现不同的效果</p>
+</li>
+<li><p>数据库：存储数据</p>
+</li>
+</ul>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><ul>
+<li>概念：HyperText TransferProtocol，超文本传输协议，规定了浏览器和服务器之间数据传输的规则</li>
+</ul>
+<img src="/post/fefee16a/image-20231228162506576.png" class="" title="image-20231228162506576"> 
+
+<p>HTTP特点：<img src="/post/fefee16a/image-20231228162558208.png" class="" title="image-20231228162558208"> </p>
+<h2 id="请求数据的格式"><a href="#请求数据的格式" class="headerlink" title="请求数据的格式"></a>请求数据的格式</h2><img src="/post/fefee16a/image-20231228162929597.png" class="" title="image-20231228162929597">
+
+<img src="/post/fefee16a/image-20231228162956008.png" class="" title="image-20231228162956008">  
+
+<img src="/post/fefee16a/image-20231228162454339.png" class="" title="image-20231228162454339"> 
+
+<img src="/post/fefee16a/image-20231228163121581.png" class="" title="image-20231228163121581"> 
+
+<img src="/post/fefee16a/image-20231228163123741.png" class="" title="image-20231228163123741"> 
+
+
+
+
+
+<h2 id="响应数据的格式"><a href="#响应数据的格式" class="headerlink" title="响应数据的格式"></a>响应数据的格式</h2><img src="/post/fefee16a/image-20231228163704916.png" class="" title="image-20231228163704916"> 
+
+<h2 id="响应状态码"><a href="#响应状态码" class="headerlink" title="响应状态码"></a>响应状态码</h2><blockquote>
+<p>HTTP协议中定义了一系列的状态码（Status Code），用于表示服务器对请求的处理结果。以下是一些常见的HTTP响应状态码：</p>
+<ul>
+<li><p><strong>1xx（信息性状态码）：</strong></p>
+<ul>
+<li>100 Continue：继续。表示服务器已经接收到请求的部分，客户端可以继续发送请求的其余部分。</li>
+</ul>
+</li>
+<li><p><strong>2xx（成功状态码）：</strong></p>
+<ul>
+<li>200 OK：请求成功。表示请求已经成功处理。</li>
+<li>201 Created：已创建。表示请求已经被成功处理，并且服务器创建了新的资源。</li>
+<li>204 No Content：无内容。表示服务器成功处理了请求，但没有返回任何内容。</li>
+</ul>
+</li>
+<li><p><strong>3xx（重定向状态码）：</strong></p>
+<ul>
+<li>301 Moved Permanently：永久重定向。<strong>请求的资源已被永久移动到新位置。</strong></li>
+<li>302 Found：临时重定向。请求的资源临时移动到新位置。</li>
+<li>304 Not Modified：未修改。表示资源未被修改，可以直接从缓存中获取。</li>
+</ul>
+</li>
+<li><p><strong>4xx（客户端错误状态码）：</strong></p>
+<ul>
+<li>400 Bad Request：请求错误。表示请求出现语法错误。</li>
+<li>401 Unauthorized：未授权。表示请求需要用户身份验证。</li>
+<li>403 Forbidden：禁止访问。表示服务器理解请求，但拒绝执行。</li>
+<li>404 Not Found：<strong>未找到。表示服务器无法找到请求的资源。</strong></li>
+</ul>
+</li>
+<li><p><strong>5xx（服务器错误状态码）：</strong></p>
+<ul>
+<li>500 Internal Server Error：<strong>服务器错误。表示服务器在执行请求时发生了错误。</strong></li>
+<li>502 Bad Gateway：坏的网关。表示服务器作为网关或代理，从上游服务器接收到无效的响应。</li>
+<li>503 Service Unavailable：<strong>服务不可用。表示服务器暂时无法处理请求</strong>。</li>
+</ul>
+</li>
+</ul>
+<img src="/post/fefee16a/image-20231228164049225.png" class="" title="image-20231228164049225"> 
+</blockquote>
+<p>tomcat帮我们处理的响应头什么的</p>
+<h2 id="—————"><a href="#—————" class="headerlink" title="—————"></a>—————</h2><h2 id="TomCat服务器"><a href="#TomCat服务器" class="headerlink" title="TomCat服务器"></a>TomCat服务器</h2><img src="/post/fefee16a/image-20231228164932783.png" class="" title="image-20231228164932783">
+
+<p>可以把web项目丢进去部署</p>
+<p>别的人就可以用我们电脑的ip和开放的端口号和项目来访问了</p>
+<p><code>localhost/hello/a.html</code></p>
+<p><code>127.0.0.1:8080/hello/a.html</code></p>
+<img src="/post/fefee16a/image-20231228170011347.png" class="" title="image-20231228170011347">
+
+<img src="/post/fefee16a/image-20231228170128388.png" class="" title="image-20231228170128388">  
+
+
+
+<h2 id="TomCat-web服务器"><a href="#TomCat-web服务器" class="headerlink" title="TomCat|web服务器"></a>TomCat|web服务器</h2><img src="/post/fefee16a/image-20231228165430369.png" class="" title="image-20231228165430369"> 
+
+<p><a target="_blank" rel="noopener" href="https://xu-runbo.gitee.io/xu-runbo/post/41f2fbd7.html">tomcat配置 | cout&lt;&lt;”金缕衣”; (gitee.io)</a></p>
+<img src="/post/fefee16a/image-20231228165512258.png" class="" title="image-20231228165512258"> 
+
+<p>有的版本添加的是TOMCAT_HOME有的是什么CAt。。。</p>
+<p>根据jdk版本去适配对应的tomcat</p>
+<p>下载完成然后创建变量，然后指定path到bin目录</p>
+<img src="/post/fefee16a/image-20231228165834108.png" class="" title="image-20231228165834108"> 
+
+<h2 id="TomCat项目部署"><a href="#TomCat项目部署" class="headerlink" title="TomCat项目部署"></a>TomCat项目部署</h2><img src="/post/fefee16a/image-20231228170749981.png" class="" title="image-20231228170749981"> 
+
+<p>可以直接复制过去</p>
+<ol>
+<li>项目打包为war包，优点：会自动解压，也能正常访问</li>
+</ol>
+<h2 id="WEb项目结构"><a href="#WEb项目结构" class="headerlink" title="WEb项目结构"></a>WEb项目结构</h2><p>maven的package打包为war包</p>
+<p>install打包为jar包</p>
+<img src="/post/fefee16a/image-20231228171301105.png" class="" title="image-20231228171301105">  
+
+
+
+
+
+<h2 id="IDEA创建Maven-Web项目"><a href="#IDEA创建Maven-Web项目" class="headerlink" title="IDEA创建Maven Web项目"></a>IDEA创建Maven Web项目</h2><p>社区版本的，只能用骨架，如果这里没有提示，我们可以先创建这俩文件夹，然后右键依次右键这俩文件夹，找到Mark D啥啥啥 as我们自己手动更改就好了</p>
+<h3 id="使用骨架"><a href="#使用骨架" class="headerlink" title="使用骨架"></a>使用骨架</h3><img src="/post/fefee16a/image-20231228171725772.png" class="" title="image-20231228171725772"> 
+
+<img src="/post/fefee16a/image-20231228171432170.png" class="" title="image-20231228171432170">
+
+ <img src="/post/fefee16a/PixPin12-28_17-21-31.gif" class="">
+
+
+
+<h3 id="不使用骨架"><a href="#不使用骨架" class="headerlink" title="不使用骨架"></a>不使用骨架</h3><p>不勾选框架创建</p>
+<p>然后修改package</p>
+<img src="/post/fefee16a/image-20231228171829386.png" class="" title="image-20231228171829386"> 
+
+<img src="/post/fefee16a/image-20231228173121535.png" class="" title="image-20231228173121535">
+
+<p>直接去修改打包为war，这样部署tomcat的时候才有提示！</p>
+<img src="/post/fefee16a/image-20231228173255776.png" class="" title="image-20231228173255776">  
+
+<img src="/post/fefee16a/image-20231228173138403.png" class="" title="image-20231228173138403">
+
+<img src="/post/fefee16a/image-20231228173206721.png" class="" title="image-20231228173206721">
+
+<hr>
+<p>&#x3D;&#x3D;不管是修改路径还是移动位置后再修改目录名称&#x3D;&#x3D;</p>
+<p>一定是webapp而不是web！！！</p>
+<img src="/post/fefee16a/image-20231229115741818.png" class="" title="image-20231229115741818"> 
+
+<img src="/post/fefee16a/image-20231229115859550.png" class="" title="image-20231229115859550"> 
+
+<p>最终的项目结构一定是这样</p>
+<img src="/post/fefee16a/image-20231229115658644.png" class="" title="image-20231229115658644"> 
+
+<p>   然后添加a.html文件测试</p>
+<img src="/post/fefee16a/image-20231229115944322.png" class="" title="image-20231229115944322">
+
+<p>ok! </p>
+<h2 id="IDEA使用TomCat"><a href="#IDEA使用TomCat" class="headerlink" title="IDEA使用TomCat"></a>IDEA使用TomCat</h2><p>为了解决每次都打包好的war，放入tomcat中运行部署，反复就很麻烦</p>
+<p>然后测试很方便</p>
+<img src="/post/fefee16a/image-20231228173536304.png" class="" title="image-20231228173536304"> 
+
+<p>IDEA继承tomcat</p>
+<blockquote>
+<p>这 URL 分别对应了不同的部署方式，具体选择取决于你的应用是如何被部署的。</p>
+<ol>
+<li><strong><a target="_blank" rel="noopener" href="http://localhost:9527/untitled18_war_exploded/a.html">http://localhost:9527/untitled18_war_exploded/a.html</a>:</strong><ul>
+<li><code>_exploded</code> 通常表示这是一个以 exploded 形式部署的 Web 应用。Exploded 形式指的是将应用以文件夹的形式解压到服务器上，而不是打包成 WAR 文件。这种部署方式主要用于开发和调试阶段。</li>
+<li><code>untitled18_war_exploded</code> 可能是你的项目的上下文路径，这个上下文路径的名称是根据你的项目名称和服务器配置来的。</li>
+</ul>
+</li>
+<li><strong><a target="_blank" rel="noopener" href="http://localhost:9527/untitled18_war/a.html">http://localhost:9527/untitled18_war/a.html</a>:</strong><ul>
+<li>没有 <code>_exploded</code>，通常表示这是一个以 WAR 文件形式部署的 Web 应用。WAR 文件是 Web 应用的打包格式，它包含了应用的所有资源和配置。</li>
+<li><code>untitled18_war</code> 可能是你的项目的上下文路径。</li>
+</ul>
+</li>
+</ol>
+<p><strong>区别：</strong></p>
+<ul>
+<li>如果你处于开发和调试阶段，通常会使用 exploded 形式部署，因为这样可以更方便地进行修改和查看文件，而无需每次重新打包 WAR 文件。</li>
+<li>如果你要在生产环境中部署应用，通常会使用 WAR 文件形式部署，因为这样更便于管理和维护，也有利于应用的安全性。</li>
+</ul>
+<p><strong>建议：</strong></p>
+<ul>
+<li>在开发和调试阶段，你可以使用 <code>http://localhost:9527/untitled18_war_exploded/a.html</code> 这个URL，因为它更适合快速修改和查看代码。</li>
+<li>在生产环境中，应该使用 <code>http://localhost:9527/untitled18_war/a.html</code> 这个URL，以确保更好的安全性和部署管理。</li>
+</ul>
+</blockquote>
+<h2 id="插件集成Tomcat"><a href="#插件集成Tomcat" class="headerlink" title="插件集成Tomcat"></a>插件集成Tomcat</h2><img src="/post/fefee16a/image-20231229110505802.png" class="" title="image-20231229110505802"> 
+
+<img src="/post/fefee16a/image-20231229111702020.png" class="" title="image-20231229111702020">
+
+<p>也是一样的只不过是不用手动去配置tomcat了，但是只能有tomcat7好像</p>
+<h2 id="———"><a href="#———" class="headerlink" title="———"></a>———</h2><h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><img src="/post/fefee16a/image-20231229111743638.png" class="" title="image-20231229111743638"> 
+
+<p><strong>传入不同的参数，返回不同的页面</strong></p>
+<img src="/post/fefee16a/image-20231229111923527.png" class="" title="image-20231229111923527"> 
+
+<h2 id="servlet简介"><a href="#servlet简介" class="headerlink" title="servlet简介"></a>servlet简介</h2><p>Servlet 是 Java 语言编写的<strong>服务器端程序</strong>，用于处理客户端的请求和生成响应。它主要用于<strong>构建动态的、交互性的网页应用</strong>，能够处理用户提交的表单、与数据库交互、管理用户会话等。Servlet 运行在支持 Java 的 Web 服务器上，例如 Apache Tomcat。</p>
+<h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a><a name="快速上手">快速上手</a></h2><h3 id="快速上手-1"><a href="#快速上手-1" class="headerlink" title="快速上手 1"></a>快速上手 1</h3><img src="/post/fefee16a/image-20231231100335209.png" class="" title="image-20231231100335209">
+
+<p>依赖项：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>7.0.47<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>代码效果</p>
+<img src="/post/fefee16a/image-20231231101134206.png" class="" title="image-20231231101134206"> 
+
+<p>使用注解就不用在webxml里面写了</p>
+ <img src="/post/fefee16a/image-20231231101205340.png" class="" title="image-20231231101205340">
+
+
+
+<h3 id="快速上手-1"><a href="#快速上手-1" class="headerlink" title="快速上手"></a>快速上手</h3><ol>
+<li><p><strong>安装 Java 开发工具：</strong> 确保你的计算机上安装了 JDK（Java Development Kit）。你可以从 Oracle 官网或其他渠道下载并安装 JDK。</p>
+</li>
+<li><p><strong>下载并配置一个 Servlet 容器：</strong> 常用的 Servlet 容器有 Apache Tomcat。下载并解压 Tomcat，然后设置环境变量 <code>CATALINA_HOME</code> 指向 Tomcat 的安装目录。</p>
+</li>
+<li><p><strong>创建一个简单的 Servlet 项目：</strong></p>
+<ul>
+<li>在你的开发工具（如Eclipse、IntelliJ IDEA等）中创建一个新的 Java 项目。</li>
+<li>在项目中创建一个 Java 类，该类<strong>继承</strong>自 <code>HttpServlet</code> 类。<strong>重写</strong> <code>doGet</code> 或 <code>doPost</code> 方法，这两个方法用于处理 HTTP GET 或 POST 请求。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        response.getWriter().println(<span class="string">&quot;Hello, Servlet!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置 Servlet 映射：</strong></p>
+<ul>
+<li>在项目中创建一个 <code>web.xml</code> 文件（如果使用 Servlet 3.0+，也可以使用注解方式代替）。</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;3.1&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Servletdemo<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>comhello.Servletdemo<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Servletdemo<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/hello<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个配置将 <code>/hello</code> 映射到 <code>MyServlet</code>。</p>
+</li>
+<li><p><strong>部署和运行：</strong></p>
+<ul>
+<li>将你的项目打包成 WAR 文件（Web Application Archive）。</li>
+<li>将 WAR 文件复制到 Tomcat 的 <code>webapps</code> 目录下。</li>
+<li>启动 Tomcat。你可以运行 Tomcat 的启动脚本，如 <code>catalina.bat</code> 或 <code>catalina.sh</code>。</li>
+<li>在浏览器中访问 <code>http://localhost:8080/your-web-app-context/hello</code>，你应该看到 “Hello, Servlet!”。</li>
+</ul>
+</li>
+</ol>
+<p>代码效果：</p>
+<img src="/post/fefee16a/image-20231231095625262.png" class="" title="image-20231231095625262"> 
+
+<p>Servletdemo.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hello;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Servletdemo</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        resp.getWriter().println(<span class="string">&quot;hello servlet!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>web.xml</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Servletdemo<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/hello<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Servletdemo<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.hello.Servletdemo<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>web应用程序的部署描述文件（Deployment Descriptor）的一部分，通常命名为<code>web.xml</code>。这个文件用于配置Servlet和其他Web组件的映射和参数。</p>
+<p><strong>Servlet声明部分：</strong></p>
+<ol>
+<li><pre><code class="xml">&lt;servlet&gt;
+    &lt;servlet-name&gt;Servletdemo&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;comhello.Servletdemo&lt;/servlet-class&gt;
+&lt;/servlet&gt;
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   - `&lt;servlet-name&gt;`：指定**Servlet的名称**。在这里，Servlet的名字是&quot;MyServlet&quot;。</span><br><span class="line">   - `&lt;servlet-class&gt;`：指定**Servlet类的完全限定名**（包括包路径）。在这里，Servlet的类是&quot;com.example.MyServlet&quot;。</span><br><span class="line"></span><br><span class="line">2. **Servlet映射部分：**</span><br><span class="line"></span><br><span class="line">   ```xml</span><br><span class="line">   &lt;servlet-mapping&gt;</span><br><span class="line">       &lt;servlet-name&gt;Servletdemo&lt;/servlet-name&gt;</span><br><span class="line">       &lt;url-pattern&gt;/hello&lt;/url-pattern&gt;</span><br><span class="line">   &lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+- `&lt;servlet-name&gt;`：指定**要映射的Servlet的名称**。这**与Servlet声明中的名称相同**，这里是&quot;MyServlet&quot;。
+
+- `&lt;url-pattern&gt;`：指定URL模式，**即定义了请求到达服务器时由该Servlet处理的URL**。在这里，URL模式是&quot;/hello&quot;，这意味着**当请求的URL以&quot;/hello&quot;结尾时**，将由&quot;MyServlet&quot;处理。
+
+  也可以注解的方式来指定url
+</code></pre>
+</li>
+</ol>
+<p>表示一个Servlet（名为”MyServlet”）的<strong>声明和映射</strong>。当Web应用程序收到以”&#x2F;hello”结尾的URL请求时，容器（如Tomcat）将请求交给”MyServlet”来处理。这是Java EE Web应用程序中配置Servlet的一种方式。</p>
+</blockquote>
+<h2 id="Servlet的执行流程-生命周期"><a href="#Servlet的执行流程-生命周期" class="headerlink" title="Servlet的执行流程&amp;生命周期"></a>Servlet的执行流程&amp;生命周期</h2><h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><p>我们只是实现了接口，也没用创建对象，是怎么执行的呢？</p>
+<img src="/post/fefee16a/image-20231231101830235.png" class="" title="image-20231231101830235">
+
+<p>Servlet由谁创建？Servlet方法由谁调用？</p>
+<blockquote>
+<p>Servlet由<strong>web服务器创建</strong>，</p>
+</blockquote>
+<p>Servlet方法由web服务器调用2.服务器怎么知道Servlet中一定有service方法？</p>
+<blockquote>
+<p>因为我们自定义的Servlet，<strong>必须实现servlet接口并复写其方法，而Servlet接口中有service方法</strong></p>
+</blockquote>
+<hr>
+<ol>
+<li><strong>加载和实例化：</strong><ul>
+<li>当第一次请求到达Servlet时，Servlet容器（如Tomcat）会负责<strong>加载并实例化Servlet类</strong>。这<strong>发生在Web应用程序启动时或首次访问与Servlet关联的URL时</strong>。</li>
+</ul>
+</li>
+<li><strong>初始化：</strong><ul>
+<li>一旦Servlet实例被创建，<strong>容器会调用Servlet的<code>init(ServletConfig config)</code>方法</strong>，用于执行初始化操作。<code>init</code>方法<strong>只会在Servlet的生命周期内被调用一次</strong>。</li>
+</ul>
+</li>
+<li><strong>请求处理：</strong><ul>
+<li>当有新的请求到达与Servlet关联的URL时，容器<strong>会创建一个新的线程来处理这个请求。</strong></li>
+<li><strong>对于每个请求，容器会调用Servlet的<code>service(ServletRequest request, ServletResponse response)</code>方法</strong>。</li>
+<li><code>service</code>方法**会根据请求类型（GET、POST等）调用相应的<code>doXXX</code>方法，例如<code>doGet</code>或<code>doPost</code>**。</li>
+</ul>
+</li>
+<li><strong>线程安全：</strong><ul>
+<li>Servlet的<code>service</code>方法是<strong>单例多线程的</strong>，因此需要注意实现线程安全的逻辑，或通过在<code>service</code>方法中使用局部变量来确保线程安全。</li>
+</ul>
+</li>
+<li><strong>销毁：</strong><ul>
+<li>当<strong>Web应用程序关闭或Servlet容器需要释放资源时，容器会调用Servlet的<code>destroy</code>方法</strong>。在这个方法中，你可以执行一些清理工作，如<strong>关闭数据库连接、释放资源</strong>等。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="&#x3D;&#x3D;生命周期&#x3D;&#x3D;"></a>&#x3D;&#x3D;生命周期&#x3D;&#x3D;</h3><img src="/post/fefee16a/image-20231231102224581.png" class="" title="image-20231231102224581"> 默认是-1
+
+<p>修改为0&#x2F;1。服务器一旦启动就执行了init方法。</p>
+<hr>
+<ol>
+<li><p><strong>实例化（Instantiation）：</strong></p>
+<ul>
+<li>当Servlet容器启动或者在第一次请求到达相关URL时，<strong>Servlet容器会创建Servlet的一个实例</strong>。</li>
+</ul>
+</li>
+<li><p><strong>初始化（Initialization）：</strong></p>
+<ul>
+<li>在实例化后，容器会调用<strong>Servlet的<code>init</code>方法</strong>，允许Servlet执行一些初始化的操作。这个方法只在Servlet的生命周期中被调用一次。</li>
+</ul>
+</li>
+<li><p><strong>请求处理（Request Handling）：</strong></p>
+<ul>
+<li>在Servlet的生命周期中，**<code>service</code>方法会被多次调用**，每次处理一个HTTP请求。具体调用哪个<code>doXXX</code>方法取决于请求的类型。</li>
+</ul>
+</li>
+<li><p><strong>销毁（Destruction）：</strong></p>
+<ul>
+<li>当Web应用程序关闭或者容器需要释放资源时，容器会调用Servlet的<code>destroy</code>方法。在这个方法中，你可以执行一些清理操作。</li>
+<li>服务器关闭。内存释放，Servlet对象会被销毁</li>
+</ul>
+</li>
+<li><p><strong>垃圾回收（Garbage Collection）：</strong></p>
+<ul>
+<li>一旦Servlet实例不再被引用，它就会成为垃圾收集的对象。</li>
+</ul>
+</li>
+</ol>
+<p>这就是Servlet的基本执行流程和生命周期。理解Servlet的生命周期对于有效地管理资源和确保应用程序的正确行为非常重要。</p>
+<h2 id="Servlet方法介绍-体系结构"><a href="#Servlet方法介绍-体系结构" class="headerlink" title="Servlet方法介绍&amp;体系结构"></a>Servlet方法介绍&amp;体系结构</h2><h3 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h3><img src="/post/fefee16a/image-20231231102830972.png" class="" title="image-20231231102830972"> 
+
+<p>默认返回空字符串就行了</p>
+<img src="/post/fefee16a/image-20231231103120163.png" class="" title="image-20231231103120163"> 
+
+<h3 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h3><img src="/post/fefee16a/image-20231231103228466.png" class="" title="image-20231231103228466"> 
+
+<img src="/post/fefee16a/image-20231231103304786.png" class="" title="image-20231231103304786">  
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hello;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="meta">@WebServlet(&quot;/demo4&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Servlethttp</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;......get&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;......post&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试表单</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/untitled19_war/demo4&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在 网站输入url的形式是get请求</p>
+<p>表单实现post请求</p>
+</blockquote>
+<p>访问<code>[localhost:9527/untitled19_war/demo4](http://localhost:9527/untitled19_war/demo4)</code>输出了…get</p>
+<img src="/post/fefee16a/PixPin12-31_10-42-57.gif" class="" title="PixPin12-31_10-42-57">
+
+<p>并且跳转到了action指定的路径</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><img src="/post/fefee16a/image-20231231104954011.png" class="" title="image-20231231104954011"> 
+
+<img src="/post/fefee16a/image-20231231104806894.png" class="" title="image-20231231104806894"> 
+
+
+
+
+
+<h2 id="urlPattern配置"><a href="#urlPattern配置" class="headerlink" title="urlPattern配置"></a>urlPattern配置</h2><blockquote>
+<img src="/post/fefee16a/image-20231231105101467.png" class="" title="image-20231231105101467"> 
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@WebServlet(urlPatterns = &#123;&quot;/hello&quot;,&quot;/h&quot;&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<p>这样都能访问到对应的资源</p>
+<h3 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h3><p>拓展名匹配的时候不能加&#x2F;</p>
+<img src="/post/fefee16a/image-20231231105718787.png" class="" title="image-20231231105718787"> 
+
+<img src="/post/fefee16a/image-20231231105445804.png" class="" title="image-20231231105445804"> 
+
+<p>当一个资源可以有多个不同的匹配规则都能访问到的时候</p>
+<p>&#x3D;&#x3D;越精确的优先级越高！&#x3D;&#x3D;</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>任意匹配很危险，不建议使用</p>
+<img src="/post/fefee16a/image-20231231105813058.png" class="" title="image-20231231105813058">  
+
+<img src="/post/fefee16a/image-20231231110345500.png" class="" title="image-20231231110345500"> 
+
+<blockquote>
+<p>理解<code>/</code>和<code>/*</code>在Servlet映射中的区别需要考虑Servlet规范中的URL匹配规则以及Tomcat中的默认Servlet的影响。</p>
+<ol>
+<li><p><strong><code>/</code>的含义：</strong></p>
+<ul>
+<li>当你配置Servlet的URL模式为<code>/</code>时，表示这个Servlet会处理应用程序的根路径，也就是<strong>所有的请求都会被这个Servlet处理。</strong></li>
+<li>例如，如果你有一个Servlet配置为<code>&lt;url-pattern&gt;/&lt;/url-pattern&gt;</code>，那么它将拦截所有的请求，无论是<code>/page1</code>、<code>/images/logo.png</code>还是其他路径，都将由这个Servlet处理。</li>
+</ul>
+</li>
+<li><p><strong><code>/*</code>的含义：</strong></p>
+<ul>
+<li>当你配置Servlet的URL模式为<code>/*</code>时，表示这个Servlet会匹配所有的URL路径，包括子路径。</li>
+<li>例如，如果你有一个Servlet配置为<code>&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</code>，那么它将匹配所有路径，包括<code>/page1</code>、<code>/images/logo.png</code>等。</li>
+</ul>
+</li>
+<li><p><strong>Tomcat中的默认Servlet：</strong></p>
+<ul>
+<li><strong>Tomcat中有一个默认的Servlet，通常用于处理静态资源（如HTML、图片、CSS等）的请求</strong>。这个默认的Servlet的URL模式是<code>/</code>。</li>
+<li>如果你的应用程序中配置了一个Servlet的URL模式为<code>/</code>，它将覆盖Tomcat默认的Servlet，这意味着你的Servlet将处理所有请求，包括静态资源请求。</li>
+</ul>
+</li>
+<li><p><strong>总结：</strong></p>
+<ul>
+<li>配置Servlet的URL模式为<code>/</code>时，它会处理应用程序的根路径，覆盖Tomcat默认的Servlet。</li>
+<li>配置Servlet的URL模式为<code>/*</code>时，它会匹配所有路径，包括子路径。</li>
+</ul>
+</li>
+</ol>
+<p>在使用<code>/</code>时，要小心不要阻止对静态资源的访问，因为这可能会覆盖默认Servlet。而<code>/*</code>则需要谨慎使用，因为它可能导致所有请求都被该Servlet处理，包括一些本不应该由Servlet处理的静态资源。</p>
+</blockquote>
+<h2 id="XML配置Servlet"><a href="#XML配置Servlet" class="headerlink" title="XML配置Servlet"></a>XML配置Servlet</h2><p>参见<a href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</a></p>
+<p>3.0+就可以进行@WebServlet注解来实现url了</p>
+<img src="/post/fefee16a/image-20231231110435691.png" class="" title="image-20231231110435691"> 
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">下完这场雨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/post/fefee16a.html">http://example.com/post/fefee16a.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">cout<<"金缕衣";</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/HTTP-TomCat-Servelet/">HTTP,TomCat,Servelet</a></div><div class="post_share"><div class="social-share" data-image="/img/b7.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wx.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.jpg" target="_blank"><img class="post-qr-code-img" src="/img/zfb.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/e770816f.html" title="继Servlet的Request请求和Response响应"><img class="cover" src="/img/b12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">继Servlet的Request请求和Response响应</div></div></a></div><div class="next-post pull-right"><a href="/post/f9f4b1e7.html" title="regexp"><img class="cover" src="/img/b11.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">regexp</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Livere</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="lv-container" data-id="city" data-uid="MTAyMC81OTAyMS8zNTQ4Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/me.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">下完这场雨</div><div class="author-info__description">椿萱并茂，棠棣同馨，松萝共倚，兰桂齐芳。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/666XRB"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/666XRB" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/xideaha?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="https://user.qzone.qq.com/1982830095/infocenter" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:1982830095@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里啊，这里是我的blog，分享一些学习知识。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP%EF%BC%8CTomCat%EF%BC%8CServelet"><span class="toc-number">1.</span> <span class="toc-text">HTTP，TomCat，Servelet</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">导言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8Bjavaweb%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">1.2.</span> <span class="toc-text">了解一下javaweb技术栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP"><span class="toc-number">1.3.</span> <span class="toc-text">HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">请求数据的格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">响应数据的格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">1.6.</span> <span class="toc-text">响应状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="toc-number">1.7.</span> <span class="toc-text">—————</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TomCat%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.8.</span> <span class="toc-text">TomCat服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TomCat-web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.9.</span> <span class="toc-text">TomCat|web服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TomCat%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2"><span class="toc-number">1.10.</span> <span class="toc-text">TomCat项目部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WEb%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.11.</span> <span class="toc-text">WEb项目结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA%E5%88%9B%E5%BB%BAMaven-Web%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.12.</span> <span class="toc-text">IDEA创建Maven Web项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%AA%A8%E6%9E%B6"><span class="toc-number">1.12.1.</span> <span class="toc-text">使用骨架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E4%BD%BF%E7%94%A8%E9%AA%A8%E6%9E%B6"><span class="toc-number">1.12.2.</span> <span class="toc-text">不使用骨架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA%E4%BD%BF%E7%94%A8TomCat"><span class="toc-number">1.13.</span> <span class="toc-text">IDEA使用TomCat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E9%9B%86%E6%88%90Tomcat"><span class="toc-number">1.14.</span> <span class="toc-text">插件集成Tomcat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%94%E2%80%94%E2%80%94"><span class="toc-number">1.15.</span> <span class="toc-text">———</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet"><span class="toc-number">1.16.</span> <span class="toc-text">Servlet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#servlet%E7%AE%80%E4%BB%8B"><span class="toc-number">1.17.</span> <span class="toc-text">servlet简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><span class="toc-number">1.18.</span> <span class="toc-text">快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B-1"><span class="toc-number">1.18.1.</span> <span class="toc-text">快速上手 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B-1"><span class="toc-number">1.18.2.</span> <span class="toc-text">快速上手</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.19.</span> <span class="toc-text">Servlet的执行流程&amp;生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.19.1.</span> <span class="toc-text">执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.19.2.</span> <span class="toc-text">&#x3D;&#x3D;生命周期&#x3D;&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">1.20.</span> <span class="toc-text">Servlet方法介绍&amp;体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.20.1.</span> <span class="toc-text">方法介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">1.20.2.</span> <span class="toc-text">体系结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A"><span class="toc-number">1.20.3.</span> <span class="toc-text">解释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#urlPattern%E9%85%8D%E7%BD%AE"><span class="toc-number">1.21.</span> <span class="toc-text">urlPattern配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="toc-number">1.21.1.</span> <span class="toc-text">匹配规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">1.21.2.</span> <span class="toc-text">配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML%E9%85%8D%E7%BD%AEServlet"><span class="toc-number">1.22.</span> <span class="toc-text">XML配置Servlet</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/b34cc72c.html" title="逻辑论证1（削弱）"><img src="/img/g10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="逻辑论证1（削弱）"/></a><div class="content"><a class="title" href="/post/b34cc72c.html" title="逻辑论证1（削弱）">逻辑论证1（削弱）</a><time datetime="2025-03-27T11:21:42.000Z" title="发表于 2025-03-27 19:21:42">2025-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/dbde71d8.html" title="组合排列"><img src="/img/g9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="组合排列"/></a><div class="content"><a class="title" href="/post/dbde71d8.html" title="组合排列">组合排列</a><time datetime="2025-03-26T01:18:37.000Z" title="发表于 2025-03-26 09:18:37">2025-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/d9a2d074.html" title="翻译推理"><img src="/img/g8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="翻译推理"/></a><div class="content"><a class="title" href="/post/d9a2d074.html" title="翻译推理">翻译推理</a><time datetime="2025-03-25T01:30:22.000Z" title="发表于 2025-03-25 09:30:22">2025-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ef3d0435.html" title="判断推理_定义判断"><img src="/img/g7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="判断推理_定义判断"/></a><div class="content"><a class="title" href="/post/ef3d0435.html" title="判断推理_定义判断">判断推理_定义判断</a><time datetime="2025-03-19T11:12:43.000Z" title="发表于 2025-03-19 19:12:43">2025-03-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/b49a232a.html" title="判断推理_类比推理"><img src="/img/g6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="判断推理_类比推理"/></a><div class="content"><a class="title" href="/post/b49a232a.html" title="判断推理_类比推理">判断推理_类比推理</a><time datetime="2025-03-18T13:07:12.000Z" title="发表于 2025-03-18 21:07:12">2025-03-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 下完这场雨</div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!<br> <img src="https://haiyong.site/img/icp.png"> <a href="https://beian.miit.gov.cn/#/Integrated/index"  style="color:#87ceeb" target="_blank">豫ICP备2024090942号-1</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+      appKey: 'LssvKROPsftMFNCa4j2AnVL8',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Valine' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://VbfV1mFY.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+        "X-LC-Key": 'LssvKROPsftMFNCa4j2AnVL8',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="592262222" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-lrctype="1" data-preload="none" data-autoplay="false" muted></div><script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js" async></script><script src="/js/weather.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="random" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":60,"height":120,"hOffset":20,"vOffset":-20},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
