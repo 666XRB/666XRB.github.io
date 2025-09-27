@@ -1,0 +1,263 @@
+/* 
+ * Moonlight Cursor 月光光标效果
+ * 
+ * 这是一个自定义的光标系统，用CSS和少量JavaScript（未包含在此）实现
+ * 主要功能：
+ * 1. 替换默认光标为月光主题的圆形光标
+ * 2. 悬停在不同元素上时有不同的视觉效果
+ * 3. 包含光晕、月牙、光环等装饰元素
+ * 4. 支持点击动画和拖尾效果
+ * 5. 为不同交互状态提供不同的光标图标
+ * 6. 响应式设计，在触摸设备上自动隐藏
+ */
+
+/* 主光标容器 - 固定在视口中，跟随鼠标移动 */
+#moonlight-cursor {
+  position: fixed;       /* 固定定位，不随页面滚动 */
+  width: 16px;           /* 基础宽度 */
+  height: 16px;          /* 基础高度 */
+  pointer-events: none;  /* 防止光标元素拦截鼠标事件 */
+  z-index: 9999;         /* 确保显示在最顶层 */
+  transform: translate(-50%, -50%); /* 居中定位 */
+  transition: transform 0.1s ease;  /* 移动时的平滑过渡 */
+}
+
+/* 隐藏状态的光标 */
+#moonlight-cursor.hidden {
+  opacity: 0;                   /* 完全透明 */
+  transition: opacity 0.3s ease; /* 淡出过渡效果 */
+}
+
+/* 月亮圆盘 - 光标的基础圆形部分 */
+.moon-disc {
+  position: absolute;      /* 绝对定位 */
+  width: 100%;            /* 充满容器 */
+  height: 100%;           /* 充满容器 */
+  background: rgba(117, 49, 177, 0.2); /* 半透明紫色背景 */
+  border-radius: 50%;      /* 圆形 */
+  box-shadow: 0 0 8px #6624a0,  /* 外发光效果 */
+              inset 0 0 5px #6420a0; /* 内发光效果 */
+  transition: all 0.3s ease; /* 所有属性的过渡效果 */
+}
+
+/* 月牙形状 - 月亮上的凹陷部分 */
+.moon-crescent {
+  position: absolute;      /* 绝对定位 */
+  width: 60%;             /* 相对宽度 */
+  height: 60%;            /* 相对高度 */
+  left: 10%;              /* 水平位置 */
+  top: 20%;               /* 垂直位置 */
+  background: transparent; /* 透明背景 */
+  border-radius: 50%;     /* 圆形 */
+  box-shadow: inset 3px -3px 0 0 #c08bdf; /* 内阴影创建月牙效果 */
+  transform: rotate(45deg); /* 旋转45度 */
+  transition: all 0.3s ease; /* 所有属性的过渡效果 */
+}
+
+/* 光晕效果 - 围绕月亮的发光效果 */
+.moon-glow {
+  position: absolute;      /* 绝对定位 */
+  width: 140%;            /* 比容器大 */
+  height: 140%;           /* 比容器大 */
+  left: -20%;             /* 居中定位 */
+  top: -20%;              /* 居中定位 */
+  background: radial-gradient(circle,  /* 径向渐变 */
+              rgba(224, 170, 255, 0.3) 0%,  /* 中心颜色 */
+              transparent 60%);        /* 边缘透明 */
+  border-radius: 50%;     /* 圆形 */
+  opacity: 0.7;           /* 半透明 */
+  transition: opacity 0.5s ease; /* 透明度过渡效果 */
+}
+
+/* 光环容器 */
+.moon-rings {
+  position: absolute;      /* 绝对定位 */
+  width: 100%;            /* 充满容器 */
+  height: 100%;           /* 充满容器 */
+}
+
+/* 单个光环 */
+.ring {
+  position: absolute;      /* 绝对定位 */
+  border-radius: 50%;     /* 圆形 */
+  border-style: solid;    /* 实线边框 */
+  border-color: #9b59b6;  /* 紫色边框 */
+  transform: translate(-50%, -50%); /* 居中定位 */
+  transition: all 0.3s ease-out; /* 所有属性的过渡效果 */
+}
+
+/* 第一层光环 */
+.ring-1 {
+  width: 120%;            /* 比容器大 */
+  height: 120%;          /* 比容器大 */
+  top: 50%;              /* 垂直居中 */
+  left: 50%;             /* 水平居中 */
+  border-width: 1px;     /* 边框宽度 */
+  opacity: 0.5;          /* 半透明 */
+}
+
+/* 第二层光环 */
+.ring-2 {
+  width: 150%;           /* 比第一层大 */
+  height: 150%;         /* 比第一层大 */
+  top: 50%;             /* 垂直居中 */
+  left: 50%;            /* 水平居中 */
+  border-width: 1px;    /* 边框宽度 */
+  opacity: 0.3;         /* 更透明 */
+}
+
+/* 第三层光环 */
+.ring-3 {
+  width: 180%;          /* 最大的光环 */
+  height: 180%;        /* 最大的光环 */
+  top: 50%;           /* 垂直居中 */
+  left: 50%;          /* 水平居中 */
+  border-width: 1px;  /* 边框宽度 */
+  opacity: 0.2;       /* 最透明 */
+}
+
+/* 悬停状态下的光标样式 */
+#moonlight-cursor.hover .moon-disc {
+  background: rgba(157, 78, 221, 0.3); /* 更亮的背景 */
+  box-shadow: 0 0 10px #9d4edd,  /* 更强的外发光 */
+              inset 0 0 8px #9d4edd; /* 更强的内发光 */
+}
+
+#moonlight-cursor.hover .moon-crescent {
+  box-shadow: inset 3px -3px 0 0 #c77dff; /* 更亮的月牙 */
+}
+
+/* 悬停时光环的动画效果 */
+#moonlight-cursor.hover .ring-1 {
+  opacity: 0.8;          /* 更明显 */
+  transform: translate(-50%, -50%) scale(1.1); /* 轻微放大 */
+}
+
+#moonlight-cursor.hover .ring-2 {
+  opacity: 0.6;          /* 更明显 */
+  transform: translate(-50%, -50%) scale(1.1); /* 轻微放大 */
+}
+
+#moonlight-cursor.hover .ring-3 {
+  opacity: 0.4;          /* 更明显 */
+  transform: translate(-50%, -50%) scale(1.1); /* 轻微放大 */
+}
+
+/* 点击激活状态 */
+#moonlight-cursor.active {
+  transform: translate(-50%, -50%) scale(0.8); /* 点击时缩小 */
+}
+
+/* 水晶拖尾效果 */
+.crystal-trail {
+  position: fixed;       /* 固定定位 */
+  pointer-events: none;  /* 不拦截鼠标事件 */
+  z-index: 9998;        /* 仅次于主光标 */
+  opacity: 0;           /* 默认透明 */
+  transition: opacity 0.2s ease; /* 淡入淡出效果 */
+  transform-origin: center; /* 变换中心点 */
+  background: linear-gradient(to bottom, #e0aaff, #9d4edd); /* 渐变背景 */
+  box-shadow: 0 0 5px rgba(157, 78, 221, 0.8); /* 发光效果 */
+}
+
+/* 水晶爆发效果 */
+.crystal-burst {
+  position: absolute;    /* 绝对定位 */
+  pointer-events: none;  /* 不拦截鼠标事件 */
+  z-index: 9997;        /* 层级 */
+  transform-origin: center; /* 变换中心点 */
+  opacity: 0.8;         /* 半透明 */
+  filter: drop-shadow(0 0 3px currentColor); /* 发光效果 */
+}
+
+/* 冲击波动画 */
+.shockwave {
+  position: absolute;    /* 绝对定位 */
+  border-radius: 50%;   /* 圆形 */
+  border: 1px solid #9d4edd; /* 紫色边框 */
+  transform: translate(-50%, -50%); /* 居中 */
+  pointer-events: none; /* 不拦截鼠标事件 */
+  z-index: 9996;       /* 层级 */
+  opacity: 0.8;        /* 半透明 */
+  transition: all 0.3s ease-out; /* 过渡效果 */
+}
+
+/* 涟漪效果 */
+.ripple-effect {
+  position: absolute;    /* 绝对定位 */
+  width: 0;             /* 初始大小 */
+  height: 0;            /* 初始大小 */
+  border-radius: 50%;   /* 圆形 */
+  background: rgba(157, 78, 221, 0.2); /* 半透明紫色 */
+  transform: translate(-50%, -50%); /* 居中 */
+  pointer-events: none; /* 不拦截鼠标事件 */
+  z-index: 9995;       /* 层级 */
+  animation: ripple 0.8s ease-out forwards; /* 涟漪动画 */
+}
+
+/* 涟漪动画关键帧 */
+@keyframes ripple {
+  to {
+    width: 100px;       /* 放大到100px */
+    height: 100px;      /* 放大到100px */
+    opacity: 0;         /* 淡出 */
+  }
+}
+
+/* 水晶脉动动画关键帧 */
+@keyframes crystal-pulse {
+  0% { transform: scale(0.9); opacity: 0.8; } /* 初始状态 */
+  50% { transform: scale(1.1); opacity: 1; }  /* 放大变亮 */
+  100% { transform: scale(0.9); opacity: 0.8; } /* 恢复 */
+}
+
+/* 默认光标替换 */
+html {
+  cursor: url('/img/normal.cur'), default !important; /* 自定义光标，回退到默认 */
+}
+
+/* 链接状态光标 */
+a, [href], [data-hover] {
+  cursor: url('/img/link.cur'), pointer !important; /* 链接光标 */
+}
+
+/* 文本输入状态光标 */
+input, textarea, [contenteditable] {
+  cursor: url('/img/text.cur'), text !important; /* 文本光标 */
+}
+
+/* 可拖动元素光标 */
+[draggable="true"] {
+  cursor: url('/img/move.cur'), move !important; /* 移动光标 */
+}
+
+/* 禁用状态光标 */
+[disabled] {
+  cursor: url('/img/unavailable.cur'), not-allowed !important; /* 禁用光标 */
+}
+
+/* 忙碌状态光标 */
+.busy-cursor {
+  cursor: url('/img/busy.ani'), wait !important; /* 等待光标(动画) */
+}
+
+/* 精确选择光标 */
+.precision-cursor {
+  cursor: url('/img/precision.cur'), crosshair !important; /* 十字光标 */
+}
+
+/* 帮助状态光标 */
+.help-cursor {
+  cursor: url('/img/help.cur'), help !important; /* 帮助光标 */
+}
+
+/* 触摸设备适配 - 隐藏自定义光标 */
+@media (hover: none) {
+  #moonlight-cursor, .crystal-trail {
+      display: none !important; /* 触摸设备上隐藏 */
+  }
+  
+  body {
+      cursor: default !important; /* 使用系统默认光标 */
+  }
+}
