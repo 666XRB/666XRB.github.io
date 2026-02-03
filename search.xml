@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>资料分析的基期倍比的叠除法误差分析</title>
+      <link href="/post/cb029ef2.html"/>
+      <url>/post/cb029ef2.html</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，有的话只留给有缘人。" data-whm="内容已被篡改，请刷新页面。">  <script id="hbeData" type="hbeData" data-hmacdigest="30aaf1621719633b73a0ae27109b27ef6f96c7cd17c412d53cd85e74c9c00c87">cb74341479f9ca28ecf8a2c33399140398f2468a1097d9b69ffabd1607e79bf60a73eeb299ef36495b2632123e550cb6facd667e1fd26aefe4b9d2434b6c605c5c829120d5f337ba04bc661061c399e6ff6cc6f769e7fd97fa4fd03e9f8014550df84f5abf92326672781695c18bfc10e1275c7603c3d2b3f3a8f4d86a7fda56ceb3b19f37f6bc8868233f61eefad173c01f01ee87c7d520cc2bec54559dab4e8a75bf41d87ec3df8501e0d00547bbc09787c9ece086b9999601b26a0b02c2b4e10c2a0e1d45f0c929dea43cba8ebcb77b6b458e74ec6c74cc87bdf16c7c3bea15d734854ab9dca460211d249562c4e34701e034fcddf6583b5693fc187f8c3552a199fa7a9dcffbef4ca8121c27a2d8be1875d913d9854e46dfbd2ba6ebdb8f9e2f0741caae382690314e7ecb1d22d54b37b8a7343eb33139c7c377362534db37dd4c802619acc4ce81ceed4ea3ee201f7ef3ae1f033581bdc8fad94b09bbba431b7cd12330c125243851334b235c6791f1657ccf619f35424a6ec3ebe26a2ee34539b1600d467adc013b830206b76b552bd908c597a501e57ce7c5495bc5e2cf82bfe513d6fa3f20e4211be7b03c9dfdb66f1fd8caddc093dbd36d8042ada1d06f8d5adb56996657d5eaa563f2ad029aea0b5514df89179763f131b42466f2b7ed625b9bd3a1b9f005bbacd601f1d32757911336781a64b53d511617a2389509479f3e97a0f22645e1e3eddaf4c4e800419e9031507c5f8bfd3501fefc8d64be934b02fadbb350d4a54f408f2f1efa1d7df707f08afa2d2928e4ab18a039908714ce74bc3e7ee1bd7c616abb8ad5bf5913495567e7504526de6b311f93d9269e694bfed22eb19f5942205f1fd6fab31ff0133e8a8aa60408b00e062237c594cbbe7ad4d858397611a9d10494b52f1e22f7e6f4aa77624436b13ace1ecc2edcc8617b9a0975076f8ca65d9a893e38c2120041e9c57c0ae07e70ee368a0bcfd016ef69f22de3293cc6c127be3c383e5d5787e6e7cdbe56f43ff0eb602d51881b036ebef6d57e8072bbee48e327a99a423e31a6f42d16daed12e6740b7752fa245e339d5bd3eed5f167584769c3eff4f990a15a93ba8c0854af4de5b3df043349077e948b853212716e4be9d9758166f5197de2c44f30756ff703dd2d8552f796610254344f39f8c4c125ac08d7bfee32855bab82465c69463c63ea0508359d1d8fe130237374ece9c01a796d328563bb112df00804eebd11cab18499aa3ecc16bcf6db78045814167b910a71381f98790d8037721f569481f15ca1db698f67ff284c89dc6bafdff6a3e2955dd492641a0ef699e168f0b0deba01c777ef663017a876beba94737da14e92de4821d2922350f25585f18ae06a14a1e92c85d824b1a63d17f415db013f0ce503c7f8986aa8f3890dfd4641564ec28607a2823a40a7fc3378a055a898628b0a98477a4024fa</script>  <div class="hbe hbe-content hbe-modern-content">    <div class="hbe hbe-card hbe-modern-card">      <div class="hbe hbe-card-header">        <h3 class="hbe hbe-card-title">文章加密</h3>        <p class="hbe hbe-card-subtitle">此文章已加密，请输入密码查看</p>      </div>      <div class="hbe hbe-card-body">        <div class="hbe hbe-input hbe-input-modern">          <input class="hbe hbe-input-field hbe-input-field-modern" type="password" id="hbePass" placeholder="请输入密码">          <button class="hbe hbe-button hbe-button-modern" onclick="hbeSubmit()">解锁</button>        </div>        <div class="hbe hbe-error-message" id="hbeErrorMessage"></div>      </div>      <div class="hbe hbe-card-footer">        <p class="hbe hbe-card-footer-text">输入密码后按Enter键或点击解锁按钮</p>      </div>    </div>  </div></div><script>function hbeSubmit() {  const password = document.getElementById('hbePass').value;  if (password) {    // 模拟按下Enter键的行为    const event = new KeyboardEvent('keydown', {      keyCode: 13,      which: 13,      bubbles: true    });    document.getElementById('hexo-blog-encrypt').dispatchEvent(event);  }}</script><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 行测 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资料分析 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我的梦想</title>
       <link href="/post/ee2b2a8c.html"/>
       <url>/post/ee2b2a8c.html</url>
