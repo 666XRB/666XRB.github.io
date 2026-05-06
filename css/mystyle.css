@@ -1,4 +1,3 @@
-
 /*顶部加载进度条*/
 .pace {
 	pointer-events: none;
@@ -15,18 +14,18 @@
 	background: #eaecf2;
 	overflow: hidden;
   }
-  
+
   .pace-inactive .pace-progress {
 	opacity: 0;
 	transition: 0.3s ease-in;
   }
-  
+
   .pace.pace-inactive {
 	opacity: 0;
 	transition: 0.3s;
 	top: -8px;
   }
-  
+
   .pace .pace-progress {
 	box-sizing: border-box;
 	transform: translate3d(0, 0, 0);
@@ -158,4 +157,259 @@
 /*时间轴页面*/
 .layout>#archive {
 	background: rgba(255, 255, 255, .6);
+}
+
+/* ================= 侧边栏组件美化 ================= */
+
+/* 通用item-headline样式 */
+.item-headline {
+  padding-bottom: 10px;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #667eea;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.item-headline::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1.2em;
+  background: linear-gradient(180deg, #667eea, #764ba2);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(102, 126, 234, 0.5);
+}
+
+.item-headline span {
+  margin-left: 4px;
+  font-weight: 500;
+  color: #764ba2;
+}
+
+/* 通用card-widget样式 */
+#aside-content .card-widget {
+  border-radius: 16px;
+  border: 1px solid rgba(102, 126, 234, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+#aside-content .card-widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+#aside-content .card-widget:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* 分类卡片美化 */
+.card-categories {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(102, 126, 234, 0.03));
+}
+
+.card-categories .card-category-list > .card-category-list-item {
+  position: relative;
+  border-radius: 8px;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+.card-categories .card-category-list > .card-category-list-item a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  color: var(--font-color);
+  border-radius: 10px;
+  background: rgba(102, 126, 234, 0.05);
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-categories .card-category-list > .card-category-list-item a:hover {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-color: rgba(102, 126, 234, 0.2);
+  color: #667eea;
+  transform: translateX(4px);
+}
+
+.card-categories .card-category-list > .card-category-list-item a .card-category-list-count {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.card-categories .card-category-list .child {
+  padding-left: 8px;
+}
+
+/* 标签卡片美化 */
+.card-tags {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(118, 75, 162, 0.03));
+}
+
+.card-tag-cloud a {
+  display: inline-block;
+  padding: 6px 14px;
+  margin: 4px 3px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+  border: 1px solid rgba(102, 126, 234, 0.15);
+  border-radius: 20px;
+  color: var(--font-color);
+  font-size: 0.9em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-tag-cloud a:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
+}
+
+/* 归档卡片美化 */
+.card-archives {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(102, 126, 234, 0.03));
+}
+
+.card-archives ul.card-archive-list > .card-archive-list-item {
+  position: relative;
+  border-radius: 8px;
+  margin: 4px 0;
+}
+
+.card-archives ul.card-archive-list > .card-archive-list-item a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  color: var(--font-color);
+  border-radius: 10px;
+  background: rgba(102, 126, 234, 0.05);
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-archives ul.card-archive-list > .card-archive-list-item a:hover {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-color: rgba(102, 126, 234, 0.2);
+  color: #667eea;
+  transform: translateX(4px);
+}
+
+.card-archives ul.card-archive-list > .card-archive-list-item a .card-archive-list-count {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* 网站信息卡片美化 */
+.card-webinfo {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(102, 126, 234, 0.03));
+}
+
+.card-webinfo .webinfo {
+  padding: 8px 0;
+}
+
+.card-webinfo .webinfo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  margin: 4px 0;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-webinfo .webinfo-item:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-color: rgba(102, 126, 234, 0.15);
+  transform: translateX(4px);
+}
+
+.card-webinfo .webinfo-item .item-name {
+  color: var(--font-color);
+  font-weight: 500;
+  flex: 1;
+}
+
+.card-webinfo .webinfo-item .item-count {
+  color: #667eea;
+  font-weight: 600;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-webinfo .webinfo-item .item-count::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(102, 126, 234, 0.5);
+}
+
+/* 公告卡片 */
+.card-announcement .item-headline i {
+  color: #f59e0b;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .card-categories .card-category-list > .card-category-list-item a,
+  .card-archives ul.card-archive-list > .card-archive-list-item a,
+  .card-webinfo .webinfo-item {
+    background: rgba(102, 126, 234, 0.1);
+  }
+
+  .card-tag-cloud a {
+    background: rgba(102, 126, 234, 0.1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
