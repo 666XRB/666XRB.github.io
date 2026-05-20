@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>区县事业单位</title>
+      <link href="/post/63fdfd34.html"/>
+      <url>/post/63fdfd34.html</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，有的话只留给有缘人。" data-whm="内容已被篡改，请刷新页面。">  <script id="hbeData" type="hbeData" data-hmacdigest="918d64e55d72732b71fb988a07770fdf479e0c8a4719862a2f231f3a2645be65">7b78fdf65ca80864a0047dfa782c1aac37cad13f6a92f90cef9f326c129aeb07c870dd0d8ab58043a0359854e35d032ef385be7d21920de62e98108f5e4def05c87eb10489ccf140d60ff319d3e1655691f95e9972cdd388bc16a55ff936f5fe1a716b28eee45b820ce05e86e0241189c220800a82f2f8fd40807e5483baaeb4cc1d287d721c8cf45dea45a684b7b739e468c291e8017d887ac518a0b3ec28ca3eeb6cb1d92872d487ff4bf23119c8e5f9748eb14b49e01d575b6b8a7ca1c53d30ee7d918725c5aecbad82d11e8a436921d8fa8dcc41b737b2ae212c9e82e7955244d3af71cdaa5f2a039321af0e1bbd16e863adff798ba8071b9e1f0b2ddba7b2331eaea89c569bd27201c3245ec94d5ec449c529ed414a19fe545f6267da6427173e256dc59cfeb77ffe786d603230b979e75f6b017366572416a6a7fd2cd269e02f1cdf9dca01221151bf50af25656b25fdac0c6a52c27d5be5f5876e5fd7957baae1e5beeb32bb62d2f6b8136259e300659e42aa200066e2a2aa83d46da828e7f3f8021441ca94e5e366ded7179fe50f1455f09f8f8f335c7b11ed27734140eb60fb451b1f6fc8baafbcda244f217425590148e9476f2d772540a14c3bfdc59cbcdf48c7dd37df616ca3d1c739b61d19cf6e308eb71d918d05f663693350556d6043dc63d7e867e85ecd70ad5aee17bc9e7ec53f20460c9cb4d4e46a647f2b252a3f94867d7eaec0145182f4e08437050767fe6e79d9e7c4a0bc17b72811a94688a3c5b9f3aa5a1b0dd8c5578814836628e29aa8a83e69615c11a42898d853fe998c823c99402f819ea6f003be2f3110a08fe1222f1bd883300771a55ca38966bc78f448bd692199af04e04392633a651653c76eb7b26c3173a13769fdbe05de9b1578da98688a5a286420cbc440df078152787df03c7d5176c7b5985a380378cc02e7151a86398410f420ebaf10dd73fe4b91dac5663bc20ef7de2d11ec421b5211c7e884b0c0e1def0e4adbbeb3abc771f4a94931121fb321f122fc8f8122f58e519378a66f1f59c47e20d35f10c8dfe2652fcf2ce861e55a6bb441e25883d2c411774f5bd5541015721ad2f428eba9e679c136eb890327774670399d7c5d119542380ac8aee86cb852b270ab771d76d6e18f782692d1e215c10db5f65199f312c9e17d3a9bf626deadfb40d1ab0684ca06a10d01944a08e0aa85fa2d6ecea9bd21d5fbc64b4a7147f1946136287670ef49baefb29642b3a431a069ec08a2cce160c46f206d9ae018ba792d208d5b5972f2b6ce93552d15065fb4269ccb28a253cf4d66001809a387fc2d7b1d488dee4a10e27370545ad1f1ccccdeefcd6003d0b330d66d6453a4fef56559b743d11baaab1b47fa061d7e9cb0c587a6915fbd6c66fccf2812bf5bb37aa636c8024b1548e6bf551af8c601ad08894a10fd1899ebc7ecfc6afb1e7832c5932d670603e9d212b18013768633d5b2fcec1dc1e0e41eb3250e08572c3f6475558fd5250f5f5a35b9da1ab7611d5f57cac65a3e92c412fc22afc5f2cf2e8d5eaac2cfc</script>  <div class="hbe hbe-content hbe-modern-content">    <div class="hbe hbe-card hbe-modern-card">      <div class="hbe hbe-card-header">        <h3 class="hbe hbe-card-title">文章加密</h3>        <p class="hbe hbe-card-subtitle">此文章已加密，请输入密码查看</p>      </div>      <div class="hbe hbe-card-body">        <div class="hbe hbe-input hbe-input-modern">          <input class="hbe hbe-input-field hbe-input-field-modern" type="password" id="hbePass" placeholder="请输入密码">          <button class="hbe hbe-button hbe-button-modern" onclick="hbeSubmit()">解锁</button>        </div>        <div class="hbe hbe-error-message" id="hbeErrorMessage"></div>      </div>      <div class="hbe hbe-card-footer">        <p class="hbe hbe-card-footer-text">输入密码后按Enter键或点击解锁按钮</p>      </div>    </div>  </div></div><script>function hbeSubmit() {  const password = document.getElementById('hbePass').value;  if (password) {    // 模拟按下Enter键的行为    const event = new KeyboardEvent('keydown', {      keyCode: 13,      which: 13,      bubbles: true    });    document.getElementById('hexo-blog-encrypt').dispatchEvent(event);  }}</script><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 孟津 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>招聘填表复制模板</title>
       <link href="/post/e72f1144.html"/>
       <url>/post/e72f1144.html</url>
@@ -379,6 +398,31 @@
     
     
     <entry>
+      <title>张弓12-8逻辑填空</title>
+      <link href="/post/1c0991c3.html"/>
+      <url>/post/1c0991c3.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="逻辑填空的解题精髓"><a href="#逻辑填空的解题精髓" class="headerlink" title="逻辑填空的解题精髓"></a>逻辑填空的解题精髓</h1><p>离冲刺目标分数的日子很近了，时间宝贵。这份精简版笔记为你直接提取了第八节课的核心干货，帮你跳过视频，快速吃透逻辑填空的解题精髓。</p><h3 id="🎯-核心原则：谜底在谜面上"><a href="#🎯-核心原则：谜底在谜面上" class="headerlink" title="🎯 核心原则：谜底在谜面上"></a>🎯 核心原则：谜底在谜面上</h3><p>逻辑填空的本质不是考语感，而是考<strong>逻辑关系</strong>。所有答案的<strong>线索都在文段之中。</strong></p><hr><h3 id="🔍-解题双引擎"><a href="#🔍-解题双引擎" class="headerlink" title="🔍 解题双引擎"></a>🔍 解题双引擎</h3><p>解题永远分为两步走：</p><ol><li><strong>语境分析（读文段）：</strong> 弄清楚<strong>文段和横线到底想表达什么意思</strong>。<strong>不能只看局部词语搭配，必须结合上下文语境（例如前后文的情感色彩、动作的先后等）。</strong></li><li><strong>词语辨析（看选项）：</strong> 从选项中寻找最契合语境的词。</li></ol><blockquote><p>⚠️ <strong>黄金定律：</strong> 当“意思的正确性”与“使用的合理性（常见搭配）”发生冲突时，<strong>永远优先保证意思的正确性</strong>。只要意思对，即便搭配少见也是正确答案。</p></blockquote><hr><h3 id="⚖️-词语辨析的-7-个维度"><a href="#⚖️-词语辨析的-7-个维度" class="headerlink" title="⚖️ 词语辨析的 7 个维度"></a>⚖️ 词语辨析的 7 个维度</h3><p>当意思相近时，通过以下维度甄别错误选项：</p><table><thead><tr><th><strong>辨析维度</strong></th><th><strong>核心技巧与举例</strong></th></tr></thead><tbody><tr><td><strong>1. 基本释义</strong></td><td>最基础的准则。词意不符直接排除。</td></tr><tr><td><strong>2. 搭配对象</strong></td><td>关注词语的专属搭配。例如： • <em>骇人听闻</em> (配真事) vs <em>危言耸听</em> (配假话) • <em>淹没</em> (配水&#x2F;声音) vs <em>掩埋</em> (配物质&#x2F;土壤)</td></tr><tr><td><strong>3. 程度轻重</strong></td><td>词意有轻重之分。拿不准时，<strong>选程度较轻&#x2F;适用范围广的词更保险</strong>。例如： • <em>息息相关</em> (程度轻，百搭) vs <em>唇亡齿寒</em> (程度极重，生死存亡)</td></tr><tr><td><strong>4. 感情色彩</strong></td><td>区分褒义、贬义、中性。须与语境基调一致。</td></tr><tr><td><strong>5. 使用语境</strong></td><td>关注词语的特定应用场景。例如： • <em>相得益彰</em> (可独立存在，合作更好) • <em>相辅相成</em> (缺一不可，必须绑定)</td></tr><tr><td><strong>6. 宠词与陪跑词</strong></td><td>• <strong>宠词 (高频正确)：</strong> <em>凝聚、整合、独善其身、应运而生</em>。适用范围广。 • <strong>陪跑词 (极少正确)：</strong> <em>无与伦比、南辕北辙</em>。词意太极端，条件苛刻。</td></tr><tr><td><strong>7. 词义侧重</strong></td><td>遇到形近词，看<strong>不同的字眼</strong>猜侧重点。例如： • <em>遏制</em> (制止&#x2F;踩刹车) vs <em>遏止</em> (彻底停止) • <em>保持</em> (从容有余) vs <em>维持</em> (艰难咬牙)</td></tr></tbody></table><hr><h3 id="💡-高频提分考点：句内呼应"><a href="#💡-高频提分考点：句内呼应" class="headerlink" title="💡 高频提分考点：句内呼应"></a>💡 高频提分考点：句内呼应</h3><ul><li><strong>技巧：</strong> 重点关注横线前后的提示信息，尤其是<strong>“横线 + 逗号”</strong>的结构。</li><li><strong>应用：</strong> 逗号后面的半句话，极大概率是对横线处词语的直接解释或限制。</li></ul><hr><p>为了检验我们对这套“双引擎”逻辑的掌握程度，我们来做一个快速推演：</p><p>如果在考场上，文段整体表达的是一种“顺应趋势、自然而然产生”的语境。此时有两个选项：A是你平时做题经常见到的“高频宠词”，但意思带有一点强行拼凑的意味；B的词义完美契合“自然产生”的意思。为了稳拿这道题的分数，我们会严格遵循上述的哪一条定律来锁定最终答案？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 省考 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 行测 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>张弓12-12出题人思维</title>
       <link href="/post/ebc40516.html"/>
       <url>/post/ebc40516.html</url>
@@ -421,31 +465,6 @@
         <tags>
             
             <tag> 成语 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>张弓12-8逻辑填空</title>
-      <link href="/post/1c0991c3.html"/>
-      <url>/post/1c0991c3.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="逻辑填空的解题精髓"><a href="#逻辑填空的解题精髓" class="headerlink" title="逻辑填空的解题精髓"></a>逻辑填空的解题精髓</h1><p>离冲刺目标分数的日子很近了，时间宝贵。这份精简版笔记为你直接提取了第八节课的核心干货，帮你跳过视频，快速吃透逻辑填空的解题精髓。</p><h3 id="🎯-核心原则：谜底在谜面上"><a href="#🎯-核心原则：谜底在谜面上" class="headerlink" title="🎯 核心原则：谜底在谜面上"></a>🎯 核心原则：谜底在谜面上</h3><p>逻辑填空的本质不是考语感，而是考<strong>逻辑关系</strong>。所有答案的<strong>线索都在文段之中。</strong></p><hr><h3 id="🔍-解题双引擎"><a href="#🔍-解题双引擎" class="headerlink" title="🔍 解题双引擎"></a>🔍 解题双引擎</h3><p>解题永远分为两步走：</p><ol><li><strong>语境分析（读文段）：</strong> 弄清楚<strong>文段和横线到底想表达什么意思</strong>。<strong>不能只看局部词语搭配，必须结合上下文语境（例如前后文的情感色彩、动作的先后等）。</strong></li><li><strong>词语辨析（看选项）：</strong> 从选项中寻找最契合语境的词。</li></ol><blockquote><p>⚠️ <strong>黄金定律：</strong> 当“意思的正确性”与“使用的合理性（常见搭配）”发生冲突时，<strong>永远优先保证意思的正确性</strong>。只要意思对，即便搭配少见也是正确答案。</p></blockquote><hr><h3 id="⚖️-词语辨析的-7-个维度"><a href="#⚖️-词语辨析的-7-个维度" class="headerlink" title="⚖️ 词语辨析的 7 个维度"></a>⚖️ 词语辨析的 7 个维度</h3><p>当意思相近时，通过以下维度甄别错误选项：</p><table><thead><tr><th><strong>辨析维度</strong></th><th><strong>核心技巧与举例</strong></th></tr></thead><tbody><tr><td><strong>1. 基本释义</strong></td><td>最基础的准则。词意不符直接排除。</td></tr><tr><td><strong>2. 搭配对象</strong></td><td>关注词语的专属搭配。例如： • <em>骇人听闻</em> (配真事) vs <em>危言耸听</em> (配假话) • <em>淹没</em> (配水&#x2F;声音) vs <em>掩埋</em> (配物质&#x2F;土壤)</td></tr><tr><td><strong>3. 程度轻重</strong></td><td>词意有轻重之分。拿不准时，<strong>选程度较轻&#x2F;适用范围广的词更保险</strong>。例如： • <em>息息相关</em> (程度轻，百搭) vs <em>唇亡齿寒</em> (程度极重，生死存亡)</td></tr><tr><td><strong>4. 感情色彩</strong></td><td>区分褒义、贬义、中性。须与语境基调一致。</td></tr><tr><td><strong>5. 使用语境</strong></td><td>关注词语的特定应用场景。例如： • <em>相得益彰</em> (可独立存在，合作更好) • <em>相辅相成</em> (缺一不可，必须绑定)</td></tr><tr><td><strong>6. 宠词与陪跑词</strong></td><td>• <strong>宠词 (高频正确)：</strong> <em>凝聚、整合、独善其身、应运而生</em>。适用范围广。 • <strong>陪跑词 (极少正确)：</strong> <em>无与伦比、南辕北辙</em>。词意太极端，条件苛刻。</td></tr><tr><td><strong>7. 词义侧重</strong></td><td>遇到形近词，看<strong>不同的字眼</strong>猜侧重点。例如： • <em>遏制</em> (制止&#x2F;踩刹车) vs <em>遏止</em> (彻底停止) • <em>保持</em> (从容有余) vs <em>维持</em> (艰难咬牙)</td></tr></tbody></table><hr><h3 id="💡-高频提分考点：句内呼应"><a href="#💡-高频提分考点：句内呼应" class="headerlink" title="💡 高频提分考点：句内呼应"></a>💡 高频提分考点：句内呼应</h3><ul><li><strong>技巧：</strong> 重点关注横线前后的提示信息，尤其是<strong>“横线 + 逗号”</strong>的结构。</li><li><strong>应用：</strong> 逗号后面的半句话，极大概率是对横线处词语的直接解释或限制。</li></ul><hr><p>为了检验我们对这套“双引擎”逻辑的掌握程度，我们来做一个快速推演：</p><p>如果在考场上，文段整体表达的是一种“顺应趋势、自然而然产生”的语境。此时有两个选项：A是你平时做题经常见到的“高频宠词”，但意思带有一点强行拼凑的意味；B的词义完美契合“自然产生”的意思。为了稳拿这道题的分数，我们会严格遵循上述的哪一条定律来锁定最终答案？</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 省考 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 行测 </tag>
             
         </tags>
       
@@ -904,31 +923,6 @@
     
     
     <entry>
-      <title>第一次用打印机的一些事</title>
-      <link href="/post/955d1adb.html"/>
-      <url>/post/955d1adb.html</url>
-      
-        <content type="html"><![CDATA[<p>–</p><h1 id="富士施乐Fuji-Xerox-DocuPrint-M115-w"><a href="#富士施乐Fuji-Xerox-DocuPrint-M115-w" class="headerlink" title="富士施乐Fuji Xerox DocuPrint M115 w"></a>富士施乐Fuji Xerox DocuPrint M115 w</h1><p><a href="https://www.dyjqd.com/fujixerox/DocuPrint_M115_w.html#download">富士施乐Fuji Xerox DocuPrint M115 w 驱动下载 - 打印机驱动网 (dyjqd.com)</a></p><p>原本会显示驱动失败什么的。下载个驱动安装一下就行了。</p><p>不知道选啥默认就行了</p><img src="/post/955d1adb/image-20260131165448856.png" class="" title="image-20260131165448856"> <h2 id="双面打印的问题"><a href="#双面打印的问题" class="headerlink" title="双面打印的问题"></a>双面打印的问题</h2><h3 id="对于word直接"><a href="#对于word直接" class="headerlink" title="对于word直接"></a>对于word直接</h3><img src="/post/955d1adb/image-20260131183728758.png" class="" title="image-20260131183728758"> <p>然后把9顺&#x2F;逆时针旋转90°</p><p>然后再点击确认</p><h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><p>也是CTRL+P</p><img src="/post/955d1adb/image-20260131183849842.png" class="" title="image-20260131183849842"> <p>然后按照提示来，</p><p>旋转后再点击。</p><p>花了240软妹币</p><h2 id="关于吐出来的文件怎么摆放"><a href="#关于吐出来的文件怎么摆放" class="headerlink" title="关于吐出来的文件怎么摆放"></a>关于吐出来的文件怎么摆放</h2><img src="/post/955d1adb/image-20260201155625627.png" class="" title="image-20260201155625627"><h2 id="关于脱机的问题"><a href="#关于脱机的问题" class="headerlink" title="关于脱机的问题"></a>关于脱机的问题</h2><p>脱机就是脱离连接了</p><p>第一步应该检查网络问题或者数据线连接问题！</p><p>然后就是win+r cmd +service.msc</p><p>找到 printtll停止，再启动。试试、。</p><p>最后终极法宝就是重新安装驱动！</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 打印机 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>行测怎么复盘？</title>
       <link href="/post/e8b53e38.html"/>
       <url>/post/e8b53e38.html</url>
@@ -946,6 +940,31 @@
         <tags>
             
             <tag> 行测 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第一次用打印机的一些事</title>
+      <link href="/post/955d1adb.html"/>
+      <url>/post/955d1adb.html</url>
+      
+        <content type="html"><![CDATA[<p>–</p><h1 id="富士施乐Fuji-Xerox-DocuPrint-M115-w"><a href="#富士施乐Fuji-Xerox-DocuPrint-M115-w" class="headerlink" title="富士施乐Fuji Xerox DocuPrint M115 w"></a>富士施乐Fuji Xerox DocuPrint M115 w</h1><p><a href="https://www.dyjqd.com/fujixerox/DocuPrint_M115_w.html#download">富士施乐Fuji Xerox DocuPrint M115 w 驱动下载 - 打印机驱动网 (dyjqd.com)</a></p><p>原本会显示驱动失败什么的。下载个驱动安装一下就行了。</p><p>不知道选啥默认就行了</p><img src="/post/955d1adb/image-20260131165448856.png" class="" title="image-20260131165448856"> <h2 id="双面打印的问题"><a href="#双面打印的问题" class="headerlink" title="双面打印的问题"></a>双面打印的问题</h2><h3 id="对于word直接"><a href="#对于word直接" class="headerlink" title="对于word直接"></a>对于word直接</h3><img src="/post/955d1adb/image-20260131183728758.png" class="" title="image-20260131183728758"> <p>然后把9顺&#x2F;逆时针旋转90°</p><p>然后再点击确认</p><h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><p>也是CTRL+P</p><img src="/post/955d1adb/image-20260131183849842.png" class="" title="image-20260131183849842"> <p>然后按照提示来，</p><p>旋转后再点击。</p><p>花了240软妹币</p><h2 id="关于吐出来的文件怎么摆放"><a href="#关于吐出来的文件怎么摆放" class="headerlink" title="关于吐出来的文件怎么摆放"></a>关于吐出来的文件怎么摆放</h2><img src="/post/955d1adb/image-20260201155625627.png" class="" title="image-20260201155625627"><h2 id="关于脱机的问题"><a href="#关于脱机的问题" class="headerlink" title="关于脱机的问题"></a>关于脱机的问题</h2><p>脱机就是脱离连接了</p><p>第一步应该检查网络问题或者数据线连接问题！</p><p>然后就是win+r cmd +service.msc</p><p>找到 printtll停止，再启动。试试、。</p><p>最后终极法宝就是重新安装驱动！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 打印机 </tag>
             
         </tags>
       
