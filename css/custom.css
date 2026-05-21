@@ -392,3 +392,114 @@ input, textarea, [contenteditable] {
     background: linear-gradient(135deg, #8b3cc7, #5a0eab);
   }
 }
+
+/* ========================================
+   移动端导航栏修复
+   ======================================== */
+@media screen and (max-width: 768px) {
+  /* 确保导航栏始终可见 */
+  #nav {
+    opacity: 1 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 导航栏内容布局 */
+  #nav {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px !important;
+    height: 56px !important;
+  }
+
+  /* 博客信息区域 */
+  #nav #blog-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  #nav #blog-info .site-name {
+    font-size: 1rem !important;
+    font-weight: 600;
+    color: var(--font-color) !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
+
+  #nav #blog-info .site-icon {
+    height: 28px !important;
+    margin-right: 6px;
+  }
+
+  /* 始终显示汉堡菜单按钮 */
+  #nav #toggle-menu {
+    display: inline-block !important;
+    padding: 8px !important;
+    color: var(--font-color) !important;
+  }
+
+  #nav #toggle-menu i {
+    font-size: 1.2rem;
+  }
+
+  /* 隐藏桌面端菜单项 */
+  #nav #menus {
+    display: none !important;
+  }
+
+  /* 汉堡菜单打开后的侧边栏样式 */
+  #sidebar-menus {
+    width: 70% !important;
+    max-width: 280px;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(20px);
+  }
+
+  #sidebar-menus .menus_items {
+    display: block !important;
+  }
+
+  #sidebar-menus .menus_item {
+    display: block !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  #sidebar-menus .menus_item > a {
+    padding: 8px 20px !important;
+    font-size: 1rem;
+    color: var(--font-color) !important;
+  }
+
+  #sidebar-menus .menus_item_child {
+    position: static !important;
+    display: block !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  #sidebar-menus .menus_item_child li a {
+    padding: 10px 30px !important;
+    font-size: 0.95rem;
+    color: #666 !important;
+  }
+}
+
+/* 超小屏幕进一步优化 */
+@media screen and (max-width: 375px) {
+  #nav #blog-info .site-name {
+    max-width: 100px;
+    font-size: 0.9rem !important;
+  }
+
+  #nav {
+    padding: 0 8px !important;
+  }
+}
