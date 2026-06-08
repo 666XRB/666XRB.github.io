@@ -1,0 +1,693 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>毕业答辩 | cout&lt;&lt;&quot;金缕衣&quot;;</title><meta name="author" content="下完这场雨"><meta name="copyright" content="下完这场雨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="怎么手搓的cnn卷积特征提取块： Conv2d（卷积层）：用 3x3 的卷积核提取图像的局部边缘、色彩和纹理特征。 BatchNorm2d（批归一化）：稳定数据分布，加速收敛。 ReLU（激活函数）：引入非线性能力，让网络能拟合复杂特征。 MaxPool2d（最大池化层）：把特征图尺寸减半（如下降到 $112 \times 112$），减少计算量，同时提取最显著的特征。  全连接分类块：  Fla">
+<meta property="og:type" content="article">
+<meta property="og:title" content="毕业答辩">
+<meta property="og:url" content="https://017328.xyz/post/7362464f.html">
+<meta property="og:site_name" content="cout&lt;&lt;&quot;金缕衣&quot;;">
+<meta property="og:description" content="怎么手搓的cnn卷积特征提取块： Conv2d（卷积层）：用 3x3 的卷积核提取图像的局部边缘、色彩和纹理特征。 BatchNorm2d（批归一化）：稳定数据分布，加速收敛。 ReLU（激活函数）：引入非线性能力，让网络能拟合复杂特征。 MaxPool2d（最大池化层）：把特征图尺寸减半（如下降到 $112 \times 112$），减少计算量，同时提取最显著的特征。  全连接分类块：  Fla">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://017328.xyz/img/sky5.jpg">
+<meta property="article:published_time" content="2026-06-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-08T17:06:10.204Z">
+<meta property="article:author" content="下完这场雨">
+<meta property="article:tag" content="答辩">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://017328.xyz/img/sky5.jpg"><link rel="shortcut icon" href="/img/icon.png"><link rel="canonical" href="https://017328.xyz/post/7362464f.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 下完这场雨","link":"链接: ","source":"来源: cout<<\"金缕衣\";","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '毕业答辩',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-06-09 01:06:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="//code.tidio.co/xysdkaby5vgv2dt8e9zgdqsu6wh59g43.js" async></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/mystyle.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4770397_jz6ucve7mog.css<link rel="stylesheet" href="/css/ancientPoetry.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/h.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">117</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li><li><a class="site-page child" href="/countdown/"><i class="fa-fw fa fa-clock-o"></i><span> 倒计时</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/password/"><i class="fa-fw fa fa-key"></i><span> 密码管理</span></a></div><div class="menus_item"><a class="site-page" href="/html-admin/"><i class="fa-fw fa fa-file-code"></i><span> HTML管理</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/sky5.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="cout&lt;&lt;&quot;金缕衣&quot;;"><img class="site-icon" src="/img/icon.png"/><span class="site-name">cout&lt;&lt;&quot;金缕衣&quot;;</span></a></span><div id="wearher"></div><div id="tp-weather-widget"></div><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li><li><a class="site-page child" href="/countdown/"><i class="fa-fw fa fa-clock-o"></i><span> 倒计时</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/password/"><i class="fa-fw fa fa-key"></i><span> 密码管理</span></a></div><div class="menus_item"><a class="site-page" href="/html-admin/"><i class="fa-fw fa fa-file-code"></i><span> HTML管理</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">毕业答辩</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-08T16:00:00.000Z" title="发表于 2026-06-09 00:00:00">2026-06-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-08T17:06:10.204Z" title="更新于 2026-06-09 01:06:10">2026-06-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%AF%95%E4%B8%9A/">毕业</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="毕业答辩"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="怎么手搓的cnn"><a href="#怎么手搓的cnn" class="headerlink" title="怎么手搓的cnn"></a>怎么手搓的cnn</h2><p><strong>卷积特征提取块：</strong></p>
+<p><code>Conv2d</code>（卷积层）：用 3x3 的卷积核提取图像的局部边缘、色彩和纹理特征。</p>
+<p><code>BatchNorm2d</code>（批归一化）：稳定数据分布，加速收敛。</p>
+<p><code>ReLU</code>（激活函数）：引入非线性能力，让网络能拟合复杂特征。</p>
+<p><code>MaxPool2d</code>（最大池化层）：把特征图尺寸减半（如下降到 $112 \times 112$），减少计算量，同时提取最显著的特征。</p>
+<hr>
+<p><strong>全连接分类块</strong>：</p>
+<ul>
+<li><code>Flatten</code>（展平层）：把多维的特征图拉平成一维向量。</li>
+<li><code>Linear</code>（全连接层） + <code>Dropout</code>（随机失活）：映射到高维特征，<code>Dropout</code> 设为 0.5 用来强行拔掉一半神经元防止死记硬背。</li>
+<li><code>Linear</code>（输出层）：最终输出 2 个神经元，对应“正常”与“青光眼”的概率。</li>
+</ul>
+<p>》》》》》</p>
+<blockquote>
+<ol>
+<li><p><strong>卷积层（Convolutional Layer）</strong>：图中较厚、面积较大的蓝色方块。我们使用 $3 \times 3$ 的卷积核在图像上进行滑动窗口计算。它的任务是<strong>做加法提取特征</strong>。</p>
+</li>
+<li><p>池化层下采样层:<strong>做减法压缩体积</strong>。保留每个区域最显著特征（最大值）的前提下，把特征图的宽高直接砍掉一半（例如从 $256 \times 256$ 下降到 $128 \times 128$）。这能大幅减少计算量</p>
+</li>
+<li><p><strong>论文完整结构</strong>：虽然示意图为了排版只画了两个周期，但我们在代码里一共手搓了 3 个这样的卷积块（<strong>卷积 + ReLU激活 + 批归一化 + 最大池化</strong>）层层递进，实现了特征的深度抽取。</p>
+</li>
+</ol>
+<blockquote>
+<p>整个网络的数据流向非常清晰：左边输入的是 <strong>$256 \times 256 \times 3$ 的眼底原图</strong>。  </p>
+<p>中间部分是我设计的特征提取骨干，由 <strong>3个卷积块和池化层交替串联而成</strong>。<strong>卷积层</strong>负责通过局部感受野提取眼底的边缘与视盘病变特征，后面的<strong>池化下采样层</strong>则在保留最强特征的同时，将空间尺寸逐层减半，以此控制参数量、防止过拟合。  </p>
+<p>经过 3 轮‘提取与降维’后，数据流进入右侧的<strong>分类头</strong>。通过 <code>Flatten</code> 展平，送入 <strong>2 层全连接层</strong>进行全局特征融合，最终由<strong>输出层</strong>输出 2 个类别的概率预测结果值。  </p>
+<p>这是一个标准的、具备完备特征捕获能力的 Baseline 网络，但我通过实验发现其深度仍有</p>
+</blockquote>
+</blockquote>
+<h2 id="cnn的不足"><a href="#cnn的不足" class="headerlink" title="cnn的不足"></a>cnn的不足</h2><p><strong>特征提取太浅层</strong>：青光眼的诊断极其依赖视杯（Optic Cup）和视盘（Optic Disc）的精细几何比例（杯盘比）。基础 CNN 层数太浅（只有几层卷积），它只能看到模糊的色块、边缘，<strong>根本看懂复杂的医学生理病变特征</strong>。</p>
+<p><strong>没有残差连接，变深就会“死”</strong>：如果强行把这个基础 CNN 堆叠到十几层甚至几十层，梯度在反向传播时就会在复杂的乘法链中无限缩小，导致<strong>梯度消失</strong>，模型根本训练不动。</p>
+<h2 id="为什么会过拟合？"><a href="#为什么会过拟合？" class="headerlink" title="为什么会过拟合？"></a>为什么会过拟合？</h2><p><strong>小数据集 vs 大参数量。</strong> 我们的 ACRIMA 数据集只有 705 张图片（训练集更少）。这就好比让一个学生去背 500 道特定的数学题。</p>
+<p>小样本训练下，模型为了让 Loss 强行降到最低，会把这几百张图的<strong>噪声、设备色差、甚至背景杂质</strong>全部死记硬背下来。</p>
+<p><strong>表现形式</strong>：训练集准确率极快达到 100%，但在测试集上遇到没见过的边界样本时，立刻抓瞎（出现了 5 例漏诊、6 例误诊）。</p>
+<h2 id="迁移学习resnet50"><a href="#迁移学习resnet50" class="headerlink" title="迁移学习resnet50"></a>迁移学习resnet50</h2><p>请来了一位在 ImageNet（包含 1000 个分类、数百万张自然图像）上已经训练好的“国手级专家”——<strong>ResNet-50</strong>。它虽然之前看的是猫、狗、汽车，但它已经掌握了炉火纯青的“图像边缘、形状、色彩、纹理特征提取能力”。我们把它接过来诊治眼底图，这就叫迁移学习。</p>
+<blockquote>
+<ol>
+<li><p>冻结骨干</p>
+<p>把 ResNet-50 原本的 1000 分类输出头砍掉，换成适合你系统的 2 分类全连接层。接着，<strong>锁定（Freeze）</strong> 前面所有残差块的权重参数（<code>requires_grad=False</code>），只让新换上的分类头参与训练。</p>
+</li>
+<li><p>解冻深层</p>
+<p><strong>解冻（Unfreeze）</strong> 了 ResNet-50 的后 20 个深层残差块（Layer 4 及以后）。</p>
+<blockquote>
+<p><strong>极小的学习率</strong>：初始学习率的十分之一（如 $10^{-5}$），像雕刻工艺品一样小心翼翼地微调这些深层网络。</p>
+<p><strong>增加训练轮数（Epochs）</strong>：因为解冻后我们使用了极低的学习率，模型每次更新步伐非常小。为了让这些解冻的深层网络能够平稳、充分地从通用特征（如圆形、线段）向眼底图的专业特征（如视网膜神经纤维层缺损、视杯扩大）进行领域适配，<strong>你主动延长了训练轮数（比如从基础网络的 30 轮提高到 80 轮以上）</strong></p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<h2 id="可能的提问"><a href="#可能的提问" class="headerlink" title="可能的提问"></a>可能的提问</h2><ol>
+<li><p>基础 CNN 的 AUC 也有 0.9922（按 PPT 数据），这表现不也挺好吗？为什么非要折腾一个复杂的 ResNet-50？”</p>
+<blockquote>
+<p>只看 AUC 指标确实具有欺骗性。但在医疗影像诊断中，<strong>我们不能只看宏观的综合指标，更要看具体的漏诊（FN）和误诊（FP）数量</strong>。</p>
+<p>-在混淆矩阵对比中，基础 CNN 发生了 5 例漏诊和 6 例误诊，在医疗临床上，漏诊意味着患者可能因此错失最佳治疗时机而失明，代价是不可承受的。而通过迁移学习微调后的 ResNet-50，将漏诊和误诊均死死压制在仅有 2 例。这说明深层网络捕获眼底病变细节的鲁棒性远超基础 CNN，这就是引入迁移学习的现实临床意义。”</p>
+</blockquote>
+</li>
+<li><p>为什么要选择 ResNet-50 这种大模型？为什么不直接从零训练它，而是要用预训练权重做微调？</p>
+<blockquote>
+<p>样本量（ACRIMA 数据集）只有 705 张.</p>
+<p>ResNet-50 拥有两千多万个参数。如果<strong>从零训练（Train from scratch）</strong>，如此庞大的参数量在极小的样本集上面，会发生毁灭性的过拟合，模型只会死记硬背训练集，毫无泛化能力。</p>
+</blockquote>
+</li>
+<li><p>基础 CNN 你写着输入是 $256 \times 256 \times 3$，但据我所知，ResNet-50 的标准输入通常是 $224 \times 224 \times 3$。你这里迁移学习时，对图像尺寸做了什么处理？ResNet 能直接跑 256 的图吗？</p>
+<blockquote>
+<p>全局平均池化层对输入图像的宽高尺寸其实具有弹性的自适应能力</p>
+<p><strong>将眼底图统一缩放到了 $224 \times 224$ 的分辨率</strong>再送入 ResNet-50</p>
+<p>标准化对齐</p>
+</blockquote>
+</li>
+<li><p>这个‘20层’是拍脑袋定出来的吗？为什么不解冻 10 层或者全部解冻？</p>
+<blockquote>
+<p>通过消融实验验证过的。</p>
+<p>眼底图跟 ImageNet 的自然图像风格差异较大</p>
+<p>-如果只微调最后 1 层分类头，模型很难捕捉眼底特殊的生理病变；</p>
+<p>但如果全网全部解冻，面对 705 张的小样本，两千万参数的模型会瞬间发生严重的过拟合。</p>
+<hr>
+<p>设计了梯度实验：分别尝试了解冻倒数 1 个残差块（约 10 层）、倒数 2 个残差块（约 20 层）以及全网解冻。实验结果表明，<strong>解冻后 20 层（即 Layer 4 之后的残差结构）时，模型在验证集上的 Loss 收敛最平稳，准确率最高</strong>。这说明这个深度既保护了前期的通用边缘特征，又给眼底图留出了足够的适配空间。”</p>
+</blockquote>
+</li>
+<li><p>怎么四个指标（Acc, Pre, Rec, F1）一模一样，全部都是 0.9714？天底下有这么巧的事？你是不是代码抄错了或者数据造假？”</p>
+<blockquote>
+<p>图 2 的 ResNet-50 混淆矩阵：</p>
+<ul>
+<li>正常样本：真正常 &#x3D; 68，误诊为青光眼（FP） &#x3D; 2。也就是说，正常组总数 &#x3D; 68 + 2 &#x3D; 70 张。</li>
+<li>青光眼样本：漏诊为正常（FN） &#x3D; 2，真青光眼 &#x3D; 68。也就是说，青光眼组总数 &#x3D; 2 + 68 &#x3D; 70 张。</li>
+<li><strong>划重点</strong>：你的测试集刚好是<strong>完美均衡</strong>的（70 张正常，70 张有病，总共 140 张），而且模型的<strong>报错刚好是对称的</strong>（误诊 2 例，漏诊 2 例）。</li>
+</ul>
+<hr>
+<p>正是因为<strong>数据集的完美均衡</strong>以及<strong>模型在两类错误上的对称表现</strong>，才导出了四个指标完全交汇于 0.9714 这一结果。这不仅不是错误，反而是混淆矩阵客观推导的铁证。”</p>
+</blockquote>
+</li>
+<li><p>为什么上传证件照也识别？？</p>
+<blockquote>
+<p>模型是一个<strong>闭世界假设（Closed-world Assumption）的二分类器</strong></p>
+<p>它的最后一层 Softmax 函数的核心任务，是强行把任何输入的矩阵（无论是一张眼底图、一张证件照、还是一张红烧肉的照片）的输出概率归一化，让“正常”和“青光眼”的概率相加等于 100%。</p>
+<p>网络设计里<strong>根本没有给它提供“这不是眼底图”或者“未知”的第三种标签</strong>，所以它只能“高个子里挑矮个子”，在现有的两个选项里硬猜一个。</p>
+<hr>
+<p><strong>增加一个前置的‘图像合规性校验与质量评估门禁’</strong>（例如利用 OpenCV 提取圆形的视盘轮廓特征，或加一个轻量级的图像分类网络）。只有当系统判定输入图像确实为眼底图且清晰度达标时，才放行至核心 ResNet-50 进行诊断；否则直接驳回并报错提示</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="ppt讲解："><a href="#ppt讲解：" class="headerlink" title="ppt讲解："></a>ppt讲解：</h2><p>第一，我首先自己‘手搓’了一个<strong>基础CNN模型</strong>作为学术Baseline（对照组）。它的结构相对简单，由3个卷积块加2个全连接层组成。它的优势是训练极快，但局限性也非常明显——由于网络深度太浅，它在面对复杂的眼底病变影像时，特征提取能力严重不足。</p>
+<p>第二，为了攻克这个痛点，我引入了<strong>ResNet-50迁移学习架构</strong>作为系统的核心模型。为了防止小样本数据集导致深层网络过拟合，我实施了<strong>两阶段微调策略</strong>：阶段一，先冻结前端卷积层，用大参数的学习率专攻自定义的二分类头，进行‘热身训练’；阶段二，解冻最后20层残差块，用极小的学习率像雕刻一样进行精细化微调。最终，成功将分类精度拉升到了**97.14%**。”</p>
+<p><strong>漏诊（FN）</strong>：本来有青光眼，模型看漏了，诊断成正常。<strong>（医疗大忌，会让患者失明）</strong></p>
+<p><strong>误诊（FP）</strong>：本来正常，模型吓唬人家说有病。<strong>（引起医患恐慌，浪费医疗资源）</strong></p>
+<p><strong>召回率（Rec&#x2F;Recall）</strong>：就是“排查漏网之鱼的能力”。</p>
+<p>重要的是，在医疗场景中最核心的指标——**召回率（Recall），直接从91.42%跨越式提升到了97.14%**。召回率代表的是我们拦截‘漏网之鱼’的能力，这个指标的飞跃，直接锁定了本系统在基层医院进行青光眼大规模初筛时的临床应用潜力和闭环落地的安全性。”</p>
+<h3 id="Roc曲线"><a href="#Roc曲线" class="headerlink" title="Roc曲线"></a>Roc曲线</h3><p><strong>它的横轴是假阳性率（FPR），也就是临床上的误诊率；纵轴是真阳性率（TPR），也就是召回率或敏感度</strong>。</p>
+<p>最理想的状态，是在误诊率极低的前提下，拥有极高的敏感度。反映在图上，就是曲线越陡峭、越逼近左上角（0,1）这个点越好。</p>
+<p>右边 ResNet-50 的红色曲线明显比左边基础 CNN 更快地贴近左上角。在全阈值范围内，红线完全包裹住了绿线。其对应的<strong>线下面积 AUC 值从基础网络的 0.9922 提升到了 0.9959</strong>。</p>
+<p>这在统计学上强有力地证明了：经过迁移学习微调后的模型，<strong>具有更强的抗噪能力和分类稳定性</strong>，</p>
+<h2 id="核心工作量"><a href="#核心工作量" class="headerlink" title="核心工作量"></a>核心工作量</h2><p>两阶段微调（Fine-tuning）是怎么复杂的？</p>
+<blockquote>
+<ol>
+<li>做法 &#x3D;锁定骨干： 前面对通用特征敏感的残差块全部锁死，不参与梯度更新。只让最右侧新换上去的、随机初始化的分类头进行训练。</li>
+<li>目的&#x3D;如果直接全网训练，分类头刚开始产生的巨大随机误差梯度，会像洪水一样把 ResNet-50 原本完美的特征提取能力瞬间洗掉</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>做法：解冻深层：<strong>解冻了网络后部的 20 个深层残差块（主要集中在 Layer 4 区域）</strong>。</p>
+<p>采用极小的学习率（$10^{-5}$），并<strong>主动延长了训练轮数（Epochs 增加到 80 轮以上）</strong>。因为学习率极小，模型每次只修正一点点，需要更多的轮数来让这些深层神经元小心翼翼地适应眼底图上的特殊病理特征（如视网膜神经纤维层缺损），最终实现了高达 97.14% 的惊人准确率。</p>
+</blockquote>
+<img src="/post/undefined/image-20260609010556492.png" class="" title="image-20260609010556492">
+
+<img src="/post/undefined/image-20260609010608003.png" class="" title="image-20260609010608003">
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://017328.xyz">下完这场雨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://017328.xyz/post/7362464f.html">https://017328.xyz/post/7362464f.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://017328.xyz" target="_blank">cout<<"金缕衣";</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AD%94%E8%BE%A9/">答辩</a></div><div class="post_share"><div class="social-share" data-image="/img/sky5.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wx.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.jpg" target="_blank"><img class="post-qr-code-img" src="/img/zfb.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/8754a464.html" title="hexo和git的换机速装"><img class="cover" src="/img/sky8.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hexo和git的换机速装</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Livere</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="lv-container" data-id="city" data-uid="MTAyMC81OTAyMS8zNTQ4Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/h.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">下完这场雨</div><div class="author-info__description">椿萱并茂，棠棣同馨，松萝共倚，兰桂齐芳。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">117</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/666XRB"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/666XRB" target="_blank" title="Github"><i class="fab fa-github" style="color: #8a2be2;"></i></a><a class="social-icon" href="https://blog.csdn.net/xideaha?type=blog" target="_blank" title="CSDN"><i class="fa-solid fa-code" style="color: #8a2be2;"></i></a><a class="social-icon" href="https://www.xiaohongshu.com/user/profile/62da23010000000002001769" target="_blank" title="redbook"><i class="fa-solid fa-book" style="color: #8a2be2;"></i></a><a class="social-icon" href="https://space.bilibili.com/452179119" target="_blank" title="bilibili"><i class="fab fa-bilibili" style="color: #8a2be2;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里啊，这里是我的blog，分享一些学习知识。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E6%89%8B%E6%90%93%E7%9A%84cnn"><span class="toc-number">1.</span> <span class="toc-text">怎么手搓的cnn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cnn%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="toc-number">2.</span> <span class="toc-text">cnn的不足</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E8%BF%87%E6%8B%9F%E5%90%88%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">为什么会过拟合？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0resnet50"><span class="toc-number">4.</span> <span class="toc-text">迁移学习resnet50</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E7%9A%84%E6%8F%90%E9%97%AE"><span class="toc-number">5.</span> <span class="toc-text">可能的提问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ppt%E8%AE%B2%E8%A7%A3%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">ppt讲解：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Roc%E6%9B%B2%E7%BA%BF"><span class="toc-number">6.1.</span> <span class="toc-text">Roc曲线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%B7%A5%E4%BD%9C%E9%87%8F"><span class="toc-number">7.</span> <span class="toc-text">核心工作量</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/7362464f.html" title="毕业答辩"><img src="/img/sky5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="毕业答辩"/></a><div class="content"><a class="title" href="/post/7362464f.html" title="毕业答辩">毕业答辩</a><time datetime="2026-06-08T16:00:00.000Z" title="发表于 2026-06-09 00:00:00">2026-06-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/8754a464.html" title="hexo和git的换机速装"><img src="/img/sky8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo和git的换机速装"/></a><div class="content"><a class="title" href="/post/8754a464.html" title="hexo和git的换机速装">hexo和git的换机速装</a><time datetime="2026-06-07T16:00:00.000Z" title="发表于 2026-06-08 00:00:00">2026-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/357b0d9d.html" title="typora的激活"><img src="/img/b1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="typora的激活"/></a><div class="content"><a class="title" href="/post/357b0d9d.html" title="typora的激活">typora的激活</a><time datetime="2026-06-07T16:00:00.000Z" title="发表于 2026-06-08 00:00:00">2026-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/6f36503e.html" title="乡村协理员"><img src="/img/b4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="乡村协理员"/></a><div class="content"><a class="title" href="/post/6f36503e.html" title="乡村协理员">乡村协理员</a><time datetime="2026-06-02T16:00:00.000Z" title="发表于 2026-06-03 00:00:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/c5026ee3.html" title="小工具箱"><img src="/img/b2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小工具箱"/></a><div class="content"><a class="title" href="/post/c5026ee3.html" title="小工具箱">小工具箱</a><time datetime="2026-05-29T16:00:00.000Z" title="发表于 2026-05-30 00:00:00">2026-05-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><style>
+  .footer {
+    text-align: center;
+    position: relative;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .social-links i {
+    color: #8400ff;
+  }
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  .social-link {
+    color: #7c4dff;
+    font-size: 1.3rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(124, 77, 255, 0.1), rgba(118, 75, 162, 0.1));
+    border: 1px solid rgba(124, 77, 255, 0.2);
+  }
+  .social-link:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transform: translateY(-4px) scale(1.15);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    border-color: transparent;
+    text-decoration: none !important; 
+  }
+  .footer p {
+    margin: 0.6rem 0;
+    line-height: 1.6;
+  }
+  .copyright {
+    font-size: 1.2rem; 
+    color: #7c4dff;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(124, 77, 255, 0.3);
+    letter-spacing: 1px;
+  }
+  .copyright::before,
+  .copyright::after {
+    content: '✦';
+    display: inline-block;
+    margin: 0 0.5rem;
+    color: #a855f7;
+    font-size: 0.8rem;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  .tagline {
+    font-size: 0.95rem;
+    color: #8b5cf6;
+    font-style: italic;
+    font-weight: 500;
+    background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s linear infinite;
+    letter-spacing: 0.5px;
+  }
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.5; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+  @keyframes gradient-shift {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+  .visitor-count {
+    font-size: 0.75rem;
+    color: rgba(219, 142, 255, 0.658);
+    font-weight: 300;
+  }
+  #visitorCount {
+    font-weight: bold;
+  }
+  .icp-info {
+    margin-top: 1rem;
+    font-size: 1.2rem; /* 增大字体大小 */
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  }
+  .icp-link {
+    color: #ffffff; /* 白色文字，与渐变背景形成强烈对比 */
+    text-decoration: none;
+    font-weight: 600; /* 增加字体粗细 */
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .icp-link:hover {
+    text-decoration: underline;
+    opacity: 0.9; /* 悬停时稍微变暗 */
+  }
+  .icp-link::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+</style>
+<div class="footer">
+  <div class="social-links">
+    <a href="https://github.com/666XRB" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://blog.csdn.net/xideaha?type=blog" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="CSDN" title="CSDN">
+      <i class="fas fa-code"></i>
+    </a>
+    <a href="https://www.xiaohongshu.com/user/profile/62da23010000000002001769" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="小红书" title="小红书">
+      <i class="fas fa-book"></i>
+    </a>
+    <a href="https://space.bilibili.com/452179119" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="bilibili" title="bilibili">
+      <i class="fab fa-bilibili"></i>
+    </a>
+  </div>
+  <p class="copyright">© 2026 下完这场雨 - 所有权利保留</p>
+  <p class="tagline">> Stay curious, stay hacking, stay anime! <</p>
+  <p class="icp-info">
+    <a href="https://beian.miit.gov.cn/#/Integrated/index" class="icp-link" target="_blank">豫ICP备2024090942号-1</a>
+  </p>
+</div>
+
+<script>
+  // 确保DOM加载完成后执行
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 模拟访问量增长
+    function updateVisitorCount() {
+      const countElement = document.getElementById('visitorCount');
+      let count = parseInt(countElement.textContent) || 1024;
+      
+      // 从localStorage获取或初始化计数
+      const storedCount = localStorage.getItem('totalVisitors');
+      if (storedCount) {
+        count = parseInt(storedCount);
+        countElement.textContent = count;
+      }
+      
+      // 每日访客计数
+      const today = new Date().toDateString();
+      const dailyData = JSON.parse(localStorage.getItem('dailyVisitors') || '{"date":"", "count":0}');
+      if (dailyData.date !== today) {
+        dailyData.date = today;
+        dailyData.count = 0;
+      }
+      dailyData.count += 1;
+      document.getElementById('dailyVisitor').textContent = dailyData.count;
+      localStorage.setItem('dailyVisitors', JSON.stringify(dailyData));
+      
+      // 每30秒随机增加访问量
+      setInterval(() => {
+        count += Math.floor(Math.random() * 3);
+        countElement.textContent = count;
+        localStorage.setItem('totalVisitors', count.toString());
+      }, 30000);
+    }
+    
+    updateVisitorCount();
+    
+    // 添加点击动画效果
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        this.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 300);
+      });
+    });
+  });
+</script>
+</div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+      appKey: 'LssvKROPsftMFNCa4j2AnVL8',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Valine' === 'Livere' || !true) {
+  if (true) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://VbfV1mFY.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+        "X-LC-Key": 'LssvKROPsftMFNCa4j2AnVL8',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="592262222" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-lrctype="1" data-preload="none" data-autoplay="false" muted></div><script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js" async></script><script src="/js/weather.js"></script><script src="https://jsd.onmicrosoft.cn/gh/wuuconix/live2d-cdn@v0.1.8/autoload.js"></script><script defer src="/js/cursor.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="random" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
