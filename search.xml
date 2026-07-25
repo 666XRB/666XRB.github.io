@@ -4,11 +4,68 @@
   
     
     <entry>
+      <title>日有所学724</title>
+      <link href="/post/df8269de.html"/>
+      <url>/post/df8269de.html</url>
+      
+        <content type="html"><![CDATA[<p>z</p><h2 id="资料分析"><a href="#资料分析" class="headerlink" title="资料分析"></a>资料分析</h2><blockquote><p>产销量，分别对应产量和销量。数据对应正确。</p><p>看错了就两行泪</p></blockquote><img src="/post/undefined/image-20260724154629924.png" class="" title="image-20260724154629924"> <h3 id="头乘头，尾加尾，尾乘尾"><a href="#头乘头，尾加尾，尾乘尾" class="headerlink" title="头乘头，尾加尾，尾乘尾"></a><strong>头乘头，尾加尾，尾乘尾</strong></h3><img src="/post/undefined/image-20260724155128099.png" class="" title="image-20260724155128099"> <img src="/post/undefined/image-20260724155448846.png" class="" title="image-20260724155448846"> <blockquote><p>基准</p></blockquote><img src="/post/undefined/image-20260724161856251.png" class="" title="image-20260724161856251"> <blockquote><p>相邻</p></blockquote><p><strong>核心逻辑</strong>：找”最接近的整数倍”，然后用余数比例补。</p><p><strong>例子：124 ÷ 90</strong></p><ul><li>90 × 1 &#x3D; 90（余34）</li><li>90 × 1.3 &#x3D; 117（余7）</li><li>90 × 1.4 &#x3D; 126（超了2）</li><li>所以答案在<strong>1.3和1.4之间</strong>，更靠近1.4</li><li>估 <strong>1.38</strong>（实际1.377，几乎完美🎯）</li></ul><h3 id="高减低加愣是复杂化了。"><a href="#高减低加愣是复杂化了。" class="headerlink" title="高减低加愣是复杂化了。"></a>高减低加愣是复杂化了。</h3><img src="/post/undefined/image-20260724164348799.png" class="" title="image-20260724164348799"> <p>充分利用已知条件</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 行测 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数量关系</title>
+      <link href="/post/444092dd.html"/>
+      <url>/post/444092dd.html</url>
+      
+        <content type="html"><![CDATA[<p>1</p><h2 id="倍数特性"><a href="#倍数特性" class="headerlink" title="倍数特性"></a>倍数特性</h2><img src="/post/undefined/image-20260723165348109.png" class="" title="image-20260723165348109"> <img src="/post/undefined/image-20260723165357478.png" class="" title="image-20260723165357478"> <blockquote><p>特殊的7,11,13</p><p>利用拆分法&#x2F;</p><p>比较大的倍数两位数的。用因式分解！</p><p><strong>三九</strong>四五。常见的记住就行了。</p><p>(2,5)10的是看后一位</p><p>(4,25)100看的是后两位</p><p>(8,125)1000看的是后三位</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 行测 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>乡村协理员面试</title>
+      <link href="/post/d0de1d45.html"/>
+      <url>/post/d0de1d45.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="面试回温"><a href="#面试回温" class="headerlink" title="面试回温"></a>面试回温</h2><h3 id="第一类：综合分析题（最核心，必考）"><a href="#第一类：综合分析题（最核心，必考）" class="headerlink" title="第一类：综合分析题（最核心，必考）"></a>第一类：综合分析题（最核心，必考）</h3><ul><li><strong>常规问法</strong>：怎么看？怎么理解？</li><li><strong>省考侧重</strong>：宏观社会现象、大政方针。</li><li><strong>乡村协理员侧重点（你需切换）</strong>：<strong>聚焦“三农”微观切口</strong>。如：数字乡村、移风易俗（天价彩礼）、秸秆禁烧、耕地“非粮化”、村干部直播带货乱象等。</li><li><strong>速记思路</strong>：答题时少背“高大上”理论，多谈对<strong>村情民情</strong>的理解，体现你关注农村痛点。</li></ul><h3 id="第二类：组织计划题（办事情）"><a href="#第二类：组织计划题（办事情）" class="headerlink" title="第二类：组织计划题（办事情）"></a>第二类：组织计划题（办事情）</h3><ul><li><strong>常规问法</strong>：怎么组织？怎么开展？</li><li><strong>省考侧重</strong>：大型活动、会议、调研。</li><li><strong>乡村协理员侧重点（你需切换）</strong>：<strong>强调“接地气”和“动员能力”</strong>。如：组织农民参加技能培训、开展人居环境整治评比、入户做防返贫监测排查、推广医保社保缴纳。</li><li><strong>速记思路</strong>：省考重“流程完美”，这里重“<strong>结果有效</strong>”。一定要提到“避开农忙时节”、“利用大喇叭&#x2F;网格群”、“对于行动不便老人上门办”等细节。</li></ul><h3 id="第三类：应急应变题（处理突发）"><a href="#第三类：应急应变题（处理突发）" class="headerlink" title="第三类：应急应变题（处理突发）"></a>第三类：应急应变题（处理突发）</h3><ul><li><strong>常规问法</strong>：突发情况怎么办？</li><li><strong>省考侧重</strong>：公共危机、舆情处理。</li><li><strong>乡村协理员侧重点（你需切换）</strong>：<strong>田间地头的矛盾纠纷</strong>。如：村民因争灌溉水源打架、村民家中暴雨受灾、村民阻拦施工队进村修路、留守儿童突发意外。</li><li><strong>速记思路：生命至上 &gt; 稳定情绪 &gt; 找准关键人（族长&#x2F;老党员） &gt; 后续跟踪</strong>。答题时一定要有“<strong>第一时间赶往现场</strong>”和“<strong>事后回访</strong>”的意识。</li></ul><h3 id="第四类：人际关系题（处关系）"><a href="#第四类：人际关系题（处关系）" class="headerlink" title="第四类：人际关系题（处关系）"></a>第四类：人际关系题（处关系）</h3><ul><li><strong>常规问法</strong>：与同事&#x2F;领导有矛盾怎么办？</li><li><strong>省考侧重</strong>：机关单位内部关系。</li><li><strong>乡村协理员侧重点（你需切换）</strong>：<strong>处理干群关系</strong>。如：村民不配合工作还骂人、村干部（老同志）觉得你太书生气不配合你、两家人邻里积怨。</li><li><strong>速记思路</strong>：核心原则是“<strong>把村民当自家人</strong>”。受委屈要“咽得下”，多讲“土话”不讲“官话”，多请教村里的“乡贤五老”协助化解。</li></ul><h3 id="第五类：岗位认知-自我认知题（谈自己）"><a href="#第五类：岗位认知-自我认知题（谈自己）" class="headerlink" title="第五类：岗位认知&#x2F;自我认知题（谈自己）"></a>第五类：岗位认知&#x2F;自我认知题（谈自己）</h3><ul><li><strong>常规问法</strong>：为什么报考？有什么优缺点？</li><li><strong>省考侧重</strong>：职业稳定性、能力匹配。</li><li><strong>乡村协理员侧重点（你需切换）</strong>：<strong>考察“扎根”意愿和“吃苦”准备</strong>。如：你学历高但在村里能做什么？你待得住吗？</li><li><strong>速记思路</strong>：一定要表达出“<strong>泥土气息</strong>”。不要说“为了稳定”，要说“生于农村&#x2F;愿意把论文写在大地上”，并列举具体能做的事（如教老人用手机、帮村里做台账、运营农产品电商）。</li></ul><h3 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h3><p><strong>最常见的配置是“3道题，10分钟”</strong></p><p>综合分析 + 应急应变 + 组织管理</p><p>综合分析 + 人际关系 + 岗位认知</p><h3 id="综合分析"><a href="#综合分析" class="headerlink" title="综合分析"></a>综合分析</h3><p><strong>表态-分析-对策”三段式框架</strong></p><h4 id="1"><a href="#1" class="headerlink" title="1"></a>1</h4><img src="/post/undefined/image-20260716104937455.png" class="" title="image-20260716104937455"> <blockquote><p>Yeah. . . Ok. 各位考官好，考生开始回答。第一题啊，对于现在我们乡村打造一村一品特色产业，我认为这个方式它是有助于乡村振兴的。呃，但是在这个发展过程中会出现产业模式雷同呃，同质化竞争问题突出。我认为这这些问题是呃必然出现的。 但是我们要积极的去解决这个问题。 呃，我认为。 我从一下几个看法来思考这个问题。 呃，第一是我认为出现这些危害的出现这些情况的原因是呃，我们的村民他他不懂得品牌效应，他们盲目的追求呃，哪些种哪些赚钱就去种哪些农作物。 呃，第二的话是呃我们的村民也不懂得差异化品牌建设。呃，也就是说会出现同质化竞争。 第三的话是可能是我们的乡村缺乏一些专业人才，对于品牌建设或者是产业模式方面。 呃，缺乏人才。 第最后的话我觉得可以通过以下方式去解决这些问题。 第一的话呃对于呃品牌效应的话，我们可以。 嗯，积极积极挖掘我们当地的一些特色，呃，去挖掘我们本地的文化以及。 嗯，就是天然的。 特色去鼓励村民们呃找到我们属于我们自己乡村的摇钱树。第二的话。 我们要。 鼓励村民去呃建设多品牌，也就是说多品牌发展差异化品牌竞争，这样的话就能够避免同质化呃，实现百花齐放。第三的话是我们要积极引入返乡大学生以及相关的专业人才呃，来提升我们村民的一个品牌意识等综合实力。呃，最后我相信通过以上方式能够。 让我们的乡村产业呃。 得到一个快速的振兴发展。回答完毕。 .</p></blockquote><p>问题：</p><ol><li><h4 id="口头禅“呃”过多，拉低流畅度-“呃”多-思维不清晰"><a href="#口头禅“呃”过多，拉低流畅度-“呃”多-思维不清晰" class="headerlink" title="口头禅“呃”过多，拉低流畅度(“呃”多 &#x3D; 思维不清晰)"></a>口头禅“呃”过多，拉低流畅度(<strong>“呃”多 &#x3D; 思维不清晰</strong>)</h4></li><li><h4 id="原因和对策“打架”，逻辑边界模糊-原因和对策不能重复"><a href="#原因和对策“打架”，逻辑边界模糊-原因和对策不能重复" class="headerlink" title="原因和对策“打架”，逻辑边界模糊(原因和对策不能重复)"></a>原因和对策“打架”，逻辑边界模糊(原因和对策不能重复)</h4></li><li><p>不要有虚词什么积极挖掘我们本地特色。要的是<strong>“立足本土资源”、“避免千村一面”、“延长产业链”</strong></p></li></ol><p>“一村一品”是产业振兴的有力抓手，但同质化竞争<strong>暴露出发展中的深层问题</strong>，<strong>需要我们冷静审视</strong>。</p><p>我认为根源在于三个“缺位”：一是<strong>规划缺位</strong>，部分地方盲目跟风，忽视了本地资源禀赋的独特性；二是<strong>品牌缺位</strong>，只重“种出来”不重“卖出去”，陷入<strong>低端价格战</strong>；三是<strong>人才缺位</strong>，缺乏<strong>懂市场、会经营</strong>的“新农人”来<strong>主导差异化发展</strong>。</p><p>破解之道在于找准“土特产”三个字：<strong>“土”</strong> 要深挖本地的气候、文化和手艺；<strong>“特”</strong> 要跳出原料思维，<strong>发展深加工和农旅融合</strong>，做到“人有我优”；<strong>“产”</strong> 则需要<strong>政府科学引导</strong>，完善<strong>冷链物流和电商渠道</strong>，让好产品真正对接大市场。</p><p>作为未来的协理员，我到了村里要做的第一件事，就是<strong>协助村两委</strong>把家底摸清，找到那个属于我们村的<strong>突破口</strong>。</p><hr><p>end</p><h2 id="面试总结"><a href="#面试总结" class="headerlink" title="面试总结"></a>面试总结</h2><ol><li><p>不自信，有口癖。</p></li><li><p>高低肩修正</p></li><li><p>昂首挺胸</p></li><li><p>题目偏了分就低了</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>三支一扶</title>
       <link href="/post/b90c97cb.html"/>
       <url>/post/b90c97cb.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>k</p><h2 id="考情"><a href="#考情" class="headerlink" title="考情"></a>考情</h2><h3 id="23"><a href="#23" class="headerlink" title="23"></a>23</h3><img src="/post/undefined/image-20260709233542600.png" class="" title="image-20260709233542600"> <h3 id="24"><a href="#24" class="headerlink" title="24"></a>24<img src="/post/undefined/image-20260709233549108.png" class="" title="image-20260709233549108"></h3><h3 id="25"><a href="#25" class="headerlink" title="25"></a>25</h3><img src="/post/undefined/image-20260709233553830.png" class="" title="image-20260709233553830"><h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><img src="/post/undefined/image-20260709233600141.png" class="">]]></content>
       
       
       
