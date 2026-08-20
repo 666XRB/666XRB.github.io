@@ -1,0 +1,792 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>每日资料分析汇总 | cout&lt;&lt;&quot;金缕衣&quot;;</title><meta name="author" content="下完这场雨"><meta name="copyright" content="下完这场雨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="资料分析724 产销量，分别对应产量和销量。数据对应正确。 看错了就两行泪           头乘头，尾加尾，尾乘尾       基准      相邻  核心逻辑：找”最接近的整数倍”，然后用余数比例补。 例子：124 ÷ 90  90 × 1 &#x3D; 90（余34） 90 × 1.3 &#x3D; 117（余7） 90 × 1.4 &#x3D; 126（超了2） 所以答案在1.3和1.4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日资料分析汇总">
+<meta property="og:url" content="https://017328.xyz/post/195d6ee6.html">
+<meta property="og:site_name" content="cout&lt;&lt;&quot;金缕衣&quot;;">
+<meta property="og:description" content="资料分析724 产销量，分别对应产量和销量。数据对应正确。 看错了就两行泪           头乘头，尾加尾，尾乘尾       基准      相邻  核心逻辑：找”最接近的整数倍”，然后用余数比例补。 例子：124 ÷ 90  90 × 1 &#x3D; 90（余34） 90 × 1.3 &#x3D; 117（余7） 90 × 1.4 &#x3D; 126（超了2） 所以答案在1.3和1.4">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://017328.xyz/img/sky2.jpg">
+<meta property="article:published_time" content="2026-08-15T02:12:35.000Z">
+<meta property="article:modified_time" content="2026-08-15T06:24:16.975Z">
+<meta property="article:author" content="下完这场雨">
+<meta property="article:tag" content="资料分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://017328.xyz/img/sky2.jpg"><link rel="shortcut icon" href="/img/icon.png"><link rel="canonical" href="https://017328.xyz/post/195d6ee6.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 下完这场雨","link":"链接: ","source":"来源: cout<<\"金缕衣\";","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '每日资料分析汇总',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-08-15 14:24:16'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="//code.tidio.co/xysdkaby5vgv2dt8e9zgdqsu6wh59g43.js" async></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/mystyle.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4770397_jz6ucve7mog.css<link rel="stylesheet" href="/css/ancientPoetry.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/h.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">148</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">64</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">48</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li><li><a class="site-page child" href="/countdown/"><i class="fa-fw fa fa-clock-o"></i><span> 倒计时</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/password/"><i class="fa-fw fa fa-key"></i><span> 密码管理</span></a></div><div class="menus_item"><a class="site-page" href="/html-admin/"><i class="fa-fw fa fa-file-code"></i><span> HTML管理</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/sky2.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="cout&lt;&lt;&quot;金缕衣&quot;;"><img class="site-icon" src="/img/icon.png"/><span class="site-name">cout&lt;&lt;&quot;金缕衣&quot;;</span></a></span><div id="wearher"></div><div id="tp-weather-widget"></div><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li><li><a class="site-page child" href="/countdown/"><i class="fa-fw fa fa-clock-o"></i><span> 倒计时</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/password/"><i class="fa-fw fa fa-key"></i><span> 密码管理</span></a></div><div class="menus_item"><a class="site-page" href="/html-admin/"><i class="fa-fw fa fa-file-code"></i><span> HTML管理</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于帅比</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">每日资料分析汇总</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-15T02:12:35.000Z" title="发表于 2026-08-15 10:12:35">2026-08-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-15T06:24:16.975Z" title="更新于 2026-08-15 14:24:16">2026-08-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%A1%8C%E6%B5%8B/">行测</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="每日资料分析汇总"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="资料分析724"><a href="#资料分析724" class="headerlink" title="资料分析724"></a>资料分析724</h2><blockquote>
+<p>产销量，分别对应产量和销量。数据对应正确。</p>
+<p>看错了就两行泪</p>
+</blockquote>
+<img src="/post/undefined/image-20260724154629924.png" class="" title="image-20260724154629924"> 
+
+
+
+
+
+
+
+<h3 id="头乘头，尾加尾，尾乘尾"><a href="#头乘头，尾加尾，尾乘尾" class="headerlink" title="头乘头，尾加尾，尾乘尾"></a><strong>头乘头，尾加尾，尾乘尾</strong></h3><img src="/post/undefined/image-20260724155128099.png" class="" title="image-20260724155128099"> 
+
+<img src="/post/undefined/image-20260724155448846.png" class="" title="image-20260724155448846"> 
+
+<blockquote>
+<p>基准</p>
+</blockquote>
+<img src="/post/undefined/image-20260724161856251.png" class="" title="image-20260724161856251"> 
+
+<blockquote>
+<p>相邻</p>
+</blockquote>
+<p><strong>核心逻辑</strong>：找”最接近的整数倍”，然后用余数比例补。</p>
+<p><strong>例子：124 ÷ 90</strong></p>
+<ul>
+<li>90 × 1 &#x3D; 90（余34）</li>
+<li>90 × 1.3 &#x3D; 117（余7）</li>
+<li>90 × 1.4 &#x3D; 126（超了2）</li>
+<li>所以答案在<strong>1.3和1.4之间</strong>，更靠近1.4</li>
+<li>估 <strong>1.38</strong>（实际1.377，几乎完美🎯）</li>
+</ul>
+<h3 id="高减低加愣是复杂化了。"><a href="#高减低加愣是复杂化了。" class="headerlink" title="高减低加愣是复杂化了。"></a>高减低加愣是复杂化了。</h3><img src="/post/undefined/image-20260724164348799.png" class="" title="image-20260724164348799"> 
+
+<p>充分利用已知条件</p>
+<h2 id="729资料分析"><a href="#729资料分析" class="headerlink" title="729资料分析"></a>729资料分析</h2><h3 id="名义增长率-实际"><a href="#名义增长率-实际" class="headerlink" title="名义增长率&amp;实际"></a>名义增长率&amp;实际</h3><p><strong>1 + 名义增长率 &#x3D; (1 + 实际增长率) × (1 + CPI增长率)</strong> </p>
+<p><strong>名义增长率</strong>：<strong>“账面上的增长”</strong>。它直接用现价计算，<strong>没有剔除</strong>物价变动的影响</p>
+<hr>
+<p><strong>实际增长率</strong></p>
+<p><strong>“真实的增长”</strong>。它<strong>剔除了</strong>物价变动因素，反映的是产量或购买力真实的变化</p>
+<p><strong>CPI (居民消费价格指数)<strong>：</strong>“物价的标尺”</strong>。它衡量一篮子消费品和服务价格随时间的变化</p>
+<img src="/post/undefined/image-20260729155844830.png" class="" title="image-20260729155844830">
+
+<img src="/post/undefined/image-20260729160019984.png" class="" title="image-20260729160019984"> 
+
+<img src="/post/undefined/image-20260729160238183.png" class="" title="image-20260729160238183"> 
+
+<blockquote>
+<p><strong>一句话：除了固定题型</strong></p>
+<p><strong>默认都按照名义增长r</strong></p>
+</blockquote>
+<img src="/post/undefined/image-20260729160729632.png" class="" title="image-20260729160729632"> 
+
+<p>错因：</p>
+<p>1.：被名义，实际搞混</p>
+<p>2：乱代入，不如公式来的稳定。</p>
+<h3 id="混合乱入"><a href="#混合乱入" class="headerlink" title="混合乱入"></a>混合乱入</h3><img src="/post/undefined/image-20260729161625309.png" class="" title="image-20260729161625309"> 
+
+<p>区分增长率模型和平均数模型</p>
+<blockquote>
+<ol>
+<li>知道常见的分母之比就比如人均模型，城人&#x2F;农人&#x3D;d农&#x2F;d城(是分子对应的与居中的差距)</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>进阶：R城人均&#x2F;R农人均其实&#x3D;（城支出&#x2F;农支出）*(农人&#x2F;城人)</p>
+</blockquote>
+<p>则遇到题干给的<strong>人均</strong>支出，但是求的是城支出&#x2F;农支出！</p>
+<blockquote>
+<p>其实就是利用现期&#x3D;(城人均&#x2F;农人均）*城人&#x2F;农人</p>
+</blockquote>
+<h2 id="资料分析803"><a href="#资料分析803" class="headerlink" title="资料分析803"></a>资料分析803</h2><h3 id="年均增长率两种2"><a href="#年均增长率两种2" class="headerlink" title="年均增长率两种2"></a>年均增长率两种2</h3><img src="/post/undefined/image-20260803090506940.png" class="" title="image-20260803090506940"> 
+
+
+
+<h3 id="A-A-B"><a href="#A-A-B" class="headerlink" title="A&#x2F;(A+-B)"></a>A&#x2F;(A+-B)</h3><h4 id=""><a href="#" class="headerlink" title="+"></a>+</h4><p>部分和整体</p>
+<img src="/post/undefined/image-20260803154037272.png" class="" title="image-20260803154037272"> 
+
+<h4 id="-1"><a href="#-1" class="headerlink" title="-"></a>-</h4><p>就是给增长量和现期的时候比较r的时候可以用</p>
+<p>直接用</p>
+<h3 id="保持r不变，追赶"><a href="#保持r不变，追赶" class="headerlink" title="保持r不变，追赶"></a>保持r不变，追赶</h3><img src="/post/undefined/image-20260803174838274.png" class="" title="image-20260803174838274">
+
+<img src="/post/undefined/image-20260803175444920.png" class="" title="image-20260803175444920">
+
+<img src="/post/undefined/image-20260803175738522.png" class="" title="image-20260803175738522">
+
+<img src="/post/undefined/image-20260803180259154.png" class="" title="image-20260803180259154">
+
+
+
+
+
+<h2 id="资料分析804"><a href="#资料分析804" class="headerlink" title="资料分析804"></a>资料分析804</h2><h3 id="某个月环比增速与上一年同期的环比增速相比低于？高于的月份数"><a href="#某个月环比增速与上一年同期的环比增速相比低于？高于的月份数" class="headerlink" title="某个月环比增速与上一年同期的环比增速相比低于？高于的月份数"></a>某个月环比增速与上一年同期的环比增速相比低于？高于的月份数</h3><p>给同比增速然后问某一个月的环比增速低于或高于上年同期的月份个数是多少？</p>
+<p>】第二次遇到了</p>
+<p>经过老王的一番讲解结论就是说如果说关闭增速低于上年同期的月份那么他这个月一定符合找个三月那么三月和二月他这个同比增速是下降的趋势那么就符合。</p>
+<p>同理如果问说某个月的环比增速高于上年同期那就是说这个月的同比增速要高于上个月的同比增速！。</p>
+<blockquote>
+<p>学你的话就是因为它这个不给机器和限期就说明他这个东西跟机器和现金没关系那么我们就可以假设机器为一百这样就好算然后通过提倡的同比增长率得到剑气的剑击者然后G7G7的所有环比增长率都是零但是我们那现在就看我们限期的增长率这个趋势了限期环比增长率的趋势用U等于我们现在对应的增长率的值因为我们基期是100</p>
+</blockquote>
+<img src="/post/undefined/image-20260804201227630.png" class="" title="image-20260804201227630"> 
+
+
+
+
+
+
+
+<h2 id="资料分析805"><a href="#资料分析805" class="headerlink" title="资料分析805"></a>资料分析805</h2><h3 id="没看清问啥"><a href="#没看清问啥" class="headerlink" title="没看清问啥"></a>没看清问啥</h3><img src="/post/undefined/image-20260805092156832.png" class="" title="image-20260805092156832">
+
+<p>无语子。 </p>
+<img src="/post/undefined/image-20260805092620998.png" class="" title="image-20260805092620998"> 
+
+<p>方法优化，均大于5或者均小于5.优先变小数（是有效数字后的）大数反向变</p>
+<h3 id="减法好low啊"><a href="#减法好low啊" class="headerlink" title="减法好low啊"></a>减法好low啊</h3><p>严格按照误差大小来确定我们是按照三位还是两位有效数字去算！</p>
+<h3 id="为啥没看到环比？看到了但是又忘记了"><a href="#为啥没看到环比？看到了但是又忘记了" class="headerlink" title="为啥没看到环比？看到了但是又忘记了"></a>为啥没看到环比？看到了但是又忘记了</h3> <img src="/post/undefined/image-20260805094200913.png" class="" title="image-20260805094200913"> 
+
+<h3 id="大数统一去掉两位看"><a href="#大数统一去掉两位看" class="headerlink" title="大数统一去掉两位看"></a>大数统一去掉两位看</h3><p>快速算出10%!1%1</p>
+<p>5100 65</p>
+<p>大概述51+15越等 1%+3%</p>
+<img src="/post/undefined/image-20260805095326966.png" class="" title="image-20260805095326966"> 
+
+
+
+<h3 id="统计表，现期比重"><a href="#统计表，现期比重" class="headerlink" title="统计表，现期比重"></a>统计表，现期比重</h3><img src="/post/undefined/image-20260805095729120.png" class="" title="image-20260805095729120"> 
+
+
+
+
+
+<h2 id="资料分析"><a href="#资料分析" class="headerlink" title="资料分析"></a>资料分析</h2><h3 id="忘记相反了"><a href="#忘记相反了" class="headerlink" title="忘记相反了"></a>忘记相反了</h3><img src="/post/undefined/image-20260812110333350.png" class="" title="image-20260812110333350"> 
+
+
+
+<h3 id="现期竟然懵逼了"><a href="#现期竟然懵逼了" class="headerlink" title="现期竟然懵逼了"></a>现期竟然懵逼了</h3><img src="/post/undefined/image-20260812121432470.png" class="" title="image-20260812121432470"> 
+
+<p>现期的两种算法</p>
+<p>给r和增长量</p>
+<h3 id="经典眼瞎把进口区早到进出口；了"><a href="#经典眼瞎把进口区早到进出口；了" class="headerlink" title="经典眼瞎把进口区早到进出口；了"></a>经典眼瞎把进口区早到进出口；了</h3><img src="/post/undefined/image-20260812171651103.png" class="" title="image-20260812171651103"> 
+
+<h3 id="好的方法要总结n月和1-n-1-月的平均数"><a href="#好的方法要总结n月和1-n-1-月的平均数" class="headerlink" title="好的方法要总结n月和1-(n-1)月的平均数"></a>好的方法要总结n月和1-(n-1)月的平均数</h3><img src="/post/undefined/image-20260812171950961.png" class="" title="image-20260812171950961">
+
+
+
+<h3 id="求基期差"><a href="#求基期差" class="headerlink" title="求基期差"></a>求基期差</h3><img src="/post/undefined/image-20260812172347956.png" class="" title="image-20260812172347956">
+
+<h3 id="混合增长率再清楚一点"><a href="#混合增长率再清楚一点" class="headerlink" title="混合增长率再清楚一点"></a>混合增长率再清楚一点</h3><img src="/post/undefined/image-20260812173411764.png" class="" title="image-20260812173411764">
+
+
+
+<h3 id="66邪修"><a href="#66邪修" class="headerlink" title="66邪修"></a>66邪修</h3><p>资料分析的最后一题如果没时间做，那一个选项没有用过大概率是对的h</p>
+<p>对于距离更清楚和理解   </p>
+<h2 id="资料分析812"><a href="#资料分析812" class="headerlink" title="资料分析812"></a>资料分析812</h2><p>这无敌了</p>
+<blockquote>
+<p>平均每道两分钟</p>
+<p>做不完，找不到数</p>
+<p>看不懂题</p>
+</blockquote>
+<p>看错数的题目</p>
+<h3 id="颅内高潮"><a href="#颅内高潮" class="headerlink" title="颅内高潮"></a>颅内高潮</h3><img src="/post/undefined/image-20260812220920973.png" class="" title="image-20260812220920973"> 
+
+<p>这太阴了</p>
+<h3 id="计算不过关"><a href="#计算不过关" class="headerlink" title="计算不过关"></a>计算不过关</h3><img src="/post/undefined/image-20260812221204409.png" class="" title="image-20260812221204409"> 
+
+<p>又慢又垃圾！</p>
+<h3 id="区分上升了xx个百分点到底是增长量还是增长率啊啊"><a href="#区分上升了xx个百分点到底是增长量还是增长率啊啊" class="headerlink" title="区分上升了xx个百分点到底是增长量还是增长率啊啊"></a>区分上升了xx个百分点到底是增长量还是增长率啊啊</h3><blockquote>
+<p>一句话：平均数的增长率没有意义！</p>
+<p>所以但凡是比重增长了多少个百分点”，求的是<strong>现期比重 - 基期比重</strong></p>
+</blockquote>
+<h3 id="坑题-从高到低还是从低到高"><a href="#坑题-从高到低还是从低到高" class="headerlink" title="坑题 从高到低还是从低到高"></a>坑题 从高到低还是从低到高</h3><img src="/post/undefined/image-20260812222352581.png" class="" title="image-20260812222352581"> 
+
+
+
+<h3 id="为啥招数这么难？看关键字"><a href="#为啥招数这么难？看关键字" class="headerlink" title="为啥招数这么难？看关键字"></a>为啥招数这么难？看关键字</h3><h3 id="晚上脑子不清醒吗？现期基期分不清！"><a href="#晚上脑子不清醒吗？现期基期分不清！" class="headerlink" title="晚上脑子不清醒吗？现期基期分不清！"></a>晚上脑子不清醒吗？现期基期分不清！</h3><img src="/post/undefined/PixPin_2026-08-12_22-30-51.png" class="" title="PixPin_2026-08-12_22-30-51">
+
+
+
+
+
+<h3 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h3><p>看清楚区别,细致差别</p>
+<img src="/post/undefined/image-20260812223632435.png" class="" title="image-20260812223632435"> 
+
+
+
+
+
+<h3 id="集合在资料分析的应用"><a href="#集合在资料分析的应用" class="headerlink" title="集合在资料分析的应用"></a>集合在资料分析的应用</h3><h4 id="考法二：求“至少”有多少（交集最小值）"><a href="#考法二：求“至少”有多少（交集最小值）" class="headerlink" title="考法二：求“至少”有多少（交集最小值）"></a>考法二：求“至少”有多少（交集最小值）</h4><p>这类题问“既满足A又满足B的至少有多少”或“在A中B至少占多少”。</p>
+<ul>
+<li><strong>核心思想</strong>：让两个集合尽量相斥（重合尽量少）。</li>
+<li><strong>比重公式</strong>：至少占比 &#x3D; A% + B% - 100%（前提是 A% + B% &gt; 100%）。</li>
+<li><strong>具体数量公式</strong>：至少数量 &#x3D; A + B - 总量。</li>
+<li><strong>在A中的占比</strong>：先求至少数量，再除以A，即 (A + B - 总量) ÷ A。</li>
+</ul>
+<h4 id="考法三：求“至多”有多少（交集最大值）"><a href="#考法三：求“至多”有多少（交集最大值）" class="headerlink" title="考法三：求“至多”有多少（交集最大值）"></a>考法三：求“至多”有多少（交集最大值）</h4><p>这类题问“既满足A又满足B的至多有多少”。</p>
+<ul>
+<li><strong>核心思想</strong>：考虑包含关系（大圈套小圈）。</li>
+<li><strong>比重&#x2F;数量结论</strong>：至多就是<strong>较小的那个集合</strong>（即 min{A, B}）。因为小集合完全可以全部包含在大集合里，此时交集最大。</li>
+<li><strong>举例</strong>：男生占60%，南方同学占50%，至多有南方的男同学就是50%（南方同学全要是男生）。</li>
+</ul>
+<img src="/post/undefined/image-20260812224413137.png" class="" title="image-20260812224413137"> 
+
+
+
+<h3 id="谁比谁看清分母-以及带的肠子"><a href="#谁比谁看清分母-以及带的肠子" class="headerlink" title="谁比谁看清分母!以及带的肠子!"></a>谁比谁看清分母!以及带的肠子!</h3><img src="/post/undefined/PixPin_2026-08-12_22-45-30.png" class="" title="PixPin_2026-08-12_22-45-30">
+
+
+
+
+
+<h2 id="资料分析813"><a href="#资料分析813" class="headerlink" title="资料分析813"></a>资料分析813</h2><p>月均增长量和增长量的平均数</p>
+<p>类似于20xx年下半年。。1月到月。月均新增xx多少台</p>
+<p>这种就是是多少个月就除以多少</p>
+<hr>
+<p>如果给的是一个时间段</p>
+<img src="/post/undefined/image-20260815100811404.png" class="" title="image-20260815100811404"> 
+
+<p>如果是一个时间段的话</p>
+<blockquote>
+<p>还有一个比较好的思想就是想想第一个月的怎张良能求不</p>
+<p>不能求就不算</p>
+</blockquote>
+<img src="/post/undefined/image-20260815101225314.png" class="" title="image-20260815101225314">
+
+<h3 id="增长率很接近的时候看现期就行了"><a href="#增长率很接近的时候看现期就行了" class="headerlink" title="增长率很接近的时候看现期就行了"></a>增长率很接近的时候看现期就行了</h3><img src="/post/undefined/image-20260815102429728.png" class="" title="image-20260815102429728"> 
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://017328.xyz">下完这场雨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://017328.xyz/post/195d6ee6.html">https://017328.xyz/post/195d6ee6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://017328.xyz" target="_blank">cout<<"金缕衣";</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90/">资料分析</a></div><div class="post_share"><div class="social-share" data-image="/img/sky2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wx.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.jpg" target="_blank"><img class="post-qr-code-img" src="/img/zfb.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/98ce602e.html" title="816模考复盘"><img class="cover" src="/img/b1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">816模考复盘</div></div></a></div><div class="next-post pull-right"><a href="/post/ecef4d14.html" title="三支一扶重考"><img class="cover" src="/img/b8.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">三支一扶重考</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/dafcb01e.html" title="资料分析1"><img class="cover" src="/img/b1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-11</div><div class="title">资料分析1</div></div></a></div><div><a href="/post/43f5e1a4.html" title="资料分析2"><img class="cover" src="/img/g1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-13</div><div class="title">资料分析2</div></div></a></div><div><a href="/post/34f2d132.html" title="资料分析3"><img class="cover" src="/img/g2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-14</div><div class="title">资料分析3</div></div></a></div><div><a href="/post/aa964491.html" title="资料分析4"><img class="cover" src="/img/g3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-15</div><div class="title">资料分析4</div></div></a></div><div><a href="/post/cb029ef2.html" title="资料分析的基期倍比的叠除法误差分析"><img class="cover" src="/img/prince.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-02-03</div><div class="title">资料分析的基期倍比的叠除法误差分析</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Livere</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="lv-container" data-id="city" data-uid="MTAyMC81OTAyMS8zNTQ4Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/h.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">下完这场雨</div><div class="author-info__description">椿萱并茂，棠棣同馨，松萝共倚，兰桂齐芳。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">148</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">64</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">48</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/666XRB"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/666XRB" target="_blank" title="Github"><i class="fab fa-github" style="color: #8a2be2;"></i></a><a class="social-icon" href="https://blog.csdn.net/xideaha?type=blog" target="_blank" title="CSDN"><i class="fa-solid fa-code" style="color: #8a2be2;"></i></a><a class="social-icon" href="https://www.xiaohongshu.com/user/profile/62da23010000000002001769" target="_blank" title="redbook"><i class="fa-solid fa-book" style="color: #8a2be2;"></i></a><a class="social-icon" href="https://space.bilibili.com/452179119" target="_blank" title="bilibili"><i class="fab fa-bilibili" style="color: #8a2be2;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里啊，这里是我的blog，分享一些学习知识。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90724"><span class="toc-number">1.</span> <span class="toc-text">资料分析724</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4%E4%B9%98%E5%A4%B4%EF%BC%8C%E5%B0%BE%E5%8A%A0%E5%B0%BE%EF%BC%8C%E5%B0%BE%E4%B9%98%E5%B0%BE"><span class="toc-number">1.1.</span> <span class="toc-text">头乘头，尾加尾，尾乘尾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E5%87%8F%E4%BD%8E%E5%8A%A0%E6%84%A3%E6%98%AF%E5%A4%8D%E6%9D%82%E5%8C%96%E4%BA%86%E3%80%82"><span class="toc-number">1.2.</span> <span class="toc-text">高减低加愣是复杂化了。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#729%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">729资料分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8D%E4%B9%89%E5%A2%9E%E9%95%BF%E7%8E%87-%E5%AE%9E%E9%99%85"><span class="toc-number">2.1.</span> <span class="toc-text">名义增长率&amp;实际</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E4%B9%B1%E5%85%A5"><span class="toc-number">2.2.</span> <span class="toc-text">混合乱入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90803"><span class="toc-number">3.</span> <span class="toc-text">资料分析803</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B4%E5%9D%87%E5%A2%9E%E9%95%BF%E7%8E%87%E4%B8%A4%E7%A7%8D2"><span class="toc-number">3.1.</span> <span class="toc-text">年均增长率两种2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-A-B"><span class="toc-number">3.2.</span> <span class="toc-text">A&#x2F;(A+-B)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">3.2.1.</span> <span class="toc-text">+</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">-</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81r%E4%B8%8D%E5%8F%98%EF%BC%8C%E8%BF%BD%E8%B5%B6"><span class="toc-number">3.3.</span> <span class="toc-text">保持r不变，追赶</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90804"><span class="toc-number">4.</span> <span class="toc-text">资料分析804</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%90%E4%B8%AA%E6%9C%88%E7%8E%AF%E6%AF%94%E5%A2%9E%E9%80%9F%E4%B8%8E%E4%B8%8A%E4%B8%80%E5%B9%B4%E5%90%8C%E6%9C%9F%E7%9A%84%E7%8E%AF%E6%AF%94%E5%A2%9E%E9%80%9F%E7%9B%B8%E6%AF%94%E4%BD%8E%E4%BA%8E%EF%BC%9F%E9%AB%98%E4%BA%8E%E7%9A%84%E6%9C%88%E4%BB%BD%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text">某个月环比增速与上一年同期的环比增速相比低于？高于的月份数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90805"><span class="toc-number">5.</span> <span class="toc-text">资料分析805</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%A1%E7%9C%8B%E6%B8%85%E9%97%AE%E5%95%A5"><span class="toc-number">5.1.</span> <span class="toc-text">没看清问啥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F%E6%B3%95%E5%A5%BDlow%E5%95%8A"><span class="toc-number">5.2.</span> <span class="toc-text">减法好low啊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E5%95%A5%E6%B2%A1%E7%9C%8B%E5%88%B0%E7%8E%AF%E6%AF%94%EF%BC%9F%E7%9C%8B%E5%88%B0%E4%BA%86%E4%BD%86%E6%98%AF%E5%8F%88%E5%BF%98%E8%AE%B0%E4%BA%86"><span class="toc-number">5.3.</span> <span class="toc-text">为啥没看到环比？看到了但是又忘记了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E6%95%B0%E7%BB%9F%E4%B8%80%E5%8E%BB%E6%8E%89%E4%B8%A4%E4%BD%8D%E7%9C%8B"><span class="toc-number">5.4.</span> <span class="toc-text">大数统一去掉两位看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E8%A1%A8%EF%BC%8C%E7%8E%B0%E6%9C%9F%E6%AF%94%E9%87%8D"><span class="toc-number">5.5.</span> <span class="toc-text">统计表，现期比重</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90"><span class="toc-number">6.</span> <span class="toc-text">资料分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%98%E8%AE%B0%E7%9B%B8%E5%8F%8D%E4%BA%86"><span class="toc-number">6.1.</span> <span class="toc-text">忘记相反了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E6%9C%9F%E7%AB%9F%E7%84%B6%E6%87%B5%E9%80%BC%E4%BA%86"><span class="toc-number">6.2.</span> <span class="toc-text">现期竟然懵逼了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%9C%BC%E7%9E%8E%E6%8A%8A%E8%BF%9B%E5%8F%A3%E5%8C%BA%E6%97%A9%E5%88%B0%E8%BF%9B%E5%87%BA%E5%8F%A3%EF%BC%9B%E4%BA%86"><span class="toc-number">6.3.</span> <span class="toc-text">经典眼瞎把进口区早到进出口；了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%BD%E7%9A%84%E6%96%B9%E6%B3%95%E8%A6%81%E6%80%BB%E7%BB%93n%E6%9C%88%E5%92%8C1-n-1-%E6%9C%88%E7%9A%84%E5%B9%B3%E5%9D%87%E6%95%B0"><span class="toc-number">6.4.</span> <span class="toc-text">好的方法要总结n月和1-(n-1)月的平均数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E5%9F%BA%E6%9C%9F%E5%B7%AE"><span class="toc-number">6.5.</span> <span class="toc-text">求基期差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E7%8E%87%E5%86%8D%E6%B8%85%E6%A5%9A%E4%B8%80%E7%82%B9"><span class="toc-number">6.6.</span> <span class="toc-text">混合增长率再清楚一点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#66%E9%82%AA%E4%BF%AE"><span class="toc-number">6.7.</span> <span class="toc-text">66邪修</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90812"><span class="toc-number">7.</span> <span class="toc-text">资料分析812</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%85%E5%86%85%E9%AB%98%E6%BD%AE"><span class="toc-number">7.1.</span> <span class="toc-text">颅内高潮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E4%B8%8D%E8%BF%87%E5%85%B3"><span class="toc-number">7.2.</span> <span class="toc-text">计算不过关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%86%E4%B8%8A%E5%8D%87%E4%BA%86xx%E4%B8%AA%E7%99%BE%E5%88%86%E7%82%B9%E5%88%B0%E5%BA%95%E6%98%AF%E5%A2%9E%E9%95%BF%E9%87%8F%E8%BF%98%E6%98%AF%E5%A2%9E%E9%95%BF%E7%8E%87%E5%95%8A%E5%95%8A"><span class="toc-number">7.3.</span> <span class="toc-text">区分上升了xx个百分点到底是增长量还是增长率啊啊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%91%E9%A2%98-%E4%BB%8E%E9%AB%98%E5%88%B0%E4%BD%8E%E8%BF%98%E6%98%AF%E4%BB%8E%E4%BD%8E%E5%88%B0%E9%AB%98"><span class="toc-number">7.4.</span> <span class="toc-text">坑题 从高到低还是从低到高</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E5%95%A5%E6%8B%9B%E6%95%B0%E8%BF%99%E4%B9%88%E9%9A%BE%EF%BC%9F%E7%9C%8B%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">7.5.</span> <span class="toc-text">为啥招数这么难？看关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%9A%E4%B8%8A%E8%84%91%E5%AD%90%E4%B8%8D%E6%B8%85%E9%86%92%E5%90%97%EF%BC%9F%E7%8E%B0%E6%9C%9F%E5%9F%BA%E6%9C%9F%E5%88%86%E4%B8%8D%E6%B8%85%EF%BC%81"><span class="toc-number">7.6.</span> <span class="toc-text">晚上脑子不清醒吗？现期基期分不清！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%98%E7%BA%BF%E5%9B%BE"><span class="toc-number">7.7.</span> <span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E5%9C%A8%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">7.8.</span> <span class="toc-text">集合在资料分析的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%80%83%E6%B3%95%E4%BA%8C%EF%BC%9A%E6%B1%82%E2%80%9C%E8%87%B3%E5%B0%91%E2%80%9D%E6%9C%89%E5%A4%9A%E5%B0%91%EF%BC%88%E4%BA%A4%E9%9B%86%E6%9C%80%E5%B0%8F%E5%80%BC%EF%BC%89"><span class="toc-number">7.8.1.</span> <span class="toc-text">考法二：求“至少”有多少（交集最小值）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%80%83%E6%B3%95%E4%B8%89%EF%BC%9A%E6%B1%82%E2%80%9C%E8%87%B3%E5%A4%9A%E2%80%9D%E6%9C%89%E5%A4%9A%E5%B0%91%EF%BC%88%E4%BA%A4%E9%9B%86%E6%9C%80%E5%A4%A7%E5%80%BC%EF%BC%89"><span class="toc-number">7.8.2.</span> <span class="toc-text">考法三：求“至多”有多少（交集最大值）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%81%E6%AF%94%E8%B0%81%E7%9C%8B%E6%B8%85%E5%88%86%E6%AF%8D-%E4%BB%A5%E5%8F%8A%E5%B8%A6%E7%9A%84%E8%82%A0%E5%AD%90"><span class="toc-number">7.9.</span> <span class="toc-text">谁比谁看清分母!以及带的肠子!</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90813"><span class="toc-number">8.</span> <span class="toc-text">资料分析813</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E9%95%BF%E7%8E%87%E5%BE%88%E6%8E%A5%E8%BF%91%E7%9A%84%E6%97%B6%E5%80%99%E7%9C%8B%E7%8E%B0%E6%9C%9F%E5%B0%B1%E8%A1%8C%E4%BA%86"><span class="toc-number">8.1.</span> <span class="toc-text">增长率很接近的时候看现期就行了</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/569011a8.html" title="小黑三支模拟卷1"><img src="/img/b9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小黑三支模拟卷1"/></a><div class="content"><a class="title" href="/post/569011a8.html" title="小黑三支模拟卷1">小黑三支模拟卷1</a><time datetime="2026-08-19T07:28:53.000Z" title="发表于 2026-08-19 15:28:53">2026-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/b817e354.html" title="拆米袋子"><img src="/img/b13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="拆米袋子"/></a><div class="content"><a class="title" href="/post/b817e354.html" title="拆米袋子">拆米袋子</a><time datetime="2026-08-19T03:30:20.000Z" title="发表于 2026-08-19 11:30:20">2026-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/98ce602e.html" title="816模考复盘"><img src="/img/b1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="816模考复盘"/></a><div class="content"><a class="title" href="/post/98ce602e.html" title="816模考复盘">816模考复盘</a><time datetime="2026-08-17T05:31:29.000Z" title="发表于 2026-08-17 13:31:29">2026-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/195d6ee6.html" title="每日资料分析汇总"><img src="/img/sky2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日资料分析汇总"/></a><div class="content"><a class="title" href="/post/195d6ee6.html" title="每日资料分析汇总">每日资料分析汇总</a><time datetime="2026-08-15T02:12:35.000Z" title="发表于 2026-08-15 10:12:35">2026-08-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ecef4d14.html" title="三支一扶重考"><img src="/img/b8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="三支一扶重考"/></a><div class="content"><a class="title" href="/post/ecef4d14.html" title="三支一扶重考">三支一扶重考</a><time datetime="2026-08-14T07:36:32.000Z" title="发表于 2026-08-14 15:36:32">2026-08-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><style>
+  .footer {
+    text-align: center;
+    position: relative;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .social-links i {
+    color: #8400ff;
+  }
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  .social-link {
+    color: #7c4dff;
+    font-size: 1.3rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(124, 77, 255, 0.1), rgba(118, 75, 162, 0.1));
+    border: 1px solid rgba(124, 77, 255, 0.2);
+  }
+  .social-link:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transform: translateY(-4px) scale(1.15);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    border-color: transparent;
+    text-decoration: none !important; 
+  }
+  .footer p {
+    margin: 0.6rem 0;
+    line-height: 1.6;
+  }
+  .copyright {
+    font-size: 1.2rem; 
+    color: #7c4dff;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(124, 77, 255, 0.3);
+    letter-spacing: 1px;
+  }
+  .copyright::before,
+  .copyright::after {
+    content: '✦';
+    display: inline-block;
+    margin: 0 0.5rem;
+    color: #a855f7;
+    font-size: 0.8rem;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  .tagline {
+    font-size: 0.95rem;
+    color: #8b5cf6;
+    font-style: italic;
+    font-weight: 500;
+    background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s linear infinite;
+    letter-spacing: 0.5px;
+  }
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.5; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+  @keyframes gradient-shift {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+  .visitor-count {
+    font-size: 0.75rem;
+    color: rgba(219, 142, 255, 0.658);
+    font-weight: 300;
+  }
+  #visitorCount {
+    font-weight: bold;
+  }
+  .icp-info {
+    margin-top: 1rem;
+    font-size: 1.2rem; /* 增大字体大小 */
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  }
+  .icp-link {
+    color: #ffffff; /* 白色文字，与渐变背景形成强烈对比 */
+    text-decoration: none;
+    font-weight: 600; /* 增加字体粗细 */
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .icp-link:hover {
+    text-decoration: underline;
+    opacity: 0.9; /* 悬停时稍微变暗 */
+  }
+  .icp-link::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+</style>
+<div class="footer">
+  <div class="social-links">
+    <a href="https://github.com/666XRB" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://blog.csdn.net/xideaha?type=blog" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="CSDN" title="CSDN">
+      <i class="fas fa-code"></i>
+    </a>
+    <a href="https://www.xiaohongshu.com/user/profile/62da23010000000002001769" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="小红书" title="小红书">
+      <i class="fas fa-book"></i>
+    </a>
+    <a href="https://space.bilibili.com/452179119" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="bilibili" title="bilibili">
+      <i class="fab fa-bilibili"></i>
+    </a>
+  </div>
+  <p class="copyright">© 2026 下完这场雨 - 所有权利保留</p>
+  <p class="tagline">> Stay curious, stay hacking, stay anime! <</p>
+  <p class="icp-info">
+    <a href="https://beian.miit.gov.cn/#/Integrated/index" class="icp-link" target="_blank">豫ICP备2024090942号-1</a>
+  </p>
+</div>
+
+<script>
+  // 确保DOM加载完成后执行
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 模拟访问量增长
+    function updateVisitorCount() {
+      const countElement = document.getElementById('visitorCount');
+      let count = parseInt(countElement.textContent) || 1024;
+      
+      // 从localStorage获取或初始化计数
+      const storedCount = localStorage.getItem('totalVisitors');
+      if (storedCount) {
+        count = parseInt(storedCount);
+        countElement.textContent = count;
+      }
+      
+      // 每日访客计数
+      const today = new Date().toDateString();
+      const dailyData = JSON.parse(localStorage.getItem('dailyVisitors') || '{"date":"", "count":0}');
+      if (dailyData.date !== today) {
+        dailyData.date = today;
+        dailyData.count = 0;
+      }
+      dailyData.count += 1;
+      document.getElementById('dailyVisitor').textContent = dailyData.count;
+      localStorage.setItem('dailyVisitors', JSON.stringify(dailyData));
+      
+      // 每30秒随机增加访问量
+      setInterval(() => {
+        count += Math.floor(Math.random() * 3);
+        countElement.textContent = count;
+        localStorage.setItem('totalVisitors', count.toString());
+      }, 30000);
+    }
+    
+    updateVisitorCount();
+    
+    // 添加点击动画效果
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        this.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 300);
+      });
+    });
+  });
+</script>
+</div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+      appKey: 'LssvKROPsftMFNCa4j2AnVL8',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Valine' === 'Livere' || !true) {
+  if (true) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://VbfV1mFY.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'VbfV1mFYBGUNtUKD0cr1qUls-gzGzoHsz',
+        "X-LC-Key": 'LssvKROPsftMFNCa4j2AnVL8',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="592262222" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-lrctype="1" data-preload="none" data-autoplay="false" muted></div><script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js" async></script><script src="/js/weather.js"></script><script src="https://jsd.onmicrosoft.cn/gh/wuuconix/live2d-cdn@v0.1.8/autoload.js"></script><script defer src="/js/cursor.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="random" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
