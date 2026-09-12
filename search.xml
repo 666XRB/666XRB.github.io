@@ -336,7 +336,7 @@
       <link href="/post/5096661a.html"/>
       <url>/post/5096661a.html</url>
       
-        <content type="html"><![CDATA[<p>1</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><img src="/post/5096661a/image-20260825160559591.png" class="" title="image-20260825160559591"><p>这个叫做</p><blockquote><p>重新配置 SSH 密钥</p></blockquote><p>主要分为 <strong>生成新密钥</strong> 和 <strong>添加到代码托管平台</strong> 两大步。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="生成新的-SSH-密钥"><a href="#生成新的-SSH-密钥" class="headerlink" title="生成新的 SSH 密钥"></a>生成新的 SSH 密钥</h3><p>cmd或者git bash here</p><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure><img src="/post/5096661a/image-20260825160724936.png" class="" title="image-20260825160724936"><h3 id="复制你的公钥"><a href="#复制你的公钥" class="headerlink" title="复制你的公钥"></a>复制你的公钥</h3><img src="/post/5096661a/image-20260825160751798.png" class="" title="image-20260825160751798"><p>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGpMEzH2LAt6+8C7kiGT1p0Vrb7mLTkmL3nXNotEw6Iy <a href="mailto:&#49;&#x39;&#x38;&#50;&#x38;&#x33;&#x30;&#x30;&#57;&#53;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#49;&#x39;&#x38;&#50;&#x38;&#x33;&#x30;&#x30;&#57;&#53;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a></p><blockquote><ol><li><img src="/post/5096661a/image-20260825160835938.png" class="" title="image-20260825160835938"> </li><li><img src="/post/5096661a/image-20260825160934326.png" class="" title="image-20260825160934326"> </li><li>ok</li></ol></blockquote><h2 id="配置图床"><a href="#配置图床" class="headerlink" title="配置图床"></a>配置图床</h2><p><a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn&#x2F;PicGo</a></p><p><a href="https://github.com/Kuingsmile/PicList/releases">Releases · Kuingsmile&#x2F;PicList</a><img src="/post/5096661a/image-20260825161217346.png" class="" title="image-20260825161217346"></p><p><a href="https://github.com/Kuingsmile/PicList">Kuingsmile&#x2F;PicList: An image upload and manage tool, base on PicGo</a></p><img src="/post/5096661a/image-20260825162328719.png" class="" title="image-20260825162328719"><p>创建token然后配置jiuok!</p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571.png" class=""><p><img src="https://017328.xyz/images/%E4%BA%A4%E6%98%93steam.png"></p><p><img src="https://017328.xyz/images/IMG_4185_watermarked_1785985971022.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843-1787648186270-11.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787648710536-20.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787649632043-32.png" class=""><p><a href="https://017328.xyz//IMG_4195_watermarked_1785990476571.png">https://017328.xyz//IMG_4195_watermarked_1785990476571.png</a></p><p><img src="https://017328.xyz/images/0B85297BAB2D7F25AC2BB8183445E124.jpg"></p><p><img src="https://017328.xyz/images/_MG_0781.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-05-22%20171011.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-22%20193623.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-17%20091514.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-09%20104254.png"></p>]]></content>
+        <content type="html"><![CDATA[<p>1</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><img src="/post/5096661a/image-20260825160559591.png" class="" title="image-20260825160559591"><p>这个叫做</p><blockquote><p>重新配置 SSH 密钥</p></blockquote><p>主要分为 <strong>生成新密钥</strong> 和 <strong>添加到代码托管平台</strong> 两大步。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="生成新的-SSH-密钥"><a href="#生成新的-SSH-密钥" class="headerlink" title="生成新的 SSH 密钥"></a>生成新的 SSH 密钥</h3><p>cmd或者git bash here</p><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure><img src="/post/5096661a/image-20260825160724936.png" class="" title="image-20260825160724936"><h3 id="复制你的公钥"><a href="#复制你的公钥" class="headerlink" title="复制你的公钥"></a>复制你的公钥</h3><img src="/post/5096661a/image-20260825160751798.png" class="" title="image-20260825160751798"><p>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGpMEzH2LAt6+8C7kiGT1p0Vrb7mLTkmL3nXNotEw6Iy <a href="mailto:&#x31;&#57;&#56;&#x32;&#x38;&#x33;&#x30;&#48;&#x39;&#53;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#109;">&#x31;&#57;&#56;&#x32;&#x38;&#x33;&#x30;&#48;&#x39;&#53;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#109;</a></p><blockquote><ol><li><img src="/post/5096661a/image-20260825160835938.png" class="" title="image-20260825160835938"> </li><li><img src="/post/5096661a/image-20260825160934326.png" class="" title="image-20260825160934326"> </li><li>ok</li></ol></blockquote><h2 id="配置图床"><a href="#配置图床" class="headerlink" title="配置图床"></a>配置图床</h2><p><a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn&#x2F;PicGo</a></p><p><a href="https://github.com/Kuingsmile/PicList/releases">Releases · Kuingsmile&#x2F;PicList</a><img src="/post/5096661a/image-20260825161217346.png" class="" title="image-20260825161217346"></p><p><a href="https://github.com/Kuingsmile/PicList">Kuingsmile&#x2F;PicList: An image upload and manage tool, base on PicGo</a></p><img src="/post/5096661a/image-20260825162328719.png" class="" title="image-20260825162328719"><p>创建token然后配置jiuok!</p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571.png" class=""><p><img src="https://017328.xyz/images/%E4%BA%A4%E6%98%93steam.png"></p><p><img src="https://017328.xyz/images/IMG_4185_watermarked_1785985971022.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843-1787648186270-11.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787648710536-20.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787649632043-32.png" class=""><p><a href="https://017328.xyz//IMG_4195_watermarked_1785990476571.png">https://017328.xyz//IMG_4195_watermarked_1785990476571.png</a></p><p><img src="https://017328.xyz/images/0B85297BAB2D7F25AC2BB8183445E124.jpg"></p><p><img src="https://017328.xyz/images/_MG_0781.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-05-22%20171011.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-22%20193623.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-17%20091514.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-09%20104254.png"></p>]]></content>
       
       
       <categories>
@@ -1184,31 +1184,6 @@
     
     
     <entry>
-      <title>事业单位扫盲</title>
-      <link href="/post/54b3eb17.html"/>
-      <url>/post/54b3eb17.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="1-事业单位考试（省直、地市联考及单招）"><a href="#1-事业单位考试（省直、地市联考及单招）" class="headerlink" title="1. 事业单位考试（省直、地市联考及单招）"></a>1. 事业单位考试（省直、地市联考及单招）</h3><ul><li><strong>核心官网</strong>：<strong>河南人事考试网</strong></li><li><strong>官方网址</strong>：<a href="http://www.hnrsks.com/">http://www.hnrsks.com/</a></li><li><strong>关注重点</strong>：网站首页的“事业单位招聘”专栏。每年的河南省事业单位联考（通常在4-5月发布公告）、省直属事业单位招聘均在此报名并发布大纲。</li><li><strong>补充</strong>：如果是地市单独组织的招考（非全省联考），需直接盯紧<strong>地市的人社局官网</strong>（例如：洛阳市人力资源和社会保障局官网</li></ul><h3 id="一、-省考（公务员）-vs-事业单位（对比扫盲）"><a href="#一、-省考（公务员）-vs-事业单位（对比扫盲）" class="headerlink" title="一、 省考（公务员） vs 事业单位（对比扫盲）"></a>一、 省考（公务员） vs 事业单位（对比扫盲）</h3><table><thead><tr><th><strong>对比维度</strong></th><th><strong>省考（公务员）</strong></th><th><strong>事业单位</strong></th></tr></thead><tbody><tr><td><strong>编制类型</strong></td><td>行政编制</td><td>事业编制（分全额拨款、差额拨款、自收自支）</td></tr><tr><td><strong>工作职能</strong></td><td>行政管理、国家权力执行</td><td>提供公共服务（科教文卫、技术支持、后勤等）</td></tr><tr><td><strong>考试科目</strong></td><td>行测 + 申论</td><td><strong>公基 + 职测</strong> &#x2F; 公基 + 综合应用能力 &#x2F; 公基 + 专业课</td></tr><tr><td><strong>考试难度</strong></td><td>题量大、难度深、竞争极度激烈</td><td>难度稍降，<strong>重在“公基”的死记硬背</strong>，竞争略小</td></tr><tr><td><strong>晋升路线</strong></td><td>走行政职务或职级并行（如科员-副科-正科）</td><td>走职称评定（初级-中级-高级）或管理岗（九级-八级）</td></tr><tr><td><strong>核心福利差</strong></td><td>普遍有车补（每月几百不等）</td><td><strong>绝大多数无车补</strong>（仅部分乡镇或特定管理岗有）</td></tr></tbody></table><h3 id="二、-薪资待遇水平"><a href="#二、-薪资待遇水平" class="headerlink" title="二、 薪资待遇水平"></a>二、 薪资待遇水平</h3><p>事业单位的待遇由你考取的<strong>单位资金来源</strong>和<strong>所在地区财政</strong>决定：</p><ol><li><strong>资金来源首选“全额拨款”</strong>：工资完全由国家财政负担，最稳定。尽量避开自收自支（受单位效益影响大）。</li><li><strong>同地区对比</strong>：事业编的整体年收入约为同地区公务员的 **80% - 90%**。主要的差距在于公务员有车补，以及部分年终绩效的差异。</li><li><strong>基础保障</strong>：五险一金（公积金通常按最高比例缴纳）、双休、节假日福利与公务员完全一致，稳定性拉满。</li></ol><h3 id="三、-地区推荐策略"><a href="#三、-地区推荐策略" class="headerlink" title="三、 地区推荐策略"></a>三、 地区推荐策略</h3><p>以追求稳定和性价比为目标，建议按照以下梯队进行报考布局：</p><ul><li><strong>第一梯队（上限高）：省直事业单位 &#x2F; 郑州市直事业单位。</strong> 财政实力强，待遇上限最高，发展空间大，但学霸多，竞争最激烈。</li><li><strong>第二梯队（性价比之王）：洛阳市直 &#x2F; 核心区直事业单位。</strong> 离家近，市级财政有保障，薪资能够支撑当地较好的生活质量，同时竞争压力略小于省直。</li><li><strong>第三梯队（保底必争）：洛宁县直 &#x2F; 乡镇事业单位。</strong> 报考门槛相对较低，分数线相对友好，适合作为今年确保“先上车”的底线选择。</li></ul><h3 id="四、-岗位推荐（紧盯计算机类）"><a href="#四、-岗位推荐（紧盯计算机类）" class="headerlink" title="四、 岗位推荐（紧盯计算机类）"></a>四、 岗位推荐（紧盯计算机类）</h3><p>计算机科学与技术是体制内招考的绝对大户。<strong>你的核心报考策略是：死磕专业限制。</strong></p><ul><li><strong>重点关注单位</strong>：各地的大数据管理局（中心）、政务信息中心、网络安全应急指挥中心、融媒体中心、大中专院校的电教中心或网络管理中心。</li><li><strong>报考铁律</strong>：非必要<strong>绝对不报“三不限”岗位</strong>。只要岗位表里有要求“计算机类”甚至精确到“计算机科学与技术”的岗位，优先报。专业限制越死，报名人数越少，上岸率直接翻倍。</li></ul><h3 id="五、-当前最大底牌：应届生身份"><a href="#五、-当前最大底牌：应届生身份" class="headerlink" title="五、 当前最大底牌：应届生身份"></a>五、 当前最大底牌：应届生身份</h3><p>2026年6月毕业意味着你现在正处于应届生身份的黄金期。</p><p>无论是省直还是地市的事业单位联考，都会放出大量<strong>“仅限当年应届毕业生”</strong>的专属岗位。这类岗位直接屏蔽了往届有备考经验的“老油条”，是你今年进入体制内最大的优势，务必在接下来的公告中精准筛选此类岗位。</p><h2 id="拨款方式"><a href="#拨款方式" class="headerlink" title="拨款方式"></a>拨款方式</h2><p><strong>全额拨款（财政全供）</strong>：<strong>首选，最稳。</strong></p><ul><li><strong>解读</strong>：你的工资、五险一金100%由地方政府财政负担。真正意义上的旱涝保收。</li><li><strong>常见单位</strong>：信息中心、大数据局、政务服务中心、党校等（通常为公益一类事业单位）。</li></ul><p><strong>差额拨款（财政差供）</strong>：<strong>收入看单位效益。</strong></p><ul><li><strong>解读</strong>：财政给你发一部分（通常是基本工资保底），剩下的绩效、奖金全靠你们单位自己创收来发。</li><li><strong>常见单位</strong>：公立医院、部分高校、报社、融媒体中心等（通常为公益二类事业单位）。如果单位效益极好，总收入可能超过全供；如果效益差，就只能拿底薪。</li></ul><p><strong>自收自支（经费自理）</strong>：<strong>尽量避开。</strong></p><ul><li><strong>解读</strong>：财政一分钱都不拨，只给你一个“事业编”的身份名额，发工资全靠单位自己去市场上赚钱。</li><li><strong>现状</strong>：稳定性最差，且国家目前正在大规模推进事业单位改革，这类编制很多都在面临“转企改制”（取消编制变成国企员工）。非极度垄断的赚钱单位，不建议报。</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 事业编 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 事业编 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>事业单位备考</title>
       <link href="/post/f226ee17.html"/>
       <url>/post/f226ee17.html</url>
@@ -1226,6 +1201,31 @@
         <tags>
             
             <tag> 事业单位 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>事业单位扫盲</title>
+      <link href="/post/54b3eb17.html"/>
+      <url>/post/54b3eb17.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-事业单位考试（省直、地市联考及单招）"><a href="#1-事业单位考试（省直、地市联考及单招）" class="headerlink" title="1. 事业单位考试（省直、地市联考及单招）"></a>1. 事业单位考试（省直、地市联考及单招）</h3><ul><li><strong>核心官网</strong>：<strong>河南人事考试网</strong></li><li><strong>官方网址</strong>：<a href="http://www.hnrsks.com/">http://www.hnrsks.com/</a></li><li><strong>关注重点</strong>：网站首页的“事业单位招聘”专栏。每年的河南省事业单位联考（通常在4-5月发布公告）、省直属事业单位招聘均在此报名并发布大纲。</li><li><strong>补充</strong>：如果是地市单独组织的招考（非全省联考），需直接盯紧<strong>地市的人社局官网</strong>（例如：洛阳市人力资源和社会保障局官网</li></ul><h3 id="一、-省考（公务员）-vs-事业单位（对比扫盲）"><a href="#一、-省考（公务员）-vs-事业单位（对比扫盲）" class="headerlink" title="一、 省考（公务员） vs 事业单位（对比扫盲）"></a>一、 省考（公务员） vs 事业单位（对比扫盲）</h3><table><thead><tr><th><strong>对比维度</strong></th><th><strong>省考（公务员）</strong></th><th><strong>事业单位</strong></th></tr></thead><tbody><tr><td><strong>编制类型</strong></td><td>行政编制</td><td>事业编制（分全额拨款、差额拨款、自收自支）</td></tr><tr><td><strong>工作职能</strong></td><td>行政管理、国家权力执行</td><td>提供公共服务（科教文卫、技术支持、后勤等）</td></tr><tr><td><strong>考试科目</strong></td><td>行测 + 申论</td><td><strong>公基 + 职测</strong> &#x2F; 公基 + 综合应用能力 &#x2F; 公基 + 专业课</td></tr><tr><td><strong>考试难度</strong></td><td>题量大、难度深、竞争极度激烈</td><td>难度稍降，<strong>重在“公基”的死记硬背</strong>，竞争略小</td></tr><tr><td><strong>晋升路线</strong></td><td>走行政职务或职级并行（如科员-副科-正科）</td><td>走职称评定（初级-中级-高级）或管理岗（九级-八级）</td></tr><tr><td><strong>核心福利差</strong></td><td>普遍有车补（每月几百不等）</td><td><strong>绝大多数无车补</strong>（仅部分乡镇或特定管理岗有）</td></tr></tbody></table><h3 id="二、-薪资待遇水平"><a href="#二、-薪资待遇水平" class="headerlink" title="二、 薪资待遇水平"></a>二、 薪资待遇水平</h3><p>事业单位的待遇由你考取的<strong>单位资金来源</strong>和<strong>所在地区财政</strong>决定：</p><ol><li><strong>资金来源首选“全额拨款”</strong>：工资完全由国家财政负担，最稳定。尽量避开自收自支（受单位效益影响大）。</li><li><strong>同地区对比</strong>：事业编的整体年收入约为同地区公务员的 **80% - 90%**。主要的差距在于公务员有车补，以及部分年终绩效的差异。</li><li><strong>基础保障</strong>：五险一金（公积金通常按最高比例缴纳）、双休、节假日福利与公务员完全一致，稳定性拉满。</li></ol><h3 id="三、-地区推荐策略"><a href="#三、-地区推荐策略" class="headerlink" title="三、 地区推荐策略"></a>三、 地区推荐策略</h3><p>以追求稳定和性价比为目标，建议按照以下梯队进行报考布局：</p><ul><li><strong>第一梯队（上限高）：省直事业单位 &#x2F; 郑州市直事业单位。</strong> 财政实力强，待遇上限最高，发展空间大，但学霸多，竞争最激烈。</li><li><strong>第二梯队（性价比之王）：洛阳市直 &#x2F; 核心区直事业单位。</strong> 离家近，市级财政有保障，薪资能够支撑当地较好的生活质量，同时竞争压力略小于省直。</li><li><strong>第三梯队（保底必争）：洛宁县直 &#x2F; 乡镇事业单位。</strong> 报考门槛相对较低，分数线相对友好，适合作为今年确保“先上车”的底线选择。</li></ul><h3 id="四、-岗位推荐（紧盯计算机类）"><a href="#四、-岗位推荐（紧盯计算机类）" class="headerlink" title="四、 岗位推荐（紧盯计算机类）"></a>四、 岗位推荐（紧盯计算机类）</h3><p>计算机科学与技术是体制内招考的绝对大户。<strong>你的核心报考策略是：死磕专业限制。</strong></p><ul><li><strong>重点关注单位</strong>：各地的大数据管理局（中心）、政务信息中心、网络安全应急指挥中心、融媒体中心、大中专院校的电教中心或网络管理中心。</li><li><strong>报考铁律</strong>：非必要<strong>绝对不报“三不限”岗位</strong>。只要岗位表里有要求“计算机类”甚至精确到“计算机科学与技术”的岗位，优先报。专业限制越死，报名人数越少，上岸率直接翻倍。</li></ul><h3 id="五、-当前最大底牌：应届生身份"><a href="#五、-当前最大底牌：应届生身份" class="headerlink" title="五、 当前最大底牌：应届生身份"></a>五、 当前最大底牌：应届生身份</h3><p>2026年6月毕业意味着你现在正处于应届生身份的黄金期。</p><p>无论是省直还是地市的事业单位联考，都会放出大量<strong>“仅限当年应届毕业生”</strong>的专属岗位。这类岗位直接屏蔽了往届有备考经验的“老油条”，是你今年进入体制内最大的优势，务必在接下来的公告中精准筛选此类岗位。</p><h2 id="拨款方式"><a href="#拨款方式" class="headerlink" title="拨款方式"></a>拨款方式</h2><p><strong>全额拨款（财政全供）</strong>：<strong>首选，最稳。</strong></p><ul><li><strong>解读</strong>：你的工资、五险一金100%由地方政府财政负担。真正意义上的旱涝保收。</li><li><strong>常见单位</strong>：信息中心、大数据局、政务服务中心、党校等（通常为公益一类事业单位）。</li></ul><p><strong>差额拨款（财政差供）</strong>：<strong>收入看单位效益。</strong></p><ul><li><strong>解读</strong>：财政给你发一部分（通常是基本工资保底），剩下的绩效、奖金全靠你们单位自己创收来发。</li><li><strong>常见单位</strong>：公立医院、部分高校、报社、融媒体中心等（通常为公益二类事业单位）。如果单位效益极好，总收入可能超过全供；如果效益差，就只能拿底薪。</li></ul><p><strong>自收自支（经费自理）</strong>：<strong>尽量避开。</strong></p><ul><li><strong>解读</strong>：财政一分钱都不拨，只给你一个“事业编”的身份名额，发工资全靠单位自己去市场上赚钱。</li><li><strong>现状</strong>：稳定性最差，且国家目前正在大规模推进事业单位改革，这类编制很多都在面临“转企改制”（取消编制变成国企员工）。非极度垄断的赚钱单位，不建议报。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 事业编 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 事业编 </tag>
             
         </tags>
       
@@ -2184,31 +2184,6 @@
     
     
     <entry>
-      <title>打造一只黄金右脚！省钱攻略</title>
-      <link href="/post/acbee51.html"/>
-      <url>/post/acbee51.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="黄金右脚"><a href="#黄金右脚" class="headerlink" title="黄金右脚"></a>黄金右脚</h1><h2 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h2><p>动能回收，让加速不再有负罪感，把电门变成按钮，只有0和1两个状态，永远在急加速和动能回收之间循环<img src="https://i2.hdslb.com/bfs/emote/3087d273a78ccaff4bb1e9972e2ba2a7583c9f11.png@40w_40h.avif" alt="[doge]"></p><blockquote><ol><li>收油</li><li>无感刹车</li></ol></blockquote><p>锻炼“黄金右脚”，核心目标是在驾驶中实现<strong>平稳、安全、经济</strong>，让乘客几乎感觉不到车辆的加速和减速。这不仅是技术，更是一种驾驶心态和习惯。</p><p>像练书法一样，分阶段、有重点地练习</p><h3 id="第一阶段：重塑你对踏板的“感觉”（基础感知）"><a href="#第一阶段：重塑你对踏板的“感觉”（基础感知）" class="headerlink" title="第一阶段：重塑你对踏板的“感觉”（基础感知）"></a>第一阶段：重塑你对踏板的“感觉”（基础感知）</h3><p>这是最重要的一步，改变“一脚深一脚浅”的习惯。</p><ol><li><strong>把脚想象成“羽毛”或“探针”</strong>：不要用小腿发力“踩”踏板，尝试用脚踝的细微动作去“<strong>贴</strong>”和“<strong>抚</strong>”踏板。想象你的脚尖是在试探一盆温水的温度。</li><li><strong>找到“零点”和“临界点”</strong>：<ul><li><strong>油门零点</strong>：车将动未动、动力刚好接合的那一点。在平地上，轻缓地给油，找到车开始平稳蠕行的油门深度，记住这个脚感。</li><li><strong>刹车临界点</strong>：轻踩刹车时，从“滑行减速”到“明显制动力”的转折点。找到这一点，能让你在需要轻微调整车速时非常细腻。</li></ul></li></ol><h3 id="第二阶段：掌握两大核心技巧（日常应用）"><a href="#第二阶段：掌握两大核心技巧（日常应用）" class="headerlink" title="第二阶段：掌握两大核心技巧（日常应用）"></a>第二阶段：掌握两大核心技巧（日常应用）</h3><p>感知建立后，重点练习这两个高阶技巧。</p><ol><li><p><strong>“无感刹车”的精髓——用油门刹车</strong></p><ul><li><strong>原理</strong>：提前收油，利用发动机的牵引力（发动机制动）自然减速，最后再轻补刹车至停。</li><li><strong>练习方法</strong>：看到前方红灯或需要减速时，<strong>提前至少50-100米就完全松开油门</strong>。你会感觉到车在平滑地慢下来，就像被轻轻拉住一样。等车速降到很低时，再非常轻柔地踩下刹车停稳。目标是让刹车灯越晚亮越好，且停车时没有“点头”感。</li></ul></li><li><p><strong>“跟车如流水”的脚法——预判与微调</strong></p><ul><li>跟车时，目光放远，<strong>观察前车的前车</strong>，甚至更远处的车流动态。当前车刹车灯亮起时，第一反应不是马上踩刹车，而是<strong>立刻松开油门</strong>，根据距离判断是否需要补刹车。</li><li>在拥堵路段，尝试只用<strong>油门的深浅</strong>来控制跟车距离。通过极其细微的油门调整，让车“粘着”前车缓慢移动，尽量不碰刹车。</li></ul></li></ol><h3 id="第三阶段：融入习惯与心态（成为本能）"><a href="#第三阶段：融入习惯与心态（成为本能）" class="headerlink" title="第三阶段：融入习惯与心态（成为本能）"></a>第三阶段：融入习惯与心态（成为本能）</h3><ol><li><strong>心态平和是黄金右脚的基础</strong>：路怒、急躁时不可能有平稳的脚法。把开车当作一种“让所有乘客舒适到达”的服务。</li><li><strong>建立“能量流”意识</strong>：把每一次不必要的加速和紧急刹车，都看作是在浪费燃油和金钱。你的目标就是让车辆的动力输出像丝绸一样顺滑。</li><li><strong>持续观察与预判</strong>：黄金右脚不在脚上，在眼睛和大脑。对路况、信号灯、行人意图有预判，才能给脚部动作留出充足的反应时间和操作空间。</li></ol><h3 id="一个简单的每日练习计划"><a href="#一个简单的每日练习计划" class="headerlink" title="一个简单的每日练习计划"></a>一个简单的每日练习计划</h3><ul><li><strong>第1周</strong>：在安全空旷的路上，专门练习 <strong>“松油滑行减速”</strong> ，体验不踩刹车能滑多远、减多慢。</li><li><strong>第2周</strong>：在跟车时，<strong>刻意练习晚亮刹车灯</strong>，挑战每次停车都比以往更平稳。</li><li><strong>第3周及以后</strong>：将上述所有技巧融入日常驾驶，并开始关注油耗变化，你会惊喜地发现油耗有明显下降。</li></ul><p><strong>最后记住一个比喻</strong>：你的右脚不是“开关”，而是“调光旋钮”。它控制的不是“有和无”，而是“明与暗”的平缓过渡。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 黄金右脚 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>开车技巧</title>
       <link href="/post/6a1cabeb.html"/>
       <url>/post/6a1cabeb.html</url>
@@ -2226,6 +2201,31 @@
         <tags>
             
             <tag> 开车 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>打造一只黄金右脚！省钱攻略</title>
+      <link href="/post/acbee51.html"/>
+      <url>/post/acbee51.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="黄金右脚"><a href="#黄金右脚" class="headerlink" title="黄金右脚"></a>黄金右脚</h1><h2 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h2><p>动能回收，让加速不再有负罪感，把电门变成按钮，只有0和1两个状态，永远在急加速和动能回收之间循环<img src="https://i2.hdslb.com/bfs/emote/3087d273a78ccaff4bb1e9972e2ba2a7583c9f11.png@40w_40h.avif" alt="[doge]"></p><blockquote><ol><li>收油</li><li>无感刹车</li></ol></blockquote><p>锻炼“黄金右脚”，核心目标是在驾驶中实现<strong>平稳、安全、经济</strong>，让乘客几乎感觉不到车辆的加速和减速。这不仅是技术，更是一种驾驶心态和习惯。</p><p>像练书法一样，分阶段、有重点地练习</p><h3 id="第一阶段：重塑你对踏板的“感觉”（基础感知）"><a href="#第一阶段：重塑你对踏板的“感觉”（基础感知）" class="headerlink" title="第一阶段：重塑你对踏板的“感觉”（基础感知）"></a>第一阶段：重塑你对踏板的“感觉”（基础感知）</h3><p>这是最重要的一步，改变“一脚深一脚浅”的习惯。</p><ol><li><strong>把脚想象成“羽毛”或“探针”</strong>：不要用小腿发力“踩”踏板，尝试用脚踝的细微动作去“<strong>贴</strong>”和“<strong>抚</strong>”踏板。想象你的脚尖是在试探一盆温水的温度。</li><li><strong>找到“零点”和“临界点”</strong>：<ul><li><strong>油门零点</strong>：车将动未动、动力刚好接合的那一点。在平地上，轻缓地给油，找到车开始平稳蠕行的油门深度，记住这个脚感。</li><li><strong>刹车临界点</strong>：轻踩刹车时，从“滑行减速”到“明显制动力”的转折点。找到这一点，能让你在需要轻微调整车速时非常细腻。</li></ul></li></ol><h3 id="第二阶段：掌握两大核心技巧（日常应用）"><a href="#第二阶段：掌握两大核心技巧（日常应用）" class="headerlink" title="第二阶段：掌握两大核心技巧（日常应用）"></a>第二阶段：掌握两大核心技巧（日常应用）</h3><p>感知建立后，重点练习这两个高阶技巧。</p><ol><li><p><strong>“无感刹车”的精髓——用油门刹车</strong></p><ul><li><strong>原理</strong>：提前收油，利用发动机的牵引力（发动机制动）自然减速，最后再轻补刹车至停。</li><li><strong>练习方法</strong>：看到前方红灯或需要减速时，<strong>提前至少50-100米就完全松开油门</strong>。你会感觉到车在平滑地慢下来，就像被轻轻拉住一样。等车速降到很低时，再非常轻柔地踩下刹车停稳。目标是让刹车灯越晚亮越好，且停车时没有“点头”感。</li></ul></li><li><p><strong>“跟车如流水”的脚法——预判与微调</strong></p><ul><li>跟车时，目光放远，<strong>观察前车的前车</strong>，甚至更远处的车流动态。当前车刹车灯亮起时，第一反应不是马上踩刹车，而是<strong>立刻松开油门</strong>，根据距离判断是否需要补刹车。</li><li>在拥堵路段，尝试只用<strong>油门的深浅</strong>来控制跟车距离。通过极其细微的油门调整，让车“粘着”前车缓慢移动，尽量不碰刹车。</li></ul></li></ol><h3 id="第三阶段：融入习惯与心态（成为本能）"><a href="#第三阶段：融入习惯与心态（成为本能）" class="headerlink" title="第三阶段：融入习惯与心态（成为本能）"></a>第三阶段：融入习惯与心态（成为本能）</h3><ol><li><strong>心态平和是黄金右脚的基础</strong>：路怒、急躁时不可能有平稳的脚法。把开车当作一种“让所有乘客舒适到达”的服务。</li><li><strong>建立“能量流”意识</strong>：把每一次不必要的加速和紧急刹车，都看作是在浪费燃油和金钱。你的目标就是让车辆的动力输出像丝绸一样顺滑。</li><li><strong>持续观察与预判</strong>：黄金右脚不在脚上，在眼睛和大脑。对路况、信号灯、行人意图有预判，才能给脚部动作留出充足的反应时间和操作空间。</li></ol><h3 id="一个简单的每日练习计划"><a href="#一个简单的每日练习计划" class="headerlink" title="一个简单的每日练习计划"></a>一个简单的每日练习计划</h3><ul><li><strong>第1周</strong>：在安全空旷的路上，专门练习 <strong>“松油滑行减速”</strong> ，体验不踩刹车能滑多远、减多慢。</li><li><strong>第2周</strong>：在跟车时，<strong>刻意练习晚亮刹车灯</strong>，挑战每次停车都比以往更平稳。</li><li><strong>第3周及以后</strong>：将上述所有技巧融入日常驾驶，并开始关注油耗变化，你会惊喜地发现油耗有明显下降。</li></ul><p><strong>最后记住一个比喻</strong>：你的右脚不是“开关”，而是“调光旋钮”。它控制的不是“有和无”，而是“明与暗”的平缓过渡。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 黄金右脚 </tag>
             
         </tags>
       
