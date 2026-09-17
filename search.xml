@@ -8,7 +8,7 @@
       <link href="/post/f2ac42d.html"/>
       <url>/post/f2ac42d.html</url>
       
-        <content type="html"><![CDATA[<p>1</p><h2 id="经验之谈"><a href="#经验之谈" class="headerlink" title="经验之谈"></a>经验之谈</h2><p><strong>资料分析是性价比极高的模块，普通人也能靠正确路径练快；速度上不去，通常不是算得慢，而是基础、识别、习惯、选项分析出了问题。</strong></p><p><strong>诊断你现在的段位 → 找到卡点 → 对症下药</strong>。</p><h3 id="20-30-分钟：刷题少、反应慢阶段"><a href="#20-30-分钟：刷题少、反应慢阶段" class="headerlink" title="20-30 分钟：刷题少、反应慢阶段"></a>20-30 分钟：刷题少、反应慢阶段</h3><ul><li>刷题量不够；</li><li>第一阶段基础没打好；</li><li>忽视原理推导，只记公式，所以容易混。</li></ul><p>该做的事：</p><ul><li><strong>大量刷题</strong>，练“换汤不换药”的考点识别；</li><li>把情景干扰摘掉，<strong>抓背后考点</strong>；</li><li><strong>综合分析不要扔</strong>。他说综合分析是基本功的照妖镜，也是能拿分、能提速的题。数量关系更吃数学能力，综合分析门槛没那么高，扔掉不划算。</li><li>目标：先到 28 分钟，再到 23 分钟。</li></ul><hr><ul><li>看选项差距决定：估算、粗算还是细算；</li><li>看选项特征和暗示。比如选项之间有“除以 3”的关系，可能不用硬算，直接推；</li><li>趋势图题看“高度差”，不要真算每年增量；</li><li>改掉“下笔就算”的习惯。</li></ul><blockquote><ol><li><strong>资料分析有一点天赋，但普通人能练到 15-20 分钟，甚至更好。</strong></li><li><strong>速度瓶颈通常不是算得慢，而是：基础不牢、识别慢、公式不熟、直除多、不看选项、综合分析弱。</strong></li><li><strong>理论课要反复刷，框架要自己画。</strong></li><li><strong>改直除是第一步，过程痛苦但必须。</strong></li><li><strong>原理推导要懂，不然公式记不牢、容易混。</strong></li><li><strong>分析为主：看选项差距、选项暗示、趋势图高度差。</strong></li><li><strong>综合分析不能扔，它是提分提速的关键。</strong></li><li><strong>复盘和积累技巧是后期核心，没人能一次性给你所有技巧。</strong></li></ol></blockquote><h3 id="比！！"><a href="#比！！" class="headerlink" title="比！！"></a>比！！</h3><img src="/post/undefined/image-20260917142841564.png" class="" title="image-20260917142841564"><p>操了 看成占比了；！</p><h3 id="平均数增长率"><a href="#平均数增长率" class="headerlink" title="平均数增长率"></a>平均数增长率</h3><p>书上给的公式是i求的自己与自己比的不同时间的 r</p><p>但是对于不同主体平均数的增长率，也就是说要用原始的尺子去比较，大概率是得到一个相同分母的数，然后去比较分子的增速</p><img src="/post/undefined/image-20260917143315183.png" class="" title="image-20260917143315183"><p>、</p><h3 id="xxa，b-c-d-e-f中-每万人"><a href="#xxa，b-c-d-e-f中-每万人" class="headerlink" title="xxa，b,c,d,e,f中  每万人"></a>xxa，b,c,d,e,f中  每万人</h3><blockquote><p>“万人次”比上“万人次”，他问平均每万人次，那么分母的“万人次”就当做单位了。上面那个“万人次”，自然而然就把它当成数量级用了</p><p>不对，应该是它们是一个比值，是一个常数。但是你分母要说是平均每万人次，那分子也应该乘以 10 的 4 次方</p></blockquote><img src="/post/undefined/image-20260917143602881.png" class="" title="image-20260917143602881"><h3 id="简直是地狱"><a href="#简直是地狱" class="headerlink" title="简直是地狱"></a>简直是地狱</h3><p>这分析把</p><blockquote><p>当 A&#x2F;B &#x3D; C 的时候，如果分母保持不变，那么 ΔA &#x3D; ΔC，RA &#x3D; RC</p></blockquote><img src="/post/undefined/image-20260917144642506.png" class="" title="image-20260917144642506"><h3 id="不要怀疑自己"><a href="#不要怀疑自己" class="headerlink" title="不要怀疑自己"></a>不要怀疑自己</h3><img src="/post/undefined/image-20260917153535880.png" class="" title="image-20260917153535880"><h3 id="谁他妈知道总装机量是全国全口径发电装机"><a href="#谁他妈知道总装机量是全国全口径发电装机" class="headerlink" title="谁他妈知道总装机量是全国全口径发电装机"></a>谁他妈知道总装机量是全国全口径发电装机</h3><img src="/post/undefined/image-20260917153939193.png" class="" title="image-20260917153939193"><h3 id="融汇贯通"><a href="#融汇贯通" class="headerlink" title="融汇贯通"></a>融汇贯通</h3><blockquote><p>只要不是混合情况下给，就是一个给增长率，一个给现期和增长量的话，那么我们都可以通过这种方式去比较大小</p><p>对于他们都是正的话，那就比较好比了，就是统一地去比</p><p>但是对于是负的话，这种题都是减少的。那么我们比较它的降幅，其实也是通过比较它的降低量与上期的值。如果这个值大，那么它的降幅就大，就这么简单。其实就是它这个增长率的值比较大。我们可以把这个式子理解为“变化量比大小”，这样就好理解了。</p><p>也就是说，通过这个值来比较增长量，比上现期，得出来的是变化量的大小。那么：</p><ol><li>在正的情况下，就是增长率大；</li><li>在负的情况下，就是降幅大。</li></ol></blockquote><img src="/post/undefined/image-20260917154655616.png" class="" title="image-20260917154655616"><h3 id="数量级搞错了"><a href="#数量级搞错了" class="headerlink" title="数量级搞错了"></a>数量级搞错了</h3><blockquote><p>这种“同比提高多少个百分点”，就理解为百分点，而不是增长率去理解。然后我们可以通过 R 间，反正用间隔增长率去求出另一个增长率，然后再去算</p></blockquote><img src="/post/undefined/image-20260917155237936.png" class="" title="image-20260917155237936"><img src="/post/undefined/image-20260917155509469.png" class="" title="image-20260917155509469"><p> 10 10 1模型</p><p>因为一个数要除以10，其实大概小于11.1，但如果小于10的话就更小，所以也可以用</p><blockquote><p>我怀疑我当时求21年，好像是直接用23年的数据，然后用22年的增长率去算。我真操了，不应该是找22年的数据和22年的增长率去算吗</p></blockquote><img src="/post/undefined/image-20260917155852767.png" class="" title="image-20260917155852767"><blockquote><p>哎呀，人家让你这样理解，他说人家同比增长就是产量的增长，真他妈逆天！</p></blockquote><img src="/post/undefined/image-20260917160015374.png" class="" title="image-20260917160015374"><img src="/post/undefined/image-20260917160150212.png" class="" title="image-20260917160150212"><blockquote><p>太逆天了，越学分越低了，这脑子都不会转了都</p></blockquote><h3 id="都是简单扫一眼惹的祸"><a href="#都是简单扫一眼惹的祸" class="headerlink" title="都是简单扫一眼惹的祸"></a>都是简单扫一眼惹的祸</h3><img src="/post/undefined/image-20260917160447182.png" class="" title="image-20260917160447182"><h3 id="就诊比例报告比例不一样"><a href="#就诊比例报告比例不一样" class="headerlink" title="就诊比例报告比例不一样"></a>就诊比例报告比例不一样</h3><blockquote><p>这个题主要就是很臭，看不清，找不到数，很难算。算的时候也要有技巧，不能就随随便便算个数</p></blockquote><img src="/post/undefined/image-20260917161426741.png" class="" title="image-20260917161426741"><blockquote><p>纯纯的计算不过关</p></blockquote><img src="/post/undefined/image-20260917161648791.png" class="" title="image-20260917161648791">]]></content>
+        <content type="html"><![CDATA[<p>1</p><h2 id="经验之谈"><a href="#经验之谈" class="headerlink" title="经验之谈"></a>经验之谈</h2><p><strong>资料分析是性价比极高的模块，普通人也能靠正确路径练快；速度上不去，通常不是算得慢，而是基础、识别、习惯、选项分析出了问题。</strong></p><p><strong>诊断你现在的段位 → 找到卡点 → 对症下药</strong>。</p><h3 id="20-30-分钟：刷题少、反应慢阶段"><a href="#20-30-分钟：刷题少、反应慢阶段" class="headerlink" title="20-30 分钟：刷题少、反应慢阶段"></a>20-30 分钟：刷题少、反应慢阶段</h3><ul><li>刷题量不够；</li><li>第一阶段基础没打好；</li><li>忽视原理推导，只记公式，所以容易混。</li></ul><p>该做的事：</p><ul><li><strong>大量刷题</strong>，练“换汤不换药”的考点识别；</li><li>把情景干扰摘掉，<strong>抓背后考点</strong>；</li><li><strong>综合分析不要扔</strong>。他说综合分析是基本功的照妖镜，也是能拿分、能提速的题。数量关系更吃数学能力，综合分析门槛没那么高，扔掉不划算。</li><li>目标：先到 28 分钟，再到 23 分钟。</li></ul><hr><ul><li>看选项差距决定：估算、粗算还是细算；</li><li>看选项特征和暗示。比如选项之间有“除以 3”的关系，可能不用硬算，直接推；</li><li>趋势图题看“高度差”，不要真算每年增量；</li><li>改掉“下笔就算”的习惯。</li></ul><blockquote><ol><li><strong>资料分析有一点天赋，但普通人能练到 15-20 分钟，甚至更好。</strong></li><li><strong>速度瓶颈通常不是算得慢，而是：基础不牢、识别慢、公式不熟、直除多、不看选项、综合分析弱。</strong></li><li><strong>理论课要反复刷，框架要自己画。</strong></li><li><strong>改直除是第一步，过程痛苦但必须。</strong></li><li><strong>原理推导要懂，不然公式记不牢、容易混。</strong></li><li><strong>分析为主：看选项差距、选项暗示、趋势图高度差。</strong></li><li><strong>综合分析不能扔，它是提分提速的关键。</strong></li><li><strong>复盘和积累技巧是后期核心，没人能一次性给你所有技巧。</strong></li></ol></blockquote><h3 id="比！！"><a href="#比！！" class="headerlink" title="比！！"></a>比！！</h3><img src="/post/f2ac42d/image-20260917142841564.png" class="" title="image-20260917142841564"><p>操了 看成占比了；！</p><h3 id="平均数增长率"><a href="#平均数增长率" class="headerlink" title="平均数增长率"></a>平均数增长率</h3><p>书上给的公式是i求的自己与自己比的不同时间的 r</p><p>但是对于不同主体平均数的增长率，也就是说要用原始的尺子去比较，大概率是得到一个相同分母的数，然后去比较分子的增速</p><img src="/post/f2ac42d/image-20260917143315183.png" class="" title="image-20260917143315183"><p>、</p><h3 id="xxa，b-c-d-e-f中-每万人"><a href="#xxa，b-c-d-e-f中-每万人" class="headerlink" title="xxa，b,c,d,e,f中  每万人"></a>xxa，b,c,d,e,f中  每万人</h3><blockquote><p>“万人次”比上“万人次”，他问平均每万人次，那么分母的“万人次”就当做单位了。上面那个“万人次”，自然而然就把它当成数量级用了</p><p>不对，应该是它们是一个比值，是一个常数。但是你分母要说是平均每万人次，那分子也应该乘以 10 的 4 次方</p></blockquote><img src="/post/f2ac42d/image-20260917143602881.png" class="" title="image-20260917143602881"><h3 id="简直是地狱"><a href="#简直是地狱" class="headerlink" title="简直是地狱"></a>简直是地狱</h3><p>这分析把</p><blockquote><p>当 A&#x2F;B &#x3D; C 的时候，如果分母保持不变，那么 ΔA &#x3D; ΔC，RA &#x3D; RC</p></blockquote><img src="/post/f2ac42d/image-20260917144642506.png" class="" title="image-20260917144642506"><h3 id="不要怀疑自己"><a href="#不要怀疑自己" class="headerlink" title="不要怀疑自己"></a>不要怀疑自己</h3><img src="/post/f2ac42d/image-20260917153535880.png" class="" title="image-20260917153535880"><h3 id="谁他妈知道总装机量是全国全口径发电装机"><a href="#谁他妈知道总装机量是全国全口径发电装机" class="headerlink" title="谁他妈知道总装机量是全国全口径发电装机"></a>谁他妈知道总装机量是全国全口径发电装机</h3><img src="/post/f2ac42d/image-20260917153939193.png" class="" title="image-20260917153939193"><h3 id="融汇贯通"><a href="#融汇贯通" class="headerlink" title="融汇贯通"></a>融汇贯通</h3><blockquote><p>只要不是混合情况下给，就是一个给增长率，一个给现期和增长量的话，那么我们都可以通过这种方式去比较大小</p><p>对于他们都是正的话，那就比较好比了，就是统一地去比</p><p>但是对于是负的话，这种题都是减少的。那么我们比较它的降幅，其实也是通过比较它的降低量与上期的值。如果这个值大，那么它的降幅就大，就这么简单。其实就是它这个增长率的值比较大。我们可以把这个式子理解为“变化量比大小”，这样就好理解了。</p><p>也就是说，通过这个值来比较增长量，比上现期，得出来的是变化量的大小。那么：</p><ol><li>在正的情况下，就是增长率大；</li><li>在负的情况下，就是降幅大。</li></ol></blockquote><img src="/post/f2ac42d/image-20260917154655616.png" class="" title="image-20260917154655616"><h3 id="数量级搞错了"><a href="#数量级搞错了" class="headerlink" title="数量级搞错了"></a>数量级搞错了</h3><blockquote><p>这种“同比提高多少个百分点”，就理解为百分点，而不是增长率去理解。然后我们可以通过 R 间，反正用间隔增长率去求出另一个增长率，然后再去算</p></blockquote><img src="/post/f2ac42d/image-20260917155237936.png" class="" title="image-20260917155237936"><img src="/post/f2ac42d/image-20260917155509469.png" class="" title="image-20260917155509469"><p> 10 10 1模型</p><p>因为一个数要除以10，其实大概小于11.1，但如果小于10的话就更小，所以也可以用</p><blockquote><p>我怀疑我当时求21年，好像是直接用23年的数据，然后用22年的增长率去算。我真操了，不应该是找22年的数据和22年的增长率去算吗</p></blockquote><img src="/post/f2ac42d/image-20260917155852767.png" class="" title="image-20260917155852767"><blockquote><p>哎呀，人家让你这样理解，他说人家同比增长就是产量的增长，真他妈逆天！</p></blockquote><img src="/post/f2ac42d/image-20260917160015374.png" class="" title="image-20260917160015374"><img src="/post/f2ac42d/image-20260917160150212.png" class="" title="image-20260917160150212"><blockquote><p>太逆天了，越学分越低了，这脑子都不会转了都</p></blockquote><h3 id="都是简单扫一眼惹的祸"><a href="#都是简单扫一眼惹的祸" class="headerlink" title="都是简单扫一眼惹的祸"></a>都是简单扫一眼惹的祸</h3><img src="/post/f2ac42d/image-20260917160447182.png" class="" title="image-20260917160447182"><h3 id="就诊比例报告比例不一样"><a href="#就诊比例报告比例不一样" class="headerlink" title="就诊比例报告比例不一样"></a>就诊比例报告比例不一样</h3><blockquote><p>这个题主要就是很臭，看不清，找不到数，很难算。算的时候也要有技巧，不能就随随便便算个数</p></blockquote><img src="/post/f2ac42d/image-20260917161426741.png" class="" title="image-20260917161426741"><blockquote><p>纯纯的计算不过关</p></blockquote><img src="/post/f2ac42d/image-20260917161648791.png" class="" title="image-20260917161648791"><h3 id="减少量比现期还大"><a href="#减少量比现期还大" class="headerlink" title="减少量比现期还大"></a>减少量比现期还大</h3><blockquote><p>10 减少50</p></blockquote><img src="/post/f2ac42d/image-20260917163330658.png" class="" title="image-20260917163330658"><blockquote><p>后的本质是<strong>基期被“无限放大”了</strong>。</p><ul><li>当增长率是负数（比如 -91%）时，意味着现期只保留了基期的 9%。</li><li>反过来说，基期就是现期的 100 ÷ 9 ≈ 11 倍多。</li><li>既然基期这么大，那么从基期跌到现期的“减少量”，自然也就远远大于现期本身了。</li></ul><p>用公式来看就是：<strong>增长量 &#x3D; 现期 ÷ (1 + r) × r</strong>。 当 r 趋近于 -100% 时，(1 + r) 就趋近于 0。一个数除以一个趋近于 0 的数，结果就会趋向于无穷大。所以减少量会大到离谱。</p></blockquote><p>终于搞懂这个什么“存在1&#x2F;1”这个鬼逻辑了！那如果说它减少量确实越大的话，那减少量确实超级无敌巨大</p>]]></content>
       
       
       <categories>
@@ -437,7 +437,7 @@
       <link href="/post/5096661a.html"/>
       <url>/post/5096661a.html</url>
       
-        <content type="html"><![CDATA[<p>1</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><img src="/post/5096661a/image-20260825160559591.png" class="" title="image-20260825160559591"><p>这个叫做</p><blockquote><p>重新配置 SSH 密钥</p></blockquote><p>主要分为 <strong>生成新密钥</strong> 和 <strong>添加到代码托管平台</strong> 两大步。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="生成新的-SSH-密钥"><a href="#生成新的-SSH-密钥" class="headerlink" title="生成新的 SSH 密钥"></a>生成新的 SSH 密钥</h3><p>cmd或者git bash here</p><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure><img src="/post/5096661a/image-20260825160724936.png" class="" title="image-20260825160724936"><h3 id="复制你的公钥"><a href="#复制你的公钥" class="headerlink" title="复制你的公钥"></a>复制你的公钥</h3><img src="/post/5096661a/image-20260825160751798.png" class="" title="image-20260825160751798"><p>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGpMEzH2LAt6+8C7kiGT1p0Vrb7mLTkmL3nXNotEw6Iy <a href="mailto:&#49;&#x39;&#56;&#50;&#x38;&#51;&#x30;&#x30;&#x39;&#53;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;">&#49;&#x39;&#56;&#50;&#x38;&#51;&#x30;&#x30;&#x39;&#53;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;</a></p><blockquote><ol><li><img src="/post/5096661a/image-20260825160835938.png" class="" title="image-20260825160835938"> </li><li><img src="/post/5096661a/image-20260825160934326.png" class="" title="image-20260825160934326"> </li><li>ok</li></ol></blockquote><h2 id="配置图床"><a href="#配置图床" class="headerlink" title="配置图床"></a>配置图床</h2><p><a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn&#x2F;PicGo</a></p><p><a href="https://github.com/Kuingsmile/PicList/releases">Releases · Kuingsmile&#x2F;PicList</a><img src="/post/5096661a/image-20260825161217346.png" class="" title="image-20260825161217346"></p><p><a href="https://github.com/Kuingsmile/PicList">Kuingsmile&#x2F;PicList: An image upload and manage tool, base on PicGo</a></p><img src="/post/5096661a/image-20260825162328719.png" class="" title="image-20260825162328719"><p>创建token然后配置jiuok!</p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571.png" class=""><p><img src="https://017328.xyz/images/%E4%BA%A4%E6%98%93steam.png"></p><p><img src="https://017328.xyz/images/IMG_4185_watermarked_1785985971022.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843-1787648186270-11.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787648710536-20.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787649632043-32.png" class=""><p><a href="https://017328.xyz//IMG_4195_watermarked_1785990476571.png">https://017328.xyz//IMG_4195_watermarked_1785990476571.png</a></p><p><img src="https://017328.xyz/images/0B85297BAB2D7F25AC2BB8183445E124.jpg"></p><p><img src="https://017328.xyz/images/_MG_0781.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-05-22%20171011.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-22%20193623.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-17%20091514.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-09%20104254.png"></p>]]></content>
+        <content type="html"><![CDATA[<p>1</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><img src="/post/5096661a/image-20260825160559591.png" class="" title="image-20260825160559591"><p>这个叫做</p><blockquote><p>重新配置 SSH 密钥</p></blockquote><p>主要分为 <strong>生成新密钥</strong> 和 <strong>添加到代码托管平台</strong> 两大步。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="生成新的-SSH-密钥"><a href="#生成新的-SSH-密钥" class="headerlink" title="生成新的 SSH 密钥"></a>生成新的 SSH 密钥</h3><p>cmd或者git bash here</p><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure><img src="/post/5096661a/image-20260825160724936.png" class="" title="image-20260825160724936"><h3 id="复制你的公钥"><a href="#复制你的公钥" class="headerlink" title="复制你的公钥"></a>复制你的公钥</h3><img src="/post/5096661a/image-20260825160751798.png" class="" title="image-20260825160751798"><p>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGpMEzH2LAt6+8C7kiGT1p0Vrb7mLTkmL3nXNotEw6Iy <a href="mailto:&#49;&#x39;&#56;&#x32;&#56;&#x33;&#48;&#x30;&#x39;&#53;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#49;&#x39;&#56;&#x32;&#56;&#x33;&#48;&#x30;&#x39;&#53;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a></p><blockquote><ol><li><img src="/post/5096661a/image-20260825160835938.png" class="" title="image-20260825160835938"> </li><li><img src="/post/5096661a/image-20260825160934326.png" class="" title="image-20260825160934326"> </li><li>ok</li></ol></blockquote><h2 id="配置图床"><a href="#配置图床" class="headerlink" title="配置图床"></a>配置图床</h2><p><a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn&#x2F;PicGo</a></p><p><a href="https://github.com/Kuingsmile/PicList/releases">Releases · Kuingsmile&#x2F;PicList</a><img src="/post/5096661a/image-20260825161217346.png" class="" title="image-20260825161217346"></p><p><a href="https://github.com/Kuingsmile/PicList">Kuingsmile&#x2F;PicList: An image upload and manage tool, base on PicGo</a></p><img src="/post/5096661a/image-20260825162328719.png" class="" title="image-20260825162328719"><p>创建token然后配置jiuok!</p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571.png" class=""><p><img src="https://017328.xyz/images/%E4%BA%A4%E6%98%93steam.png"></p><p><img src="https://017328.xyz/images/IMG_4185_watermarked_1785985971022.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843-1787648186270-11.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787648710536-20.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787649632043-32.png" class=""><p><a href="https://017328.xyz//IMG_4195_watermarked_1785990476571.png">https://017328.xyz//IMG_4195_watermarked_1785990476571.png</a></p><p><img src="https://017328.xyz/images/0B85297BAB2D7F25AC2BB8183445E124.jpg"></p><p><img src="https://017328.xyz/images/_MG_0781.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-05-22%20171011.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-22%20193623.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-17%20091514.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-09%20104254.png"></p>]]></content>
       
       
       <categories>
@@ -1285,31 +1285,6 @@
     
     
     <entry>
-      <title>事业单位扫盲</title>
-      <link href="/post/54b3eb17.html"/>
-      <url>/post/54b3eb17.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="1-事业单位考试（省直、地市联考及单招）"><a href="#1-事业单位考试（省直、地市联考及单招）" class="headerlink" title="1. 事业单位考试（省直、地市联考及单招）"></a>1. 事业单位考试（省直、地市联考及单招）</h3><ul><li><strong>核心官网</strong>：<strong>河南人事考试网</strong></li><li><strong>官方网址</strong>：<a href="http://www.hnrsks.com/">http://www.hnrsks.com/</a></li><li><strong>关注重点</strong>：网站首页的“事业单位招聘”专栏。每年的河南省事业单位联考（通常在4-5月发布公告）、省直属事业单位招聘均在此报名并发布大纲。</li><li><strong>补充</strong>：如果是地市单独组织的招考（非全省联考），需直接盯紧<strong>地市的人社局官网</strong>（例如：洛阳市人力资源和社会保障局官网</li></ul><h3 id="一、-省考（公务员）-vs-事业单位（对比扫盲）"><a href="#一、-省考（公务员）-vs-事业单位（对比扫盲）" class="headerlink" title="一、 省考（公务员） vs 事业单位（对比扫盲）"></a>一、 省考（公务员） vs 事业单位（对比扫盲）</h3><table><thead><tr><th><strong>对比维度</strong></th><th><strong>省考（公务员）</strong></th><th><strong>事业单位</strong></th></tr></thead><tbody><tr><td><strong>编制类型</strong></td><td>行政编制</td><td>事业编制（分全额拨款、差额拨款、自收自支）</td></tr><tr><td><strong>工作职能</strong></td><td>行政管理、国家权力执行</td><td>提供公共服务（科教文卫、技术支持、后勤等）</td></tr><tr><td><strong>考试科目</strong></td><td>行测 + 申论</td><td><strong>公基 + 职测</strong> &#x2F; 公基 + 综合应用能力 &#x2F; 公基 + 专业课</td></tr><tr><td><strong>考试难度</strong></td><td>题量大、难度深、竞争极度激烈</td><td>难度稍降，<strong>重在“公基”的死记硬背</strong>，竞争略小</td></tr><tr><td><strong>晋升路线</strong></td><td>走行政职务或职级并行（如科员-副科-正科）</td><td>走职称评定（初级-中级-高级）或管理岗（九级-八级）</td></tr><tr><td><strong>核心福利差</strong></td><td>普遍有车补（每月几百不等）</td><td><strong>绝大多数无车补</strong>（仅部分乡镇或特定管理岗有）</td></tr></tbody></table><h3 id="二、-薪资待遇水平"><a href="#二、-薪资待遇水平" class="headerlink" title="二、 薪资待遇水平"></a>二、 薪资待遇水平</h3><p>事业单位的待遇由你考取的<strong>单位资金来源</strong>和<strong>所在地区财政</strong>决定：</p><ol><li><strong>资金来源首选“全额拨款”</strong>：工资完全由国家财政负担，最稳定。尽量避开自收自支（受单位效益影响大）。</li><li><strong>同地区对比</strong>：事业编的整体年收入约为同地区公务员的 **80% - 90%**。主要的差距在于公务员有车补，以及部分年终绩效的差异。</li><li><strong>基础保障</strong>：五险一金（公积金通常按最高比例缴纳）、双休、节假日福利与公务员完全一致，稳定性拉满。</li></ol><h3 id="三、-地区推荐策略"><a href="#三、-地区推荐策略" class="headerlink" title="三、 地区推荐策略"></a>三、 地区推荐策略</h3><p>以追求稳定和性价比为目标，建议按照以下梯队进行报考布局：</p><ul><li><strong>第一梯队（上限高）：省直事业单位 &#x2F; 郑州市直事业单位。</strong> 财政实力强，待遇上限最高，发展空间大，但学霸多，竞争最激烈。</li><li><strong>第二梯队（性价比之王）：洛阳市直 &#x2F; 核心区直事业单位。</strong> 离家近，市级财政有保障，薪资能够支撑当地较好的生活质量，同时竞争压力略小于省直。</li><li><strong>第三梯队（保底必争）：洛宁县直 &#x2F; 乡镇事业单位。</strong> 报考门槛相对较低，分数线相对友好，适合作为今年确保“先上车”的底线选择。</li></ul><h3 id="四、-岗位推荐（紧盯计算机类）"><a href="#四、-岗位推荐（紧盯计算机类）" class="headerlink" title="四、 岗位推荐（紧盯计算机类）"></a>四、 岗位推荐（紧盯计算机类）</h3><p>计算机科学与技术是体制内招考的绝对大户。<strong>你的核心报考策略是：死磕专业限制。</strong></p><ul><li><strong>重点关注单位</strong>：各地的大数据管理局（中心）、政务信息中心、网络安全应急指挥中心、融媒体中心、大中专院校的电教中心或网络管理中心。</li><li><strong>报考铁律</strong>：非必要<strong>绝对不报“三不限”岗位</strong>。只要岗位表里有要求“计算机类”甚至精确到“计算机科学与技术”的岗位，优先报。专业限制越死，报名人数越少，上岸率直接翻倍。</li></ul><h3 id="五、-当前最大底牌：应届生身份"><a href="#五、-当前最大底牌：应届生身份" class="headerlink" title="五、 当前最大底牌：应届生身份"></a>五、 当前最大底牌：应届生身份</h3><p>2026年6月毕业意味着你现在正处于应届生身份的黄金期。</p><p>无论是省直还是地市的事业单位联考，都会放出大量<strong>“仅限当年应届毕业生”</strong>的专属岗位。这类岗位直接屏蔽了往届有备考经验的“老油条”，是你今年进入体制内最大的优势，务必在接下来的公告中精准筛选此类岗位。</p><h2 id="拨款方式"><a href="#拨款方式" class="headerlink" title="拨款方式"></a>拨款方式</h2><p><strong>全额拨款（财政全供）</strong>：<strong>首选，最稳。</strong></p><ul><li><strong>解读</strong>：你的工资、五险一金100%由地方政府财政负担。真正意义上的旱涝保收。</li><li><strong>常见单位</strong>：信息中心、大数据局、政务服务中心、党校等（通常为公益一类事业单位）。</li></ul><p><strong>差额拨款（财政差供）</strong>：<strong>收入看单位效益。</strong></p><ul><li><strong>解读</strong>：财政给你发一部分（通常是基本工资保底），剩下的绩效、奖金全靠你们单位自己创收来发。</li><li><strong>常见单位</strong>：公立医院、部分高校、报社、融媒体中心等（通常为公益二类事业单位）。如果单位效益极好，总收入可能超过全供；如果效益差，就只能拿底薪。</li></ul><p><strong>自收自支（经费自理）</strong>：<strong>尽量避开。</strong></p><ul><li><strong>解读</strong>：财政一分钱都不拨，只给你一个“事业编”的身份名额，发工资全靠单位自己去市场上赚钱。</li><li><strong>现状</strong>：稳定性最差，且国家目前正在大规模推进事业单位改革，这类编制很多都在面临“转企改制”（取消编制变成国企员工）。非极度垄断的赚钱单位，不建议报。</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 事业编 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 事业编 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>事业单位备考</title>
       <link href="/post/f226ee17.html"/>
       <url>/post/f226ee17.html</url>
@@ -1327,6 +1302,31 @@
         <tags>
             
             <tag> 事业单位 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>事业单位扫盲</title>
+      <link href="/post/54b3eb17.html"/>
+      <url>/post/54b3eb17.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-事业单位考试（省直、地市联考及单招）"><a href="#1-事业单位考试（省直、地市联考及单招）" class="headerlink" title="1. 事业单位考试（省直、地市联考及单招）"></a>1. 事业单位考试（省直、地市联考及单招）</h3><ul><li><strong>核心官网</strong>：<strong>河南人事考试网</strong></li><li><strong>官方网址</strong>：<a href="http://www.hnrsks.com/">http://www.hnrsks.com/</a></li><li><strong>关注重点</strong>：网站首页的“事业单位招聘”专栏。每年的河南省事业单位联考（通常在4-5月发布公告）、省直属事业单位招聘均在此报名并发布大纲。</li><li><strong>补充</strong>：如果是地市单独组织的招考（非全省联考），需直接盯紧<strong>地市的人社局官网</strong>（例如：洛阳市人力资源和社会保障局官网</li></ul><h3 id="一、-省考（公务员）-vs-事业单位（对比扫盲）"><a href="#一、-省考（公务员）-vs-事业单位（对比扫盲）" class="headerlink" title="一、 省考（公务员） vs 事业单位（对比扫盲）"></a>一、 省考（公务员） vs 事业单位（对比扫盲）</h3><table><thead><tr><th><strong>对比维度</strong></th><th><strong>省考（公务员）</strong></th><th><strong>事业单位</strong></th></tr></thead><tbody><tr><td><strong>编制类型</strong></td><td>行政编制</td><td>事业编制（分全额拨款、差额拨款、自收自支）</td></tr><tr><td><strong>工作职能</strong></td><td>行政管理、国家权力执行</td><td>提供公共服务（科教文卫、技术支持、后勤等）</td></tr><tr><td><strong>考试科目</strong></td><td>行测 + 申论</td><td><strong>公基 + 职测</strong> &#x2F; 公基 + 综合应用能力 &#x2F; 公基 + 专业课</td></tr><tr><td><strong>考试难度</strong></td><td>题量大、难度深、竞争极度激烈</td><td>难度稍降，<strong>重在“公基”的死记硬背</strong>，竞争略小</td></tr><tr><td><strong>晋升路线</strong></td><td>走行政职务或职级并行（如科员-副科-正科）</td><td>走职称评定（初级-中级-高级）或管理岗（九级-八级）</td></tr><tr><td><strong>核心福利差</strong></td><td>普遍有车补（每月几百不等）</td><td><strong>绝大多数无车补</strong>（仅部分乡镇或特定管理岗有）</td></tr></tbody></table><h3 id="二、-薪资待遇水平"><a href="#二、-薪资待遇水平" class="headerlink" title="二、 薪资待遇水平"></a>二、 薪资待遇水平</h3><p>事业单位的待遇由你考取的<strong>单位资金来源</strong>和<strong>所在地区财政</strong>决定：</p><ol><li><strong>资金来源首选“全额拨款”</strong>：工资完全由国家财政负担，最稳定。尽量避开自收自支（受单位效益影响大）。</li><li><strong>同地区对比</strong>：事业编的整体年收入约为同地区公务员的 **80% - 90%**。主要的差距在于公务员有车补，以及部分年终绩效的差异。</li><li><strong>基础保障</strong>：五险一金（公积金通常按最高比例缴纳）、双休、节假日福利与公务员完全一致，稳定性拉满。</li></ol><h3 id="三、-地区推荐策略"><a href="#三、-地区推荐策略" class="headerlink" title="三、 地区推荐策略"></a>三、 地区推荐策略</h3><p>以追求稳定和性价比为目标，建议按照以下梯队进行报考布局：</p><ul><li><strong>第一梯队（上限高）：省直事业单位 &#x2F; 郑州市直事业单位。</strong> 财政实力强，待遇上限最高，发展空间大，但学霸多，竞争最激烈。</li><li><strong>第二梯队（性价比之王）：洛阳市直 &#x2F; 核心区直事业单位。</strong> 离家近，市级财政有保障，薪资能够支撑当地较好的生活质量，同时竞争压力略小于省直。</li><li><strong>第三梯队（保底必争）：洛宁县直 &#x2F; 乡镇事业单位。</strong> 报考门槛相对较低，分数线相对友好，适合作为今年确保“先上车”的底线选择。</li></ul><h3 id="四、-岗位推荐（紧盯计算机类）"><a href="#四、-岗位推荐（紧盯计算机类）" class="headerlink" title="四、 岗位推荐（紧盯计算机类）"></a>四、 岗位推荐（紧盯计算机类）</h3><p>计算机科学与技术是体制内招考的绝对大户。<strong>你的核心报考策略是：死磕专业限制。</strong></p><ul><li><strong>重点关注单位</strong>：各地的大数据管理局（中心）、政务信息中心、网络安全应急指挥中心、融媒体中心、大中专院校的电教中心或网络管理中心。</li><li><strong>报考铁律</strong>：非必要<strong>绝对不报“三不限”岗位</strong>。只要岗位表里有要求“计算机类”甚至精确到“计算机科学与技术”的岗位，优先报。专业限制越死，报名人数越少，上岸率直接翻倍。</li></ul><h3 id="五、-当前最大底牌：应届生身份"><a href="#五、-当前最大底牌：应届生身份" class="headerlink" title="五、 当前最大底牌：应届生身份"></a>五、 当前最大底牌：应届生身份</h3><p>2026年6月毕业意味着你现在正处于应届生身份的黄金期。</p><p>无论是省直还是地市的事业单位联考，都会放出大量<strong>“仅限当年应届毕业生”</strong>的专属岗位。这类岗位直接屏蔽了往届有备考经验的“老油条”，是你今年进入体制内最大的优势，务必在接下来的公告中精准筛选此类岗位。</p><h2 id="拨款方式"><a href="#拨款方式" class="headerlink" title="拨款方式"></a>拨款方式</h2><p><strong>全额拨款（财政全供）</strong>：<strong>首选，最稳。</strong></p><ul><li><strong>解读</strong>：你的工资、五险一金100%由地方政府财政负担。真正意义上的旱涝保收。</li><li><strong>常见单位</strong>：信息中心、大数据局、政务服务中心、党校等（通常为公益一类事业单位）。</li></ul><p><strong>差额拨款（财政差供）</strong>：<strong>收入看单位效益。</strong></p><ul><li><strong>解读</strong>：财政给你发一部分（通常是基本工资保底），剩下的绩效、奖金全靠你们单位自己创收来发。</li><li><strong>常见单位</strong>：公立医院、部分高校、报社、融媒体中心等（通常为公益二类事业单位）。如果单位效益极好，总收入可能超过全供；如果效益差，就只能拿底薪。</li></ul><p><strong>自收自支（经费自理）</strong>：<strong>尽量避开。</strong></p><ul><li><strong>解读</strong>：财政一分钱都不拨，只给你一个“事业编”的身份名额，发工资全靠单位自己去市场上赚钱。</li><li><strong>现状</strong>：稳定性最差，且国家目前正在大规模推进事业单位改革，这类编制很多都在面临“转企改制”（取消编制变成国企员工）。非极度垄断的赚钱单位，不建议报。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 事业编 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 事业编 </tag>
             
         </tags>
       
@@ -1635,6 +1635,31 @@
     
     
     <entry>
+      <title>张弓12-12出题人思维</title>
+      <link href="/post/ebc40516.html"/>
+      <url>/post/ebc40516.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="出题人思维"><a href="#出题人思维" class="headerlink" title="出题人思维"></a>出题人思维</h1><h3 id="🎯-核心认知：万变不离其宗"><a href="#🎯-核心认知：万变不离其宗" class="headerlink" title="🎯 核心认知：万变不离其宗"></a>🎯 核心认知：万变不离其宗</h3><p>言语理解看似题型多（排序、标题、接语等），本质只考两个：<strong>中心理解 + 逻辑填空</strong>。只要掌握了中心理解，其他题型一通百通。</p><hr><h3 id="🗺️-解题唯一主线：三步走战略"><a href="#🗺️-解题唯一主线：三步走战略" class="headerlink" title="🗺️ 解题唯一主线：三步走战略"></a>🗺️ 解题唯一主线：三步走战略</h3><h4 id="第一步：找重点（精准定位中心句）"><a href="#第一步：找重点（精准定位中心句）" class="headerlink" title="第一步：找重点（精准定位中心句）"></a>第一步：找重点（精准定位中心句）</h4><p>不要被长篇大论绕进去，快速通过<strong>“7大句子关系”</strong>锁定重点：</p><ul><li><strong>转折关系</strong>：转折后重要（但是、然而）。</li><li><strong>因果关系</strong>：结论&#x2F;结果重要（进而、所以）。</li><li><strong>对策关系</strong>：解决问题的做法最重要（需要、应该）。</li><li><strong>解释关系</strong>：明确的观点重要，具体的解释&#x2F;例子不重要。</li><li><strong>强调关系</strong>：被强调的内容重要（特别是）。</li><li><strong>新旧关系</strong>：后文出现的新话题重要。</li><li><strong>并列关系</strong>：同等重要，需全面概括。</li></ul><blockquote><p>⚠️ <strong>思维防坑预警</strong>：</p><ol><li><strong>关联词只是“拐杖”</strong>：不要死记硬背关联词，删掉关联词不影响句意的，要透过表象看真实逻辑关系。</li><li><strong>局部不代表整体</strong>：文段要看完整。前文有个转折，但如果尾句又抛出了针对该转折的“对策”，那对策才是真正的重点。</li></ol></blockquote><h4 id="第二步：同义替换（如何匹配正确选项）"><a href="#第二步：同义替换（如何匹配正确选项）" class="headerlink" title="第二步：同义替换（如何匹配正确选项）"></a>第二步：同义替换（如何匹配正确选项）</h4><p>找到中心句后，去选项里找“替身”。</p><ul><li><p><strong>核心套路：抓大放小</strong>。“大”就是<strong>主题词</strong>。只要选项包含了绝对正确的主题词，哪怕个别修饰语（星座、身高）不完美，大概率也是对的。</p></li><li><p><strong>如何揪出主题词？</strong></p><blockquote><ol><li><strong>中心句</strong>里的核心动名词（最首要依据）。</li></ol><p>\2.  <strong>首句</strong>引出的话题（常被忽略的做题大招，首句定基调）。</p><p>\3.  全文的<strong>高频词</strong>。</p></blockquote></li></ul><h4 id="第三步：排除干扰选项（纠结时的“判案标准”）"><a href="#第三步：排除干扰选项（纠结时的“判案标准”）" class="headerlink" title="第三步：排除干扰选项（纠结时的“判案标准”）"></a>第三步：排除干扰选项（纠结时的“判案标准”）</h4><p>遇到两个选项犹豫不决时，严格按照以下三类标准排雷：</p><table><thead><tr><th><strong>选项定性</strong></th><th><strong>典型特征（出题人套路）</strong></th></tr></thead><tbody><tr><td>🚫 <strong>一定不能选（死罪）</strong></td><td>与原文意思相反、无中生有（如：最可行）、无关对策（解决不了文段问题）。</td></tr><tr><td>❌ <strong>基本不能选（非重点）</strong></td><td>缺少主题词、<strong>属于解释说明部分</strong>（如只是原文里的一个背景、原因、或像“挪威大鼠”、“干细胞”这样的例子）、表述片面。</td></tr><tr><td>✅ <strong>对比可次选（备胎）</strong></td><td>表述不明确（过于笼统）、主题词适度扩大&#x2F;缩小。<strong>注意：</strong> 当其他选项都犯了“死罪”或“非重点”错误时，这种不完美的选项就是正确答案。</td></tr></tbody></table><hr><p>可以反推出出题人干扰选项如果看到并列的时候</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 省考 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 行测 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>宝藏成语</title>
       <link href="/post/3c8a3883.html"/>
       <url>/post/3c8a3883.html</url>
@@ -1665,31 +1690,6 @@
       <url>/post/1c0991c3.html</url>
       
         <content type="html"><![CDATA[<h1 id="逻辑填空的解题精髓"><a href="#逻辑填空的解题精髓" class="headerlink" title="逻辑填空的解题精髓"></a>逻辑填空的解题精髓</h1><p>离冲刺目标分数的日子很近了，时间宝贵。这份精简版笔记为你直接提取了第八节课的核心干货，帮你跳过视频，快速吃透逻辑填空的解题精髓。</p><h3 id="🎯-核心原则：谜底在谜面上"><a href="#🎯-核心原则：谜底在谜面上" class="headerlink" title="🎯 核心原则：谜底在谜面上"></a>🎯 核心原则：谜底在谜面上</h3><p>逻辑填空的本质不是考语感，而是考<strong>逻辑关系</strong>。所有答案的<strong>线索都在文段之中。</strong></p><hr><h3 id="🔍-解题双引擎"><a href="#🔍-解题双引擎" class="headerlink" title="🔍 解题双引擎"></a>🔍 解题双引擎</h3><p>解题永远分为两步走：</p><ol><li><strong>语境分析（读文段）：</strong> 弄清楚<strong>文段和横线到底想表达什么意思</strong>。<strong>不能只看局部词语搭配，必须结合上下文语境（例如前后文的情感色彩、动作的先后等）。</strong></li><li><strong>词语辨析（看选项）：</strong> 从选项中寻找最契合语境的词。</li></ol><blockquote><p>⚠️ <strong>黄金定律：</strong> 当“意思的正确性”与“使用的合理性（常见搭配）”发生冲突时，<strong>永远优先保证意思的正确性</strong>。只要意思对，即便搭配少见也是正确答案。</p></blockquote><hr><h3 id="⚖️-词语辨析的-7-个维度"><a href="#⚖️-词语辨析的-7-个维度" class="headerlink" title="⚖️ 词语辨析的 7 个维度"></a>⚖️ 词语辨析的 7 个维度</h3><p>当意思相近时，通过以下维度甄别错误选项：</p><table><thead><tr><th><strong>辨析维度</strong></th><th><strong>核心技巧与举例</strong></th></tr></thead><tbody><tr><td><strong>1. 基本释义</strong></td><td>最基础的准则。词意不符直接排除。</td></tr><tr><td><strong>2. 搭配对象</strong></td><td>关注词语的专属搭配。例如： • <em>骇人听闻</em> (配真事) vs <em>危言耸听</em> (配假话) • <em>淹没</em> (配水&#x2F;声音) vs <em>掩埋</em> (配物质&#x2F;土壤)</td></tr><tr><td><strong>3. 程度轻重</strong></td><td>词意有轻重之分。拿不准时，<strong>选程度较轻&#x2F;适用范围广的词更保险</strong>。例如： • <em>息息相关</em> (程度轻，百搭) vs <em>唇亡齿寒</em> (程度极重，生死存亡)</td></tr><tr><td><strong>4. 感情色彩</strong></td><td>区分褒义、贬义、中性。须与语境基调一致。</td></tr><tr><td><strong>5. 使用语境</strong></td><td>关注词语的特定应用场景。例如： • <em>相得益彰</em> (可独立存在，合作更好) • <em>相辅相成</em> (缺一不可，必须绑定)</td></tr><tr><td><strong>6. 宠词与陪跑词</strong></td><td>• <strong>宠词 (高频正确)：</strong> <em>凝聚、整合、独善其身、应运而生</em>。适用范围广。 • <strong>陪跑词 (极少正确)：</strong> <em>无与伦比、南辕北辙</em>。词意太极端，条件苛刻。</td></tr><tr><td><strong>7. 词义侧重</strong></td><td>遇到形近词，看<strong>不同的字眼</strong>猜侧重点。例如： • <em>遏制</em> (制止&#x2F;踩刹车) vs <em>遏止</em> (彻底停止) • <em>保持</em> (从容有余) vs <em>维持</em> (艰难咬牙)</td></tr></tbody></table><hr><h3 id="💡-高频提分考点：句内呼应"><a href="#💡-高频提分考点：句内呼应" class="headerlink" title="💡 高频提分考点：句内呼应"></a>💡 高频提分考点：句内呼应</h3><ul><li><strong>技巧：</strong> 重点关注横线前后的提示信息，尤其是<strong>“横线 + 逗号”</strong>的结构。</li><li><strong>应用：</strong> 逗号后面的半句话，极大概率是对横线处词语的直接解释或限制。</li></ul><hr><p>为了检验我们对这套“双引擎”逻辑的掌握程度，我们来做一个快速推演：</p><p>如果在考场上，文段整体表达的是一种“顺应趋势、自然而然产生”的语境。此时有两个选项：A是你平时做题经常见到的“高频宠词”，但意思带有一点强行拼凑的意味；B的词义完美契合“自然产生”的意思。为了稳拿这道题的分数，我们会严格遵循上述的哪一条定律来锁定最终答案？</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 省考 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 行测 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>张弓12-12出题人思维</title>
-      <link href="/post/ebc40516.html"/>
-      <url>/post/ebc40516.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="出题人思维"><a href="#出题人思维" class="headerlink" title="出题人思维"></a>出题人思维</h1><h3 id="🎯-核心认知：万变不离其宗"><a href="#🎯-核心认知：万变不离其宗" class="headerlink" title="🎯 核心认知：万变不离其宗"></a>🎯 核心认知：万变不离其宗</h3><p>言语理解看似题型多（排序、标题、接语等），本质只考两个：<strong>中心理解 + 逻辑填空</strong>。只要掌握了中心理解，其他题型一通百通。</p><hr><h3 id="🗺️-解题唯一主线：三步走战略"><a href="#🗺️-解题唯一主线：三步走战略" class="headerlink" title="🗺️ 解题唯一主线：三步走战略"></a>🗺️ 解题唯一主线：三步走战略</h3><h4 id="第一步：找重点（精准定位中心句）"><a href="#第一步：找重点（精准定位中心句）" class="headerlink" title="第一步：找重点（精准定位中心句）"></a>第一步：找重点（精准定位中心句）</h4><p>不要被长篇大论绕进去，快速通过<strong>“7大句子关系”</strong>锁定重点：</p><ul><li><strong>转折关系</strong>：转折后重要（但是、然而）。</li><li><strong>因果关系</strong>：结论&#x2F;结果重要（进而、所以）。</li><li><strong>对策关系</strong>：解决问题的做法最重要（需要、应该）。</li><li><strong>解释关系</strong>：明确的观点重要，具体的解释&#x2F;例子不重要。</li><li><strong>强调关系</strong>：被强调的内容重要（特别是）。</li><li><strong>新旧关系</strong>：后文出现的新话题重要。</li><li><strong>并列关系</strong>：同等重要，需全面概括。</li></ul><blockquote><p>⚠️ <strong>思维防坑预警</strong>：</p><ol><li><strong>关联词只是“拐杖”</strong>：不要死记硬背关联词，删掉关联词不影响句意的，要透过表象看真实逻辑关系。</li><li><strong>局部不代表整体</strong>：文段要看完整。前文有个转折，但如果尾句又抛出了针对该转折的“对策”，那对策才是真正的重点。</li></ol></blockquote><h4 id="第二步：同义替换（如何匹配正确选项）"><a href="#第二步：同义替换（如何匹配正确选项）" class="headerlink" title="第二步：同义替换（如何匹配正确选项）"></a>第二步：同义替换（如何匹配正确选项）</h4><p>找到中心句后，去选项里找“替身”。</p><ul><li><p><strong>核心套路：抓大放小</strong>。“大”就是<strong>主题词</strong>。只要选项包含了绝对正确的主题词，哪怕个别修饰语（星座、身高）不完美，大概率也是对的。</p></li><li><p><strong>如何揪出主题词？</strong></p><blockquote><ol><li><strong>中心句</strong>里的核心动名词（最首要依据）。</li></ol><p>\2.  <strong>首句</strong>引出的话题（常被忽略的做题大招，首句定基调）。</p><p>\3.  全文的<strong>高频词</strong>。</p></blockquote></li></ul><h4 id="第三步：排除干扰选项（纠结时的“判案标准”）"><a href="#第三步：排除干扰选项（纠结时的“判案标准”）" class="headerlink" title="第三步：排除干扰选项（纠结时的“判案标准”）"></a>第三步：排除干扰选项（纠结时的“判案标准”）</h4><p>遇到两个选项犹豫不决时，严格按照以下三类标准排雷：</p><table><thead><tr><th><strong>选项定性</strong></th><th><strong>典型特征（出题人套路）</strong></th></tr></thead><tbody><tr><td>🚫 <strong>一定不能选（死罪）</strong></td><td>与原文意思相反、无中生有（如：最可行）、无关对策（解决不了文段问题）。</td></tr><tr><td>❌ <strong>基本不能选（非重点）</strong></td><td>缺少主题词、<strong>属于解释说明部分</strong>（如只是原文里的一个背景、原因、或像“挪威大鼠”、“干细胞”这样的例子）、表述片面。</td></tr><tr><td>✅ <strong>对比可次选（备胎）</strong></td><td>表述不明确（过于笼统）、主题词适度扩大&#x2F;缩小。<strong>注意：</strong> 当其他选项都犯了“死罪”或“非重点”错误时，这种不完美的选项就是正确答案。</td></tr></tbody></table><hr><p>可以反推出出题人干扰选项如果看到并列的时候</p>]]></content>
       
       
       <categories>
@@ -2160,31 +2160,6 @@
     
     
     <entry>
-      <title>第一次用打印机的一些事</title>
-      <link href="/post/955d1adb.html"/>
-      <url>/post/955d1adb.html</url>
-      
-        <content type="html"><![CDATA[<p>–</p><h1 id="富士施乐Fuji-Xerox-DocuPrint-M115-w"><a href="#富士施乐Fuji-Xerox-DocuPrint-M115-w" class="headerlink" title="富士施乐Fuji Xerox DocuPrint M115 w"></a>富士施乐Fuji Xerox DocuPrint M115 w</h1><p><a href="https://www.dyjqd.com/fujixerox/DocuPrint_M115_w.html#download">富士施乐Fuji Xerox DocuPrint M115 w 驱动下载 - 打印机驱动网 (dyjqd.com)</a></p><p>原本会显示驱动失败什么的。下载个驱动安装一下就行了。</p><p>不知道选啥默认就行了</p><img src="/post/955d1adb/image-20260131165448856.png" class="" title="image-20260131165448856"> <h2 id="双面打印的问题"><a href="#双面打印的问题" class="headerlink" title="双面打印的问题"></a>双面打印的问题</h2><h3 id="对于word直接"><a href="#对于word直接" class="headerlink" title="对于word直接"></a>对于word直接</h3><img src="/post/955d1adb/image-20260131183728758.png" class="" title="image-20260131183728758"> <p>然后把9顺&#x2F;逆时针旋转90°</p><p>然后再点击确认</p><h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><p>也是CTRL+P</p><img src="/post/955d1adb/image-20260131183849842.png" class="" title="image-20260131183849842"> <p>然后按照提示来，</p><p>旋转后再点击。</p><p>花了240软妹币</p><h2 id="关于吐出来的文件怎么摆放"><a href="#关于吐出来的文件怎么摆放" class="headerlink" title="关于吐出来的文件怎么摆放"></a>关于吐出来的文件怎么摆放</h2><img src="/post/955d1adb/image-20260201155625627.png" class="" title="image-20260201155625627"><h2 id="关于脱机的问题"><a href="#关于脱机的问题" class="headerlink" title="关于脱机的问题"></a>关于脱机的问题</h2><p>脱机就是脱离连接了</p><p>第一步应该检查网络问题或者数据线连接问题！</p><p>然后就是win+r cmd +service.msc</p><p>找到 printtll停止，再启动。试试、。</p><p>最后终极法宝就是重新安装驱动！</p><h3 id="香猪的脱机问题针对于没有exit按钮的"><a href="#香猪的脱机问题针对于没有exit按钮的" class="headerlink" title="香猪的脱机问题针对于没有exit按钮的"></a>香猪的脱机问题针对于没有exit按钮的</h3><p>手动停止队列！</p><blockquote><p>方法二：重启“Print Spooler”打印服务<br>按下键盘的 Win + R 键，输入 services.msc 并回车。</p><p>在服务列表中找到“Print Spooler”，右键点击它，选择“停止”。</p><p>服务停止后，不要关闭窗口。打开文件资源管理器，在地址栏输入 C:\Windows\System32\spool\PRINTERS 并回车。</p><p>删除此文件夹内所有文件。</p><p>回到服务窗口，右键点击“Print Spooler”，选择“启动”。</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 打印机 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>行测怎么复盘？</title>
       <link href="/post/e8b53e38.html"/>
       <url>/post/e8b53e38.html</url>
@@ -2202,6 +2177,31 @@
         <tags>
             
             <tag> 行测 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第一次用打印机的一些事</title>
+      <link href="/post/955d1adb.html"/>
+      <url>/post/955d1adb.html</url>
+      
+        <content type="html"><![CDATA[<p>–</p><h1 id="富士施乐Fuji-Xerox-DocuPrint-M115-w"><a href="#富士施乐Fuji-Xerox-DocuPrint-M115-w" class="headerlink" title="富士施乐Fuji Xerox DocuPrint M115 w"></a>富士施乐Fuji Xerox DocuPrint M115 w</h1><p><a href="https://www.dyjqd.com/fujixerox/DocuPrint_M115_w.html#download">富士施乐Fuji Xerox DocuPrint M115 w 驱动下载 - 打印机驱动网 (dyjqd.com)</a></p><p>原本会显示驱动失败什么的。下载个驱动安装一下就行了。</p><p>不知道选啥默认就行了</p><img src="/post/955d1adb/image-20260131165448856.png" class="" title="image-20260131165448856"> <h2 id="双面打印的问题"><a href="#双面打印的问题" class="headerlink" title="双面打印的问题"></a>双面打印的问题</h2><h3 id="对于word直接"><a href="#对于word直接" class="headerlink" title="对于word直接"></a>对于word直接</h3><img src="/post/955d1adb/image-20260131183728758.png" class="" title="image-20260131183728758"> <p>然后把9顺&#x2F;逆时针旋转90°</p><p>然后再点击确认</p><h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><p>也是CTRL+P</p><img src="/post/955d1adb/image-20260131183849842.png" class="" title="image-20260131183849842"> <p>然后按照提示来，</p><p>旋转后再点击。</p><p>花了240软妹币</p><h2 id="关于吐出来的文件怎么摆放"><a href="#关于吐出来的文件怎么摆放" class="headerlink" title="关于吐出来的文件怎么摆放"></a>关于吐出来的文件怎么摆放</h2><img src="/post/955d1adb/image-20260201155625627.png" class="" title="image-20260201155625627"><h2 id="关于脱机的问题"><a href="#关于脱机的问题" class="headerlink" title="关于脱机的问题"></a>关于脱机的问题</h2><p>脱机就是脱离连接了</p><p>第一步应该检查网络问题或者数据线连接问题！</p><p>然后就是win+r cmd +service.msc</p><p>找到 printtll停止，再启动。试试、。</p><p>最后终极法宝就是重新安装驱动！</p><h3 id="香猪的脱机问题针对于没有exit按钮的"><a href="#香猪的脱机问题针对于没有exit按钮的" class="headerlink" title="香猪的脱机问题针对于没有exit按钮的"></a>香猪的脱机问题针对于没有exit按钮的</h3><p>手动停止队列！</p><blockquote><p>方法二：重启“Print Spooler”打印服务<br>按下键盘的 Win + R 键，输入 services.msc 并回车。</p><p>在服务列表中找到“Print Spooler”，右键点击它，选择“停止”。</p><p>服务停止后，不要关闭窗口。打开文件资源管理器，在地址栏输入 C:\Windows\System32\spool\PRINTERS 并回车。</p><p>删除此文件夹内所有文件。</p><p>回到服务窗口，右键点击“Print Spooler”，选择“启动”。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 打印机 </tag>
             
         </tags>
       
