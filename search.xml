@@ -8,7 +8,7 @@
       <link href="/post/29cd2ebe.html"/>
       <url>/post/29cd2ebe.html</url>
       
-        <content type="html"><![CDATA[<p>2</p><h2 id="政治理-论"><a href="#政治理-论" class="headerlink" title="政治理 论"></a>政治理 论</h2><img src="/post/undefined/5532a91907c6758d74d3d8f8903a75d3402954848.jpg" class="" title="img">]]></content>
+        <content type="html"><![CDATA[<p>2</p><h2 id="政治理-论"><a href="#政治理-论" class="headerlink" title="政治理 论"></a>政治理 论</h2><img src="/post/29cd2ebe/5532a91907c6758d74d3d8f8903a75d3402954848.jpg" class="" title="img"><h2 id="言语理解"><a href="#言语理解" class="headerlink" title="言语理解"></a>言语理解</h2><h3 id="走马观花"><a href="#走马观花" class="headerlink" title="走马观花"></a>走马观花</h3><img src="/post/29cd2ebe/image-20260920133929370.png" class="" title="image-20260920133929370"><blockquote><p>走马观花，它是看的过程，绝对不能用来阅读的过程</p><p>“走马观花”侧重匆忙、粗略地观察，重过程轻实质，多用于调查、体验，侧重于用眼看具体事物的过程，一般不形容读书！</p><p>“人云亦云”指人家怎么说自己也跟着怎么说，没有主见或创见。前文讲“机械阅读、被动接受、没有思考”，只全盘接收别人的观点而无脑子过滤，其唯一的必然结果就是丧失自我见解、只会跟着别人的观点说</p></blockquote><blockquote><p>“比比皆是”修饰现象&#x2F;事物，而文段核心指向“人”）、语感错（主观脑补“大有人在”太口语化，盲目排斥正确项）。</p><p>“大有人在”意为这样的人很多，在政论公文和书面表达中极其规范、高频。与前文的“不在少数”形成工整的代际递进（从“不在少数”递进到“大有人在”）</p><p>主体是<strong>人</strong>，后文递进必选“大有人在”、“不乏其人”<strong>；主体是</strong>现象&#x2F;事物，才能选“比比皆是”、“俯拾皆是”。   </p></blockquote><h3 id="双引号的形象化表达，把原本拟人化"><a href="#双引号的形象化表达，把原本拟人化" class="headerlink" title="双引号的形象化表达，把原本拟人化"></a>双引号的形象化表达，把原本拟人化</h3><img src="/post/29cd2ebe/image-20260920150134222.png" class="" title="image-20260920150134222"><blockquote><p>逻辑错（无视“双引号拟人化”潜规则）、常识搭配错（泥沙无法凝固出平原）、词意错（误把文人名士的“狂放不羁”当成水患的横冲直撞）</p><ol><li>误以为“肆无忌惮”只能形容人，没看懂文段给“野马”加双引号正是为了进行高维度的拟人化修辞。   </li><li>被第一空自己脑补的顺畅感带偏，完全没有去审核第三空“凝固”在物理常识和动宾搭配上的致命硬伤。</li></ol></blockquote><p><strong>双引号拟人化法则：</strong> 只要文段给自然事物（风、雨、河、山）打上了拟人化的比喻标记（如“野马”），原本形容人类行为品质的成语（如肆无忌惮、张牙舞爪）完全可以借用，核心在于<strong>其行为特征和破坏性后果是否与后文的解释严丝合缝</strong>。   </p><p><strong>绝杀后置空原则：</strong> 遇到双空或三空题，前两空拿不准时，<strong>立刻看第三空</strong>！地质学中泥沙造陆只能是“冲积&#x2F;淤积”，绝对不存在“泥沙凝固出平原”的说法，</p>]]></content>
       
       
       <categories>
@@ -494,7 +494,7 @@
       <link href="/post/5096661a.html"/>
       <url>/post/5096661a.html</url>
       
-        <content type="html"><![CDATA[<p>1</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><img src="/post/5096661a/image-20260825160559591.png" class="" title="image-20260825160559591"><p>这个叫做</p><blockquote><p>重新配置 SSH 密钥</p></blockquote><p>主要分为 <strong>生成新密钥</strong> 和 <strong>添加到代码托管平台</strong> 两大步。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="生成新的-SSH-密钥"><a href="#生成新的-SSH-密钥" class="headerlink" title="生成新的 SSH 密钥"></a>生成新的 SSH 密钥</h3><p>cmd或者git bash here</p><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure><img src="/post/5096661a/image-20260825160724936.png" class="" title="image-20260825160724936"><h3 id="复制你的公钥"><a href="#复制你的公钥" class="headerlink" title="复制你的公钥"></a>复制你的公钥</h3><img src="/post/5096661a/image-20260825160751798.png" class="" title="image-20260825160751798"><p>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGpMEzH2LAt6+8C7kiGT1p0Vrb7mLTkmL3nXNotEw6Iy <a href="mailto:&#49;&#x39;&#56;&#50;&#56;&#51;&#48;&#x30;&#x39;&#x35;&#x40;&#113;&#113;&#46;&#99;&#111;&#x6d;">&#49;&#x39;&#56;&#50;&#56;&#51;&#48;&#x30;&#x39;&#x35;&#x40;&#113;&#113;&#46;&#99;&#111;&#x6d;</a></p><blockquote><ol><li><img src="/post/5096661a/image-20260825160835938.png" class="" title="image-20260825160835938"> </li><li><img src="/post/5096661a/image-20260825160934326.png" class="" title="image-20260825160934326"> </li><li>ok</li></ol></blockquote><h2 id="配置图床"><a href="#配置图床" class="headerlink" title="配置图床"></a>配置图床</h2><p><a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn&#x2F;PicGo</a></p><p><a href="https://github.com/Kuingsmile/PicList/releases">Releases · Kuingsmile&#x2F;PicList</a><img src="/post/5096661a/image-20260825161217346.png" class="" title="image-20260825161217346"></p><p><a href="https://github.com/Kuingsmile/PicList">Kuingsmile&#x2F;PicList: An image upload and manage tool, base on PicGo</a></p><img src="/post/5096661a/image-20260825162328719.png" class="" title="image-20260825162328719"><p>创建token然后配置jiuok!</p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571.png" class=""><p><img src="https://017328.xyz/images/%E4%BA%A4%E6%98%93steam.png"></p><p><img src="https://017328.xyz/images/IMG_4185_watermarked_1785985971022.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843-1787648186270-11.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787648710536-20.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787649632043-32.png" class=""><p><a href="https://017328.xyz//IMG_4195_watermarked_1785990476571.png">https://017328.xyz//IMG_4195_watermarked_1785990476571.png</a></p><p><img src="https://017328.xyz/images/0B85297BAB2D7F25AC2BB8183445E124.jpg"></p><p><img src="https://017328.xyz/images/_MG_0781.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-05-22%20171011.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-22%20193623.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-17%20091514.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-09%20104254.png"></p>]]></content>
+        <content type="html"><![CDATA[<p>1</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><img src="/post/5096661a/image-20260825160559591.png" class="" title="image-20260825160559591"><p>这个叫做</p><blockquote><p>重新配置 SSH 密钥</p></blockquote><p>主要分为 <strong>生成新密钥</strong> 和 <strong>添加到代码托管平台</strong> 两大步。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="生成新的-SSH-密钥"><a href="#生成新的-SSH-密钥" class="headerlink" title="生成新的 SSH 密钥"></a>生成新的 SSH 密钥</h3><p>cmd或者git bash here</p><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure><img src="/post/5096661a/image-20260825160724936.png" class="" title="image-20260825160724936"><h3 id="复制你的公钥"><a href="#复制你的公钥" class="headerlink" title="复制你的公钥"></a>复制你的公钥</h3><img src="/post/5096661a/image-20260825160751798.png" class="" title="image-20260825160751798"><p>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGpMEzH2LAt6+8C7kiGT1p0Vrb7mLTkmL3nXNotEw6Iy <a href="mailto:&#x31;&#x39;&#56;&#x32;&#x38;&#51;&#x30;&#x30;&#x39;&#x35;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#x31;&#x39;&#56;&#x32;&#x38;&#51;&#x30;&#x30;&#x39;&#x35;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a></p><blockquote><ol><li><img src="/post/5096661a/image-20260825160835938.png" class="" title="image-20260825160835938"> </li><li><img src="/post/5096661a/image-20260825160934326.png" class="" title="image-20260825160934326"> </li><li>ok</li></ol></blockquote><h2 id="配置图床"><a href="#配置图床" class="headerlink" title="配置图床"></a>配置图床</h2><p><a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn&#x2F;PicGo</a></p><p><a href="https://github.com/Kuingsmile/PicList/releases">Releases · Kuingsmile&#x2F;PicList</a><img src="/post/5096661a/image-20260825161217346.png" class="" title="image-20260825161217346"></p><p><a href="https://github.com/Kuingsmile/PicList">Kuingsmile&#x2F;PicList: An image upload and manage tool, base on PicGo</a></p><img src="/post/5096661a/image-20260825162328719.png" class="" title="image-20260825162328719"><p>创建token然后配置jiuok!</p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571.png" class=""><p><img src="https://017328.xyz/images/%E4%BA%A4%E6%98%93steam.png"></p><p><img src="https://017328.xyz/images/IMG_4185_watermarked_1785985971022.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843-1787648186270-11.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787648710536-20.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787649632043-32.png" class=""><p><a href="https://017328.xyz//IMG_4195_watermarked_1785990476571.png">https://017328.xyz//IMG_4195_watermarked_1785990476571.png</a></p><p><img src="https://017328.xyz/images/0B85297BAB2D7F25AC2BB8183445E124.jpg"></p><p><img src="https://017328.xyz/images/_MG_0781.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-05-22%20171011.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-22%20193623.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-17%20091514.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-09%20104254.png"></p>]]></content>
       
       
       <categories>
@@ -2217,6 +2217,31 @@
     
     
     <entry>
+      <title>第一次用打印机的一些事</title>
+      <link href="/post/955d1adb.html"/>
+      <url>/post/955d1adb.html</url>
+      
+        <content type="html"><![CDATA[<p>–</p><h1 id="富士施乐Fuji-Xerox-DocuPrint-M115-w"><a href="#富士施乐Fuji-Xerox-DocuPrint-M115-w" class="headerlink" title="富士施乐Fuji Xerox DocuPrint M115 w"></a>富士施乐Fuji Xerox DocuPrint M115 w</h1><p><a href="https://www.dyjqd.com/fujixerox/DocuPrint_M115_w.html#download">富士施乐Fuji Xerox DocuPrint M115 w 驱动下载 - 打印机驱动网 (dyjqd.com)</a></p><p>原本会显示驱动失败什么的。下载个驱动安装一下就行了。</p><p>不知道选啥默认就行了</p><img src="/post/955d1adb/image-20260131165448856.png" class="" title="image-20260131165448856"> <h2 id="双面打印的问题"><a href="#双面打印的问题" class="headerlink" title="双面打印的问题"></a>双面打印的问题</h2><h3 id="对于word直接"><a href="#对于word直接" class="headerlink" title="对于word直接"></a>对于word直接</h3><img src="/post/955d1adb/image-20260131183728758.png" class="" title="image-20260131183728758"> <p>然后把9顺&#x2F;逆时针旋转90°</p><p>然后再点击确认</p><h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><p>也是CTRL+P</p><img src="/post/955d1adb/image-20260131183849842.png" class="" title="image-20260131183849842"> <p>然后按照提示来，</p><p>旋转后再点击。</p><p>花了240软妹币</p><h2 id="关于吐出来的文件怎么摆放"><a href="#关于吐出来的文件怎么摆放" class="headerlink" title="关于吐出来的文件怎么摆放"></a>关于吐出来的文件怎么摆放</h2><img src="/post/955d1adb/image-20260201155625627.png" class="" title="image-20260201155625627"><h2 id="关于脱机的问题"><a href="#关于脱机的问题" class="headerlink" title="关于脱机的问题"></a>关于脱机的问题</h2><p>脱机就是脱离连接了</p><p>第一步应该检查网络问题或者数据线连接问题！</p><p>然后就是win+r cmd +service.msc</p><p>找到 printtll停止，再启动。试试、。</p><p>最后终极法宝就是重新安装驱动！</p><h3 id="香猪的脱机问题针对于没有exit按钮的"><a href="#香猪的脱机问题针对于没有exit按钮的" class="headerlink" title="香猪的脱机问题针对于没有exit按钮的"></a>香猪的脱机问题针对于没有exit按钮的</h3><p>手动停止队列！</p><blockquote><p>方法二：重启“Print Spooler”打印服务<br>按下键盘的 Win + R 键，输入 services.msc 并回车。</p><p>在服务列表中找到“Print Spooler”，右键点击它，选择“停止”。</p><p>服务停止后，不要关闭窗口。打开文件资源管理器，在地址栏输入 C:\Windows\System32\spool\PRINTERS 并回车。</p><p>删除此文件夹内所有文件。</p><p>回到服务窗口，右键点击“Print Spooler”，选择“启动”。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 打印机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>行测怎么复盘？</title>
       <link href="/post/e8b53e38.html"/>
       <url>/post/e8b53e38.html</url>
@@ -2259,31 +2284,6 @@
         <tags>
             
             <tag> 行测 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>第一次用打印机的一些事</title>
-      <link href="/post/955d1adb.html"/>
-      <url>/post/955d1adb.html</url>
-      
-        <content type="html"><![CDATA[<p>–</p><h1 id="富士施乐Fuji-Xerox-DocuPrint-M115-w"><a href="#富士施乐Fuji-Xerox-DocuPrint-M115-w" class="headerlink" title="富士施乐Fuji Xerox DocuPrint M115 w"></a>富士施乐Fuji Xerox DocuPrint M115 w</h1><p><a href="https://www.dyjqd.com/fujixerox/DocuPrint_M115_w.html#download">富士施乐Fuji Xerox DocuPrint M115 w 驱动下载 - 打印机驱动网 (dyjqd.com)</a></p><p>原本会显示驱动失败什么的。下载个驱动安装一下就行了。</p><p>不知道选啥默认就行了</p><img src="/post/955d1adb/image-20260131165448856.png" class="" title="image-20260131165448856"> <h2 id="双面打印的问题"><a href="#双面打印的问题" class="headerlink" title="双面打印的问题"></a>双面打印的问题</h2><h3 id="对于word直接"><a href="#对于word直接" class="headerlink" title="对于word直接"></a>对于word直接</h3><img src="/post/955d1adb/image-20260131183728758.png" class="" title="image-20260131183728758"> <p>然后把9顺&#x2F;逆时针旋转90°</p><p>然后再点击确认</p><h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><p>也是CTRL+P</p><img src="/post/955d1adb/image-20260131183849842.png" class="" title="image-20260131183849842"> <p>然后按照提示来，</p><p>旋转后再点击。</p><p>花了240软妹币</p><h2 id="关于吐出来的文件怎么摆放"><a href="#关于吐出来的文件怎么摆放" class="headerlink" title="关于吐出来的文件怎么摆放"></a>关于吐出来的文件怎么摆放</h2><img src="/post/955d1adb/image-20260201155625627.png" class="" title="image-20260201155625627"><h2 id="关于脱机的问题"><a href="#关于脱机的问题" class="headerlink" title="关于脱机的问题"></a>关于脱机的问题</h2><p>脱机就是脱离连接了</p><p>第一步应该检查网络问题或者数据线连接问题！</p><p>然后就是win+r cmd +service.msc</p><p>找到 printtll停止，再启动。试试、。</p><p>最后终极法宝就是重新安装驱动！</p><h3 id="香猪的脱机问题针对于没有exit按钮的"><a href="#香猪的脱机问题针对于没有exit按钮的" class="headerlink" title="香猪的脱机问题针对于没有exit按钮的"></a>香猪的脱机问题针对于没有exit按钮的</h3><p>手动停止队列！</p><blockquote><p>方法二：重启“Print Spooler”打印服务<br>按下键盘的 Win + R 键，输入 services.msc 并回车。</p><p>在服务列表中找到“Print Spooler”，右键点击它，选择“停止”。</p><p>服务停止后，不要关闭窗口。打开文件资源管理器，在地址栏输入 C:\Windows\System32\spool\PRINTERS 并回车。</p><p>删除此文件夹内所有文件。</p><p>回到服务窗口，右键点击“Print Spooler”，选择“启动”。</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 打印机 </tag>
             
         </tags>
       
