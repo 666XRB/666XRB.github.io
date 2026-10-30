@@ -449,8 +449,8 @@ input, textarea, [contenteditable] {
     font-size: 1.2rem;
   }
 
-  /* 隐藏桌面端菜单项 */
-  #nav #menus {
+  /* 隐藏桌面端菜单项（只藏菜单链接，保留搜索、主题切换和汉堡按钮） */
+  #nav .menus_items {
     display: none !important;
   }
 

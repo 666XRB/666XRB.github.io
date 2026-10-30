@@ -879,3 +879,812 @@
     border-radius: 12px;
   }
 }
+
+/* ============================================================
+   七、主题切换按钮（导航栏）+ 右下角按钮常显
+   ------------------------------------------------------------
+   背景：主题的 #rightside 默认 opacity:0 且移出屏幕，
+        只有「滚动超过 56px」才出现（main.js:323-340）。
+        所以首屏找不到切换按钮，部署后更明显。
+   方案：
+     1. 导航栏加一个常驻按钮 —— 服务端渲染、内联 SVG、不依赖任何 JS 文件；
+     2. 右下角那组也改成常显，两边都能用。
+   ============================================================ */
+
+/* --- 导航栏按钮 --- */
+#nav #theme-button {
+  display: inline;
+  padding: 0 0 0 12px;
+  vertical-align: middle;
+}
+
+#nav #theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--light-grey);
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.25s ease;
+}
+
+#nav #theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  transform: rotate(12deg);
+}
+
+#nav #theme-toggle:active {
+  transform: scale(0.92);
+}
+
+#nav #theme-toggle:focus-visible {
+  outline: 2px solid var(--my-accent);
+  outline-offset: 2px;
+}
+
+#nav #theme-toggle .tt-icon {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+/* 浅色显示月亮（点击进深色），深色显示太阳（点击回浅色） */
+[data-theme='light'] #nav #theme-toggle .tt-sun,
+[data-theme='dark'] #nav #theme-toggle .tt-moon {
+  display: none;
+}
+
+/* --- 按钮文字色跟随导航状态（首页透明导航 / 滚动后白底导航 / 无头图页） --- */
+#page-header.not-top-img #nav #theme-toggle,
+#page-header.nav-fixed #nav #theme-toggle {
+  color: var(--font-color);
+}
+
+#page-header.not-top-img #nav #theme-toggle:hover {
+  background: var(--my-accent-soft);
+  color: var(--my-accent);
+}
+
+#page-header.nav-fixed #nav #theme-toggle:hover {
+  background: var(--my-accent-soft);
+  color: var(--my-accent);
+}
+
+/* 窄屏：只留图标，去掉多余留白 */
+@media (max-width: 768px) {
+  #nav #theme-button {
+    padding-left: 8px;
+  }
+
+  #nav #theme-toggle {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* --- 右下角那组：常显（主题默认要滚动才出现） --- */
+#rightside {
+  opacity: 1 !important;
+  right: 10px !important;
+  transform: translateX(0) !important;
+}
+
+/* 主题会在滚动时写内联 opacity:0.8，这里压平，避免忽明忽暗 */
+#rightside:hover {
+  opacity: 1 !important;
+}
+
+/* 深色下右下角按钮的底色沿用主题变量，加深一点更协调 */
+[data-theme='dark'] #rightside > div > button,
+[data-theme='dark'] #rightside > div > a {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: rgba(240, 238, 233, 0.86);
+}
+
+[data-theme='dark'] #rightside > div > button:hover,
+[data-theme='dark'] #rightside > div > a:hover {
+  background-color: rgba(255, 255, 255, 0.20);
+  color: #fff;
+}
+
+/* ============================================================
+   八、分类 / 标签 / 归档 三个总览页
+   ------------------------------------------------------------
+   共同点：统一的搜索框 + 分段排序按钮 + 卡片式内容区。
+   全部沿用 --my-* 令牌，深色模式自动成立。
+   ============================================================ */
+
+/* --- 8.1 三页共用的工具栏 --- */
+#page .cat-tools,
+#page .tag-tools,
+#archive .archive-tools,
+#category .cat-tools,
+#tag .tag-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 10px;
+}
+
+.cat-search,
+.tag-search,
+.arc-search {
+  position: relative;
+  flex: 1 1 260px;
+  display: flex;
+  align-items: center;
+}
+
+.cat-search svg,
+.tag-search svg,
+.arc-search svg {
+  position: absolute;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--my-text-soft);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+#article-container .cat-search input,
+#article-container .tag-search input,
+#article-container .arc-search input,
+.cat-search input,
+.tag-search input,
+.arc-search input {
+  width: 100%;
+  padding: 9px 40px 9px 36px;
+  border: 1px solid var(--my-line);
+  border-radius: 9px;
+  background: var(--my-card-bg);
+  color: var(--my-title);
+  font-size: .92rem;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  -webkit-appearance: none;
+}
+
+.cat-search input::placeholder,
+.tag-search input::placeholder,
+.arc-search input::placeholder {
+  color: var(--my-text-soft);
+}
+
+.cat-search input:focus,
+.tag-search input:focus,
+.arc-search input:focus {
+  border-color: var(--my-accent);
+  box-shadow: 0 0 0 3px var(--my-accent-soft);
+}
+
+.cat-search kbd,
+.tag-search kbd,
+.arc-search kbd {
+  position: absolute;
+  right: 10px;
+  padding: 1px 6px;
+  border: 1px solid var(--my-line);
+  border-radius: 4px;
+  font-size: .7rem;
+  color: var(--my-text-soft);
+  background: transparent;
+  font-family: inherit;
+}
+
+.cat-seg,
+.tag-seg,
+.arc-years {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--my-line);
+  border-radius: 9px;
+  background: var(--my-card-bg);
+}
+
+#article-container .cat-seg button,
+#article-container .tag-seg button,
+#article-container .arc-years button,
+.cat-seg button,
+.tag-seg button,
+.arc-years button {
+  border: 0;
+  background: transparent;
+  color: var(--my-text);
+  padding: 6px 12px;
+  border-radius: 7px;
+  font-size: .84rem;
+  line-height: 1.4;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .18s, color .18s;
+  font-variant-numeric: tabular-nums;
+}
+
+.cat-seg button:hover,
+.tag-seg button:hover,
+.arc-years button:hover {
+  color: var(--my-title);
+}
+
+.cat-seg button.on,
+.tag-seg button.on,
+.arc-years button.on {
+  background: var(--my-accent-soft);
+  color: var(--my-accent);
+  font-weight: 600;
+}
+
+.cat-meta,
+.tag-meta,
+.arc-meta {
+  margin-bottom: 12px;
+  font-size: .78rem;
+  color: var(--my-text-soft);
+}
+
+/* --- 8.2 分类：卡片网格 --- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 0 0 8px;
+}
+
+#page .category-card,
+#article-container .category-card {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--my-line);
+  border-radius: 10px;
+  background: var(--my-card-bg);
+  color: var(--my-title);
+  text-decoration: none;
+  transition: border-color .22s, background .22s, transform .22s;
+}
+
+.category-card:hover {
+  border-color: var(--my-accent-line);
+  background: var(--my-accent-soft);
+  transform: translateY(-2px);
+}
+
+.category-card-name {
+  font-family: var(--my-serif);
+  font-size: .96rem;
+  font-weight: 600;
+  color: var(--my-title);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.category-card:hover .category-card-name {
+  color: var(--my-accent);
+}
+
+.category-card-count {
+  font-size: .76rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--my-accent);
+  background: var(--my-accent-soft);
+  border-radius: 20px;
+  padding: 1px 8px;
+  flex-shrink: 0;
+}
+
+/* 数量最多的分类稍微强化 */
+.category-card[data-tier='3'] {
+  border-color: var(--my-accent-line);
+}
+
+.category-card[data-tier='3'] .category-card-name {
+  font-size: 1.02rem;
+}
+
+.cat-empty,
+.tag-empty,
+.arc-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--my-text-soft);
+  font-size: .88rem;
+  border: 1px dashed var(--my-line-strong);
+  border-radius: 10px;
+}
+
+/* --- 8.3 标签：云 + 三档字号 --- */
+.tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 8px;
+}
+
+#page .tag-item,
+#article-container .tag-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--my-line);
+  border-radius: 20px;
+  background: var(--my-card-bg);
+  color: var(--my-text);
+  text-decoration: none;
+  transition: border-color .2s, background .2s, color .2s, transform .2s;
+  max-width: 100%;
+}
+
+.tag-item:hover {
+  border-color: var(--my-accent);
+  background: var(--my-accent-soft);
+  color: var(--my-accent);
+  transform: translateY(-1px);
+}
+
+.tag-item-name {
+  font-family: var(--my-serif);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tag-item-count {
+  font-size: .72rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--my-text-soft);
+}
+
+.tag-item:hover .tag-item-count {
+  color: var(--my-accent);
+}
+
+/* 三档：文章多的标签更醒目，但仍然只有一种色系 */
+.tag-item[data-tier='1'] .tag-item-name { font-size: .88rem; }
+.tag-item[data-tier='2'] .tag-item-name { font-size: .98rem; }
+.tag-item[data-tier='3'] {
+  font-size: 1.06rem;
+  border-color: var(--my-accent-line);
+  background: var(--my-accent-soft);
+}
+
+.tag-item[data-tier='3'] .tag-item-name {
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: var(--my-accent);
+}
+
+/* --- 8.4 归档：时间轴 --- */
+.archive-tools {
+  margin-bottom: 6px;
+}
+
+#archive .arc-years {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+#archive .arc-years::-webkit-scrollbar {
+  display: none;
+}
+
+#archive .article-sort-title {
+  margin: 14px 0 10px;
+  padding: 0 0 0 12px;
+  font-size: 1.32rem;
+  font-family: var(--my-serif);
+  font-weight: 700;
+  color: var(--my-title);
+  border-left: 3px solid var(--my-accent);
+  line-height: 1.4;
+}
+
+#archive .article-sort-title::before {
+  content: none !important;
+  display: none !important;
+}
+
+#archive .article-sort {
+  border-left: 1px solid var(--my-line);
+  margin-left: 6px;
+  padding-left: 18px;
+}
+
+#archive .article-sort-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  margin: 0 0 6px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  transition: background .18s, border-color .18s;
+}
+
+#archive .article-sort-item:hover {
+  background: var(--my-accent-soft);
+  border-color: var(--my-accent-line);
+}
+
+/* 时间轴节点 */
+#archive .article-sort-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: var(--my-card-bg);
+  border: 1.5px solid var(--my-line-strong);
+  transition: border-color .2s, background .2s;
+}
+
+#archive .article-sort-item:hover::before {
+  background: var(--my-accent);
+  border-color: var(--my-accent);
+}
+
+/* 年份标题 */
+#archive .article-sort-item.year {
+  margin: 18px 0 10px;
+  padding: 4px 12px;
+  border: 0;
+  background: transparent;
+  font-family: var(--my-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--my-accent);
+  letter-spacing: 1px;
+}
+
+#archive .article-sort-item.year::before {
+  left: -26.5px;
+  width: 11px;
+  height: 11px;
+  margin-top: -5.5px;
+  border-width: 2px;
+  border-color: var(--my-accent);
+  background: var(--my-card-bg);
+}
+
+#archive .article-sort-item.year:hover {
+  background: transparent;
+}
+
+/* 归档里的封面缩略图：小一些，别抢戏 */
+#archive .article-sort-item-img {
+  width: 74px;
+  height: 46px;
+  border-radius: 7px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--my-line);
+}
+
+#archive .article-sort-item-img img,
+#archive .article-sort-item-img > div {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#archive .article-sort-item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2px;
+}
+
+#archive .article-sort-item-title {
+  color: var(--my-title);
+  font-family: var(--my-serif);
+  font-size: .96rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color .18s;
+}
+
+#archive .article-sort-item:hover .article-sort-item-title {
+  color: var(--my-accent);
+}
+
+#archive .article-sort-item-time {
+  font-size: .74rem;
+  color: var(--my-text-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+#archive .article-sort-item-time i {
+  margin-right: 4px;
+  opacity: .7;
+}
+
+#archive .article-sort-item.no-article-cover .article-sort-item-info {
+  flex-direction: column-reverse;
+}
+
+/* 被搜索/年份筛选隐藏的元素 */
+.category-card.is-hidden,
+.tag-item.is-hidden,
+#archive .article-sort-item.is-hidden {
+  display: none !important;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+  }
+
+  .cat-search,
+  .tag-search,
+  .arc-search {
+    flex: 1 1 100%;
+  }
+
+  #archive .article-sort {
+    padding-left: 14px;
+  }
+
+  #archive .article-sort-item::before {
+    left: -20px;
+  }
+
+  #archive .article-sort-item.year {
+    font-size: 1.3rem;
+  }
+
+  #archive .article-sort-item.year::before {
+    left: -22.5px;
+  }
+
+  #archive .article-sort-item-img {
+    width: 60px;
+    height: 38px;
+  }
+}
+
+/* ============================================================
+   九、文章加密 · 密码输入卡片
+   ------------------------------------------------------------
+   插件把 /css/hbe.style.css 注入在正文里（晚于 mystyle.css），
+   所以这里统一用 #hexo-blog-encrypt 前缀抬高权重来覆盖它。
+   目标：跟站点纸墨风格一致，去掉插件的紫色渐变。
+   ============================================================ */
+
+#hexo-blog-encrypt .hbe-modern-content {
+  min-height: 46vh;
+  padding: 28px 12px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 插件给 .hbe-content 设了 150% 字号 + 居中，会连带放大整张卡 */
+  font-size: inherit;
+  text-align: left;
+}
+
+/* 元素同时带 .hbe-button / .hbe-input-field（默认主题那套），
+   这些属性会残留下来：右侧箭头伪元素、浮动、固定高度、缩进、阴影、字体。
+   必须逐项清掉，否则视觉上就是「一半新样式一半旧样式」。 */
+#hexo-blog-encrypt .hbe-button-modern::before,
+#hexo-blog-encrypt .hbe-button-modern::after {
+  content: none !important;
+  display: none !important;
+}
+
+#hexo-blog-encrypt .hbe-button-modern {
+  height: auto;
+  line-height: 1.5;
+  text-align: center;
+  text-indent: 0;
+  font-family: inherit;
+  font-weight: 600;
+  box-shadow: none;
+  border: 0;
+}
+
+#hexo-blog-encrypt .hbe-input-field-modern {
+  float: none;
+  display: block;
+  height: auto;
+  line-height: 1.5;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+#hexo-blog-encrypt .hbe-modern-card {
+  max-width: 430px;
+  width: 100%;
+  background: var(--my-card-bg);
+  border: 1px solid var(--my-line);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px var(--my-shadow), 0 20px 40px -28px var(--my-shadow-strong);
+  overflow: hidden;
+  animation: hbeCardIn .45s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+@keyframes hbeCardIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #hexo-blog-encrypt .hbe-modern-card { animation: none; }
+}
+
+/* 插件把 header 做成紫色渐变块（background-image），必须显式清掉 */
+#hexo-blog-encrypt .hbe-card-header {
+  padding: 22px 24px 2px;
+  background: transparent;
+  background-image: none;
+  color: var(--my-title);
+  text-align: left;
+  border-bottom: 0;
+}
+
+#hexo-blog-encrypt .hbe-card-title {
+  margin: 0 0 6px;
+  font-family: var(--my-serif);
+  font-size: 1.24rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--my-title);
+  border: 0;
+}
+
+#hexo-blog-encrypt .hbe-card-title::before {
+  content: none !important;
+  display: none !important;
+}
+
+#hexo-blog-encrypt .hbe-card-subtitle {
+  margin: 0;
+  font-size: .86rem;
+  line-height: 1.6;
+  color: var(--my-text-soft);
+  opacity: 1;
+}
+
+#hexo-blog-encrypt .hbe-card-body {
+  padding: 18px 24px 6px;
+}
+
+#hexo-blog-encrypt .hbe-input-modern {
+  margin: 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#hexo-blog-encrypt .hbe-input-field-modern {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--my-line-strong);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--my-title);
+  font-size: .95rem;
+  letter-spacing: 2px;
+  transition: border-color .2s, box-shadow .2s;
+  -webkit-appearance: none;
+}
+
+#hexo-blog-encrypt .hbe-input-field-modern::placeholder {
+  color: var(--my-text-soft);
+  letter-spacing: 0;
+}
+
+#hexo-blog-encrypt .hbe-input-field-modern:focus {
+  outline: none;
+  background: transparent;
+  border-color: var(--my-accent);
+  box-shadow: 0 0 0 3px var(--my-accent-soft);
+}
+
+#hexo-blog-encrypt .hbe-button-modern {
+  width: 100%;
+  margin: 0;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--my-accent);
+  color: #fff;
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: filter .2s, transform .12s;
+}
+
+#hexo-blog-encrypt .hbe-button-modern:hover {
+  filter: brightness(1.08);
+  transform: none;
+  box-shadow: none;
+}
+
+#hexo-blog-encrypt .hbe-button-modern:active {
+  transform: scale(.99);
+}
+
+#hexo-blog-encrypt .hbe-error-message {
+  margin: 0 0 12px;
+  padding: 9px 12px;
+  border: 1px solid rgba(180, 90, 70, .35);
+  border-left: 3px solid rgba(180, 90, 70, .8);
+  border-radius: 7px;
+  background: rgba(180, 90, 70, .08);
+  color: #b45a46;
+  font-size: .82rem;
+}
+
+[data-theme='dark'] #hexo-blog-encrypt .hbe-error-message {
+  border-color: rgba(214, 128, 104, .4);
+  border-left-color: rgba(214, 128, 104, .85);
+  background: rgba(214, 128, 104, .12);
+  color: #d68f78;
+}
+
+/* footer 插件写死了 #f9f9f9 浅灰底，深色模式下会露白 */
+#hexo-blog-encrypt .hbe-card-footer {
+  padding: 12px 24px 20px;
+  background: transparent;
+  border-top: 1px solid var(--my-line);
+  text-align: left;
+}
+
+#hexo-blog-encrypt .hbe-card-footer-text {
+  margin: 0;
+  font-size: .78rem;
+  color: var(--my-text-soft);
+}
+
+/* 窄屏 */
+@media (max-width: 520px) {
+  #hexo-blog-encrypt .hbe-modern-content {
+    padding: 18px 4px;
+    min-height: 38vh;
+  }
+
+  #hexo-blog-encrypt .hbe-card-header { padding: 20px 18px 4px; }
+  #hexo-blog-encrypt .hbe-card-body { padding: 16px 18px 6px; }
+  #hexo-blog-encrypt .hbe-card-footer { padding: 0 18px 18px; }
+  #hexo-blog-encrypt .hbe-card-title { font-size: 1.14rem; }
+}
