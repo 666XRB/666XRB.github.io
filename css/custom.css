@@ -211,45 +211,12 @@
   100% { transform: scale(0.9); opacity: 0.8; } /* 恢复 */
 }
 
-/* 默认光标替换 */
-html {
-  cursor: url('/img/normal.cur'), default !important; /* 自定义光标，回退到默认 */
-}
-
-/* 链接状态光标 */
-a, [href], [data-hover] {
-  cursor: url('/img/link.cur'), pointer !important; /* 链接光标 */
-}
-
-/* 文本输入状态光标 */
-input, textarea, [contenteditable] {
-  cursor: url('/img/text.cur'), text !important; /* 文本光标 */
-}
-
-/* 可拖动元素光标 */
-[draggable="true"] {
-  cursor: url('/img/move.cur'), move !important; /* 移动光标 */
-}
-
-/* 禁用状态光标 */
-[disabled] {
-  cursor: url('/img/unavailable.cur'), not-allowed !important; /* 禁用光标 */
-}
-
-/* 忙碌状态光标 */
-.busy-cursor {
-  cursor: url('/img/busy.ani'), wait !important; /* 等待光标(动画) */
-}
-
-/* 精确选择光标 */
-.precision-cursor {
-  cursor: url('/img/precision.cur'), crosshair !important; /* 十字光标 */
-}
-
-/* 帮助状态光标 */
-.help-cursor {
-  cursor: url('/img/help.cur'), help !important; /* 帮助光标 */
-}
+/* 自定义光标（.cur 文件）
+   这里原本有 7 条 url('/img/xxx.cur') 规则，但 source/img 下并没有这些
+   .cur / .ani 文件，于是每次进页面都产生 404；而缺文件时浏览器本来就
+   会回退到 default / pointer / text / move / not-allowed，
+   视觉上与现状完全一致。故移除。
+   如需真正启用：先把 .cur 放进 source/img/，再把规则加回来。 */
 
 /* 触摸设备适配 - 隐藏自定义光标 */
 @media (hover: none) {
