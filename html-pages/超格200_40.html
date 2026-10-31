@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>超格200题·21-40题深度复盘｜毛细血管式拓展版</title>
+<style>
+  :root{
+    --ink:#1b2436;--sub:#5d6c85;--line:#e4e9f2;--bg:#f4f7fc;--card:#ffffff;
+    --blue:#2f6bd8;--blue-l:#eaf1fe;--green:#0f9d67;--green-l:#e6f7f0;
+    --red:#dc4a3d;--red-l:#fdecea;--orange:#d9880f;--orange-l:#fdf4e3;
+    --purple:#7048c4;--purple-l:#f1ecfd;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    line-height:1.85;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 18px 80px;}
+
+  header{background:linear-gradient(135deg,#152238 0%,#28487e 55%,#3c72d2 100%);
+    color:#fff;padding:46px 18px 38px;margin-bottom:28px;position:relative;overflow:hidden;}
+  header::after{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.07);}
+  header::before{content:"";position:absolute;left:-50px;bottom:-90px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05);}
+  .head-inner{max-width:980px;margin:0 auto;position:relative;z-index:2;}
+  .kicker{display:inline-block;font-size:13px;letter-spacing:2px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  header h1{font-size:27px;margin:0 0 10px;font-weight:700;letter-spacing:.5px;}
+  header p.sub{margin:0;font-size:14.5px;color:rgba(255,255,255,.82);}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px;}
+  .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 10px;text-align:center;}
+  .stat b{display:block;font-size:22px;line-height:1.3;}
+  .stat span{font-size:12px;color:rgba(255,255,255,.78);}
+
+  section{margin-bottom:38px;}
+  h2.sec{font-size:20px;margin:0 0 6px;padding-left:14px;border-left:5px solid var(--blue);line-height:1.4;}
+  .sec-desc{font-size:13.5px;color:var(--sub);margin:0 0 18px;padding-left:19px;}
+
+  .q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px 18px;margin-bottom:16px;box-shadow:0 2px 10px rgba(27,42,74,.045);position:relative;}
+  .q.right{border-left:5px solid var(--green);}
+  .q-head{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+  .qno{font-size:16px;font-weight:700;background:var(--ink);color:#fff;border-radius:8px;padding:2px 11px;line-height:1.7;}
+  .tag{font-size:12px;padding:2px 9px;border-radius:6px;background:var(--blue-l);color:var(--blue);font-weight:600;}
+  .ans{font-size:12.5px;padding:2px 10px;border-radius:6px;font-weight:700;}
+  .ans.ok{background:var(--green-l);color:var(--green);}
+  .q-body{font-size:14.5px;}
+  .stem{background:#f7f9fd;border-radius:9px;padding:10px 14px;color:#33415c;font-size:14px;margin-bottom:13px;border-left:3px solid #c8d8f5;}
+  .opt{margin:8px 0;padding-left:2px;}
+  .opt b{color:var(--ink);}
+  .opt .bad{color:var(--red);font-weight:700;}
+  .opt .good{color:var(--green);font-weight:700;}
+
+  .box{border-radius:10px;padding:11px 15px;margin-top:12px;font-size:13.8px;}
+  .box .ttl{font-weight:700;font-size:13px;display:block;margin-bottom:5px;letter-spacing:.5px;}
+  .box.expand{background:var(--blue-l);border-left:4px solid var(--blue);}
+  .box.expand .ttl{color:var(--blue);}
+  .box.trap{background:var(--orange-l);border-left:4px solid var(--orange);}
+  .box.trap .ttl{color:var(--orange);}
+  .box.key{background:var(--purple-l);border-left:4px solid var(--purple);}
+  .box.key .ttl{color:var(--purple);}
+  .box.mind{background:var(--green-l);border-left:4px solid var(--green);}
+  .box.mind .ttl{color:var(--green);}
+  .box.net{background:#fff7ed;border-left:4px solid #c2410c;}
+  .box.net .ttl{color:#c2410c;}
+
+  em.hl{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:600;}
+
+  .trapgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .trapcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;box-shadow:0 2px 8px rgba(27,42,74,.04);}
+  .trapcard h4{margin:0 0 8px;font-size:14.5px;color:var(--red);display:flex;align-items:center;gap:7px;}
+  .trapcard h4 .n{width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .trapcard ul{margin:0;padding-left:19px;font-size:13.5px;color:#3a4761;}
+  .trapcard li{margin-bottom:4px;}
+
+  .adv{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin-bottom:14px;box-shadow:0 2px 10px rgba(27,42,74,.045);}
+  .adv h3{margin:0 0 10px;font-size:16px;color:var(--blue);display:flex;align-items:center;gap:9px;}
+  .adv h3 .num{background:var(--blue);color:#fff;width:24px;height:24px;border-radius:7px;font-size:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .adv ul{margin:6px 0 0;padding-left:20px;font-size:14px;}
+  .adv li{margin-bottom:6px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(27,42,74,.045);}
+  th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#eef3fc;color:#2a3c5e;font-size:13px;font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+  td.k{color:var(--blue);font-weight:700;white-space:nowrap;}
+
+  footer{text-align:center;font-size:13px;color:var(--sub);padding:22px 0 0;border-top:1px dashed var(--line);margin-top:30px;}
+  @media (max-width:680px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .trapgrid{grid-template-columns:1fr;}
+    header h1{font-size:21px;}
+    .q{padding:16px 15px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <span class="kicker">超格200题 · 21-40题 · 毛细血管式拓展版</span>
+    <h1>政治理论深度复盘 · 知识网络构建</h1>
+    <p class="sub">每个知识点向四周延伸：横向对应、纵向延伸、预判换皮挖坑</p>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>总题量</span></div>
+      <div class="stat"><b>14+</b><span>目标正确数</span></div>
+      <div class="stat"><b>70%</b><span>目标正确率</span></div>
+      <div class="stat"><b>网络式</b><span>记忆方式</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ 逐题解析 ============ -->
+<section>
+  <h2 class="sec">一、逐题解析（21—40）</h2>
+  <p class="sec-desc">21-40题覆盖科技强国、政治制度、统一战线、民族工作、全面依法治国、文化强国、生态文明、国家安全、强军思想、马原、认识论等多个模块。每道题按「题干中心 → 选项辨析 → <strong>毛细血管式拓展</strong> → 挖坑预判」四层拆解。</p>
+
+  <!-- 21 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">21</span>
+      <span class="tag">建设科技强国 · 基础研究投入</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列建设科技强国的举措<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>完善<strong>竞争性支持逐步取代稳定支持</strong>的基础研究投入机制 <span class="bad">✗ 应为“竞争性支持和稳定支持相结合”</span></div>
+      <div class="opt"><b>B．</b>引导金融资本投早、投大、投短期、投硬科技 <span class="bad">✗ 应为“投早、投小、投长期、投硬科技”</span></div>
+      <div class="opt"><b>C．</b>深化科技经费分配和管理使用机制改革，赋予科研单位和科研人员更大自主权 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>推动<strong>国家主导</strong>的产学研融通创新 <span class="bad">✗ 应为“企业主导”</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：基础研究投入机制</span>
+        基础研究<em class="hl">风险大、周期长</em>，不能光搞竞争性支持（有项目有钱、没项目断粮），必须<strong>竞争性支持和稳定支持相结合</strong>。A项“竞争性支持逐步取代稳定支持”是典型的固定搭配错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：科技强国的完整知识网络</span>
+        <strong>“三个第一”必须整体记忆：</strong><br>
+        · 科技是第一<em class="hl">生产力</em>；<br>
+        · 人才是第一<em class="hl">资源</em>；<br>
+        · 创新是第一<em class="hl">动力</em>。<br><br>
+        <strong>科技金融的“四投”完整表述：</strong><br>
+        <em class="hl">投早、投小、投长期、投硬科技</em>——四个“投”缺一不可。<br>
+        · 投早：投早期项目（企业刚起步）；<br>
+        · 投小：投小微企业（不是“投大”）；<br>
+        · 投长期：投长周期项目（不是“投短期”）；<br>
+        · 投硬科技：投关键核心技术。<br>
+        目的：培育和发展<em class="hl">耐心资本</em>，推动耐心资本与科技创新深度融合。<br><br>
+        <strong>产学研融通创新的主体：</strong><br>
+        <em class="hl">企业主导</em>的产学研深度融合——企业离市场最近、离应用最近，对需求感知最快。D项“国家主导”是主体错配。<br><br>
+        <strong>科技强国基本要素（五个“强大”）：</strong><br>
+        ① 强大的基础研究和原始创新能力；<br>
+        ② 强大的关键核心技术攻关能力；<br>
+        ③ 强大的国际影响力和引领力；<br>
+        ④ 强大的高水平科技人才培养和集聚能力；<br>
+        ⑤ 强大的科技治理体系和治理能力。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“竞争性+稳定性相结合”换成“竞争性为主”——<strong>已经考过</strong>；<br>
+        · 把“投小”换成“投大”、把“投长期”换成“投短期”——<strong>已经考过</strong>；<br>
+        · 把“企业主导”换成“国家主导”“政府主导”——<strong>高频坑</strong>；<br>
+        · 把“科技是第一生产力”换成“科技是第一资源”——<strong>错</strong>，人才才是第一资源。
+      </div>
+    </div>
+  </div>
+
+  <!-- 22 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">22</span>
+      <span class="tag">中国特色社会主义政治制度 · 制度体系</span>
+      <span class="ans ok">答案 A（①③）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列相关说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>①</b> 人民代表大会制度把党的领导、人民当家作主、依法治国有机统一起来 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 我国的基本政治制度<strong>就是</strong>中国共产党领导下的多党合作和政治协商制度 <span class="bad">✗ 还包括民族区域自治制度、基层群众自治制度</span></div>
+      <div class="opt"><b>③</b> 我国少数民族聚居的地区在国家统一领导下实行民族区域自治制度 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 基层群众自治制度是中国人民当家作主的<strong>根本政治制度</strong> <span class="bad">✗ 应为“基本政治制度”</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：根本政治制度 vs 基本政治制度</span>
+        · <em class="hl">根本政治制度</em>：人民代表大会制度（只有一个）；<br>
+        · <em class="hl">基本政治制度</em>：中国共产党领导的多党合作和政治协商制度、民族区域自治制度、基层群众自治制度（<strong>三个</strong>）。<br>
+        ④项把“基层群众自治制度”说成“根本政治制度”，是层级错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：中国特色社会主义政治制度完整体系</span>
+        <strong>三个层级（从高到低）：</strong><br>
+        ① <strong>根本政治制度</strong>：人民代表大会制度；<br>
+        ② <strong>基本政治制度</strong>：中国共产党领导的多党合作和政治协商制度、民族区域自治制度、基层群众自治制度；<br>
+        ③ <strong>重要政治制度</strong>：在根本政治制度和基本政治制度基础上形成的一系列制度（如特别行政区制度等）。<br><br>
+        <strong>人民代表大会制度的三个“有机统一”：</strong><br>
+        <em class="hl">党的领导、人民当家作主、依法治国</em>有机统一——这是人民代表大会制度的本质特征和最大优势。<br><br>
+        <strong>民族区域自治制度的核心：</strong><br>
+        · 前提：<em class="hl">国家统一领导</em>；<br>
+        · 范围：<em class="hl">少数民族聚居的地方</em>（不是所有少数民族地方，是“聚居”的地方）；<br>
+        · 实质：在国家统一领导下，少数民族聚居地方实行区域自治，设立自治机关，行使自治权。<br><br>
+        <strong>基层群众自治制度的组织形式：</strong><br>
+        · 农村：村民委员会；<br>
+        · 城市：居民委员会；<br>
+        · 企事业单位：职工代表大会。<br>
+        <em class="hl">基层群众自治制度是我国基本政治制度之一，不是根本政治制度。</em>
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“基本政治制度就是多党合作和政治协商制度”中的“就是”换成“包括”——<strong>错</strong>，是“包括”三个，不是“就是”一个；<br>
+        · 把“基层群众自治制度”说成“根本政治制度”——<strong>已经考过</strong>；<br>
+        · 把“民族区域自治”的范围从“聚居”换成“居住”——<strong>错</strong>，是“聚居”；<br>
+        · 把“国家统一领导”换成“完全自治”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 23 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">23</span>
+      <span class="tag">统一战线 · 本质要求与工作对象</span>
+      <span class="ans ok">答案 D（③④）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于统一战线，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>①</b> 统战工作的本质要求是大团结大联合，解决的就是<strong>道路和方向问题</strong> <span class="bad">✗ 应为“人心和力量问题”</span></div>
+      <div class="opt"><b>②</b> <strong>民主协商</strong>是统一战线最根本、最核心的问题 <span class="bad">✗ 应为“坚持党的领导”</span></div>
+      <div class="opt"><b>③</b> 统一战线工作对象为党外人士，重点是其中的代表人士 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 当前我国的统一战线被称为爱国统一战线，中国人民政治协商会议是中国爱国统一战线的组织形式 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：统一战线解决的是什么问题？</span>
+        统战工作的本质要求是大团结大联合，解决的就是<em class="hl">人心和力量问题</em>，不是“道路和方向问题”。①项是概念偷换。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：统一战线的完整知识树</span>
+        <strong>统一战线的定位：</strong><br>
+        · 是中国共产党夺取革命、建设、改革事业胜利的<em class="hl">重要法宝</em>；<br>
+        · 是实现中华民族伟大复兴的<em class="hl">重要法宝</em>。<br><br>
+        <strong>统一战线的四个核心要素：</strong><br>
+        · <strong>本质要求</strong>：大团结大联合——解决<em class="hl">人心和力量问题</em>；<br>
+        · <strong>关键</strong>：坚持求同存异，发扬“团结—批评—团结”的优良传统，在尊重多样性中寻求一致性，找到最大公约数、画出最大同心圆；<br>
+        · <strong>最根本最核心的问题</strong>：<em class="hl">坚持党的领导</em>（不是“民主协商”）；<br>
+        · <strong>工作对象</strong>：党外人士，重点是代表人士。<br><br>
+        <strong>爱国统一战线的范围（两个联盟）：</strong><br>
+        · 第一个联盟：全体社会主义劳动者、社会主义事业的建设者；<br>
+        · 第二个联盟：拥护社会主义的爱国者、拥护祖国统一和致力于中华民族伟大复兴的爱国者。<br><br>
+        <strong>人民政协的定位：</strong><br>
+        · 是中国共产党领导的<em class="hl">政治组织</em>；<br>
+        · 是最广泛的<em class="hl">爱国统一战线组织</em>；<br>
+        · 是社会主义<em class="hl">协商民主的重要渠道和专门协商机构</em>。<br>
+        <em class="hl">人民政协不是国家机关，不履行国家职能。</em>
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“人心和力量问题”换成“道路和方向问题”——<strong>已经考过</strong>；<br>
+        · 把“坚持党的领导”换成“民主协商”作为最根本问题——<strong>已经考过</strong>；<br>
+        · 把“党外人士”换成“全体党员”——<strong>错</strong>；<br>
+        · 把“爱国统一战线”换成“革命统一战线”——<strong>错</strong>，新时期的统一战线是“爱国统一战线”。
+      </div>
+    </div>
+  </div>
+
+  <!-- 24 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">24</span>
+      <span class="tag">民族工作 · 铸牢中华民族共同体意识</span>
+      <span class="ans ok">答案 D</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于我国民族工作高质量发展，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>民族地区经济社会发展的出发点和落脚点是<strong>经济增长、产业扩张</strong> <span class="bad">✗ 应是以人民为中心、改善民生</span></div>
+      <div class="opt"><b>B．</b>全面推广普及国家通用语言文字，<strong>逐步取消地方语言文字</strong> <span class="bad">✗ 不能取消地方语言文字</span></div>
+      <div class="opt"><b>C．</b>构建<strong>集中式</strong>社会结构和社区环境 <span class="bad">✗ 应为“互嵌式”</span></div>
+      <div class="opt"><b>D．</b>文化认同是最深层次的认同，对中华民族形成起决定作用的是对中华文化、中华民族共同体的认同 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：互嵌式 vs 集中式</span>
+        促进各民族交往交流交融，要构建<em class="hl">互嵌式</em>社会结构和社区环境，不是“集中式”。互嵌式强调各民族在空间、文化、经济、社会、心理等方面的全方位嵌入，促进各民族像石榴籽一样紧紧抱在一起。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：民族工作完整知识体系</span>
+        <strong>民族工作的主线：</strong><br>
+        <em class="hl">铸牢中华民族共同体意识</em>——新时代党的民族工作的主线，也是民族地区各项工作的主线。<br><br>
+        <strong>中华民族共同体意识的四个“与共”：</strong><br>
+        <em class="hl">休戚与共、荣辱与共、生死与共、命运与共</em>的共同体理念。<br><br>
+        <strong>民族地区经济社会发展的出发点和落脚点：</strong><br>
+        <em class="hl">以人民为中心，改善民生、凝聚人心</em>——不是“经济增长、产业扩张”。A项是目标错配。<br><br>
+        <strong>国家通用语言文字与地方语言文字的关系：</strong><br>
+        · 全面推广普及<em class="hl">国家通用语言文字</em>；<br>
+        · <em class="hl">尊重和保障</em>少数民族使用和发展本民族语言文字的权利；<br>
+        · 不是“逐步取消地方语言文字”。B项是绝对化表述。<br><br>
+        <strong>文化认同的定位：</strong><br>
+        <em class="hl">文化认同是最深层次的认同</em>——对中华民族形成起决定作用的是对中华文化、中华民族共同体的认同，而不是种族、血缘、地域、宗教等因素。<br><br>
+        <strong>民族区域自治制度的三个“离不开”：</strong><br>
+        汉族离不开少数民族，少数民族离不开汉族，各少数民族之间也相互离不开。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“互嵌式”换成“集中式”——<strong>已经考过</strong>；<br>
+        · 把“改善民生”换成“经济增长”——<strong>已经考过</strong>；<br>
+        · 把“尊重保障”换成“取消”——<strong>已经考过</strong>；<br>
+        · 把“文化认同”换成“血缘认同”——<strong>错</strong>，对中华民族形成起决定作用的是文化认同。
+      </div>
+    </div>
+  </div>
+
+  <!-- 25 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">25</span>
+      <span class="tag">全面依法治国 · 总目标与总抓手</span>
+      <span class="ans ok">答案 B（3项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于全面依法治国，下列说法<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 总目标是建设中国特色社会主义法治体系，建设社会主义法治国家 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 总抓手是<strong>建设社会主义法治国家</strong> <span class="bad">✗ 应为“建设中国特色社会主义法治体系”</span></div>
+      <div class="opt"><b>③</b> 首要任务是坚持依宪治国、依宪执政 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 重点任务和主体工程是<strong>法治社会建设</strong> <span class="bad">✗ 应为“法治政府建设”</span></div>
+      <div class="opt"><b>⑤</b> 根本目的是依法保障人民权益 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：总目标 vs 总抓手</span>
+        · <strong>总目标</strong>：建设中国特色社会主义法治体系、建设社会主义法治国家；<br>
+        · <strong>总抓手</strong>：<em class="hl">建设中国特色社会主义法治体系</em>（不是“建设社会主义法治国家”）。<br>
+        ②项把总目标和总抓手搞混了。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：全面依法治国完整框架</span>
+        <strong>五个核心定位（必须整体记忆）：</strong><br>
+        · <strong>总目标</strong>：建设中国特色社会主义法治体系、建设社会主义法治国家；<br>
+        · <strong>总抓手</strong>：建设中国特色社会主义法治体系；<br>
+        · <strong>首要任务</strong>：坚持依宪治国、依宪执政；<br>
+        · <strong>重点任务和主体工程</strong>：<em class="hl">法治政府建设</em>（不是法治社会建设）；<br>
+        · <strong>根本目的</strong>：依法保障人民权益。<br><br>
+        <strong>法治体系的“五个子体系”：</strong><br>
+        ① 完备的法律规范体系；<br>
+        ② 高效的法治实施体系；<br>
+        ③ 严密的法治监督体系；<br>
+        ④ 有力的法治保障体系；<br>
+        ⑤ <em class="hl">完善的党内法规体系</em>——把党内法规体系纳入中国特色社会主义法治体系，是我国法治区别于其他国家法治的鲜明特征。<br><br>
+        <strong>法治建设的“三位一体”：</strong><br>
+        · 法治国家是法治建设的<em class="hl">目标</em>；<br>
+        · 法治政府是<em class="hl">重点任务和主体工程</em>；<br>
+        · 法治社会是<em class="hl">基础</em>。<br><br>
+        <strong>宪法的重要表述：</strong><br>
+        · 宪法是国家的根本法，是治国安邦的总章程；<br>
+        · 坚持依法治国首先要坚持<em class="hl">依宪治国</em>；<br>
+        · 坚持依法执政首先要坚持<em class="hl">依宪执政</em>；<br>
+        · 宪法的生命和权威都在于<em class="hl">实施</em>。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“总抓手”换成“建设社会主义法治国家”——<strong>已经考过</strong>；<br>
+        · 把“法治政府建设”换成“法治社会建设”作为主体工程——<strong>已经考过</strong>；<br>
+        · 把“法治社会是基础”换成“法治社会是目标”——<strong>错</strong>；<br>
+        · 把“党内法规体系”从法治体系中拿掉——<strong>错</strong>，党内法规体系是法治体系的重要组成部分。
+      </div>
+    </div>
+  </div>
+
+  <!-- 26 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">26</span>
+      <span class="tag">习近平法治思想 · 改革与法治</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列相关说法<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>党的领导是中国特色社会主义法治之魂，是中国法治同西方资本主义法治最大的区别 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>加强涉外法制建设，要用好国内国际两类规则，营造市场化、法治化、国际化一流营商环境 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>要在法治下推进改革，对缺乏现行法律依据的改革事项，<strong>应当暂缓推进</strong> <span class="bad">✗ 应通过法定程序获得法律授权</span></div>
+      <div class="opt"><b>D．</b>要坚持依法治国和依规治党有机统一 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：改革与法治的关系</span>
+        正确表述是：<em class="hl">坚持在法治下推进改革，对缺乏现行法律依据的改革事项，应当通过法定程序获得法律授权</em>，而不是“暂缓推进”。<br>
+        改革和法治是“鸟之两翼、车之两轮”，不是对立关系——改革要于法有据，但法治也要为改革留出空间。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：习近平法治思想的核心要义</span>
+        <strong>“十一个坚持”（整体框架）：</strong><br>
+        ① 坚持党对全面依法治国的领导；<br>
+        ② 坚持以人民为中心；<br>
+        ③ 坚持中国特色社会主义法治道路；<br>
+        ④ 坚持依宪治国、依宪执政；<br>
+        ⑤ 坚持在法治轨道上推进国家治理体系和治理能力现代化；<br>
+        ⑥ 坚持建设中国特色社会主义法治体系；<br>
+        ⑦ 坚持依法治国、依法执政、依法行政共同推进，法治国家、法治政府、法治社会一体建设；<br>
+        ⑧ 坚持全面推进科学立法、严格执法、公正司法、全民守法；<br>
+        ⑨ 坚持统筹推进国内法治和涉外法治；<br>
+        ⑩ 坚持建设德才兼备的高素质法治工作队伍；<br>
+        ⑪ 坚持抓住领导干部这个“关键少数”。<br><br>
+        <strong>改革与法治的完整关系：</strong><br>
+        · 改革和法治如<em class="hl">鸟之两翼、车之两轮</em>；<br>
+        · 坚持在法治下推进改革，在改革中完善法治；<br>
+        · 重大改革<em class="hl">于法有据</em>、及时把改革成果上升为法律制度；<br>
+        · 对缺乏法律依据的改革事项，通过法定程序获得授权，<strong>不是“暂缓推进”</strong>。<br><br>
+        <strong>党的领导与法治的关系：</strong><br>
+        <em class="hl">党的领导是中国特色社会主义法治之魂</em>，是中国法治同西方资本主义法治最大的区别。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“通过法定程序获得授权”换成“暂缓推进”——<strong>已经考过</strong>；<br>
+        · 把“鸟之两翼、车之两轮”换成“鸟之两翼、车之一轮”——<strong>错</strong>；<br>
+        · 把“于法有据”换成“于法无据”——<strong>错</strong>；<br>
+        · 把“党的领导是法治之魂”换成“人民当家作主是法治之魂”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 27 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">27</span>
+      <span class="tag">建设文化强国 · 意识形态与文化遗产</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于文化强国建设，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>必须坚持<strong>核心价值观</strong>在意识形态领域指导地位的根本制度 <span class="bad">✗ 应为“马克思主义”</span></div>
+      <div class="opt"><b>B．</b>要推进以伟大建党精神为源头的中国共产党人精神谱系教育常态化长效化 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>要把<strong>育人才、建队伍</strong>作为深化文化体制机制改革的中心环节 <span class="bad">✗ 应为“激发创新创造活力”</span></div>
+      <div class="opt"><b>D．</b>要坚持<strong>修复第一</strong>、合理利用和最小干预原则 <span class="bad">✗ 应为“保护第一”</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：马克思主义 vs 核心价值观</span>
+        必须坚持<em class="hl">马克思主义</em>在意识形态领域指导地位的根本制度，不是“核心价值观”。核心价值观是引领，但“指导地位的根本制度”是马克思主义。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：文化强国建设完整体系</span>
+        <strong>文化强国建设的四个维度：</strong><br>
+        ① <strong>意识形态</strong>：坚持马克思主义在意识形态领域指导地位的根本制度；<br>
+        ② <strong>核心价值观</strong>：以社会主义核心价值观为引领，构筑中国精神、中国价值、中国力量；<br>
+        ③ <strong>文化创新</strong>：把<em class="hl">激发创新创造活力</em>作为深化文化体制机制改革的中心环节；<br>
+        ④ <strong>文化遗产</strong>：坚持<em class="hl">保护第一</em>、合理利用和最小干预原则。<br><br>
+        <strong>文化遗产保护的完整原则：</strong><br>
+        <em class="hl">保护第一、合理利用和最小干预</em>——三个原则的顺序不能颠倒。D项把“保护第一”换成“修复第一”，是概念偷换。<br><br>
+        <strong>中国共产党人精神谱系的源头：</strong><br>
+        <em class="hl">伟大建党精神</em>——坚持真理、坚守理想，践行初心、担当使命，不怕牺牲、英勇斗争，对党忠诚、不负人民。<br><br>
+        <strong>文化自信的定位：</strong><br>
+        文化自信是<em class="hl">更基础、更广泛、更深厚的自信</em>，是一个国家、一个民族发展中最基本、最深沉、最持久的力量。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“马克思主义”换成“核心价值观”——<strong>已经考过</strong>；<br>
+        · 把“激发创新创造活力”换成“育人才建队伍”——<strong>已经考过</strong>；<br>
+        · 把“保护第一”换成“修复第一”“利用第一”——<strong>高频坑</strong>；<br>
+        · 把“伟大建党精神”换成“长征精神”作为精神谱系源头——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 28 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">28</span>
+      <span class="tag">保障和改善民生 · 措施辨析</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列各项<strong>不属于</strong>保障和改善民生措施的是？</div>
+      <div class="opt"><b>A．</b>完善高校毕业生、农民工、退役军人等重点群体就业支持体系 <span class="good">✓ 属于民生</span></div>
+      <div class="opt"><b>B．</b>完善基本养老保险全国统筹制度，发展多层次、多支柱养老保险体系 <span class="good">✓ 属于民生</span></div>
+      <div class="opt"><b>C．</b>拓展民主渠道，丰富民主形式，确保人民依法通过各种途径和形式管理国家事务 <span class="bad">✗ 属于民主政治建设</span></div>
+      <div class="opt"><b>D．</b>正确处理生产和分配的关系，既要把“蛋糕”做大做好，又要把“蛋糕”切好分好 <span class="good">✓ 属于民生（收入分配）</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：民生 vs 民主</span>
+        C项“拓展民主渠道，丰富民主形式”属于<em class="hl">民主政治建设</em>，不属于保障和改善民生措施。民生关注的是就业、社保、收入分配、教育、医疗等具体利益问题；民主关注的是人民当家作主的制度安排。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：民生建设的完整框架</span>
+        <strong>民生建设的核心领域（七个“有所”）：</strong><br>
+        · 幼有所育、学有所教、劳有所得、病有所医、老有所养、住有所居、弱有所扶。<br><br>
+        <strong>民生建设的三个层次：</strong><br>
+        ① <strong>基本民生</strong>：就业、社保、收入分配；<br>
+        ② <strong>公共服务</strong>：教育、医疗、住房、养老；<br>
+        ③ <strong>社会治理</strong>：共建共治共享。<br><br>
+        <strong>“蛋糕”比喻的完整逻辑：</strong><br>
+        · “做大蛋糕” = <em class="hl">高质量发展</em>（生产）；<br>
+        · “切好分好蛋糕” = <em class="hl">收入分配制度改革</em>（分配）。<br>
+        两者缺一不可——只做大不切好，贫富差距拉大；只切好不做大，陷入平均主义。<br><br>
+        <strong>就业的定位：</strong><br>
+        <em class="hl">就业是最基本的民生、最大的民生</em>——A项属于民生措施。<br><br>
+        <strong>社会保障的定位：</strong><br>
+        社会保障是<em class="hl">民生保障安全网、收入分配调节器、经济运行减震器</em>——B项属于民生措施。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“民主政治建设”混入“民生措施”——<strong>已经考过</strong>；<br>
+        · 把“社会治理”混入“民生措施”——<strong>高频坑</strong>，社会治理是独立板块；<br>
+        · 把“就业是最基本的民生”换成“教育是最基本的民生”——<strong>错</strong>；<br>
+        · 把“社会保障是安全网”换成“社会保障是调节器”——<strong>不完整</strong>，三个比喻都要有。
+      </div>
+    </div>
+  </div>
+
+  <!-- 29 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">29</span>
+      <span class="tag">习近平生态文明思想 · 五个重大关系</span>
+      <span class="ans ok">答案 B（3项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于习近平生态文明思想，下列说法<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 要坚持以<strong>人工修复为主</strong>、辅以必要的自然恢复 <span class="bad">✗ 应为“以自然恢复为主，人工修复为辅”</span></div>
+      <div class="opt"><b>②</b> 绿水青山就是金山银山，冰天雪地也能成为“金山银山” <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 良好的生态环境是最公平的公共产品，是最普惠的民生福祉 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 坚持把绿色低碳发展作为解决生态环境问题的治本之策 <span class="good">✓</span></div>
+      <div class="opt"><b>⑤</b> 要在合适的时机开展“<strong>碳冲锋</strong>”、“运动式减碳” <span class="bad">✗ 要防止“碳冲锋”“运动式减碳”</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：自然恢复 vs 人工修复</span>
+        正确表述是：<em class="hl">以自然恢复为主，人工修复为辅</em>，综合运用自然恢复和人工修复两种手段。①项把主次说反了。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：生态文明“五个重大关系”完整清单</span>
+        <strong>五个重大关系（必须整体记忆）：</strong><br>
+        ① <strong>高质量发展和高水平保护的关系</strong>：高水平保护是高质量发展的重要支撑；<br>
+        ② <strong>重点攻坚和协同治理的关系</strong>：抓住主要矛盾和矛盾的主要方面；<br>
+        ③ <strong>自然恢复和人工修复的关系</strong>：坚持以自然恢复为主，把自然恢复和人工修复有机统一；<br>
+        ④ <strong>外部约束和内生动力的关系</strong>：用最严格制度最严密法治保护生态环境，保持常态化外部压力；<br>
+        ⑤ <strong>“双碳”承诺和自主行动的关系</strong>：承诺确定不移，但路径、方式、节奏、力度由我们自己作主。<br><br>
+        <strong>“双碳”目标的正确表述：</strong><br>
+        · 2030年前碳达峰，2060年前碳中和；<br>
+        · <em class="hl">实现碳达峰碳中和，等不得也急不得</em>，不可能毕其功于一役；<br>
+        · 坚持稳中求进、逐步实现，<em class="hl">决不能搞“碳冲锋”、“运动式减碳”</em>。<br>
+        ⑤项把“防止”换成了“开展”，方向完全相反。<br><br>
+        <strong>“两山”理念的完整内涵：</strong><br>
+        · 绿水青山就是金山银山；<br>
+        · 冰天雪地也是金山银山；<br>
+        · 保护生态环境就是保护生产力，改善生态环境就是发展生产力。<br><br>
+        <strong>生态环境的定位：</strong><br>
+        良好生态环境是<em class="hl">最公平的公共产品，是最普惠的民生福祉</em>。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“自然恢复为主”换成“人工修复为主”——<strong>已经考过</strong>；<br>
+        · 把“防止碳冲锋”换成“开展碳冲锋”——<strong>已经考过</strong>；<br>
+        · 把“最普惠的民生福祉”换成“最基本的民生福祉”——<strong>错</strong>，是“最普惠”；<br>
+        · 把“高质量发展和高水平保护”换成“高速发展和低水平保护”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 30 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">30</span>
+      <span class="tag">总体国家安全观 · 大安全理念</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于总体国家安全观，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>坚持以<strong>政治安全为保障</strong>，坚持国家安全一切为了国家政权安全 <span class="bad">✗ 应为“以政治安全为根本”</span></div>
+      <div class="opt"><b>B．</b>强调<strong>发展重于安全</strong> <span class="bad">✗ 发展和安全并重</span></div>
+      <div class="opt"><b>C．</b>强调“大安全”理念，涵盖政治、军事、国土、科技、资源等诸多领域 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>总体国家安全观是追求<strong>绝对安全</strong>，是安全泛化 <span class="bad">✗ 不是绝对安全，不是安全泛化</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：五个“以”的完整表述</span>
+        · 以<em class="hl">人民安全</em>为宗旨；<br>
+        · 以<em class="hl">政治安全</em>为根本；<br>
+        · 以<em class="hl">经济安全</em>为基础；<br>
+        · 以<em class="hl">军事科技文化社会安全</em>为保障；<br>
+        · 以<em class="hl">促进国际安全</em>为依托。<br>
+        A项把“政治安全为根本”换成了“政治安全为保障”，是固定搭配错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：总体国家安全观完整体系</span>
+        <strong>总体国家安全观的关键在“总体”：</strong><br>
+        · “总体”是新时代中国国家安全的<em class="hl">灵魂</em>；<br>
+        · 强调打<em class="hl">总体战</em>，形成汇聚党政军民学各战线各方面各层级的强大合力；<br>
+        · 突出<em class="hl">大安全</em>理念，涵盖政治、军事、国土、经济、金融、文化、社会、科技、网络、粮食、生态、资源、核、海外利益、太空、深海、极地、生物、人工智能、数据等诸多领域。<br><br>
+        <strong>大安全 ≠ 安全泛化 ≠ 绝对安全：</strong><br>
+        · 大安全是对国家生存和可持续发展的维护；<br>
+        · <em class="hl">不是安全泛化，更不是追求绝对安全</em>。D项是典型的错误表述。<br><br>
+        <strong>发展和安全的关系：</strong><br>
+        · 发展是安全的<em class="hl">基础</em>——发展解决的是动力问题；<br>
+        · 安全是发展的<em class="hl">前提</em>——安全解决的是保障问题；<br>
+        · 发展和安全是一体之两翼、驱动之双轮；<br>
+        · <em class="hl">坚持在发展中固安全，在安全中谋发展</em>。<br>
+        B项“发展重于安全”违背了统筹发展和安全的要求。<br><br>
+        <strong>政治安全的核心：</strong><br>
+        政治安全的核心是<em class="hl">政权安全和制度安全</em>，最根本的就是维护中国共产党的领导和执政地位、维护中国特色社会主义制度。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“政治安全为根本”换成“政治安全为保障”——<strong>已经考过</strong>；<br>
+        · 把“发展和安全并重”换成“发展重于安全”——<strong>已经考过</strong>；<br>
+        · 把“大安全”换成“绝对安全”“安全泛化”——<strong>已经考过</strong>；<br>
+        · 把“以人民安全为宗旨”换成“以人民安全为根本”——<strong>错</strong>，根本是政治安全。
+      </div>
+    </div>
+  </div>
+
+  <!-- 31 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">31</span>
+      <span class="tag">习近平强军思想 · 军委主席负责制</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列关于习近平强军思想的表述<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>必须牢固树立<strong>科技</strong>这个唯一的根本的标准 <span class="bad">✗ 应为“战斗力”</span></div>
+      <div class="opt"><b>B．</b><strong>装备</strong>是核心战斗力 <span class="bad">✗ 应为“科技”</span></div>
+      <div class="opt"><b>C．</b>军委主席负责制在党领导军队的一整套制度体系中处于最高层次、居于统领地位 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>到<strong>2035年</strong>把人民军队全面建成世界一流军队 <span class="bad">✗ 应为“本世纪中叶”</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：唯一的根本的标准</span>
+        <em class="hl">战斗力</em>是人民军队唯一的根本的标准，不是“科技”。A项是概念偷换。<br>
+        <em class="hl">科技是核心战斗力</em>——B项把“核心战斗力”的主体换成了“装备”，是主体错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：强军思想完整知识体系</span>
+        <strong>新时代强军目标：</strong><br>
+        建设一支<em class="hl">听党指挥、能打胜仗、作风优良</em>的人民军队。<br>
+        · 听党指挥是<em class="hl">灵魂</em>——决定军队建设的政治方向；<br>
+        · 能打胜仗是<em class="hl">核心</em>——反映军队的根本职能和军队建设的根本指向；<br>
+        · 作风优良是<em class="hl">保证</em>——关系军队的性质、宗旨、本色。<br><br>
+        <strong>国防和军队现代化新“三步走”战略：</strong><br>
+        · 到<em class="hl">2027年</em>实现建军一百年奋斗目标；<br>
+        · 到<em class="hl">2035年</em>基本实现国防和军队现代化；<br>
+        · 到<em class="hl">本世纪中叶</em>全面建成世界一流军队。<br>
+        D项把“本世纪中叶”换成了“2035年”，是时间错配。<br><br>
+        <strong>“五个强军”布局：</strong><br>
+        · 政治建军——<em class="hl">立军之本</em>；<br>
+        · 改革强军——<em class="hl">必由之路</em>；<br>
+        · 科技强军——<em class="hl">强大引擎</em>；<br>
+        · 人才强军——<em class="hl">根本大计</em>；<br>
+        · 依法治军——<em class="hl">法治保障</em>。<br><br>
+        <strong>军委主席负责制的定位：</strong><br>
+        · 军委主席负责制是坚持党对人民军队绝对领导的<em class="hl">根本制度和根本实现形式</em>；<br>
+        · 在党领导军队的一整套制度体系中处于<em class="hl">最高层次、居于统领地位</em>。<br><br>
+        <strong>“建军之本”vs“立军之本”：</strong><br>
+        · <em class="hl">党对军队的绝对领导</em>是人民军队的建军之本、强军之魂；<br>
+        · <em class="hl">政治建军</em>是人民军队的立军之本。<br>
+        记法：没有党哪来军队→党的领导是“建军”；建完军队要立得住→政治是“立军”。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“战斗力是唯一的根本的标准”换成“科技”——<strong>已经考过</strong>；<br>
+        · 把“科技是核心战斗力”换成“装备是核心战斗力”——<strong>已经考过</strong>；<br>
+        · 把“本世纪中叶”建成世界一流军队换成“2035年”——<strong>已经考过</strong>；<br>
+        · 把“政治建军是立军之本”换成“科技强军是立军之本”——<strong>高频坑</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 32 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">32</span>
+      <span class="tag">思想发展时间线 · 排序</span>
+      <span class="ans ok">答案 C（②④①③）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列事项按发生时间先后顺序排序<strong>正确</strong>的是？</div>
+      <div class="opt"><b>①</b> 首次正式提出和系统阐述习近平文化思想 <span class="good">2023年</span></div>
+      <div class="opt"><b>②</b> 首次提出“绿水青山就是金山银山”科学论断 <span class="good">2005年</span></div>
+      <div class="opt"><b>③</b> 首次提出并全面阐述习近平党建思想 <span class="good">2026年（材料背景）</span></div>
+      <div class="opt"><b>④</b> 首次提出总体国家安全观 <span class="good">2014年</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：重要思想发展完整时间线</span>
+        <table style="margin-top:6px;box-shadow:none;border:1px solid var(--line);">
+          <tr><th style="width:14%;">时间</th><th style="width:36%;">重要思想/论断</th><th>提出背景</th></tr>
+          <tr><td class="k">2005年</td><td>“绿水青山就是金山银山”</td><td>时任浙江省委书记习近平在安吉余村提出</td></tr>
+          <tr><td class="k">2014年</td><td>总体国家安全观</td><td>中央国家安全委员会第一次全体会议</td></tr>
+          <tr><td class="k">2017年</td><td>习近平新时代中国特色社会主义思想写入党章</td><td>党的十九大</td></tr>
+          <tr><td class="k">2023年</td><td>习近平文化思想</td><td>全国宣传思想文化工作会议正式提出</td></tr>
+          <tr><td class="k">2026年</td><td>习近平党建思想</td><td>全国党建工作座谈会正式提出（材料背景）</td></tr>
+        </table>
+        <br>
+        <strong>排序逻辑：</strong><br>
+        · 先有“两山”理念（2005）→ 总体国家安全观（2014）→ 习近平文化思想（2023）→ 习近平党建思想（2026）。<br>
+        正确顺序：<em class="hl">② → ④ → ① → ③</em>。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“两山”理念的时间从2005年换成2012年（十八大）——<strong>错</strong>，是2005年在浙江提出的；<br>
+        · 把“总体国家安全观”的时间从2014年换成2012年——<strong>错</strong>，是2014年中央国安委第一次会议；<br>
+        · 把“习近平文化思想”的时间从2023年换成2017年——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 33 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">33</span>
+      <span class="tag">开辟马克思主义中国化时代化新境界</span>
+      <span class="ans ok">答案 D（4项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于开辟马克思主义中国化时代化新境界，下列说法<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 中国共产党为什么能，中国特色社会主义为什么好，归根到底是马克思主义行，是中国化时代化的马克思主义行 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 要尊重人民首创精神，注重从人民的创造性实践中总结新鲜经验 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 要拓宽理论视野，以海纳百川的开放胸襟学习和借鉴人类社会一切优秀文明成果 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 要牢固树立大历史观，以更宽广的视野、更长远的眼光把握世界历史的发展脉络 <span class="good">✓</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：马克思主义中国化时代化的完整逻辑</span>
+        <strong>“两个行”的完整表述：</strong><br>
+        <em class="hl">中国共产党为什么能，中国特色社会主义为什么好，归根到底是马克思主义行，是中国化时代化的马克思主义行。</em><br>
+        注意：是“两个行”——马克思主义行 + 中国化时代化的马克思主义行，不是只说一个。<br><br>
+        <strong>理论创新的四条路径：</strong><br>
+        ① <strong>尊重人民首创精神</strong>——从人民群众的创造性实践中总结新鲜经验；<br>
+        ② <strong>拓宽理论视野</strong>——以海纳百川的开放胸襟学习借鉴人类社会一切优秀文明成果；<br>
+        ③ <strong>树立大历史观</strong>——以更宽广的视野、更长远的眼光把握世界历史的发展脉络和正确走向；<br>
+        ④ <strong>坚持问题导向</strong>——回答并指导解决问题是理论的根本任务。<br><br>
+        <strong>“大历史观”是什么？</strong><br>
+        大历史观就是<em class="hl">从历史长河、时代大潮、全球风云中分析演变机理、探究历史规律</em>，提出因应的战略策略，增强工作的系统性、预见性、创造性。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“两个行”只保留一个——<strong>错</strong>，是两个行；<br>
+        · 把“人民首创精神”换成“领导干部首创精神”——<strong>错</strong>；<br>
+        · 把“一切优秀文明成果”换成“一切西方文明成果”——<strong>错</strong>，是“一切优秀文明成果”，不限于西方。
+      </div>
+    </div>
+  </div>
+
+  <!-- 34 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">34</span>
+      <span class="tag">全面从严治党 · 制度建设与党性党风党纪</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于全面从严治党，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b><strong>政治建设</strong>是党的基础性建设 <span class="bad">✗ 思想建设是基础性建设</span></div>
+      <div class="opt"><b>B．</b>党性是根本，<strong>党纪是表现，党风是保障</strong> <span class="bad">✗ 应为“党风是表现，党纪是保障”</span></div>
+      <div class="opt"><b>C．</b>从严治党要靠思想教育，也要靠制度保障，要把制度建设贯穿到党的各项建设之中 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>推动全面从严治党向纵深发展，<strong>基础在治，关键在全面</strong> <span class="bad">✗ 应为“基础在全面，关键在严，要害在治”</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：政治建设 vs 思想建设</span>
+        · <em class="hl">政治建设</em>是党的<em class="hl">根本性建设</em>，决定党的建设方向和效果；<br>
+        · <em class="hl">思想建设</em>是党的<em class="hl">基础性建设</em>。<br>
+        A项把“基础性建设”安到了“政治建设”头上，是层级错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：全面从严治党完整体系</span>
+        <strong>“三个在”的完整表述：</strong><br>
+        全面从严治党，<em class="hl">核心是加强党的领导，基础在全面，关键在严，要害在治</em>。<br>
+        · 基础在全面：管全党、治全党，全覆盖；<br>
+        · 关键在严：真管真严、敢管敢严、长管长严；<br>
+        · 要害在治：从党中央到基层党支部，都要肩负起主体责任。<br>
+        D项把“基础在全面、关键在严、要害在治”换成了“基础在治、关键在全面”，是顺序错配。<br><br>
+        <strong>党性、党风、党纪的关系：</strong><br>
+        · <em class="hl">党性是根本</em>——决定作风和纪律的内在品质；<br>
+        · <em class="hl">党风是表现</em>——党性的外在体现；<br>
+        · <em class="hl">党纪是保障</em>——为党性、党风提供制度约束。<br>
+        B项把“党风是表现、党纪是保障”说反了。<br><br>
+        <strong>新时代党的建设总要求（六个层次）：</strong><br>
+        · 政治建设——统领；<br>
+        · 思想建设——基础；<br>
+        · 组织建设——优势所在、力量所在；<br>
+        · 作风建设——保持血肉联系；<br>
+        · 纪律建设——治本之策；<br>
+        · 制度建设——贯穿其中；<br>
+        · 反腐败斗争——最彻底的自我革命。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“思想建设是基础性建设”换成“政治建设”——<strong>已经考过</strong>；<br>
+        · 把“党风是表现、党纪是保障”互换——<strong>已经考过</strong>；<br>
+        · 把“基础在全面、关键在严、要害在治”换成“基础在治、关键在全面”——<strong>已经考过</strong>；<br>
+        · 把“制度建设贯穿其中”换成“制度建设是统领”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 35 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">35</span>
+      <span class="tag">七种思维能力 · 对应辨析</span>
+      <span class="ans ok">答案 D（②④）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列论述与其所蕴含的思维方式对应<strong>正确</strong>的是？</div>
+      <div class="opt"><b>①</b> 供给和需求两侧都有，但矛盾的主要方面在供给侧——<strong>底线思维</strong> <span class="bad">✗ 应为“辩证思维”</span></div>
+      <div class="opt"><b>②</b> 既要“操其要于上”，加强战略谋划和顶层设计，也要“分其详于下”——<strong>系统思维</strong> <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 让广大党员、干部受警醒、明底线、知敬畏——<strong>辩证思维</strong> <span class="bad">✗ 应为“底线思维”</span></div>
+      <div class="opt"><b>④</b> 任何一项事业，都需要远近兼顾、深谋远虑——<strong>战略思维</strong> <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：七种思维能力的对应</span>
+        · <strong>战略思维</strong>：全局、长远、大势——远近兼顾、深谋远虑；<br>
+        · <strong>历史思维</strong>：以史为鉴、知古鉴今；<br>
+        · <strong>辩证思维</strong>：矛盾分析、两点论与重点论——供给和需求两侧都有，矛盾主要方面在供给侧；<br>
+        · <strong>系统思维</strong>：整体性、协同性——操其要于上、分其详于下；<br>
+        · <strong>创新思维</strong>：打破常规、开拓创新；<br>
+        · <strong>法治思维</strong>：依法办事、规则意识；<br>
+        · <strong>底线思维</strong>：从最坏处准备、划红线明底线——明底线、知敬畏。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：七种思维能力的典型表述</span>
+        <table style="margin-top:6px;box-shadow:none;border:1px solid var(--line);">
+          <tr><th style="width:22%;">思维能力</th><th>典型表述</th></tr>
+          <tr><td class="k">战略思维</td><td>远近兼顾、深谋远虑；不谋全局者不足谋一域</td></tr>
+          <tr><td class="k">历史思维</td><td>以史为鉴、知古鉴今；历史是最好的教科书</td></tr>
+          <tr><td class="k">辩证思维</td><td>两点论与重点论；矛盾的主要方面；危中有机</td></tr>
+          <tr><td class="k">系统思维</td><td>整体谋划、协同推进；操其要于上、分其详于下</td></tr>
+          <tr><td class="k">创新思维</td><td>打破常规、开拓创新；因时而变、随势而变</td></tr>
+          <tr><td class="k">法治思维</td><td>依法办事、于法有据；法无授权不可为</td></tr>
+          <tr><td class="k">底线思维</td><td>从最坏处准备、明底线知敬畏、划红线</td></tr>
+        </table>
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“矛盾主要方面”对应到“底线思维”——<strong>已经考过</strong>；<br>
+        · 把“明底线知敬畏”对应到“辩证思维”——<strong>已经考过</strong>；<br>
+        · 把“远近兼顾”对应到“系统思维”——<strong>错</strong>，是战略思维；<br>
+        · 把“操其要于上”对应到“战略思维”——<strong>错</strong>，是系统思维。
+      </div>
+    </div>
+  </div>
+
+  <!-- 36 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">36</span>
+      <span class="tag">马克思主义基本原理 · 共产主义</span>
+      <span class="ans ok">答案 D</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列关于马克思主义论述<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>马克思科学揭示了人类社会最终走向共产主义的必然趋势 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>唯物史观和剩余价值学说是马克思一生最伟大的两个发现 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>实践观点是马克思主义哲学的基础，贯穿于全部辩证唯物主义和历史唯物主义 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>当实现共产主义后，<strong>劳动不再是生活第一需要</strong> <span class="bad">✗ 共产主义社会劳动成为生活第一需要</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：共产主义社会的劳动</span>
+        在共产主义社会，<em class="hl">劳动成为生活第一需要</em>——不是“不再是”，而是“成为”。D项把“成为”换成了“不再是”，方向完全相反。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：马克思主义基本原理核心知识</span>
+        <strong>马克思一生最伟大的两个发现：</strong><br>
+        · <em class="hl">唯物史观</em>——揭示了人类社会发展的一般规律；<br>
+        · <em class="hl">剩余价值学说</em>——揭示了资本主义剥削的秘密。<br>
+        这两个发现使社会主义从空想变为科学。<br><br>
+        <strong>共产主义社会的基本特征：</strong><br>
+        · 物质财富极大丰富；<br>
+        · <em class="hl">社会成员共同占有全部生产资料</em>；<br>
+        · 消费资料按需分配；<br>
+        · 阶级差别和重大社会差别消失；<br>
+        · <em class="hl">劳动成为生活第一需要</em>；<br>
+        · 每个人自由而全面的发展。<br><br>
+        <strong>实践观点的地位：</strong><br>
+        实践观点是马克思主义<em class="hl">认识论</em>的首要的和基本的观点，是马克思主义哲学的基础，贯穿于全部辩证唯物主义和历史唯物主义。<br><br>
+        <strong>马克思主义的三个组成部分：</strong><br>
+        · 马克思主义哲学（辩证唯物主义和历史唯物主义）；<br>
+        · 马克思主义政治经济学；<br>
+        · 科学社会主义。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“劳动成为生活第一需要”换成“不再是”——<strong>已经考过</strong>；<br>
+        · 把“唯物史观和剩余价值学说”换成“辩证法和唯物主义”——<strong>错</strong>；<br>
+        · 把“实践观点是基础”换成“物质观点是基础”——<strong>错</strong>，实践观点是马克思主义哲学的核心观点。
+      </div>
+    </div>
+  </div>
+
+  <!-- 37 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">37</span>
+      <span class="tag">哲学原理对应 · 治国理政</span>
+      <span class="ans ok">答案 C（3项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列重要用语与其体现的哲学原理对应<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 两个结合——矛盾的普遍性与特殊性辩证统一 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 顶层设计和摸着石头过河相结合——认识来源于实践，又反作用于实践 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 守正创新——<strong>矛盾的普遍性和客观性</strong> <span class="bad">✗ 体现的是变与不变、继承与发展的关系</span></div>
+      <div class="opt"><b>④</b> 自我革命是跳出历史周期率的第二个答案——内因是事物发展变化的根本原因 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：守正创新体现什么哲学原理？</span>
+        守正创新体现的是<em class="hl">变与不变、继承与发展的内在联系</em>，不是“矛盾的普遍性和客观性”。③项是原理错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：治国理政用语的哲学对应</span>
+        <table style="margin-top:6px;box-shadow:none;border:1px solid var(--line);">
+          <tr><th style="width:38%;">重要用语</th><th>哲学原理</th></tr>
+          <tr><td class="k">两个结合</td><td>矛盾的普遍性与特殊性辩证统一</td></tr>
+          <tr><td class="k">顶层设计和摸着石头过河</td><td>认识来源于实践，又反作用于实践</td></tr>
+          <tr><td class="k">守正创新</td><td>变与不变、继承与发展的内在联系（辩证否定观）</td></tr>
+          <tr><td class="k">自我革命</td><td>内因是事物发展变化的根本原因</td></tr>
+          <tr><td class="k">问题导向</td><td>矛盾的普遍性和客观性</td></tr>
+          <tr><td class="k">系统观念</td><td>辩证唯物主义普遍联系的原理</td></tr>
+          <tr><td class="k">人民至上</td><td>历史唯物主义群众史观</td></tr>
+        </table>
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“守正创新”对应到“矛盾的普遍性和客观性”——<strong>已经考过</strong>；<br>
+        · 把“问题导向”对应到“系统观念”——<strong>错</strong>，问题导向对应矛盾观；<br>
+        · 把“自我革命”对应到“外因是根本原因”——<strong>错</strong>，是内因。
+      </div>
+    </div>
+  </div>
+
+  <!-- 38 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">38</span>
+      <span class="tag">马克思主义认识论 · 认识过程</span>
+      <span class="ans ok">答案 A</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于马克思主义认识论，下列说法<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>认识的发展过程是<strong>直线上升</strong>的 <span class="bad">✗ 认识是螺旋式上升、波浪式前进</span></div>
+      <div class="opt"><b>B．</b>理性认识依赖于感性认识 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>认识过程的第二次飞跃是从理性认识到实践的飞跃 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>认识具有反复性 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：认识是螺旋式上升</span>
+        认识的发展过程是<em class="hl">螺旋式上升、波浪式前进</em>，不是“直线上升”。A项是形而上学认识论的观点。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：马克思主义认识论完整框架</span>
+        <strong>认识的两次飞跃：</strong><br>
+        · <strong>第一次飞跃</strong>：从<em class="hl">感性认识</em>到<em class="hl">理性认识</em>的飞跃；<br>
+        · <strong>第二次飞跃</strong>：从<em class="hl">理性认识</em>到<em class="hl">实践</em>的飞跃——这次飞跃更重要，因为认识世界的目的是改造世界。<br><br>
+        <strong>感性认识与理性认识的关系：</strong><br>
+        · 感性认识是理性认识的<em class="hl">基础</em>；<br>
+        · 理性认识依赖于感性认识；<br>
+        · 感性认识有待于发展为理性认识；<br>
+        · 两者相互渗透、相互包含。<br><br>
+        <strong>认识的三个特性：</strong><br>
+        · <strong>反复性</strong>：由于客观条件和主观条件的限制，认识往往需要经过多次反复才能完成；<br>
+        · <strong>无限性</strong>：人类认识是无限发展的；<br>
+        · <strong>上升性</strong>：认识是螺旋式上升、波浪式前进。<br><br>
+        <strong>实践与认识的辩证关系：</strong><br>
+        · 实践决定认识：实践是认识的<em class="hl">来源、动力、目的、检验标准</em>；<br>
+        · 认识反作用于实践：正确认识促进实践，错误认识阻碍实践。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“螺旋式上升”换成“直线上升”——<strong>已经考过</strong>；<br>
+        · 把“第二次飞跃是理性认识到实践”换成“实践到理性”——<strong>错</strong>；<br>
+        · 把“理性认识依赖于感性认识”换成“感性认识依赖于理性认识”——<strong>错</strong>，基础是感性。
+      </div>
+    </div>
+  </div>
+
+  <!-- 39 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">39</span>
+      <span class="tag">人工智能与意识论</span>
+      <span class="ans ok">答案 D</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">人工智能的出现对哲学意识论的意义是？</div>
+      <div class="opt"><b>A．</b><strong>否定</strong>了意识对物质的能动性 <span class="bad">✗ 恰恰证明了意识对物质的能动性</span></div>
+      <div class="opt"><b>B．</b><strong>根本改变</strong>了人类意识活动的规律性 <span class="bad">✗ 意识活动的规律性没有改变</span></div>
+      <div class="opt"><b>C．</b><strong>降低</strong>了人在意识活动中的主体性 <span class="bad">✗ 人的主体性没有降低</span></div>
+      <div class="opt"><b>D．</b>表明了意识活动与其他物质运动形式的同一性 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：人工智能的哲学意义</span>
+        人工智能的出现表明，意识活动并不是什么神秘的东西，<em class="hl">它与其他物质运动形式具有同一性</em>——意识不过是高度发达的物质（人脑）的机能和属性。D项正确。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：意识论完整框架</span>
+        <strong>意识的本质：</strong><br>
+        · 意识是<em class="hl">人脑的机能和属性</em>；<br>
+        · 意识是<em class="hl">客观世界的主观映象</em>；<br>
+        · 意识是<em class="hl">社会的产物</em>（社会实践、特别是劳动在意识产生中起决定性作用）。<br><br>
+        <strong>人工智能与人类意识的区别：</strong><br>
+        · 人工智能<em class="hl">模拟</em>人类思维，但<strong>不能取代</strong>人类意识；<br>
+        · 人工智能没有<em class="hl">社会性、能动性、创造性</em>；<br>
+        · 人工智能是<em class="hl">人类意识的物化</em>，是人类意识的延伸和放大。<br><br>
+        <strong>为什么A、B、C错？</strong><br>
+        · A错：人工智能恰恰证明了意识对物质的能动作用（人类创造了AI）；<br>
+        · B错：人类意识活动的规律性没有改变，AI只是模拟；<br>
+        · C错：人的主体性没有降低，AI是人的工具，人是AI的主人。<br><br>
+        <strong>物质与意识的辩证关系：</strong><br>
+        · 物质决定意识；<br>
+        · 意识对物质具有<em class="hl">能动的反作用</em>——正确意识促进，错误意识阻碍。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“同一性”换成“否定意识能动性”——<strong>已经考过</strong>；<br>
+        · 把“不能取代”换成“可以取代”——<strong>错</strong>；<br>
+        · 把“人脑的机能”换成“大脑的机能”（没有“人”字）——<strong>错</strong>，意识是人脑的机能，动物大脑没有意识。
+      </div>
+    </div>
+  </div>
+
+  <!-- 40 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">40</span>
+      <span class="tag">投资于物和投资于人 · 矛盾双方关系</span>
+      <span class="ans ok">答案 D</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列对“投资于物和投资于人紧密结合”的理解，<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>着眼于人民群众的整体利益要求 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>符合唯物辩证法的系统优化方法 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>表明正确认识对实践的指导作用 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>凸显<strong>矛盾双方对立</strong>推动事物发展 <span class="bad">✗ 凸显的是矛盾双方的统一性/相互促进</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：投资于物和投资于人是统一关系</span>
+        投资于物和投资于人不是对立关系，而是<em class="hl">相互促进、双向赋能</em>的关系——投资于物为国内大循环提供“硬件”支撑，投资于人则为国内市场需求注入“软件”动能，二者相互配合、相互促进。D项说“矛盾双方对立推动事物发展”，把统一关系说成了对立关系，是矛盾属性错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：矛盾同一性与斗争性的完整辨析</span>
+        <strong>矛盾的两个基本属性：</strong><br>
+        · <strong>同一性</strong>：矛盾双方<em class="hl">相互依存、相互贯通</em>——在一定条件下可以相互转化；<br>
+        · <strong>斗争性</strong>：矛盾双方<em class="hl">相互排斥、相互分离</em>的性质和趋势。<br><br>
+        <strong>投资于物和投资于人的关系：</strong><br>
+        · 不是“对立推动”，而是<em class="hl">统一性为主导</em>——两者相互依存、相互促进；<br>
+        · 投资于物提供硬件支撑（基础设施、设备等）；<br>
+        · 投资于人提供软件动能（教育、医疗、技能培训等）；<br>
+        · 二者双向赋能，让经济更有活力。<br><br>
+        <strong>系统优化方法：</strong><br>
+        系统优化方法要求<em class="hl">立足整体、统筹全局</em>，实现整体功能大于部分功能之和。投资于物和投资于人紧密结合，正是系统优化方法的体现——不能顾此失彼，要统筹推进。<br><br>
+        <strong>正确认识对实践的指导作用：</strong><br>
+        “坚持投资于物和投资于人紧密结合”这一正确认识，指导着经济工作的实践——C项正确。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“统一性”换成“对立性”——<strong>已经考过</strong>；<br>
+        · 把“系统优化方法”换成“矛盾分析法”——<strong>不准确</strong>，这里是系统观念；<br>
+        · 把“双向赋能”换成“单向带动”——<strong>错</strong>，是双向的。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 挖坑总结 ============ -->
+<section>
+  <h2 class="sec">二、挖坑总结：21-40题覆盖的全部坑型</h2>
+  <p class="sec-desc">21-40题覆盖了科技、政治制度、统一战线、民族、法治、文化、生态、安全、强军、马原、认识论等多个模块。把坑归成十类，下次看到类似手法就能条件反射地警觉。</p>
+
+  <div class="trapgrid">
+    <div class="trapcard">
+      <h4><span class="n">1</span>固定搭配错配</h4>
+      <ul>
+        <li>竞争性支持取代稳定支持 → 应为“相结合”（第21题）</li>
+        <li>投早投大投短期 → 应为“投小投长期”（第21题）</li>
+        <li>政治安全为保障 → 应为“根本”（第30题）</li>
+        <li>战斗力标准换成科技 → 应为“战斗力”（第31题）</li>
+        <li>基础在治关键在全面 → 应为“基础在全面、关键在严、要害在治”（第34题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">2</span>主体/属性错配</h4>
+      <ul>
+        <li>理论创新源泉：领导干部 → 人民群众（第3题）</li>
+        <li>执政兴国支柱：非公有制 → 国有企业（第13题）</li>
+        <li>城乡融合切入点：市域 → 县域（第16题）</li>
+        <li>产学研：国家主导 → 企业主导（第21题）</li>
+        <li>装备是核心战斗力 → 科技是核心战斗力（第31题）</li>
+        <li>文化体制中心环节：育人才 → 激发创新创造活力（第27题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">3</span>近义词/概念偷换</h4>
+      <ul>
+        <li>社会效益 → 经济效益（第2题）</li>
+        <li>公益性 → 市场化（第2题）</li>
+        <li>化学反应 → 物理反应（第4题）</li>
+        <li>根本途径 → 前提（第4题）</li>
+        <li>质量第一 → 效益第一（第12题）</li>
+        <li>市场评价贡献 → 收益评价贡献（第13题）</li>
+        <li>人心力量问题 → 道路方向问题（第23题）</li>
+        <li>互嵌式 → 集中式（第24题）</li>
+        <li>保护第一 → 修复第一（第27题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">4</span>方向/顺序颠倒</h4>
+      <ul>
+        <li>第二个结合：中国具体实际 ↔ 中华优秀传统文化（第4题）</li>
+        <li>战略灵活性+策略原则性 → 战略原则性+策略灵活性（第7题）</li>
+        <li>守正把握时代+创新不迷失方向 → 说反（第7题）</li>
+        <li>已由 → 正由（第12题）</li>
+        <li>产业振兴 → 人才振兴（第15题）</li>
+        <li>基点 ↔ 龙头（第19题）</li>
+        <li>党风是表现、党纪是保障 → 说反（第34题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">5</span>绝对化 / 一刀切</h4>
+      <ul>
+        <li>“局部”丰富发展 → 太绝对（第1题）</li>
+        <li>“绝对平衡” → 应为相对平衡（第17题）</li>
+        <li>“完全消除”城乡差别 → 绝对化（第16题）</li>
+        <li>“同步富裕” → 绝对化（第9题）</li>
+        <li>“逐步取消地方语言文字” → 绝对化（第24题）</li>
+        <li>“开展碳冲锋” → 绝对化（第29题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">6</span>主体/范围错位</h4>
+      <ul>
+        <li>农村改革主线：政府和市场 → 农民和土地（第10题）</li>
+        <li>教育原则：均等性 → 公益性（第10题）</li>
+        <li>人口工作方式：管为主 → 引导激励（第10题）</li>
+        <li>关键关系：国际和国内 → 政府和市场（第13题）</li>
+        <li>教育龙头：基础教育 → 高等教育（第19题）</li>
+        <li>法治主体工程：法治社会 → 法治政府（第25题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">7</span>时态/阶段错配</h4>
+      <ul>
+        <li>“正由”高速转向高质量 → 应为“已由”（第12题）</li>
+        <li>“局部”丰富发展 → 应为“全面”（第1题）</li>
+        <li>“前提” → 应为“根本途径”（第4题）</li>
+        <li>2035年建成世界一流军队 → 应为“本世纪中叶”（第31题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">8</span>概念层级/范围大小</h4>
+      <ul>
+        <li>“四个相统一”对应错位（第18题）</li>
+        <li>“六个必须坚持”与俗语对应错位（第5题）</li>
+        <li>“高质量发展”范围：经济领域 → 方方面面（第12题）</li>
+        <li>“生活富裕”不对应某一振兴，是综合结果（第15题）</li>
+        <li>“基本政治制度就是多党合作” → 应为“三个基本政治制度”（第22题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">9</span>本身正确但无关</h4>
+      <ul>
+        <li>第5题①是底线思维，④是重点论，都不是系统观念</li>
+        <li>第7题B、C、D都是中国式现代化的关系，但表述有误</li>
+        <li>第35题七种思维能力的对应错位</li>
+        <li><strong>对策</strong>：先抓材料中心词，再对选项</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">10</span>哲学原理错配</h4>
+      <ul>
+        <li>守正创新 → 应为变与不变、继承与发展（第37题）</li>
+        <li>认识是直线上升 → 应为螺旋式上升（第38题）</li>
+        <li>投资于物和投资于人 → 应为统一性而非对立性（第40题）</li>
+        <li>人工智能否定意识能动性 → 恰恰证明（第39题）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 固定搭配速记表 ============ -->
+<section>
+  <h2 class="sec">三、固定搭配速记表（21-40题重点）</h2>
+  <p class="sec-desc">政治理论的失分大头不是“不懂”，而是“搭配记混”。以下是从21-40题中提炼的高频固定搭配。</p>
+
+  <table>
+    <thead>
+      <tr><th style="width:36%;">关键词</th><th>正确搭配</th><th style="width:16%;">出处</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="k">基础研究投入机制</td><td><strong>竞争性支持和稳定支持相结合</strong></td><td>第21题</td></tr>
+      <tr><td class="k">科技金融“四投”</td><td><strong>投早、投小、投长期、投硬科技</strong></td><td>第21题</td></tr>
+      <tr><td class="k">产学研融合</td><td><strong>企业主导</strong>的产学研深度融合</td><td>第21题</td></tr>
+      <tr><td class="k">根本政治制度</td><td><strong>人民代表大会制度</strong>（只有一个）</td><td>第22题</td></tr>
+      <tr><td class="k">基本政治制度</td><td><strong>三个</strong>：多党合作和政治协商制度、民族区域自治制度、基层群众自治制度</td><td>第22题</td></tr>
+      <tr><td class="k">统一战线本质要求</td><td>大团结大联合，解决<strong>人心和力量问题</strong></td><td>第23题</td></tr>
+      <tr><td class="k">统一战线最根本问题</td><td><strong>坚持党的领导</strong>（不是民主协商）</td><td>第23题</td></tr>
+      <tr><td class="k">民族工作主线</td><td><strong>铸牢中华民族共同体意识</strong></td><td>第24题</td></tr>
+      <tr><td class="k">社会结构</td><td><strong>互嵌式</strong>（不是集中式）</td><td>第24题</td></tr>
+      <tr><td class="k">文化认同</td><td><strong>最深层次的认同</strong></td><td>第24题</td></tr>
+      <tr><td class="k">全面依法治国总目标</td><td>建设中国特色社会主义法治体系、建设社会主义法治国家</td><td>第25题</td></tr>
+      <tr><td class="k">全面依法治国总抓手</td><td><strong>建设中国特色社会主义法治体系</strong></td><td>第25题</td></tr>
+      <tr><td class="k">法治建设主体工程</td><td><strong>法治政府建设</strong>（不是法治社会）</td><td>第25题</td></tr>
+      <tr><td class="k">改革与法治</td><td>缺乏法律依据的，<strong>通过法定程序获得授权</strong>（不是暂缓）</td><td>第26题</td></tr>
+      <tr><td class="k">意识形态根本制度</td><td><strong>马克思主义</strong>在意识形态领域指导地位</td><td>第27题</td></tr>
+      <tr><td class="k">文化体制中心环节</td><td><strong>激发创新创造活力</strong></td><td>第27题</td></tr>
+      <tr><td class="k">文化遗产保护</td><td><strong>保护第一</strong>、合理利用、最小干预</td><td>第27题</td></tr>
+      <tr><td class="k">就业定位</td><td><strong>最基本的民生、最大的民生</strong></td><td>第28题</td></tr>
+      <tr><td class="k">社会保障三个比喻</td><td><strong>安全网、调节器、减震器</strong></td><td>第28题</td></tr>
+      <tr><td class="k">生态修复</td><td><strong>以自然恢复为主，人工修复为辅</strong></td><td>第29题</td></tr>
+      <tr><td class="k">双碳</td><td>防止“<strong>碳冲锋</strong>”“运动式减碳”</td><td>第29题</td></tr>
+      <tr><td class="k">总体国家安全观五个“以”</td><td>人民安全为宗旨、政治安全为根本、经济安全为基础、军事科技文化社会安全为保障、促进国际安全为依托</td><td>第30题</td></tr>
+      <tr><td class="k">唯一根本标准</td><td><strong>战斗力</strong>（不是科技）</td><td>第31题</td></tr>
+      <tr><td class="k">核心战斗力</td><td><strong>科技</strong>（不是装备）</td><td>第31题</td></tr>
+      <tr><td class="k">强军三步走</td><td>2027建军百年、2035基本实现、<strong>本世纪中叶</strong>世界一流</td><td>第31题</td></tr>
+      <tr><td class="k">政治建设</td><td>党的<strong>根本性建设</strong>（不是基础性）</td><td>第34题</td></tr>
+      <tr><td class="k">思想建设</td><td>党的<strong>基础性建设</strong>（不是根本性）</td><td>第34题</td></tr>
+      <tr><td class="k">党性党风党纪</td><td>党性是根本、<strong>党风是表现、党纪是保障</strong></td><td>第34题</td></tr>
+      <tr><td class="k">全面从严治党“三个在”</td><td><strong>基础在全面、关键在严、要害在治</strong></td><td>第34题</td></tr>
+      <tr><td class="k">七种思维</td><td>战略、历史、辩证、系统、创新、法治、底线</td><td>第35题</td></tr>
+      <tr><td class="k">共产主义劳动</td><td>劳动<strong>成为</strong>生活第一需要（不是“不再是”）</td><td>第36题</td></tr>
+      <tr><td class="k">守正创新</td><td>变与不变、继承与发展的内在联系</td><td>第37题</td></tr>
+      <tr><td class="k">认识发展过程</td><td><strong>螺旋式上升、波浪式前进</strong>（不是直线上升）</td><td>第38题</td></tr>
+      <tr><td class="k">意识本质</td><td><strong>人脑的机能</strong>、客观世界的主观映象</td><td>第39题</td></tr>
+      <tr><td class="k">投资于物和投资于人</td><td><strong>统一性/相互促进</strong>（不是对立）</td><td>第40题</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 建议与提升 ============ -->
+<section>
+  <h2 class="sec">四、建议与提升：最后一个月怎么练</h2>
+  <p class="sec-desc">结合21-40题的复盘，以及政治理论的命题规律，给出可落地的提升路径。</p>
+
+  <div class="adv">
+    <h3><span class="num">1</span>用“知识网络”代替“孤立知识点”</h3>
+    <ul>
+      <li>提到“科技强国”，就要想到“三个第一”、科技金融“四投”、产学研企业主导、五个“强大”。</li>
+      <li>提到“全面依法治国”，就要想到总目标、总抓手、首要任务、主体工程、根本目的“五位一体”。</li>
+      <li>提到“总体国家安全观”，就要想到五个“以”、大安全≠安全泛化、发展和安全并重。</li>
+      <li>方法：每学一个点，问自己三个问题——<strong>它和谁对应？它属于哪个体系？命题人会怎么换皮？</strong></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">2</span>把固定搭配当“单词”来背</h3>
+    <ul>
+      <li>高频搭配：竞争性+稳定性、投早投小投长期投硬科技、企业主导产学研、法治政府是主体工程、自然恢复为主。</li>
+      <li>方法上，记“<strong>错误的替换项</strong>”比记“正确项”更有效——比如记住“不能是投大投短期、不能是国家主导、不能是法治社会”。</li>
+      <li>建议用本页的<strong>固定搭配速记表</strong>，每天花5分钟过一遍，考前一周重点滚动。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">3</span>建立“绝对词敏感度”</h3>
+    <ul>
+      <li>看到这些词就减速：<strong>局部、完全、绝对、同步、统一、高速、所有、一律、取代……</strong></li>
+      <li>反例积累：局部丰富发展、绝对平衡、完全消除城乡差别、同步富裕、竞争性取代稳定性、逐步取消地方语言文字。</li>
+      <li>规律：<em class="hl">凡是把复杂政策表述成“一个动作解决所有问题”的，基本都是错的。</em></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">4</span>用“逻辑反推”救不会的题</h3>
+    <ul>
+      <li>第21题：“竞争性取代稳定性”与基础研究周期长的特点矛盾——逻辑即可判错。</li>
+      <li>第24题：“逐步取消地方语言文字”违背民族平等原则——常识即可判错。</li>
+      <li>第29题：“开展碳冲锋”与“稳中求进”矛盾——政策方向即可判错。</li>
+      <li>考场时间紧张时，<em class="hl">逻辑反推 + 排除法</em>往往比硬啃知识点更快更准。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">5</span>“一一对应”原则贯穿全卷</h3>
+    <ul>
+      <li>第22题：根本政治制度→人大；基本政治制度→三个。</li>
+      <li>第25题：总目标、总抓手、首要任务、主体工程、根本目的——逐一对应。</li>
+      <li>第31题：政治建军→立军之本；党的领导→建军之本。</li>
+      <li>第35题：七种思维能力→逐一对应。</li>
+      <li>做题时问自己：<strong>“这句话的每一个部分，都能和题干一一对上吗？”</strong></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">6</span>把“往季高频点”当成必考点</h3>
+    <ul>
+      <li>第21题（科技金融四投）：投早投小投长期投硬科技，连续多季出现。</li>
+      <li>第31题（强军布局）：政治建军立军之本、科技是核心战斗力，是高频坑。</li>
+      <li>第34题（全面从严治党）：基础在全面、关键在严、要害在治，几乎每季都考。</li>
+      <li>结论：<em class="hl">往季复盘里被点名强调过的搭配和陷阱，下一季极大概率换皮重来。</em></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">7</span>错题按“坑型”归档，而不是按“题号”</h3>
+    <ul>
+      <li>不要只抄“我错在第X题”，而要写“我错在<strong>固定搭配没记住</strong>”或“我错在<strong>主体错配</strong>”。</li>
+      <li>同一坑型归到一起（如“固定搭配错配”下挂第21、30、31、34题），复习时看的是<strong>规律</strong>。</li>
+      <li>建议按上面十类坑型一一归档，两周后回看，检查是否还会二次入坑。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">8</span>政治素养的基本盘要稳</h3>
+    <ul>
+      <li>第26题（改革与法治）、第28题（民生vs民主）这类题靠的是<strong>基本政治素养</strong>，不是死记硬背。</li>
+      <li>平时多看新闻、多读原文，语感自然就有了。</li>
+      <li>最后一个月，建议每天花10分钟看《新闻联播》要点或《人民日报》评论，重点抓<strong>固定表述</strong>。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">9</span>时间分配与心态</h3>
+    <ul>
+      <li>政治理论20题，建议控制在<strong>15—18分钟</strong>内完成，为后面的行测模块留时间。</li>
+      <li>遇到“看不懂的知识点”先跳过，用排除法锁定“最不像”的选项，不要恋战。</li>
+      <li>心态：<em class="hl">政治理论是可以靠“背搭配 + 认坑型”在短期内提分的模块</em>——它比数量关系、资料分析更“性价比高”。</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  超格200题 · 21-40题深度复盘 · 毛细血管式拓展版 ｜ 基于《政治理论背诵手册》及考场思维整理<br>
+  内容仅供个人学习复习使用
+</footer>
+
+</div>
+</body>
+</html>

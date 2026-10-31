@@ -1688,3 +1688,558 @@
   #hexo-blog-encrypt .hbe-card-footer { padding: 0 18px 18px; }
   #hexo-blog-encrypt .hbe-card-title { font-size: 1.14rem; }
 }
+
+/* ============================================================
+   十、全站悬浮播放器 + /music/ 页面
+   ------------------------------------------------------------
+   播放器外壳在 #body-wrap 之外（pjax 不会销毁它），
+   所以这里只用 fixed 定位，不依赖任何父容器。
+   桌面：底部居中细条；移动端：右侧给 #rightside 让出 64px。
+   ============================================================ */
+
+#mplayer {
+  display: none;             /* 由 JS 确认有曲目后点亮，避免闪空壳 */
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  z-index: 95;
+  transform: translateX(-50%);
+  width: min(640px, calc(100vw - 32px));
+  border: 1px solid var(--my-line-strong);
+  border-radius: 13px;
+  background: var(--my-card-bg);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  backdrop-filter: blur(14px) saturate(1.1);
+  box-shadow: 0 2px 6px var(--my-shadow), 0 22px 44px -26px var(--my-shadow-strong);
+  color: var(--my-title);
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#mplayer[data-ready='1'] { display: block; }
+#mplayer[hidden] { display: none !important; }
+
+#mplayer #mp-audio { display: none; }
+
+/* --- 主条 --- */
+#mplayer .mp-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+}
+
+/* --- 按钮 --- */
+#mplayer .mp-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--my-text);
+  cursor: pointer;
+  transition: background .18s, color .18s, transform .12s;
+}
+
+#mplayer .mp-btn:hover { background: var(--my-accent-soft); color: var(--my-accent); }
+#mplayer .mp-btn:active { transform: scale(.92); }
+#mplayer .mp-btn:focus-visible { outline: 2px solid var(--my-accent); outline-offset: 2px; }
+
+#mplayer .mp-btn-play {
+  width: 32px;
+  height: 32px;
+  background: var(--my-accent);
+  color: #fff;
+}
+
+#mplayer .mp-btn-play:hover {
+  background: var(--my-accent);
+  color: #fff;
+  filter: brightness(1.1);
+}
+
+#mplayer .mp-i {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+#mplayer .mp-btn-play .mp-i { width: 15px; height: 15px; stroke-width: 0; }
+
+/* 播放态：暂停图标显示，播放图标隐藏 */
+#mplayer .mp-i-pause { display: none; }
+#mplayer[data-playing='1'] .mp-i-play { display: none; }
+#mplayer[data-playing='1'] .mp-i-pause { display: block; stroke: currentColor; stroke-width: 2.4; }
+
+/* --- 曲目信息 --- */
+#mplayer .mp-now {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 0 1 200px;
+}
+
+#mplayer .mp-title {
+  font-family: var(--my-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--my-title);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#mplayer .mp-artist {
+  font-size: 11px;
+  color: var(--my-text-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- 进度条 --- */
+#mplayer .mp-seekwrap {
+  flex: 1 1 auto;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+}
+
+#mplayer .mp-seek,
+#mplayer .mp-vol {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 16px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+#mplayer .mp-seek::-webkit-slider-runnable-track,
+#mplayer .mp-vol::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--my-line-strong);
+}
+
+#mplayer .mp-seek::-moz-range-track,
+#mplayer .mp-vol::-moz-range-track {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--my-line-strong);
+}
+
+#mplayer .mp-seek::-webkit-slider-thumb,
+#mplayer .mp-vol::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  margin-top: -4px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--my-accent);
+  opacity: 0;
+  transition: opacity .18s;
+}
+
+#mplayer .mp-seek::-moz-range-thumb,
+#mplayer .mp-vol::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--my-accent);
+}
+
+#mplayer .mp-seek:hover::-webkit-slider-thumb,
+#mplayer .mp-seek:focus-visible::-webkit-slider-thumb,
+#mplayer .mp-vol:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+#mplayer .mp-seek:hover::-webkit-slider-runnable-track,
+#mplayer .mp-seek:focus-visible::-webkit-slider-runnable-track {
+  background: var(--my-accent-line);
+}
+
+#mplayer .mp-vol { width: 62px; }
+
+/* --- 时间 --- */
+#mplayer .mp-time {
+  flex-shrink: 0;
+  display: flex;
+  gap: 3px;
+  font-size: 11px;
+  color: var(--my-text-soft);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--my-mono);
+}
+
+#mplayer .mp-sep { opacity: .5; }
+
+/* 缓冲中：进度条轻微呼吸，提示在等数据 */
+#mplayer[data-buffering='1'] .mp-seek::-webkit-slider-runnable-track {
+  animation: mpBuffer 1.1s ease-in-out infinite;
+}
+
+@keyframes mpBuffer {
+  0%, 100% { opacity: .45; }
+  50%      { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mplayer[data-buffering='1'] .mp-seek::-webkit-slider-runnable-track { animation: none; }
+}
+
+/* --- 播放列表面板 ---
+   面板是浮在条「上方」的。如果按普通流排在条后面，
+   因为 #mplayer 是 bottom 定位，一展开整条播放器就会往上跳 250px，
+   视觉上很跳。用 absolute + bottom:100% 让它脱离文档流。 */
+#mplayer .mp-list {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + 8px);
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  max-height: min(46vh, 320px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--my-line-strong);
+  border-radius: 11px;
+  background: var(--my-card-bg);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  backdrop-filter: blur(14px) saturate(1.1);
+  box-shadow: 0 2px 6px var(--my-shadow), 0 20px 40px -24px var(--my-shadow-strong);
+}
+
+#mplayer[data-list-open='1'] .mp-list { display: block; }
+
+#mplayer .mp-list-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 10px;
+  margin: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background .16s;
+}
+
+#mplayer .mp-list-item:hover { background: var(--my-accent-soft); }
+#mplayer .mp-list-item.is-current .mp-list-title { color: var(--my-accent); font-weight: 600; }
+
+#mplayer .mp-list-no {
+  flex-shrink: 0;
+  width: 18px;
+  font-size: 11px;
+  color: var(--my-text-soft);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+#mplayer .mp-list-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 1px;
+}
+
+#mplayer .mp-list-title {
+  font-size: 12.5px;
+  color: var(--my-title);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#mplayer .mp-list-artist {
+  font-size: 11px;
+  color: var(--my-text-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 收起后的小圆钮 */
+#mp-fab {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  z-index: 95;
+  transform: translateX(-50%);
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--my-line-strong);
+  border-radius: 50%;
+  background: var(--my-card-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 2px 6px var(--my-shadow), 0 16px 30px -20px var(--my-shadow-strong);
+  color: var(--my-accent);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s, color .2s;
+}
+
+#mp-fab:not([hidden]) { display: flex; }
+#mp-fab:hover { transform: translateX(-50%) translateY(-2px); }
+#mp-fab .mp-i { width: 18px; height: 18px; }
+
+/* 给底部留出空间，避免遮住正文最后几行 */
+body.has-mplayer { padding-bottom: 76px; }
+
+/* 窄屏：给右下角那组按钮让位，改成两行
+   第一行 = 播放 + 曲名 + 切歌 + 列表 + 收起
+   第二行 = 整条进度条
+   上一首/下一首必须留着 —— 「上下切歌」是核心需求，不能因为窄屏就砍掉。 */
+@media (max-width: 768px) {
+  #mplayer {
+    left: 8px;
+    right: 64px;
+    bottom: 10px;
+    transform: none;
+    width: auto;
+    font-size: 12px;
+  }
+
+  #mplayer .mp-bar {
+    flex-wrap: wrap;
+    gap: 6px;
+    row-gap: 0;
+    padding: 8px 10px 6px;
+  }
+
+  #mplayer #mp-toggle { order: 0; }
+  #mplayer .mp-now { order: 1; flex: 1 1 auto; min-width: 0; }
+  #mplayer #mp-prev { order: 2; }
+  #mplayer #mp-next { order: 3; }
+  #mplayer #mp-list-btn { order: 4; }
+  #mplayer #mp-fold { order: 5; }
+
+  /* 进度条独占第二行（order 必须大于所有按钮，否则会插到中间把切歌键挤下去） */
+  #mplayer .mp-seekwrap {
+    order: 6;
+    flex: 1 0 100%;
+    min-width: 0;
+    padding: 0 2px 2px;
+  }
+
+  /* 时间与音量折进播放列表面板/系统音量，窄屏不显示 */
+  #mplayer .mp-time,
+  #mplayer .mp-vol { display: none; }
+
+  #mp-fab {
+    left: auto;
+    right: 20px;
+    bottom: 10px;
+    transform: none;
+  }
+  #mp-fab:hover { transform: translateY(-2px); }
+
+  body.has-mplayer { padding-bottom: 82px; }
+}
+
+@media print {
+  #mplayer, #mp-fab { display: none !important; }
+  body.has-mplayer { padding-bottom: 0; }
+}
+
+/* ============================================================
+   十一、/music/ 页面
+   ============================================================ */
+
+#article-container .music-page { max-width: 100%; }
+
+#article-container .music-page .music-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--my-line);
+  margin-bottom: 6px;
+}
+
+#article-container .music-page h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--my-serif);
+  font-size: 1.6rem;
+  color: var(--my-title);
+}
+
+#article-container .music-page h1::before { content: none !important; display: none !important; }
+
+#article-container .music-page .music-sub {
+  margin: 6px 0 0;
+  font-size: .84rem;
+  color: var(--my-text-soft);
+}
+
+#article-container .music-page .music-sub-dot { opacity: .5; }
+
+#article-container .music-page .music-actions { display: flex; gap: 8px; }
+
+#article-container .music-page .music-btn {
+  padding: 7px 16px;
+  border: 1px solid var(--my-line-strong);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--my-text);
+  font-size: .84rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all .18s;
+}
+
+#article-container .music-page .music-btn-primary {
+  background: var(--my-accent);
+  border-color: var(--my-accent);
+  color: #fff;
+}
+
+#article-container .music-page .music-btn:hover { filter: brightness(1.06); }
+
+#article-container .music-page .music-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+#article-container .music-page .music-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  margin: 0;
+  border-bottom: 1px solid var(--my-line);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .16s;
+}
+
+#article-container .music-page .music-row:last-child { border-bottom: 0; }
+#article-container .music-page .music-row:hover { background: var(--my-accent-soft); }
+#article-container .music-page .music-row:focus-visible { outline: 2px solid var(--my-accent); outline-offset: 2px; }
+
+#article-container .music-page .music-no {
+  flex-shrink: 0;
+  width: 22px;
+  font-size: .82rem;
+  color: var(--my-text-soft);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* 正在播放的跳动指示 */
+#article-container .music-page .music-eq {
+  display: none;
+  align-items: flex-end;
+  gap: 2px;
+  width: 22px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+#article-container .music-page .music-eq i {
+  display: block;
+  width: 2.5px;
+  border-radius: 1px;
+  background: var(--my-accent);
+  height: 40%;
+  animation: musicEq .9s ease-in-out infinite;
+}
+
+#article-container .music-page .music-eq i:nth-child(2) { animation-delay: .18s; height: 70%; }
+#article-container .music-page .music-eq i:nth-child(3) { animation-delay: .36s; height: 100%; }
+
+@keyframes musicEq {
+  0%, 100% { transform: scaleY(.35); }
+  50%      { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #article-container .music-page .music-eq i { animation: none; }
+}
+
+#article-container .music-page .music-row.is-playing .music-eq { display: flex; }
+#article-container .music-page .music-row.is-playing .music-no { display: none; }
+#article-container .music-page .music-row.is-current .music-title { color: var(--my-accent); }
+
+#article-container .music-page .music-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+#article-container .music-page .music-title {
+  font-family: var(--my-serif);
+  font-size: .98rem;
+  font-weight: 600;
+  color: var(--my-title);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color .18s;
+}
+
+#article-container .music-page .music-artist {
+  font-size: .8rem;
+  color: var(--my-text-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#article-container .music-page .music-dur {
+  flex-shrink: 0;
+  font-size: .8rem;
+  color: var(--my-text-soft);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--my-mono);
+}
+
+#article-container .music-page .music-empty {
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--my-text-soft);
+  border: 1px dashed var(--my-line-strong);
+  border-radius: 10px;
+}
+
+#article-container .music-page .music-empty code {
+  background: var(--my-accent-soft);
+  color: var(--my-accent);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: .88em;
+}
+
+@media (max-width: 700px) {
+  #article-container .music-page h1 { font-size: 1.34rem; }
+  #article-container .music-page .music-row { padding: 10px 8px; gap: 9px; }
+}

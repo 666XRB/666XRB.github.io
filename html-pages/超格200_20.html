@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>超格200题·前20题深度复盘｜毛细血管式拓展版</title>
+<style>
+  :root{
+    --ink:#1b2436;--sub:#5d6c85;--line:#e4e9f2;--bg:#f4f7fc;--card:#ffffff;
+    --blue:#2f6bd8;--blue-l:#eaf1fe;--green:#0f9d67;--green-l:#e6f7f0;
+    --red:#dc4a3d;--red-l:#fdecea;--orange:#d9880f;--orange-l:#fdf4e3;
+    --purple:#7048c4;--purple-l:#f1ecfd;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    line-height:1.85;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 18px 80px;}
+
+  header{background:linear-gradient(135deg,#152238 0%,#28487e 55%,#3c72d2 100%);
+    color:#fff;padding:46px 18px 38px;margin-bottom:28px;position:relative;overflow:hidden;}
+  header::after{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.07);}
+  header::before{content:"";position:absolute;left:-50px;bottom:-90px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05);}
+  .head-inner{max-width:980px;margin:0 auto;position:relative;z-index:2;}
+  .kicker{display:inline-block;font-size:13px;letter-spacing:2px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  header h1{font-size:27px;margin:0 0 10px;font-weight:700;letter-spacing:.5px;}
+  header p.sub{margin:0;font-size:14.5px;color:rgba(255,255,255,.82);}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px;}
+  .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 10px;text-align:center;}
+  .stat b{display:block;font-size:22px;line-height:1.3;}
+  .stat span{font-size:12px;color:rgba(255,255,255,.78);}
+
+  section{margin-bottom:38px;}
+  h2.sec{font-size:20px;margin:0 0 6px;padding-left:14px;border-left:5px solid var(--blue);line-height:1.4;}
+  .sec-desc{font-size:13.5px;color:var(--sub);margin:0 0 18px;padding-left:19px;}
+
+  .q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px 18px;margin-bottom:16px;box-shadow:0 2px 10px rgba(27,42,74,.045);position:relative;}
+  .q.right{border-left:5px solid var(--green);}
+  .q-head{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+  .qno{font-size:16px;font-weight:700;background:var(--ink);color:#fff;border-radius:8px;padding:2px 11px;line-height:1.7;}
+  .tag{font-size:12px;padding:2px 9px;border-radius:6px;background:var(--blue-l);color:var(--blue);font-weight:600;}
+  .ans{font-size:12.5px;padding:2px 10px;border-radius:6px;font-weight:700;}
+  .ans.ok{background:var(--green-l);color:var(--green);}
+  .q-body{font-size:14.5px;}
+  .stem{background:#f7f9fd;border-radius:9px;padding:10px 14px;color:#33415c;font-size:14px;margin-bottom:13px;border-left:3px solid #c8d8f5;}
+  .opt{margin:8px 0;padding-left:2px;}
+  .opt b{color:var(--ink);}
+  .opt .bad{color:var(--red);font-weight:700;}
+  .opt .good{color:var(--green);font-weight:700;}
+
+  .box{border-radius:10px;padding:11px 15px;margin-top:12px;font-size:13.8px;}
+  .box .ttl{font-weight:700;font-size:13px;display:block;margin-bottom:5px;letter-spacing:.5px;}
+  .box.expand{background:var(--blue-l);border-left:4px solid var(--blue);}
+  .box.expand .ttl{color:var(--blue);}
+  .box.trap{background:var(--orange-l);border-left:4px solid var(--orange);}
+  .box.trap .ttl{color:var(--orange);}
+  .box.key{background:var(--purple-l);border-left:4px solid var(--purple);}
+  .box.key .ttl{color:var(--purple);}
+  .box.mind{background:var(--green-l);border-left:4px solid var(--green);}
+  .box.mind .ttl{color:var(--green);}
+  .box.net{background:#fff7ed;border-left:4px solid #c2410c;}
+  .box.net .ttl{color:#c2410c;}
+
+  em.hl{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:600;}
+
+  .trapgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .trapcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;box-shadow:0 2px 8px rgba(27,42,74,.04);}
+  .trapcard h4{margin:0 0 8px;font-size:14.5px;color:var(--red);display:flex;align-items:center;gap:7px;}
+  .trapcard h4 .n{width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .trapcard ul{margin:0;padding-left:19px;font-size:13.5px;color:#3a4761;}
+  .trapcard li{margin-bottom:4px;}
+
+  .adv{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin-bottom:14px;box-shadow:0 2px 10px rgba(27,42,74,.045);}
+  .adv h3{margin:0 0 10px;font-size:16px;color:var(--blue);display:flex;align-items:center;gap:9px;}
+  .adv h3 .num{background:var(--blue);color:#fff;width:24px;height:24px;border-radius:7px;font-size:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .adv ul{margin:6px 0 0;padding-left:20px;font-size:14px;}
+  .adv li{margin-bottom:6px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(27,42,74,.045);}
+  th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#eef3fc;color:#2a3c5e;font-size:13px;font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+  td.k{color:var(--blue);font-weight:700;white-space:nowrap;}
+
+  footer{text-align:center;font-size:13px;color:var(--sub);padding:22px 0 0;border-top:1px dashed var(--line);margin-top:30px;}
+  @media (max-width:680px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .trapgrid{grid-template-columns:1fr;}
+    header h1{font-size:21px;}
+    .q{padding:16px 15px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <span class="kicker">超格200题 · 前20题 · 毛细血管式拓展版</span>
+    <h1>政治理论深度复盘 · 知识网络构建</h1>
+    <p class="sub">每个知识点都向四周延伸：横向对应、纵向延伸、预判换皮挖坑</p>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>总题量</span></div>
+      <div class="stat"><b>14+</b><span>目标正确数</span></div>
+      <div class="stat"><b>70%</b><span>目标正确率</span></div>
+      <div class="stat"><b>网络式</b><span>记忆方式</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ 逐题解析 ============ -->
+<section>
+  <h2 class="sec">一、逐题解析（1—20）</h2>
+  <p class="sec-desc">前20题覆盖新思想、马原、时政等多个模块。每道题按「题干中心 → 选项辨析 → <strong>毛细血管式拓展</strong> → 挖坑预判」四层拆解。拓展部分不只是补充一个点，而是把知识点所在的整个网络拎出来。</p>
+
+  <!-- 1 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">01</span>
+      <span class="tag">习近平新时代中国特色社会主义思想 · 历史地位</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于习近平新时代中国特色社会主义思想，下列理解<strong>不准确</strong>的是？</div>
+      <div class="opt"><b>A．</b>以全新的视野深化了对共产党执政规律、社会主义建设规律、人类社会发展规律的认识 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>对马克思主义作出了<strong>局部的</strong>丰富发展，实现了马克思主义中国化时代化新的飞跃 <span class="bad">✗ 应为“全面的丰富发展”</span></div>
+      <div class="opt"><b>C．</b>“两个确立”是党和人民应对一切不确定性的最大确定性、最大底气、最大保证 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>源自实践，又指导实践，是经过实践检验、富有实践伟力的强大思想武器 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：局部 vs 全面</span>
+        习近平新时代中国特色社会主义思想是马克思主义中国化时代化的最新成果，以全新的视野深化了对“三大规律”的认识，<em class="hl">全面丰富和发展了马克思主义</em>，而不是“局部的丰富发展”。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：把“马克思主义中国化”整条线拎出来</span>
+        <strong>马克思主义中国化的三次飞跃：</strong><br>
+        · <strong>第一次飞跃</strong>：毛泽东思想——解决了“中国革命向何处去”的问题；<br>
+        · <strong>第二次飞跃</strong>：中国特色社会主义理论体系（邓小平理论、“三个代表”重要思想、科学发展观）——解决了“什么是社会主义、怎样建设社会主义”等问题；<br>
+        · <strong>第三次飞跃</strong>：习近平新时代中国特色社会主义思想——回答了“新时代坚持和发展什么样的中国特色社会主义、怎样坚持和发展中国特色社会主义”“建设什么样的社会主义现代化强国、怎样建设社会主义现代化强国”“建设什么样的长期执政的马克思主义政党、怎样建设长期执政的马克思主义政党”<strong>三大时代课题</strong>。<br><br>
+        <strong>“三大规律”具体是什么？</strong><br>
+        · 共产党执政规律——怎么管党治党；<br>
+        · 社会主义建设规律——怎么搞社会主义；<br>
+        · 人类社会发展规律——人类历史往哪走。<br>
+        这三个规律层层递进，从“党”到“国家”到“人类”。<br><br>
+        <strong>“两个确立”是什么？</strong><br>
+        · 确立习近平同志党中央的核心、全党的核心地位；<br>
+        · 确立习近平新时代中国特色社会主义思想的指导地位。<br>
+        <em class="hl">“两个确立”是“两个结合”的必然结果，是新时代最重要的政治成果。</em>
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“全面”换成“系统”——<strong>仍然错</strong>，官方表述是“全面丰富发展”；<br>
+        · 把“三大规律”中的“共产党执政规律”换成“党的建设规律”——<strong>错</strong>，是“执政”不是“建设”；<br>
+        · 把“两个确立”换成“两个结合”——<strong>错</strong>，两者不是一回事，“两个结合”是路径，“两个确立”是政治成果。
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">02</span>
+      <span class="tag">以人民为中心 · 各领域体现</span>
+      <span class="ans ok">答案 B（①④）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列选项体现了“以人民为中心”的是？</div>
+      <div class="opt"><b>①</b> 在维护国家安全中，坚持以人民安全为宗旨 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 在文化建设中，坚持以人民为中心的创作导向，坚持把<strong>经济效益放在首位</strong>、经济效益和社会效益相统一 <span class="bad">✗ 应为“社会效益放在首位”</span></div>
+      <div class="opt"><b>③</b> 在民生建设中，以<strong>市场化为导向</strong>深化公立医院改革 <span class="bad">✗ 应为“公益性为导向”</span></div>
+      <div class="opt"><b>④</b> 在民主政治建设中，发展全过程人民民主，使国家政治生活和社会生活各环节、各方面都体现人民意愿、听到人民声音 <span class="good">✓</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：“以人民为中心”在各领域的完整映射</span>
+        这道题其实是在考“以人民为中心”在<strong>不同领域的具体化</strong>。把每个领域的对应表述串起来：<br><br>
+        · <strong>经济领域</strong>：共同富裕——人民群众物质生活和精神生活都富裕；<br>
+        · <strong>政治领域</strong>：全过程人民民主——人民当家作主；<br>
+        · <strong>文化领域</strong>：以人民为中心的创作导向，<em class="hl">社会效益放在首位</em>、社会效益和经济效益相统一；<br>
+        · <strong>社会领域</strong>：民生建设——<em class="hl">公益性导向</em>的公立医院改革，就业是最大的民生；<br>
+        · <strong>生态领域</strong>：良好生态环境是最公平的公共产品、最普惠的民生福祉；<br>
+        · <strong>安全领域</strong>：以人民安全为宗旨，国家安全归根到底是保障人民利益。<br><br>
+        <strong>“公立医院公益性”具体体现在哪？</strong><br>
+        · 编制：建立编制动态调整机制；<br>
+        · 服务价格：建立以医疗服务为主导的收费机制；<br>
+        · 薪酬：完善薪酬制度；<br>
+        · 监管：综合监管改革。<br>
+        <em class="hl">“公益性”三个字贯穿医疗卫生事业始终，不能走全盘市场化、商业化的路子。</em>
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“社会效益”换成“经济效益”——<strong>已经考过</strong>；<br>
+        · 把“公益性”换成“均等性”——<strong>第10题就考了</strong>；<br>
+        · 把“以人民安全为宗旨”换成“以政治安全为宗旨”——<strong>错</strong>，总体国家安全观是“以人民安全为宗旨，以政治安全为根本”；<br>
+        · 把“最普惠的民生福祉”换成“最基本的民生福祉”——<strong>错</strong>，是“最普惠”。
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">03</span>
+      <span class="tag">理论创新 · 两个结合</span>
+      <span class="ans ok">答案 C（②③）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于理论创新，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>①</b> 理论创新是为了更好坚守<strong>马克思主义这个根脉</strong>和<strong>中华优秀传统文化这个魂脉</strong> <span class="bad">✗ 根脉和魂脉说反了</span></div>
+      <div class="opt"><b>②</b> 理论的飞跃，归根到底要体现在回答实践问题、引领实践发展上 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 推进理论的体系化学理化，是理论创新的内在要求和重要途径 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> <strong>各级领导干部</strong>的创造性实践是马克思主义理论创新的不竭源泉 <span class="bad">✗ 应为“人民群众”</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：魂脉、根脉与理论创新的完整逻辑链</span>
+        <strong>魂脉与根脉的完整表述：</strong><br>
+        · <em class="hl">马克思主义是魂脉</em>——是指导思想，是“魂”；<br>
+        · <em class="hl">中华优秀传统文化是根脉</em>——是文化土壤，是“根”。<br>
+        “坚守好这个魂和根，是理论创新的基础和前提，理论创新也是为了更好坚守这个魂和根。”<br><br>
+        <strong>理论创新的源泉逻辑链：</strong><br>
+        人民群众的创造性实践 → 新鲜经验 → 上升为理性认识 → 提炼出新的理论成果 → 指导新的实践。<br>
+        这条链对应的是<em class="hl">“从群众中来，到群众中去”</em>的认识论。所以源泉只能是“人民群众”，不可能是“各级领导干部”。<br><br>
+        <strong>“体系化学理化”是什么意思？</strong><br>
+        · <strong>体系化</strong>：把零散的观点整合成一个完整的体系（如“十个明确”“十四个坚持”“十三个方面成就”）；<br>
+        · <strong>学理化</strong>：用学术的、理论的框架把实践经验讲清楚、讲透彻。<br>
+        理论创新不能停留在口号层面，必须形成体系、具备学理支撑。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“魂脉”和“根脉”互换——<strong>已经考过</strong>；<br>
+        · 把“人民群众”换成“领导干部”“专家学者”——都是主体错配；<br>
+        · 把“体系化学理化”换成“通俗化大众化”——<strong>错</strong>，通俗化大众化是传播层面的事，不是理论创新的内在要求。
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">04</span>
+      <span class="tag">“两个结合” · 文化主体性</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于“两个结合”，下列理解<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>第二个结合是指马克思主义基本原理同<strong>中国具体实际</strong>相结合 <span class="bad">✗ 第二个结合是同中华优秀传统文化相结合</span></div>
+      <div class="opt"><b>B．</b>“两个结合”通过深刻的“<strong>物理反应</strong>”，造就了一个有机统一的新的文化生命体 <span class="bad">✗ 应为“化学反应”</span></div>
+      <div class="opt"><b>C．</b>“两个结合”巩固了文化主体性，创立新时代中国特色社会主义思想就是这一文化主体性的最有力体现 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>“两个结合”是我们推进马克思主义中国化时代化的<strong>前提</strong> <span class="bad">✗ 应为“根本途径”</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：“两个结合”的五重意义与完整知识树</span>
+        <strong>“两个结合”的五重意义（必须整体记忆）：</strong><br>
+        ① <strong>前提是彼此契合</strong>——马克思主义和中华优秀传统文化来源不同，但存在高度契合性；<br>
+        ② <strong>结果是互相成就</strong>——不是“拼盘”，不是“物理反应”，而是深刻的“化学反应”，造就了一个有机统一的新的文化生命体；<br>
+        ③ <strong>筑牢了道路根基</strong>——我们的社会主义为什么不一样？关键就在于“两个结合”；<br>
+        ④ <strong>打开了创新空间</strong>——“结合”本身就是创新，同时又开启了广阔的理论和实践创新空间；<br>
+        ⑤ <strong>巩固了文化主体性</strong>——文化自信就来自文化主体性，创立新时代中国特色社会主义思想就是这一文化主体性的最有力体现。<br><br>
+        <strong>“文化主体性”是什么？</strong><br>
+        文化主体性是指一个民族、一个国家在文化上的<em class="hl">自我意识、自主立场和独立品格</em>。有了文化主体性，文化自信才有根本依托。中华文明5000多年绵延不断，就是文化主体性的历史根基。<br><br>
+        <strong>“两个结合”的地位辨析：</strong><br>
+        · 是<em class="hl">根本途径</em>（不是“前提”）；<br>
+        · 是<em class="hl">最大法宝</em>；<br>
+        · 是<em class="hl">必由之路</em>。<br>
+        而“前提”是彼此契合——注意区分。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“化学反应”换成“物理反应”——<strong>已经考过</strong>；<br>
+        · 把“根本途径”换成“前提”“基础”“关键”——都是程度错配；<br>
+        · 把“文化主体性”换成“文化自信”——<strong>错</strong>，文化自信来自文化主体性，两者是因果关系不是等同关系；<br>
+        · 把“第二个结合”的内容换成“中国具体实际”——<strong>已经考过</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">05</span>
+      <span class="tag">“六个必须坚持” · 系统观念</span>
+      <span class="ans ok">答案 C（②③）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列选项中，体现了“系统观念”的是？</div>
+      <div class="opt"><b>①</b> 从最坏处准备，向最好处努力 <span class="bad">✗ 底线思维</span></div>
+      <div class="opt"><b>②</b> 十个指头弹钢琴 <span class="good">✓ 系统观念</span></div>
+      <div class="opt"><b>③</b> 多打大算盘、算大账，少打小算盘、算小账 <span class="good">✓ 系统观念</span></div>
+      <div class="opt"><b>④</b> 伤其十指，不如断其一指 <span class="bad">✗ 重点论</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：“六个必须坚持”的完整对应表</span>
+        <table style="margin-top:6px;box-shadow:none;border:1px solid var(--line);">
+          <tr><th style="width:22%;">必须坚持</th><th style="width:26%;">定位</th><th>体现的哲学原理</th></tr>
+          <tr><td class="k">人民至上</td><td>根本价值立场</td><td>历史唯物主义群众史观</td></tr>
+          <tr><td class="k">自信自立</td><td>内在精神特质</td><td>客观规律性和主观能动性的有机结合</td></tr>
+          <tr><td class="k">守正创新</td><td>鲜明理论品格</td><td>变与不变、继承与发展的内在联系</td></tr>
+          <tr><td class="k">问题导向</td><td>重要实践要求</td><td>矛盾的普遍性和客观性</td></tr>
+          <tr><td class="k">系统观念</td><td>基本思想和工作方法</td><td>辩证唯物主义普遍联系的原理</td></tr>
+          <tr><td class="k">胸怀天下</td><td>境界格局</td><td>马克思主义追求人类进步和解放的崇高理想</td></tr>
+        </table>
+        <br>
+        <strong>与俗语的对应：</strong><br>
+        · 系统观念：十个指头弹钢琴、多打大算盘算大账、不谋全局者不足谋一域；<br>
+        · 底线思维：从最坏处准备向最好处努力、凡事预则立不预则废；<br>
+        · 重点论：伤其十指不如断其一指、牵牛要牵牛鼻子、好钢用在刀刃上；<br>
+        · 问题导向：问题是时代的声音。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“十个指头弹钢琴”安到“问题导向”头上——<strong>错</strong>；<br>
+        · 把“从最坏处准备”安到“系统观念”头上——<strong>已经考过</strong>；<br>
+        · 把“伤其十指不如断其一指”安到“系统观念”头上——<strong>已经考过</strong>；<br>
+        · 把“不谋全局者不足谋一域”安到“胸怀天下”头上——<strong>错</strong>，是系统观念。
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">06</span>
+      <span class="tag">战略目标 · 时间轴</span>
+      <span class="ans ok">答案 C（②③④①）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">以下各项按时间先后顺序排列正确的是？</div>
+      <div class="opt"><b>①</b> 全体人民共同富裕基本实现 <span class="good">本世纪中叶</span></div>
+      <div class="opt"><b>②</b> 开启全面建设社会主义现代化国家新征程 <span class="good">2020年</span></div>
+      <div class="opt"><b>③</b> 清洁低碳安全高效的新型能源体系初步建成 <span class="good">“十五五”时期（2030年前）</span></div>
+      <div class="opt"><b>④</b> 建成文化强国、教育强国、人才强国、体育强国、健康中国 <span class="good">2035年</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：中国式现代化完整时间轴</span>
+        <strong>两步走战略安排：</strong><br>
+        · 从2020年到2035年：基本实现社会主义现代化；<br>
+        · 从2035年到本世纪中叶：把我国建成富强民主文明和谐美丽的社会主义现代化强国。<br><br>
+        <strong>2035年目标的完整清单（常考）：</strong><br>
+        ① 经济实力、科技实力、国防实力、综合国力和国际影响力大幅跃升；<br>
+        ② 人均国内生产总值达到中等发达国家水平；<br>
+        ③ 实现高水平科技自立自强，进入创新型国家前列；<br>
+        ④ 建成现代化经济体系，形成新发展格局；<br>
+        ⑤ 全面建成高水平社会主义市场经济体制；<br>
+        ⑥ 建成教育强国、科技强国、人才强国、文化强国、体育强国、健康中国；<br>
+        ⑦ 基本公共服务实现均等化；<br>
+        ⑧ 广泛形成绿色生产生活方式，碳排放达峰后稳中有降，生态环境根本好转；<br>
+        ⑨ 人的全面发展、全体人民共同富裕取得更为明显的实质性进展；<br>
+        ⑩ 基本实现国防和军队现代化。<br><br>
+        <strong>本世纪中叶目标：</strong><br>
+        建成富强民主文明和谐美丽的社会主义现代化强国，<em class="hl">全体人民共同富裕基本实现</em>。<br><br>
+        <strong>“十五五”时期的具体目标（2030年前）：</strong><br>
+        · 教育科技人才一体发展格局基本形成；<br>
+        · 绿色生产生活方式基本形成，碳达峰目标如期实现；<br>
+        · <em class="hl">清洁低碳安全高效的新型能源体系初步建成</em>；<br>
+        · 建军一百年奋斗目标如期实现；<br>
+        · 共同富裕迈出坚实步伐。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“共同富裕基本实现”安到2035年——<strong>错</strong>，2035年是“取得更为明显的实质性进展”；<br>
+        · 把“新型能源体系初步建成”安到2035年——<strong>错</strong>，是“十五五”时期（2030年前）；<br>
+        · 把“建成教育强国等”安到本世纪中叶——<strong>错</strong>，是2035年；<br>
+        · 把“进入创新型国家前列”安到本世纪中叶——<strong>错</strong>，是2035年。
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">07</span>
+      <span class="tag">中国式现代化 · 重大关系</span>
+      <span class="ans ok">答案 A</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于推进中国式现代化需要处理好的重大关系，下列相关说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>中国式现代化是分阶段、分领域推进的，实现各个阶段发展目标、落实各个领域发展战略需要进行顶层设计 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>需要我们把<strong>战略的灵活性和策略的原则性</strong>有机结合起来 <span class="bad">✗ 应为“战略的原则性和策略的灵活性”</span></div>
+      <div class="opt"><b>C．</b><strong>守正才能把握时代、引领时代，创新才能不迷失方向、不犯颠覆性错误</strong> <span class="bad">✗ 说反了</span></div>
+      <div class="opt"><b>D．</b>中国式现代化应以<strong>效率为先</strong>，在此基础上兼顾社会公平 <span class="bad">✗ 应为效率与公平相兼顾、相促进、相统一</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：中国式现代化“六大关系”完整清单</span>
+        推进中国式现代化是一个系统工程，需要处理好六大关系：<br><br>
+        <strong>① 顶层设计与实践探索的关系</strong><br>
+        党的二十大报告是对推进中国式现代化的最高顶层设计；中国式现代化是分阶段、分领域推进的，各阶段各领域也需要顶层设计。<br><br>
+        <strong>② 战略与策略的关系</strong><br>
+        战略是从全局、长远、大势上作出判断和决策；策略是在战略指导下为战略服务的。<em class="hl">战略的原则性和策略的灵活性</em>要有机结合。<br><br>
+        <strong>③ 守正与创新的关系</strong><br>
+        <em class="hl">守正才能不迷失方向、不犯颠覆性错误；创新才能把握时代、引领时代。</em>守正创新是我们党在新时代治国理政的重要思想方法。<br><br>
+        <strong>④ 效率与公平的关系</strong><br>
+        中国式现代化既要创造比资本主义更高的效率，又要更有效地维护社会公平，<em class="hl">更好实现效率与公平相兼顾、相促进、相统一</em>。<br><br>
+        <strong>⑤ 活力与秩序的关系</strong><br>
+        在现代化的历史进程中，处理好这对关系是一道世界性难题。<br><br>
+        <strong>⑥ 自立自强与对外开放的关系</strong><br>
+        独立自主是中华民族精神之魂，是我们立党立国的重要原则；对外开放是中国的基本国策，任何时候都不能动摇。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“战略原则性+策略灵活性”换成“战略灵活性+策略原则性”——<strong>已经考过</strong>；<br>
+        · 把“守正不迷失方向、创新把握时代”互换——<strong>已经考过</strong>；<br>
+        · 把“效率与公平相兼顾”换成“效率为先”——<strong>已经考过</strong>；<br>
+        · 把“独立自主是中华民族精神之魂”换成“对外开放是中华民族精神之魂”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">08</span>
+      <span class="tag">党的全面领导 · 根本组织原则</span>
+      <span class="ans ok">答案 C（3项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列相关说法<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 中国特色社会主义其他特点和特征都是由党的领导这一最本质特征决定的 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 政治领导力是马克思主义政党第一位的能力 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 实事求是是中国共产党人的基本思想方法、工作方法和领导方法 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 中国共产党是以<strong>集体领导制</strong>为根本组织原则和领导制度的马克思主义政党 <span class="bad">✗ 应为“民主集中制”</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：党的领导制度体系与政治三力</span>
+        <strong>党的领导制度体系（六个方面）：</strong><br>
+        ① 不忘初心、牢记使命的制度；<br>
+        ② 维护党中央权威和集中统一领导的各项制度；<br>
+        ③ 党的全面领导制度；<br>
+        ④ 为人民执政、靠人民执政各项制度；<br>
+        ⑤ 提高党的执政能力和领导水平制度；<br>
+        ⑥ 全面从严治党制度。<br><br>
+        <strong>民主集中制的完整内涵：</strong><br>
+        · 民主基础上的集中和集中指导下的民主相结合；<br>
+        · 是党的根本组织原则和领导制度；<br>
+        · 是群众路线在党的生活中的运用。<br>
+        <em class="hl">“四个服从”：党员个人服从党的组织，少数服从多数，下级组织服从上级组织，全党各个组织和全体党员服从党的全国代表大会和中央委员会。</em><br><br>
+        <strong>政治三力：</strong><br>
+        政治判断力、政治领悟力、政治执行力。<br>
+        <em class="hl">政治能力是领导干部所有能力中第一位的。</em>
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“民主集中制”换成“集体领导制”——<strong>已经考过</strong>；<br>
+        · 把“政治判断力、政治领悟力、政治执行力”换成“政治领导力、政治组织力、政治号召力”——<strong>错</strong>；<br>
+        · 把“实事求是”换成“群众路线”作为基本思想方法——<strong>错</strong>，群众路线是根本工作路线。
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">09</span>
+      <span class="tag">共同富裕 · 内涵与实现</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于共同富裕，下列理解<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>共同富裕是指人民群众的<strong>物质生活富裕</strong> <span class="bad">✗ 还包括精神生活富裕</span></div>
+      <div class="opt"><b>B．</b>促进共同富裕，最艰巨最繁重的任务仍然在农村 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>共同富裕主要通过<strong>第三次分配</strong>来实现 <span class="bad">✗ 主要通过高质量发展来实现</span></div>
+      <div class="opt"><b>D．</b>共同富裕要求<strong>同步富裕</strong>，所有人在同一时间达到同等水平的富裕 <span class="bad">✗ 不是同步富裕、平均主义</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：共同富裕的“四层内涵”与“三次分配”</span>
+        <strong>共同富裕的四层内涵（缺一不可）：</strong><br>
+        ① <strong>全民富裕</strong>——不是少数人的富裕，是全体人民的富裕；<br>
+        ② <strong>全面富裕</strong>——物质生活和精神生活都富裕，不是只有物质富裕；<br>
+        ③ <strong>共建富裕</strong>——不是“等靠要”，是共建共享，人人参与、人人尽力；<br>
+        ④ <strong>逐步富裕</strong>——不是同步富裕、平均主义，不同人群、不同地区富裕程度有差异、时间有先后。<br><br>
+        <strong>三次分配的关系：</strong><br>
+        · <strong>初次分配</strong>：市场主导，按要素分配，发挥<em class="hl">基础性作用</em>，提高劳动报酬比重；<br>
+        · <strong>再分配</strong>：政府主导，税收、社保、转移支付，发挥<em class="hl">调节作用</em>；<br>
+        · <strong>第三次分配</strong>：社会主导，公益慈善，发挥<em class="hl">补充作用</em>。<br>
+        共同富裕主要通过<em class="hl">高质量发展</em>来实现，三次分配协调配套。<br><br>
+        <strong>共同富裕的时间表：</strong><br>
+        · “十五五”时期：迈出坚实步伐；<br>
+        · 2035年：取得更为明显的实质性进展；<br>
+        · 本世纪中叶：基本实现。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“物质+精神都富裕”换成“物质富裕”——<strong>已经考过</strong>；<br>
+        · 把“高质量发展”换成“第三次分配”——<strong>已经考过</strong>；<br>
+        · 把“逐步富裕”换成“同步富裕”——<strong>已经考过</strong>；<br>
+        · 把“最艰巨最繁重的任务在农村”换成“在城市”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">10</span>
+      <span class="tag">全面深化改革 · 各领域改革</span>
+      <span class="ans ok">答案 A（2项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列相关说法<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> “改革与法治如鸟之两翼、车之两轮”，坚持在法治下推进改革，在改革中完善法治 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 深化农村改革，必须继续把住处理好<strong>政府和市场关系</strong>这条主线 <span class="bad">✗ 应为“农民和土地关系”</span></div>
+      <div class="opt"><b>③</b> 坚持教育<strong>均等性</strong>原则，把教育公平作为国家基本教育政策 <span class="bad">✗ 应为“公益性”原则</span></div>
+      <div class="opt"><b>④</b> 深化党和国家监督体制改革，以党内监督为主导，促进各类监督力量整合 <span class="good">✓</span></div>
+      <div class="opt"><b>⑤</b> 今后的人口工作应主要依靠政府力量，以“<strong>管</strong>”为主 <span class="bad">✗ 应为“引导”和“激励”</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：各领域改革的“主线/原则/方式”完整对照</span>
+        <strong>农村改革的主线：</strong><em class="hl">处理好农民和土地关系</em>。<br>
+        为什么？土地是农民最重要的生产资料和财产，农村改革的核心就是处理好农民与土地的关系——从家庭联产承包责任制到“三权分置”（所有权、承包权、经营权），都是围绕这条主线。<br><br>
+        <strong>教育的原则：</strong><em class="hl">公益性</em>。<br>
+        教育是准公共产品，不能完全市场化。教育公平是国家基本教育政策，但“公平”不等于“均等性”——均等性是结果均等，公平是机会公平。<br><br>
+        <strong>人口工作的方式：</strong><em class="hl">引导和激励，政府和社会协同治理</em>。<br>
+        过去人口工作以“管”为主（计划生育）；现在要推动人口工作由调节数量为主向提升素质、稳定总量、优化结构、畅通流动转变，更加重视“引导”和“激励”的办法。<br><br>
+        <strong>监督体制改革：</strong><em class="hl">以党内监督为主导</em>，促进各类监督力量整合、工作融合。<br>
+        党内监督是第一位、最基本的监督形式。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“农民和土地关系”换成“政府和市场关系”——<strong>已经考过</strong>；<br>
+        · 把“公益性”换成“均等性”——<strong>已经考过</strong>；<br>
+        · 把“引导激励”换成“管为主”——<strong>已经考过</strong>；<br>
+        · 把“党内监督为主导”换成“群众监督为主导”——<strong>错</strong>，党内监督是第一位的。
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">11</span>
+      <span class="tag">高水平对外开放 · 错误项</span>
+      <span class="ans ok">答案 A</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于推进高水平对外开放，下列说法<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>主动顺应世界发展潮流，<strong>践行保护主义，推行“小院高墙”</strong> <span class="bad">✗ 与开放完全相反</span></div>
+      <div class="opt"><b>B．</b>巩固东部沿海地区开放先导地位，提高中西部和东北地区开放水平 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>对标国际高标准经贸规则，既持续深化要素流动型开放，又稳步拓展制度型开放 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>优化区域开放布局，实施自由贸易试验区提升战略，形成陆海内外联动、东西双向互济的开放格局 <span class="good">✓</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：对外开放的“两个层次”与“三个反对”</span>
+        <strong>对外开放的两个层次：</strong><br>
+        · <strong>要素流动型开放</strong>：商品、服务、资本、人员等要素跨境流动——这是传统开放；<br>
+        · <strong>制度型开放</strong>：规则、规制、管理、标准等制度层面的开放——这是高水平开放的核心。<br>
+        <em class="hl">“既持续深化要素流动型开放，又稳步拓展制度型开放”——两个层次都要，不是替代关系。</em><br><br>
+        <strong>三个反对：</strong><br>
+        · 反对保护主义；<br>
+        · 反对“筑墙设垒”“小院高墙”；<br>
+        · 反对“脱钩断链”、单边制裁、极限施压。<br><br>
+        <strong>开放格局的完整表述：</strong><br>
+        <em class="hl">陆海内外联动、东西双向互济</em>的开放格局。<br>
+        区域布局：巩固东部沿海开放先导地位，提高中西部和东北地区开放水平。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“陆海内外联动、东西双向互济”换成“南北双向互济”——<strong>错</strong>，是“东西”；<br>
+        · 把“制度型开放”换成“要素流动型开放”——<strong>错</strong>，制度型开放才是高水平开放的核心；<br>
+        · 把“自由贸易试验区提升战略”换成“自由贸易港提升战略”——<strong>错</strong>，自贸区是“提升战略”，自贸港是“建设”。
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">12</span>
+      <span class="tag">高质量发展 · 内涵与要求</span>
+      <span class="ans ok">答案 D</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于高质量发展，下列理解<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>我国经济<strong>正由</strong>高速增长阶段转向高质量发展阶段 <span class="bad">✗ 应为“已由”</span></div>
+      <div class="opt"><b>B．</b>高质量发展是对<strong>经济领域</strong>的要求，不包括社会、文化、生态等领域 <span class="bad">✗ 是方方面面总要求</span></div>
+      <div class="opt"><b>C．</b>始终坚持<strong>效益第一、效率优先</strong> <span class="bad">✗ 应为“质量第一、效益优先”</span></div>
+      <div class="opt"><b>D．</b>坚持高质量发展是领导干部政绩观的重要内容，要完善推动高质量发展的政绩考核评价办法，发挥好指挥棒作用 <span class="good">✓</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：高质量发展与新发展理念的完整对应</span>
+        <strong>高质量发展是全面建设社会主义现代化国家的首要任务，是新时代我国经济社会发展的鲜明主题。</strong><br><br>
+        <strong>新发展理念与高质量发展的对应：</strong><br>
+        · <strong>创新</strong>——解决发展动力问题，创新是第一动力；<br>
+        · <strong>协调</strong>——解决发展不平衡问题；<br>
+        · <strong>绿色</strong>——解决人与自然和谐共生问题；<br>
+        · <strong>开放</strong>——解决发展内外联动问题；<br>
+        · <strong>共享</strong>——解决社会公平正义问题。<br><br>
+        <strong>“质的有效提升和量的合理增长”：</strong><br>
+        不是不要速度，而是要在质量效益明显提升的基础上实现经济持续健康发展。<br>
+        <em class="hl">“质量第一、效益优先”是高质量发展的核心要求，不是“效益第一、效率优先”。</em><br><br>
+        <strong>“已由”的深层含义：</strong><br>
+        我国经济<em class="hl">已由</em>高速增长阶段转向高质量发展阶段——这是<strong>已经完成</strong>的转变，不是“正在转变”。这个判断是党的二十大报告作出的重大论断。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“已由”换成“正由”——<strong>已经考过</strong>；<br>
+        · 把“方方面面总要求”换成“经济领域要求”——<strong>已经考过</strong>；<br>
+        · 把“质量第一、效益优先”换成“效益第一、效率优先”——<strong>已经考过</strong>；<br>
+        · 把“首要任务”换成“根本任务”——<strong>错</strong>，高质量发展是“首要任务”。
+      </div>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">13</span>
+      <span class="tag">基本经济制度 · 公有制与非公有制</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">以下关于我国基本经济制度的说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b><strong>非公有制经济</strong>是我们党执政兴国的重要支柱和依靠力量 <span class="bad">✗ 应为“国有企业”</span></div>
+      <div class="opt"><b>B．</b>要坚持公有制经济的主体地位和国有经济的主导地位 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>构建高水平社会主义市场经济体制，关键要处理好<strong>国际市场和国内市场</strong>的关系 <span class="bad">✗ 应为“政府和市场”</span></div>
+      <div class="opt"><b>D．</b>健全生产要素由<strong>收益评价贡献</strong>、按贡献决定报酬的机制 <span class="bad">✗ 应为“市场评价贡献”</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：基本经济制度的“三位一体”与“两个毫不动摇”</span>
+        <strong>社会主义基本经济制度的三个方面（三位一体）：</strong><br>
+        ① <strong>所有制</strong>：公有制为主体、多种所有制经济共同发展；<br>
+        ② <strong>分配制度</strong>：按劳分配为主体、多种分配方式并存；<br>
+        ③ <strong>资源配置体制</strong>：社会主义市场经济体制。<br><br>
+        <strong>“两个毫不动摇”：</strong><br>
+        · 毫不动摇<em class="hl">巩固和发展公有制经济</em>；<br>
+        · 毫不动摇<em class="hl">鼓励、支持、引导非公有制经济发展</em>。<br>
+        注意动词搭配：公有制是“巩固和发展”，非公有制是“鼓励、支持、引导”。<br><br>
+        <strong>公有制经济的主体地位体现在：</strong><br>
+        · 公有资产在社会总资产中占优势；<br>
+        · 国有经济控制国民经济命脉，对经济发展起主导作用。<br>
+        <em class="hl">公有制是“主体”，国有经济是“主导”——两个词不能混。</em><br><br>
+        <strong>分配制度的完整表述：</strong><br>
+        · 初次分配：提高劳动报酬比重，健全生产要素由<em class="hl">市场评价贡献</em>、按贡献决定报酬的机制；<br>
+        · 再分配：加大税收、社保、转移支付调节力度；<br>
+        · 第三次分配：引导、支持有意愿有能力的企业、社会组织和个人积极参与公益慈善事业。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“国有企业”换成“非公有制经济”作为执政兴国支柱——<strong>已经考过</strong>；<br>
+        · 把“政府和市场”换成“国际和国内”——<strong>已经考过</strong>；<br>
+        · 把“市场评价贡献”换成“收益评价贡献”——<strong>已经考过</strong>；<br>
+        · 把“公有制主体”和“国有经济主导”互换——<strong>高频坑</strong>；<br>
+        · 把“巩固和发展公有制”与“鼓励支持引导非公有制”的动词互换——<strong>高频坑</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">14</span>
+      <span class="tag">新发展格局 · 内涵与路径</span>
+      <span class="ans ok">答案 A（①③）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于构建新发展格局，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>①</b> 坚持扩大内需这个战略基点 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 加快构建省域、市域、县域的“<strong>小而全</strong>”循环 <span class="bad">✗ 不是搞“小而全”循环</span></div>
+      <div class="opt"><b>③</b> 最本质的特征是实现高水平的自立自强，科技自立自强是畅通双循环的关键 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 形成市场和资源“<strong>两头在外</strong>”的发展格局 <span class="bad">✗ 不是“两头在外”</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：新发展格局的“五个不是”与“五个是”</span>
+        <strong>五个不是：</strong><br>
+        ① 不是被迫之举和权宜之计，是把握未来发展主动权的先手棋；<br>
+        ② 不是封闭的国内单循环，是开放的国内国际双循环；<br>
+        ③ 不是各地都搞自我小循环，是以全国统一大市场基础上的国内大循环为主体；<br>
+        ④ 不是不要国际循环，是要更好利用国际国内两个市场、两种资源；<br>
+        ⑤ 不是“两头在外”，是以国内大循环吸引全球资源要素。<br><br>
+        <strong>五个是：</strong><br>
+        ① 是把握未来发展主动权的先手棋；<br>
+        ② 是开放的国内国际双循环；<br>
+        ③ 是以全国统一大市场基础上的国内大循环为主体；<br>
+        ④ 最本质的特征是实现高水平的自立自强；<br>
+        ⑤ 关键在于经济循环的畅通无阻。<br><br>
+        <strong>“两头在外”是什么？</strong><br>
+        改革开放后我国加入国际大循环，形成了<em class="hl">市场和资源“两头在外”、“世界工厂”</em>的发展模式。这是旧模式，新发展格局要改变这种模式，转向以国内大循环为主体。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“不是小而全”换成“是小而全”——<strong>已经考过</strong>；<br>
+        · 把“不是两头在外”换成“是两头在外”——<strong>已经考过</strong>；<br>
+        · 把“最本质特征是实现高水平自立自强”换成“最本质特征是扩大内需”——<strong>错</strong>；<br>
+        · 把“关键在于经济循环畅通无阻”换成“关键在于扩大投资”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">15</span>
+      <span class="tag">乡村振兴战略 · 五大振兴</span>
+      <span class="ans ok">答案 A</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于乡村振兴战略，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>必须把确保重要农产品特别是粮食供给作为首要任务 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>建立健全<strong>区域协调发展</strong>机制和政策体系是制度保障 <span class="bad">✗ 应为“城乡融合发展”</span></div>
+      <div class="opt"><b>C．</b><strong>人才振兴</strong>是乡村振兴的重中之重 <span class="bad">✗ 应为“产业振兴”</span></div>
+      <div class="opt"><b>D．</b>学习运用“千万工程”经验，<strong>全域统一、标准化</strong>推进乡村振兴 <span class="bad">✗ 应为因地制宜、分类推进</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：乡村振兴“五大振兴”完整体系（重点展开）</span>
+        <strong>乡村振兴的总要求（二十字方针）：</strong><br>
+        <em class="hl">产业兴旺、生态宜居、乡风文明、治理有效、生活富裕</em>。<br><br>
+        <strong>“五大振兴”与“二十字方针”的对应关系（这个对应关系必须打通）：</strong><br>
+        <table style="margin-top:6px;box-shadow:none;border:1px solid var(--line);">
+          <tr><th style="width:20%;">五大振兴</th><th style="width:24%;">对应总要求</th><th>核心定位与拓展</th></tr>
+          <tr><td class="k">产业振兴</td><td>产业兴旺</td><td><strong>重中之重、物质基础、实际工作切入点。</strong>产业兴旺是解决农村一切问题的前提。没有产业，人才留不住、文化没载体、生态难维护、组织没底气。</td></tr>
+          <tr><td class="k">人才振兴</td><td>（贯穿始终）</td><td><strong>关键支撑、动力源泉。</strong>乡村振兴，关键在人。要培养本土人才、引导城市人才下乡、鼓励返乡创业。人才是产业、文化、生态、组织的共同支撑。</td></tr>
+          <tr><td class="k">文化振兴</td><td>乡风文明</td><td><strong>精神基础、灵魂。</strong>既要塑形，也要铸魂。培育文明乡风、良好家风、淳朴民风。文化是乡村的灵魂，没有文化振兴，乡村就没有精气神。</td></tr>
+          <tr><td class="k">生态振兴</td><td>生态宜居</td><td><strong>发展底色、基础支撑。</strong>绿水青山就是金山银山。良好生态环境是农村最大优势和宝贵财富。生态宜居是乡村振兴的底色。</td></tr>
+          <tr><td class="k">组织振兴</td><td>治理有效</td><td><strong>根本保障、制度保障。</strong>农村基层党组织是乡村振兴的“主心骨”。组织振兴是根本保障，没有组织振兴，其他振兴就缺乏领导力量。</td></tr>
+        </table>
+        <br>
+        <strong>⚠ 关键辨析：“生活富裕”不对应任何一个振兴，而是五大振兴共同作用的最终结果。</strong><br>
+        很多同学会把“生活富裕”对应到某一个振兴，这是错的。“生活富裕”是乡村振兴的<strong>出发点和落脚点</strong>，是产业、人才、文化、生态、组织五个振兴协同发力的<em class="hl">综合成果</em>。<br><br>
+        <strong>五大振兴的内在逻辑（不是并列，是有结构的）：</strong><br>
+        · <strong>产业振兴是基础</strong>——物质决定意识，经济基础决定上层建筑；<br>
+        · <strong>人才振兴是关键</strong>——人是生产力中最活跃的因素；<br>
+        · <strong>文化振兴是灵魂</strong>——精神文明反作用于物质文明；<br>
+        · <strong>生态振兴是底色</strong>——人与自然和谐共生；<br>
+        · <strong>组织振兴是保障</strong>——党的领导是根本保证。<br>
+        <em class="hl">五个振兴相互联系、相互支撑，构成一个有机整体，不能顾此失彼。</em>
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“产业振兴”换成“人才振兴”作为重中之重——<strong>已经考过</strong>；<br>
+        · 把“城乡融合发展”换成“区域协调发展”作为制度保障——<strong>已经考过</strong>；<br>
+        · 把“产业兴旺”对应到“人才振兴”——<strong>错</strong>；<br>
+        · 把“生活富裕”对应到某一个振兴——<strong>错</strong>，是综合结果；<br>
+        · 把“治理有效”对应到“文化振兴”——<strong>错</strong>，是组织振兴；<br>
+        · 把“乡风文明”对应到“生态振兴”——<strong>错</strong>，是文化振兴；<br>
+        · 把“生态宜居”对应到“产业振兴”——<strong>错</strong>，是生态振兴；<br>
+        · 把“因地制宜、分类推进”换成“全域统一、标准化”——<strong>已经考过</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 16 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">16</span>
+      <span class="tag">城乡融合发展 · 路径与切入点</span>
+      <span class="ans ok">答案 D</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于城乡融合发展，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b><strong>完全消除</strong>城乡差别 <span class="bad">✗ 不是“完全消除”</span></div>
+      <div class="opt"><b>B．</b>努力使城的比重和乡的比重<strong>保持稳定</strong> <span class="bad">✗ 不是保持比重稳定</span></div>
+      <div class="opt"><b>C．</b>要把<strong>市域</strong>作为城乡融合发展的重要切入点 <span class="bad">✗ 应为“县域”</span></div>
+      <div class="opt"><b>D．</b>破除妨碍城乡要素平等交换、双向流动的制度壁垒，促进发展要素、各类服务更多下乡 <span class="good">✓</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：城乡融合的“县域逻辑”与“双向流动”</span>
+        <strong>为什么是“县域”而不是“市域”？</strong><br>
+        · 县域是城乡融合的<em class="hl">基本单元</em>——县一级处在承上启下的关键环节，是发展经济、保障民生、维护稳定、促进国家长治久安的重要基础；<br>
+        · 率先在县域内破除城乡二元结构；<br>
+        · 率先在县域内实现城乡融合发展；<br>
+        · 推进以县城为重要载体的新型城镇化建设；<br>
+        · 发挥县城连接城市、带动乡村作用。<br><br>
+        <strong>“双向流动”流的是什么？</strong><br>
+        · 城市→乡村：资金、技术、人才、服务（教育、医疗等）；<br>
+        · 乡村→城市：劳动力、农产品、生态产品、文化产品。<br>
+        <em class="hl">关键是“平等交换、双向流动”，不是单向的“城市反哺乡村”。</em><br><br>
+        <strong>城乡关系的完整表述：</strong><br>
+        推动形成<em class="hl">工农互促、城乡互补、协调发展、共同繁荣</em>的新型工农城乡关系。<br>
+        注意：是“缩小城乡差别”，不是“完全消除城乡差别”——城乡将长期共生并存。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“县域”换成“市域”——<strong>已经考过</strong>；<br>
+        · 把“缩小城乡差别”换成“完全消除城乡差别”——<strong>已经考过</strong>；<br>
+        · 把“工农互促、城乡互补、协调发展、共同繁荣”中的某个词换掉——<strong>高频坑</strong>；<br>
+        · 把“双向流动”换成“单向流动”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 17 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">17</span>
+      <span class="tag">区域协调发展 · 战略叠加</span>
+      <span class="ans ok">答案 C（3项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于区域协调发展，下列说法<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 在发展中促进<strong>绝对平衡</strong> <span class="bad">✗ 应为“相对平衡”</span></div>
+      <div class="opt"><b>②</b> 发挥区域协调发展战略、区域重大战略、主体功能区战略、新型城镇化战略叠加效应 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 深入推进西部大开发、东北全面振兴、中部地区崛起、东部率先发展 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 巩固提升京津冀、长三角、粤港澳大湾区动力源作用 <span class="good">✓</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：区域协调发展的“四大战略”完整体系</span>
+        <strong>四大战略的完整清单：</strong><br>
+        ① <strong>区域协调发展战略</strong>：西部大开发、东北全面振兴、中部地区崛起、东部率先发展；<br>
+        ② <strong>区域重大战略</strong>：京津冀协同发展、长江经济带发展、粤港澳大湾区建设、长三角一体化发展、黄河流域生态保护和高质量发展；<br>
+        ③ <strong>主体功能区战略</strong>：城市化地区、农产品主产区、重点生态功能区三大空间格局；<br>
+        ④ <strong>新型城镇化战略</strong>：农业转移人口市民化是首要任务。<br><br>
+        <strong>“动力源”是哪三个？</strong><br>
+        <em class="hl">京津冀、长三角、粤港澳大湾区</em>——三大动力源。<br>
+        注意：成渝地区双城经济圈是“重要增长极和新的动力源”，不是“动力源”（措辞有差异）。<br><br>
+        <strong>“绝对平衡”为什么错？</strong><br>
+        区域协调发展追求的是<em class="hl">相对平衡</em>——不是绝对平衡，不是同步发展。我国幅员辽阔，各地资源禀赋不同，发展有快有慢是客观规律。促进区域协调发展，是要在发展中促进相对平衡，不是搞平均主义。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“相对平衡”换成“绝对平衡”——<strong>已经考过</strong>；<br>
+        · 把“京津冀、长三角、粤港澳大湾区”换成“京津冀、长三角、成渝”——<strong>错</strong>，成渝是“重要增长极和新的动力源”；<br>
+        · 把“西部大开发、东北全面振兴、中部地区崛起、东部率先发展”中的某个词换掉——<strong>高频坑</strong>（如“东北振兴”少了“全面”）。
+      </div>
+    </div>
+  </div>
+
+  <!-- 18 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">18</span>
+      <span class="tag">全过程人民民主 · 四个相统一</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于“四个相统一”，下列对应<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>都有地方说、说了有人听、听了有反馈，都能落实到施政措施中——过程民主和成果民主相统一 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>吸纳民意、汇集民智，使党、国家和人民成为同心同向的整体——<strong>程序民主和实质民主</strong>相统一 <span class="bad">✗ 对应错误</span></div>
+      <div class="opt"><b>C．</b>各级人大代表分别由下一级人大选举或选民直接选举产生——直接民主和间接民主相统一 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>一切权力属于人民，人民行使国家权力的机关是人民代表大会——人民民主和国家意志相统一 <span class="good">✓</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：全过程人民民主的完整知识树</span>
+        <strong>全过程人民民主的定位：</strong><br>
+        · 社会主义民主政治的本质属性；<br>
+        · 是最广泛、最真实、最管用的民主；<br>
+        · 实现了“四个相统一”。<br><br>
+        <strong>“四个相统一”的完整对应：</strong><br>
+        · <strong>过程民主和成果民主</strong>：民主贯穿全过程，成果由人民共享（A项）；<br>
+        · <strong>程序民主和实质民主</strong>：民主有程序保障，实质是人民当家作主；<br>
+        · <strong>直接民主和间接民主</strong>：直接参与和间接参与相结合（C项）；<br>
+        · <strong>人民民主和国家意志</strong>：人民民主通过国家意志体现（D项）。<br><br>
+        <strong>B项为什么错？</strong><br>
+        B项的例子描述的是通过平台载体吸纳民意、汇集民智，使党、国家和人民同心同向。这体现的是<em class="hl">人民民主和国家意志相统一</em>（或过程民主和成果民主），而不是“程序民主和实质民主”。<br><br>
+        <strong>全过程人民民主的制度载体：</strong><br>
+        · 人民代表大会制度——根本政治制度；<br>
+        · 中国共产党领导的多党合作和政治协商制度——基本政治制度；<br>
+        · 民族区域自治制度——基本政治制度；<br>
+        · 基层群众自治制度——基本政治制度。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“人民民主和国家意志”的例子安到“程序民主和实质民主”头上——<strong>已经考过</strong>；<br>
+        · 把“过程民主和成果民主”的例子安到“程序民主和实质民主”头上——<strong>高频坑</strong>；<br>
+        · 把“直接民主和间接民主”的例子安到“人民民主和国家意志”头上——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 19 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">19</span>
+      <span class="tag">建设教育强国 · 基点与龙头</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于建设教育强国，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>坚持把<strong>高速高效</strong>发展作为各级各类教育的生命线 <span class="bad">✗ 应为“高质量发展”</span></div>
+      <div class="opt"><b>B．</b>建设教育强国，<strong>龙头是基础教育</strong> <span class="bad">✗ 龙头是高等教育，基点是基础教育</span></div>
+      <div class="opt"><b>C．</b>落实立德树人根本任务，加快扭转教育功利化倾向 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>办好人民满意的教育，根本在于<strong>构建公平优质的基础教育体系</strong> <span class="bad">✗ 根本在于深化教育综合改革</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：教育强国的“三大属性、六力支撑、八大体系”</span>
+        <strong>三大属性：</strong>政治属性、人民属性、战略属性。<br><br>
+        <strong>六力支撑：</strong><br>
+        强大的思政引领力、人才竞争力、科技支撑力、民生保障力、社会协同力、国际影响力。<br><br>
+        <strong>八大体系：</strong><br>
+        固本铸魂的思想政治教育体系、公平优质的基础教育体系、自强卓越的高等教育体系、产教融合的职业教育体系、泛在可及的终身教育体系、创新牵引的科技支撑体系、素质精良的教师队伍体系、开放互鉴的国际合作体系。<br><br>
+        <strong>基点和龙头的完整逻辑：</strong><br>
+        · <em class="hl">基点在基础教育</em>——基础教育搞得越扎实，教育强国步伐就越稳、后劲就越足；<br>
+        · <em class="hl">龙头是高等教育</em>——高等教育是科技第一生产力、人才第一资源、创新第一动力的重要结合点。<br>
+        <strong>根本在于深化教育综合改革</strong>——不是构建某一个体系。<br><br>
+        <strong>教育的根本问题：</strong><br>
+        培养什么人、怎样培养人、为谁培养人——这是教育的根本问题，也是建设教育强国的核心课题。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“高质量发展”换成“高速高效发展”——<strong>已经考过</strong>；<br>
+        · 把“基点”和“龙头”互换——<strong>已经考过</strong>；<br>
+        · 把“根本在于深化教育综合改革”换成“构建公平优质的基础教育体系”——<strong>已经考过</strong>；<br>
+        · 把“三大属性”中的“战略属性”换成“社会属性”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 20 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">20</span>
+      <span class="tag">人才强国 · 评价体系</span>
+      <span class="ans ok">答案 D</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于建设人才强国，下列举措<strong>不恰当</strong>的是？</div>
+      <div class="opt"><b>A．</b>高校特别是“双一流”大学要发挥培养基础研究人才主力军作用 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>破除唯论文、唯职称、唯学历、唯奖项的“四唯”现象 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>建立以信任为基础的人才使用机制，完善科学家本位的科研组织体系 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>建立健全以创新能力、质量、<strong>资历年限</strong>为导向的评价体系 <span class="bad">✗ 应为“贡献”导向</span></div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：人才评价体系的“破四唯”与“立新标”</span>
+        <strong>人才评价的完整导向：</strong><br>
+        <em class="hl">以创新能力、质量、贡献为导向</em>——三个维度缺一不可。<br>
+        · 创新能力：能不能创新；<br>
+        · 质量：成果水平高不高；<br>
+        · 贡献：对国家、对社会有没有实际贡献。<br><br>
+        <strong>“破四唯”破的是什么？</strong><br>
+        唯论文、唯职称、唯学历、唯奖项——这是“四唯”。<br>
+        “破四唯”不是不要论文、不要职称、不要学历、不要奖项，而是<em class="hl">不能“唯”</em>——不能把这四样作为唯一标准。<br><br>
+        <strong>“破”之后怎么“立”？</strong><br>
+        · 立新标：创新能力、质量、贡献；<br>
+        · 完善基础研究人才差异化评价和长周期支持机制；<br>
+        · 赋予科技领军人才更大的人财物支配权和技术路线选择权；<br>
+        · 建立以信任为基础的人才使用机制。<br><br>
+        <strong>三个“主力军”再强调：</strong><br>
+        · 高水平研究型大学——基础研究的主力军；<br>
+        · 高校特别是双一流大学——培养基础研究人才的主力军；<br>
+        · 青年人才——基础研究的生力军。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“贡献”换成“资历年限”——<strong>已经考过</strong>；<br>
+        · 把“创新能力、质量、贡献”中的“贡献”换成“论文数量”——<strong>错</strong>；<br>
+        · 把“以信任为基础”换成“以考核为基础”——<strong>错</strong>；<br>
+        · 把“科学家本位”换成“行政本位”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 挖坑总结 ============ -->
+<section>
+  <h2 class="sec">二、挖坑总结：前20题覆盖的全部坑型</h2>
+  <p class="sec-desc">前20题几乎把政治理论中常见的挖坑形式都覆盖了一遍。把20道题的坑归成十类，下次看到类似手法就能条件反射地警觉。</p>
+
+  <div class="trapgrid">
+    <div class="trapcard">
+      <h4><span class="n">1</span>程度词矛盾（局部 ↔ 全面）</h4>
+      <ul>
+        <li>“局部的丰富发展”→“全面的丰富发展”（第1题）</li>
+        <li>“绝对平衡”→“相对平衡”（第17题）</li>
+        <li>“完全消除城乡差别”→“逐步缩小”（第16题）</li>
+        <li>“同步富裕”→“先富带后富”（第9题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">2</span>主体/属性错配</h4>
+      <ul>
+        <li>马克思主义“根脉”↔ 中华优秀传统文化“魂脉”（第3题）</li>
+        <li>理论创新源泉：领导干部 → 人民群众（第3题）</li>
+        <li>执政兴国支柱：非公有制经济 → 国有企业（第13题）</li>
+        <li>城乡融合切入点：市域 → 县域（第16题）</li>
+        <li>根本组织原则：集体领导制 → 民主集中制（第8题）</li>
+        <li>重中之重：人才振兴 → 产业振兴（第15题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">3</span>近义词/概念偷换</h4>
+      <ul>
+        <li>社会效益 → 经济效益（第2题）</li>
+        <li>公益性 → 市场化（第2题）</li>
+        <li>化学反应 → 物理反应（第4题）</li>
+        <li>根本途径 → 前提（第4题）</li>
+        <li>质量第一 → 效益第一（第12题）</li>
+        <li>市场评价贡献 → 收益评价贡献（第13题）</li>
+        <li>贡献导向 → 资历年限导向（第20题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">4</span>方向/顺序颠倒</h4>
+      <ul>
+        <li>第二个结合：中国具体实际 ↔ 中华优秀传统文化（第4题）</li>
+        <li>战略灵活性 + 策略原则性 → 战略原则性 + 策略灵活性（第7题）</li>
+        <li>守正把握时代 + 创新不迷失方向 → 说反（第7题）</li>
+        <li>已由 → 正由（第12题）</li>
+        <li>产业振兴 → 人才振兴（第15题）</li>
+        <li>基点 ↔ 龙头（第19题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">5</span>绝对化 / 一刀切</h4>
+      <ul>
+        <li>“局部”丰富发展 → 太绝对（第1题）</li>
+        <li>“绝对平衡” → 应为相对平衡（第17题）</li>
+        <li>“完全消除”城乡差别 → 绝对化（第16题）</li>
+        <li>“同步富裕” → 绝对化（第9题）</li>
+        <li>“全域统一、标准化” → 绝对化（第15题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">6</span>主体/范围错位</h4>
+      <ul>
+        <li>农村改革主线：政府和市场 → 农民和土地（第10题）</li>
+        <li>教育原则：均等性 → 公益性（第10题）</li>
+        <li>人口工作方式：管为主 → 引导激励（第10题）</li>
+        <li>关键关系：国际和国内 → 政府和市场（第13题）</li>
+        <li>教育龙头：基础教育 → 高等教育（第19题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">7</span>时态/阶段错配</h4>
+      <ul>
+        <li>“正由”高速转向高质量 → 应为“已由”（第12题）</li>
+        <li>“局部”丰富发展 → 应为“全面”（第1题）</li>
+        <li>“前提” → 应为“根本途径”（第4题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">8</span>概念层级/范围大小</h4>
+      <ul>
+        <li>“四个相统一”对应错位（第18题）</li>
+        <li>“六个必须坚持”与俗语对应错位（第5题）</li>
+        <li>“高质量发展”范围：经济领域 → 方方面面（第12题）</li>
+        <li>“生活富裕”不对应某一振兴，是综合结果（第15题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">9</span>本身正确但无关（马哲专属）</h4>
+      <ul>
+        <li>第5题①是底线思维，④是重点论，都不是系统观念</li>
+        <li>第7题B、C、D都是中国式现代化的关系，但表述有误</li>
+        <li><strong>对策</strong>：先抓材料中心词，再对选项</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">10</span>固定搭配错配</h4>
+      <ul>
+        <li>“社会效益”放首位（第2题）</li>
+        <li>“公益性”导向（第2题）</li>
+        <li>“质量第一、效益优先”（第12题）</li>
+        <li>“城乡融合发展”是制度保障（第15题）</li>
+        <li>“县域”是城乡融合切入点（第16题）</li>
+        <li>“贡献”导向（第20题）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 固定搭配速记表 ============ -->
+<section>
+  <h2 class="sec">三、固定搭配速记表（前20题重点）</h2>
+  <p class="sec-desc">政治理论的失分大头不是“不懂”，而是“搭配记混”。以下是从前20题中提炼的高频固定搭配。</p>
+
+  <table>
+    <thead>
+      <tr><th style="width:36%;">关键词</th><th>正确搭配</th><th style="width:16%;">出处</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="k">马克思主义中国化</td><td><strong>全面</strong>丰富发展（不是局部）</td><td>第1题</td></tr>
+      <tr><td class="k">文化建设</td><td><strong>社会效益</strong>放在首位</td><td>第2题</td></tr>
+      <tr><td class="k">医疗卫生</td><td><strong>公益性</strong>为导向（不是市场化）</td><td>第2题</td></tr>
+      <tr><td class="k">根脉与魂脉</td><td>马克思主义＝<strong>魂脉</strong>；中华优秀传统文化＝<strong>根脉</strong></td><td>第3题</td></tr>
+      <tr><td class="k">理论创新源泉</td><td><strong>人民群众</strong>的创造性实践</td><td>第3题</td></tr>
+      <tr><td class="k">两个结合</td><td>第二个结合＝<strong>中华优秀传统文化</strong></td><td>第4题</td></tr>
+      <tr><td class="k">两个结合的结果</td><td>深刻的<strong>化学反应</strong>（不是物理反应）</td><td>第4题</td></tr>
+      <tr><td class="k">两个结合的地位</td><td><strong>根本途径</strong>（不是前提）</td><td>第4题</td></tr>
+      <tr><td class="k">系统观念</td><td>十个指头弹钢琴；多打大算盘、算大账</td><td>第5题</td></tr>
+      <tr><td class="k">底线思维</td><td>从最坏处准备，向最好处努力</td><td>第5题</td></tr>
+      <tr><td class="k">重点论</td><td>伤其十指，不如断其一指</td><td>第5题</td></tr>
+      <tr><td class="k">战略与策略</td><td><strong>战略的原则性</strong>和<strong>策略的灵活性</strong>相结合</td><td>第7题</td></tr>
+      <tr><td class="k">守正与创新</td><td><strong>守正</strong>才能不迷失方向；<strong>创新</strong>才能把握时代</td><td>第7题</td></tr>
+      <tr><td class="k">效率与公平</td><td><strong>相兼顾、相促进、相统一</strong></td><td>第7题</td></tr>
+      <tr><td class="k">党的根本组织原则</td><td><strong>民主集中制</strong>（不是集体领导制）</td><td>第8题</td></tr>
+      <tr><td class="k">共同富裕</td><td>物质生活和精神生活<strong>都富裕</strong></td><td>第9题</td></tr>
+      <tr><td class="k">共同富裕的实现</td><td>主要通过<strong>高质量发展</strong>实现</td><td>第9题</td></tr>
+      <tr><td class="k">共同富裕的特征</td><td>不是<strong>同步富裕</strong>，不是平均主义</td><td>第9题</td></tr>
+      <tr><td class="k">农村改革主线</td><td>处理好<strong>农民和土地关系</strong></td><td>第10题</td></tr>
+      <tr><td class="k">教育原则</td><td><strong>公益性</strong>原则（不是均等性）</td><td>第10题</td></tr>
+      <tr><td class="k">人口工作方式</td><td><strong>引导</strong>和<strong>激励</strong>，政府和社会协同治理</td><td>第10题</td></tr>
+      <tr><td class="k">对外开放</td><td>反对<strong>保护主义、小院高墙、脱钩断链</strong></td><td>第11题</td></tr>
+      <tr><td class="k">高质量发展</td><td>我国经济<strong>已由</strong>高速增长阶段转向高质量发展阶段</td><td>第12题</td></tr>
+      <tr><td class="k">高质量发展范围</td><td>经济社会发展<strong>方方面面</strong>的总要求</td><td>第12题</td></tr>
+      <tr><td class="k">高质量发展要求</td><td><strong>质量第一、效益优先</strong></td><td>第12题</td></tr>
+      <tr><td class="k">执政兴国支柱</td><td><strong>国有企业</strong></td><td>第13题</td></tr>
+      <tr><td class="k">关键关系</td><td>处理好<strong>政府和市场</strong>的关系</td><td>第13题</td></tr>
+      <tr><td class="k">评价贡献</td><td>生产要素由<strong>市场</strong>评价贡献</td><td>第13题</td></tr>
+      <tr><td class="k">新发展格局</td><td>以<strong>国内大循环</strong>为主体，国内国际双循环相互促进</td><td>第14题</td></tr>
+      <tr><td class="k">新发展格局的误区</td><td>不是“<strong>小而全</strong>”循环，不是“<strong>两头在外</strong>”</td><td>第14题</td></tr>
+      <tr><td class="k">乡村振兴制度保障</td><td><strong>城乡融合发展</strong>体制机制和政策体系</td><td>第15题</td></tr>
+      <tr><td class="k">乡村振兴重中之重</td><td><strong>产业振兴</strong></td><td>第15题</td></tr>
+      <tr><td class="k">五大振兴对应</td><td>产业→产业兴旺；生态→生态宜居；文化→乡风文明；组织→治理有效；<strong>生活富裕是综合结果</strong></td><td>第15题</td></tr>
+      <tr><td class="k">乡村振兴推进方式</td><td><strong>因地制宜、分类推进</strong></td><td>第15题</td></tr>
+      <tr><td class="k">城乡融合切入点</td><td><strong>县域</strong>（不是市域）</td><td>第16题</td></tr>
+      <tr><td class="k">城乡关系</td><td>逐步缩小城乡差别（不是完全消除）</td><td>第16题</td></tr>
+      <tr><td class="k">区域协调发展</td><td>在发展中促进<strong>相对平衡</strong>（不是绝对平衡）</td><td>第17题</td></tr>
+      <tr><td class="k">四个相统一</td><td>过程民主和成果民主、程序民主和实质民主、直接民主和间接民主、人民民主和国家意志</td><td>第18题</td></tr>
+      <tr><td class="k">教育生命线</td><td><strong>高质量发展</strong>是各级各类教育的生命线</td><td>第19题</td></tr>
+      <tr><td class="k">教育基点与龙头</td><td>基点是<strong>基础教育</strong>，龙头是<strong>高等教育</strong></td><td>第19题</td></tr>
+      <tr><td class="k">教育根本</td><td>根本在于<strong>深化教育综合改革</strong></td><td>第19题</td></tr>
+      <tr><td class="k">人才评价导向</td><td>以<strong>创新能力、质量、贡献</strong>为导向</td><td>第20题</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 建议与提升 ============ -->
+<section>
+  <h2 class="sec">四、建议与提升：最后一个月怎么练</h2>
+  <p class="sec-desc">结合前20题的复盘，以及政治理论的命题规律，给出可落地的提升路径。</p>
+
+  <div class="adv">
+    <h3><span class="num">1</span>用“知识网络”代替“孤立知识点”</h3>
+    <ul>
+      <li>提到“产业振兴”，就要想到五大振兴的完整体系、与二十字方针的对应、生活富裕是综合结果。</li>
+      <li>提到“两个结合”，就要想到五重意义、魂脉根脉、文化主体性。</li>
+      <li>提到“共同富裕”，就要想到四层内涵、三次分配、时间表。</li>
+      <li>方法：每学一个点，问自己三个问题——<strong>它和谁对应？它属于哪个体系？命题人会怎么换皮？</strong></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">2</span>把固定搭配当“单词”来背</h3>
+    <ul>
+      <li>前20题高频搭配：社会效益首位、公益性导向、质量第一效益优先、城乡融合县域切入点、产业振兴重中之重。</li>
+      <li>方法上，记“<strong>错误的替换项</strong>”比记“正确项”更有效——比如记住“不能是经济效益、不能是市场化、不能是人才振兴”。</li>
+      <li>建议用本页的<strong>固定搭配速记表</strong>，每天花5分钟过一遍，考前一周重点滚动。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">3</span>建立“绝对词敏感度”</h3>
+    <ul>
+      <li>看到这些词就减速：<strong>局部、完全、绝对、同步、统一、高速、所有、一律……</strong></li>
+      <li>反例积累：局部的丰富发展、绝对平衡、完全消除城乡差别、同步富裕、全域统一标准化。</li>
+      <li>规律：<em class="hl">凡是把复杂政策表述成“一个动作解决所有问题”的，基本都是错的。</em></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">4</span>用“逻辑反推”救不会的题</h3>
+    <ul>
+      <li>第1题：“局部”与“全面”矛盾——程度词矛盾即可判错。</li>
+      <li>第16题：“完全消除城乡差别”违背城镇化规律——常识即可判错。</li>
+      <li>第10题：“以‘管’为主”与当前人口工作方向相反——政策方向即可判错。</li>
+      <li>考场时间紧张时，<em class="hl">逻辑反推 + 排除法</em>往往比硬啃知识点更快更准。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">5</span>“一一对应”原则贯穿全卷</h3>
+    <ul>
+      <li>第2题：文化建设→社会效益；医疗卫生→公益性（一一对应）。</li>
+      <li>第8题：根本组织原则→民主集中制（概念对应）。</li>
+      <li>第15题：五大振兴→二十字方针（对应关系）。</li>
+      <li>第18题：四个相统一→逐一对应（例子与概念对应）。</li>
+      <li>做题时问自己：<strong>“这句话的每一个部分，都能和题干一一对上吗？”</strong></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">6</span>把“往季高频点”当成必考点</h3>
+    <ul>
+      <li>第4题（两个结合）：物理反应→化学反应，已经连续多季出现。</li>
+      <li>第12题（高质量发展）：已由→正由，质量第一→效益第一，是高频坑。</li>
+      <li>第19题（教育强国）：基点→基础教育，龙头→高等教育，是固定搭配。</li>
+      <li>结论：<em class="hl">往季复盘里被点名强调过的搭配和陷阱，下一季极大概率换皮重来。</em></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">7</span>错题按“坑型”归档，而不是按“题号”</h3>
+    <ul>
+      <li>不要只抄“我错在第X题”，而要写“我错在<strong>程度词没看出来</strong>”或“我错在<strong>主体错配</strong>”。</li>
+      <li>同一坑型归到一起（如“主体错配”下挂第3、13、16题），复习时看的是<strong>规律</strong>，不是零散知识点。</li>
+      <li>建议按上面十类坑型一一归档，两周后回看，检查是否还会二次入坑。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">8</span>政治素养的基本盘要稳</h3>
+    <ul>
+      <li>第11题（保护主义）、第16题（完全消除城乡差别）这类题靠的是<strong>基本政治素养</strong>，不是死记硬背。</li>
+      <li>平时多看新闻、多读原文，语感自然就有了。</li>
+      <li>最后一个月，建议每天花10分钟看《新闻联播》要点或《人民日报》评论，重点抓<strong>固定表述</strong>。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">9</span>时间分配与心态</h3>
+    <ul>
+      <li>政治理论20题，建议控制在<strong>15—18分钟</strong>内完成，为后面的行测模块留时间。</li>
+      <li>遇到“看不懂的知识点”先跳过，用排除法锁定“最不像”的选项，不要恋战。</li>
+      <li>心态：<em class="hl">政治理论是可以靠“背搭配 + 认坑型”在短期内提分的模块</em>——它比数量关系、资料分析更“性价比高”。</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  超格200题 · 前20题深度复盘 · 毛细血管式拓展版 ｜ 基于《政治理论背诵手册》及考场思维整理<br>
+  内容仅供个人学习复习使用
+</footer>
+
+</div>
+</body>
+</html>
