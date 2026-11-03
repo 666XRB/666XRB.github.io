@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>记忆倍速 · 原理拆解</title>
+<style>
+:root{
+  --paper:#efe9dd;
+  --ink:#1b1916;
+  --muted:#6f6759;
+  --hot:#bd4327;
+  --cool:#2b6a65;
+  --rule:#d7cebc;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,sans-serif;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(0,0,0,.022) 1px,transparent 1px);
+  background-size:4px 4px;
+}
+
+.deck{position:relative;height:100vh;height:100dvh;width:100%;overflow:hidden}
+
+.slide{
+  position:absolute;inset:0;
+  display:flex;
+  overflow-y:auto;
+  padding:0 clamp(22px,8vw,120px);
+  opacity:0;visibility:hidden;transform:translateY(22px);
+  transition:opacity .4s ease,transform .4s ease,visibility 0s .4s;
+}
+.slide.active{
+  opacity:1;visibility:visible;transform:none;
+  transition:opacity .4s ease,transform .4s ease,visibility 0s;
+}
+.inner{
+  margin:auto;width:100%;max-width:1080px;
+  padding:clamp(48px,9vh,100px) 0 clamp(84px,12vh,120px);
+}
+
+/* ---------- 通用排版 ---------- */
+.kicker{
+  font-size:12px;letter-spacing:.3em;color:var(--muted);
+  margin-bottom:clamp(14px,2.4vh,24px);text-transform:uppercase;
+}
+h1{
+  font-size:clamp(40px,7.4vw,88px);
+  line-height:1.06;font-weight:800;letter-spacing:-.02em;
+}
+h2{
+  font-size:clamp(26px,4.3vw,50px);
+  line-height:1.22;font-weight:700;letter-spacing:-.01em;
+}
+h2.small{font-size:clamp(21px,3.2vw,36px);font-weight:700}
+.hl{background:linear-gradient(180deg,transparent 58%,rgba(189,67,39,.26) 58%)}
+.lead{
+  font-size:clamp(15px,1.85vw,21px);
+  line-height:1.8;color:#37322b;
+  margin-top:clamp(16px,3vh,30px);max-width:46em;
+}
+.lead + .lead{margin-top:clamp(12px,2vh,20px)}
+.lead strong{color:var(--hot)}
+.sub{
+  font-size:clamp(13px,1.5vw,16px);
+  color:var(--muted);letter-spacing:.06em;
+  margin-top:12px;
+}
+.foot-note{
+  margin-top:clamp(18px,3.4vh,34px);
+  font-size:clamp(13px,1.5vw,16px);
+  color:var(--muted);letter-spacing:.04em;
+}
+.foot-note strong{color:var(--ink);border-bottom:2px solid var(--hot);padding-bottom:2px}
+.src{
+  margin-top:clamp(26px,5vh,60px);
+  font-size:12px;color:#8c8273;letter-spacing:.05em;line-height:1.9;
+}
+
+/* ---------- 双栏 ---------- */
+.pair{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(22px,5vw,72px);
+  margin-top:clamp(24px,5vh,52px);
+}
+.pair.tight{margin-top:clamp(16px,3vh,30px);gap:clamp(18px,4vw,56px)}
+.col{padding-left:clamp(14px,2vw,26px);border-left:3px solid var(--rule)}
+.col-a{border-left-color:var(--hot)}
+.col-b{border-left-color:var(--cool)}
+.tag{
+  font-size:12px;letter-spacing:.22em;color:var(--muted);
+  margin-bottom:8px;
+}
+.loc{
+  font-size:clamp(20px,3.2vw,36px);
+  font-weight:700;line-height:1.2;margin-bottom:12px;
+}
+.col-a .loc{color:var(--hot)}
+.col-b .loc{color:var(--cool)}
+.desc{
+  font-size:clamp(14px,1.7vw,19px);
+  line-height:1.75;color:#37322b;
+}
+.q-big{
+  font-size:clamp(19px,2.7vw,33px);
+  line-height:1.5;font-weight:600;
+}
+.note{
+  margin-top:12px;font-size:clamp(12px,1.4vw,15px);
+  color:var(--muted);line-height:1.7;
+}
+
+/* ---------- 列表 ---------- */
+ul.points{list-style:none;margin-top:14px}
+ul.points li{
+  position:relative;padding-left:20px;
+  font-size:clamp(14px,1.6vw,18px);
+  line-height:1.95;color:#443e34;
+}
+ul.points li::before{
+  content:"—";position:absolute;left:0;color:#b8ae9b;
+}
+
+.numlist{list-style:none;margin-top:clamp(22px,4vh,44px)}
+.numlist li{
+  display:flex;gap:clamp(14px,2.4vw,28px);
+  padding:clamp(12px,2vh,20px) 0;
+  border-top:1px solid var(--rule);
+  align-items:flex-start;
+}
+.numlist li:last-child{border-bottom:1px solid var(--rule)}
+.numlist .n{
+  font-size:clamp(15px,1.6vw,18px);
+  font-weight:700;color:var(--hot);
+  font-variant-numeric:tabular-nums;
+  padding-top:2px;min-width:1.6em;
+}
+.numlist b{
+  display:block;
+  font-size:clamp(15px,1.9vw,21px);
+  font-weight:700;line-height:1.5;
+}
+.numlist p{
+  font-size:clamp(13px,1.5vw,16px);
+  color:var(--muted);line-height:1.7;margin-top:4px;
+}
+
+/* ---------- 强调块 ---------- */
+.turn{
+  margin-top:clamp(24px,5vh,52px);
+  padding-top:clamp(14px,2.4vh,22px);
+  border-top:1px solid var(--rule);
+  font-size:clamp(14px,1.8vw,21px);
+  line-height:1.75;
+}
+.turn strong{color:var(--hot)}
+
+.rule-box{
+  margin-top:clamp(20px,4vh,38px);
+  border:1px dashed #c4b9a4;
+  padding:clamp(16px,3vh,28px) clamp(18px,3vw,34px);
+  max-width:44em;
+}
+.rule-label{
+  font-size:12px;letter-spacing:.2em;color:var(--muted);
+  margin-bottom:12px;
+}
+.rule-line{
+  font-size:clamp(14px,1.8vw,20px);
+  line-height:1.85;color:#37322b;
+}
+.rule-line + .rule-line{margin-top:4px}
+.ok{color:var(--cool);font-weight:700}
+.no{color:var(--hot);font-weight:700}
+
+.callout{
+  margin-top:clamp(20px,4vh,36px);
+  background:rgba(189,67,39,.07);
+  border-left:3px solid var(--hot);
+  padding:clamp(14px,2.6vh,24px) clamp(16px,2.6vw,28px);
+  max-width:44em;
+}
+.callout p{
+  font-size:clamp(14px,1.75vw,20px);
+  line-height:1.8;font-weight:500;
+}
+.callout .note{
+  font-weight:400;margin-top:8px;
+}
+
+blockquote.quote{
+  margin-top:clamp(22px,4vh,40px);
+  font-size:clamp(18px,2.6vw,32px);
+  line-height:1.65;font-weight:600;
+  border-left:4px solid var(--hot);
+  padding-left:clamp(16px,2.4vw,30px);
+  max-width:26em;
+}
+blockquote.quote .who{
+  display:block;margin-top:14px;
+  font-size:clamp(12px,1.4vw,15px);
+  font-weight:400;color:var(--muted);letter-spacing:.08em;
+}
+
+.steps{
+  display:flex;flex-wrap:wrap;gap:10px;
+  margin-top:clamp(18px,3vh,30px);
+}
+.steps span{
+  display:inline-block;
+  border:1px solid #c4b9a4;
+  padding:8px 18px;
+  font-size:clamp(13px,1.5vw,17px);
+  letter-spacing:.05em;
+}
+
+.story{margin-top:clamp(18px,3.4vh,32px);max-width:44em}
+.story p{
+  font-size:clamp(14px,1.7vw,19px);
+  line-height:1.9;color:#37322b;
+  margin-bottom:10px;
+}
+.story p:first-child{color:var(--muted);font-size:clamp(13px,1.5vw,16px)}
+
+/* ---------- 随堂测 ---------- */
+.reveal{
+  margin-top:clamp(26px,5vh,46px);
+  font-family:inherit;font-size:clamp(13px,1.5vw,16px);
+  letter-spacing:.14em;
+  background:none;border:1px solid var(--ink);
+  color:var(--ink);padding:14px 30px;cursor:pointer;
+  transition:.25s;
+}
+.reveal:hover{background:var(--ink);color:var(--paper)}
+.ans{
+  margin-top:clamp(20px,4vh,38px);
+  font-size:clamp(18px,2.4vw,28px);
+  opacity:0;transform:translateY(10px);
+  transition:opacity .45s ease,transform .45s ease;
+}
+.ans.show{opacity:1;transform:none}
+.ans span{
+  font-size:clamp(52px,9vw,110px);
+  font-weight:800;color:var(--hot);
+  line-height:1;letter-spacing:-.03em;
+  display:block;margin-top:10px;
+}
+
+/* ---------- HUD ---------- */
+.hud{
+  position:fixed;left:0;right:0;bottom:0;
+  display:flex;align-items:center;gap:18px;
+  padding:0 clamp(22px,8vw,120px) 24px;
+  pointer-events:none;
+}
+.hud-bar{
+  flex:1;height:2px;background:var(--rule);position:relative;overflow:hidden;
+}
+.hud-bar i{
+  position:absolute;inset:0 auto 0 0;
+  background:var(--hot);width:8%;
+  transition:width .4s ease;
+}
+.hud-hint{
+  font-size:11px;color:#9d9280;letter-spacing:.14em;
+  transition:opacity .3s;
+}
+.hud-num{
+  font-size:11px;letter-spacing:.14em;color:var(--muted);
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.hud-num b{color:var(--ink);font-size:13px}
+
+@media (max-width:720px){
+  .pair{grid-template-columns:1fr;gap:24px}
+  .hud-hint{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 01 封面 -->
+  <section class="slide active">
+    <div class="inner">
+      <p class="kicker">拆解 · 记忆编码</p>
+      <h1>记东西<br>真的有<span class="hl">倍速</span></h1>
+      <p class="lead">海马体、LTP、情绪、好奇心——<br>四个能被你主动调用的开关。</p>
+      <p class="src">内容来源：B站《【记忆脑科学】原来记东西真的有倍速啊？！》</p>
+    </div>
+  </section>
+
+  <!-- 02 现象 -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">现象</p>
+      <h2>记忆有两副面孔</h2>
+      <div class="pair">
+        <div class="col col-a">
+          <p class="q-big">考前硬背的东西<br>没几天就忘</p>
+          <p class="note">明明翻来覆去看了很多遍</p>
+        </div>
+        <div class="col col-b">
+          <p class="q-big">听来的八卦<br>细节都能复述</p>
+          <p class="note">一遍就够，没费什么劲</p>
+        </div>
+      </div>
+      <p class="turn">差的不在努力程度，在于有没有<strong>踩中大脑的生理规律</strong>。</p>
+    </div>
+  </section>
+
+  <!-- 03 两个仓库 -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">第一层 · 结构</p>
+      <h2>两种记忆，两个仓库</h2>
+      <div class="pair">
+        <div class="col col-a">
+          <p class="tag">短期记忆</p>
+          <p class="loc">前额叶</p>
+          <p class="desc">像公司前厅里晃悠的访客</p>
+          <ul class="points">
+            <li>持续几秒到几分钟</li>
+            <li>容量有限</li>
+            <li>不刻意处理，自动删除</li>
+          </ul>
+        </div>
+        <div class="col col-b">
+          <p class="tag">长期记忆</p>
+          <p class="loc">大脑皮质</p>
+          <p class="desc">前厅背后的员工办公室，非请勿入</p>
+          <ul class="points">
+            <li>容量几乎摸不到上限</li>
+            <li>存下来就很难掉</li>
+            <li>得有人开门才进得去</li>
+          </ul>
+        </div>
+      </div>
+      <p class="turn">两套系统，<strong>界限分明</strong>，不是同一个地方。</p>
+    </div>
+  </section>
+
+  <!-- 04 海马体 -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">第二层 · 守门人</p>
+      <h2>海马体：记忆的面试官</h2>
+      <p class="lead">它的工作，是判断每一段记忆重不重要、有没有资格走进员工通道。</p>
+      <div class="rule-box">
+        <p class="rule-label">判断标准只有一条</p>
+        <p class="rule-line"><span class="ok">跟生存有关</span> → 重要，放行</p>
+        <p class="rule-line"><span class="no">其他一切</span> → 不重要，丢掉</p>
+      </div>
+      <p class="lead">所以"什么能吃""什么有毒"这类事，知道一次基本一辈子忘不了。</p>
+      <p class="turn">这套风格海马体保持了三亿年。可问题是——<strong>你要记的东西，大多跟活下去无关</strong>。</p>
+    </div>
+  </section>
+
+  <!-- 05 重复 -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">规律 01 · 两百万年前装上的补丁</p>
+      <h2>重复</h2>
+      <p class="lead">对大脑来说，遗忘和记忆同等重要。它每时每刻都在往回收站里丢东西。</p>
+      <div class="callout">
+        <p>一段记忆，在被记住的初期最容易被忘掉。</p>
+        <p class="note">因为这时候它到底重不重要，还最不容易被识别出来。</p>
+      </div>
+      <p class="lead">所以：把重要信息当定期打卡，没事就在海马体面前晃一晃。它看久了眼熟，就当成"自己人"放进员工通道。</p>
+      <p class="foot-note">这就是后来那个大名鼎鼎的 <strong>艾宾浩斯遗忘曲线</strong></p>
+    </div>
+  </section>
+
+  <!-- 06 主动输出 -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">规律 02</p>
+      <h2>主动输出</h2>
+      <p class="lead">不能光靠看和听——那叫被动输入。</p>
+      <div class="steps">
+        <span>说出来</span>
+        <span>写下来</span>
+        <span>加工二创</span>
+      </div>
+      <p class="lead">这段记忆都被你拿去干活了，等于挂了工牌。<br>海马体一看：自家人，放行。</p>
+      <p class="foot-note">也就是<strong>费曼学习法</strong>那一套</p>
+    </div>
+  </section>
+
+  <!-- 07 LTP -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">核心机制</p>
+      <h2>LTP</h2>
+      <p class="sub">Long-term Potentiation · 学习之基，记忆之源</p>
+      <blockquote class="quote">海马体把门打开，<br>而且好一会儿不关——<br>这个动作，就叫 LTP。</blockquote>
+      <div class="pair tight">
+        <div class="col">
+          <p class="desc">增强突触之间的传递效率</p>
+        </div>
+        <div class="col">
+          <p class="desc">改变神经网络的结构</p>
+        </div>
+      </div>
+      <p class="turn">它同时强化<strong>存储效率</strong>和<strong>读取效率</strong>。有人天生记性好，就是随时能调遣自己的海马体，把门都拆了。</p>
+    </div>
+  </section>
+
+  <!-- 08 情绪 -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">刺激 LTP · 方法一</p>
+      <h2>情绪</h2>
+      <p class="lead">海马体旁边还坐着一位同事：<strong>杏仁核</strong>，负责我们激动的情绪。</p>
+      <div class="rule-box">
+        <p class="rule-line">凡是杏仁核打过招呼的记忆，海马体一律放行。</p>
+      </div>
+      <p class="lead">在祖先的环境里，能让情绪激动起来的，都是生死相关的大事，所以大脑就留下了这个设定。</p>
+      <p class="lead">但进化到今天，<strong>不需要生离死别那么猛的剂量</strong>——有点波动，就够影响记忆效率了。</p>
+    </div>
+  </section>
+
+  <!-- 09 夏侯惇案例 -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">现场演示 · 造一条情绪线索</p>
+      <h2 class="small">要记住的是：曹操攻徐州陶谦，公元 194 年</h2>
+      <div class="story">
+        <p>镜头对准战场上那位年轻将领——</p>
+        <p>两军交阵之际，乱军中飞来一箭，直插左眼。冲击力在眼窝里炸开，整个脑袋在头盔里嗡嗡作响，天旋地转，两眼一黑。</p>
+        <p>再生几寸，脑花都能被一起带出来。何况那会儿的医疗水平，这一箭没准还带着破伤风，活过今天都不见得有明天。</p>
+        <p>可就在这股恐惧和悲伤里，他连血带箭一把拔出，像嗦果冻一样一口吞下，抹抹嘴："父精母血，不可弃也。"</p>
+      </div>
+      <p class="turn">顺着这股血脉喷张的震撼，把 <strong>194</strong> 塞进脑子里。</p>
+    </div>
+  </section>
+
+  <!-- 10 好奇心 -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">刺激 LTP · 方法二</p>
+      <h2>好奇心</h2>
+      <blockquote class="quote">正如不饿的时候吃东西有损健康，<br>对自己不感兴趣的东西去学习，<br>也有损记忆效果。<span class="who">——达芬奇</span></blockquote>
+      <p class="lead">好奇心不只是决定你把精力投向哪儿。<br>它直接给记忆挂了一个<strong>加速 Buff</strong>。</p>
+      <div class="callout">
+        <p>读书之前，先给自己提一个问题。<br>带着问题去找答案，知识更容易流进你的大脑。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 复盘 -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">收一下</p>
+      <h2>四个要点</h2>
+      <ol class="numlist">
+        <li>
+          <span class="n">1</span>
+          <div>
+            <b>守门的是海马体</b>
+            <p>短期记忆想变长期记忆，得遵循它的生理规律</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <div>
+            <b>重复 + 主动输出</b>
+            <p>混脸熟、挂工牌，海马体就放你进员工通道</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <div>
+            <b>LTP 是那个加速器</b>
+            <p>存储效率和读取效率，它一起强化</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">4</span>
+          <div>
+            <b>情绪和好奇心能触发 LTP</b>
+            <p>把内容带进有情绪的场景，或用设问去找答案</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 12 随堂测 -->
+  <section class="slide">
+    <div class="inner">
+      <p class="kicker">最后 · 测一手</p>
+      <h2>曹操攻打陶谦，<br>是在哪一年？</h2>
+      <button class="reveal" id="reveal">点一下看答案</button>
+      <p class="ans" id="ans">公元<span>194</span>年</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="hud">
+  <div class="hud-bar"><i id="bar"></i></div>
+  <div class="hud-hint">← → 翻页</div>
+  <div class="hud-num"><b id="cur">01</b><span> / 12</span></div>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var bar = document.getElementById('bar');
+  var cur = document.getElementById('cur');
+  var hint = document.querySelector('.hud-hint');
+  var i = 0;
+
+  function paint(){
+    slides.forEach(function(s,k){ s.classList.toggle('active', k === i); });
+    cur.textContent = String(i+1).padStart(2,'0');
+    bar.style.width = ((i+1)/total*100) + '%';
+    if(i === total-1){ hint.style.opacity = 0; } else { hint.style.opacity = 1; }
+  }
+
+  function go(n){
+    n = Math.max(0, Math.min(total-1, n));
+    if(n === i) return;
+    i = n;
+    paint();
+  }
+
+  document.querySelector('.hud-num span').textContent = ' / ' + String(total).padStart(2,'0');
+  paint();
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' '){
+      e.preventDefault(); go(i+1);
+    } else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp'){
+      e.preventDefault(); go(i-1);
+    } else if(e.key === 'Home'){
+      go(0);
+    } else if(e.key === 'End'){
+      go(total-1);
+    }
+  });
+
+  document.querySelector('.deck').addEventListener('click', function(e){
+    if(e.target.closest('button, a')) return;
+    if(e.clientX > window.innerWidth * 0.42){ go(i+1); } else { go(i-1); }
+  });
+
+  var sx = 0, sy = 0;
+  document.addEventListener('touchstart', function(e){
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+  }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - sx;
+    var dy = e.changedTouches[0].clientY - sy;
+    if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)){
+      go(dx < 0 ? i+1 : i-1);
+    }
+  }, {passive:true});
+
+  var reveal = document.getElementById('reveal');
+  if(reveal){
+    reveal.addEventListener('click', function(){
+      document.getElementById('ans').classList.add('show');
+      reveal.style.display = 'none';
+    });
+  }
+})();
+</script>
+</body>
+</html>

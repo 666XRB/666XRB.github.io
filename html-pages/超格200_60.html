@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>超格200题·41-60题深度复盘｜毛细血管式拓展版</title>
+<style>
+  :root{
+    --ink:#1b2436;--sub:#5d6c85;--line:#e4e9f2;--bg:#f4f7fc;--card:#ffffff;
+    --blue:#2f6bd8;--blue-l:#eaf1fe;--green:#0f9d67;--green-l:#e6f7f0;
+    --red:#dc4a3d;--red-l:#fdecea;--orange:#d9880f;--orange-l:#fdf4e3;
+    --purple:#7048c4;--purple-l:#f1ecfd;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    line-height:1.85;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 18px 80px;}
+
+  header{background:linear-gradient(135deg,#152238 0%,#28487e 55%,#3c72d2 100%);
+    color:#fff;padding:46px 18px 38px;margin-bottom:28px;position:relative;overflow:hidden;}
+  header::after{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.07);}
+  header::before{content:"";position:absolute;left:-50px;bottom:-90px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05);}
+  .head-inner{max-width:980px;margin:0 auto;position:relative;z-index:2;}
+  .kicker{display:inline-block;font-size:13px;letter-spacing:2px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  header h1{font-size:27px;margin:0 0 10px;font-weight:700;letter-spacing:.5px;}
+  header p.sub{margin:0;font-size:14.5px;color:rgba(255,255,255,.82);}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px;}
+  .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 10px;text-align:center;}
+  .stat b{display:block;font-size:22px;line-height:1.3;}
+  .stat span{font-size:12px;color:rgba(255,255,255,.78);}
+
+  section{margin-bottom:38px;}
+  h2.sec{font-size:20px;margin:0 0 6px;padding-left:14px;border-left:5px solid var(--blue);line-height:1.4;}
+  .sec-desc{font-size:13.5px;color:var(--sub);margin:0 0 18px;padding-left:19px;}
+
+  .q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px 18px;margin-bottom:16px;box-shadow:0 2px 10px rgba(27,42,74,.045);position:relative;}
+  .q.right{border-left:5px solid var(--green);}
+  .q-head{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+  .qno{font-size:16px;font-weight:700;background:var(--ink);color:#fff;border-radius:8px;padding:2px 11px;line-height:1.7;}
+  .tag{font-size:12px;padding:2px 9px;border-radius:6px;background:var(--blue-l);color:var(--blue);font-weight:600;}
+  .ans{font-size:12.5px;padding:2px 10px;border-radius:6px;font-weight:700;}
+  .ans.ok{background:var(--green-l);color:var(--green);}
+  .q-body{font-size:14.5px;}
+  .stem{background:#f7f9fd;border-radius:9px;padding:10px 14px;color:#33415c;font-size:14px;margin-bottom:13px;border-left:3px solid #c8d8f5;}
+  .opt{margin:8px 0;padding-left:2px;}
+  .opt b{color:var(--ink);}
+  .opt .bad{color:var(--red);font-weight:700;}
+  .opt .good{color:var(--green);font-weight:700;}
+
+  .box{border-radius:10px;padding:11px 15px;margin-top:12px;font-size:13.8px;}
+  .box .ttl{font-weight:700;font-size:13px;display:block;margin-bottom:5px;letter-spacing:.5px;}
+  .box.expand{background:var(--blue-l);border-left:4px solid var(--blue);}
+  .box.expand .ttl{color:var(--blue);}
+  .box.trap{background:var(--orange-l);border-left:4px solid var(--orange);}
+  .box.trap .ttl{color:var(--orange);}
+  .box.key{background:var(--purple-l);border-left:4px solid var(--purple);}
+  .box.key .ttl{color:var(--purple);}
+  .box.mind{background:var(--green-l);border-left:4px solid var(--green);}
+  .box.mind .ttl{color:var(--green);}
+  .box.net{background:#fff7ed;border-left:4px solid #c2410c;}
+  .box.net .ttl{color:#c2410c;}
+
+  em.hl{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:600;}
+
+  .trapgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .trapcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;box-shadow:0 2px 8px rgba(27,42,74,.04);}
+  .trapcard h4{margin:0 0 8px;font-size:14.5px;color:var(--red);display:flex;align-items:center;gap:7px;}
+  .trapcard h4 .n{width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .trapcard ul{margin:0;padding-left:19px;font-size:13.5px;color:#3a4761;}
+  .trapcard li{margin-bottom:4px;}
+
+  .adv{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin-bottom:14px;box-shadow:0 2px 10px rgba(27,42,74,.045);}
+  .adv h3{margin:0 0 10px;font-size:16px;color:var(--blue);display:flex;align-items:center;gap:9px;}
+  .adv h3 .num{background:var(--blue);color:#fff;width:24px;height:24px;border-radius:7px;font-size:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .adv ul{margin:6px 0 0;padding-left:20px;font-size:14px;}
+  .adv li{margin-bottom:6px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(27,42,74,.045);}
+  th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#eef3fc;color:#2a3c5e;font-size:13px;font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+  td.k{color:var(--blue);font-weight:700;white-space:nowrap;}
+
+  footer{text-align:center;font-size:13px;color:var(--sub);padding:22px 0 0;border-top:1px dashed var(--line);margin-top:30px;}
+  @media (max-width:680px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .trapgrid{grid-template-columns:1fr;}
+    header h1{font-size:21px;}
+    .q{padding:16px 15px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <span class="kicker">超格200题 · 41-60题 · 毛细血管式拓展版</span>
+    <h1>政治理论深度复盘 · 知识网络构建</h1>
+    <p class="sub">每个知识点向四周延伸：横向对应、纵向延伸、预判换皮挖坑</p>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>总题量</span></div>
+      <div class="stat"><b>14+</b><span>目标正确数</span></div>
+      <div class="stat"><b>70%</b><span>目标正确率</span></div>
+      <div class="stat"><b>网络式</b><span>记忆方式</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ 逐题解析 ============ -->
+<section>
+  <h2 class="sec">一、逐题解析（41—60）</h2>
+  <p class="sec-desc">41-60题覆盖民生“一老一小”、未来产业、唯物论、认识论、真理观、历史唯物主义、辩证否定、联系客观性、商品与剩余价值、江泽民历史功绩、建党105周年讲话、七一勋章、基础研究、科技奖励大会、科技创新与产业创新融合等模块。每道题按「题干中心 → 选项辨析 → <strong>毛细血管式拓展</strong> → 挖坑预判」四层拆解。</p>
+
+  <!-- 41 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">41</span>
+      <span class="tag">“一老一小” · 投资于人 · 民生</span>
+      <span class="ans ok">答案 C（②③）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">做好“一老一小”服务是基于：</div>
+      <div class="opt"><b>①</b> 矛盾的特殊性寓于普遍性之中 <span class="bad">✗ 应为“普遍性寓于特殊性之中”</span></div>
+      <div class="opt"><b>②</b> 人民群众是历史的创造者，要坚持群众观点和群众路线 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 要抓住主要矛盾和矛盾的主要方面来解决问题 <span class="good">✓ “一老一小”是投资于人的重中之重</span></div>
+      <div class="opt"><b>④</b> “老”与“小”矛盾双方相互依存、相互转化 <span class="bad">✗ 二者不是矛盾双方</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：普遍性寓于特殊性之中</span>
+        矛盾的<em class="hl">普遍性寓于特殊性之中</em>，并通过特殊性表现出来；不是“特殊性寓于普遍性之中”。①项把二者关系说反了，是马原高频坑。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：“一老一小”背后的完整知识网络</span>
+        <strong>“一老一小”的定位：</strong><br>
+        · “老”是我们的财富，“小”是我们的未来；<br>
+        · “一老一小”服务是广大群众非常关心的现实问题；<br>
+        · 也是<em class="hl">投资于人的重中之重</em>。<br><br>
+        <strong>“十五五”规划纲要的5项工程建设任务：</strong><br>
+        ① 养老机构；② 社区养老；③ 医养结合；④ 普惠托育；⑤ 生育医疗服务。<br>
+        统筹“<em class="hl">硬投资</em>”和“<em class="hl">软建设</em>”，造福亿万家庭。<br><br>
+        <strong>投资于物和投资于人的关系：</strong><br>
+        · 投资于物：为国内大循环提供“硬件”支撑；<br>
+        · 投资于人：为国内市场需求注入“软件”动能；<br>
+        · 二者<em class="hl">双向赋能</em>，让经济更有活力。<br><br>
+        <strong>民生建设的“七个有所”：</strong><br>
+        幼有所育、学有所教、劳有所得、病有所医、老有所养、住有所居、弱有所扶。<br><br>
+        <strong>人口高质量发展的方向：</strong><br>
+        推动人口工作由调节数量为主向<em class="hl">提升素质、稳定总量、优化结构、畅通流动</em>转变；更加重视“引导”和“激励”，由主要依靠政府力量向政府和社会协同治理转变。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“普遍性寓于特殊性”换成“特殊性寓于普遍性”——<strong>已经考过</strong>；<br>
+        · 把“一老一小”说成“一般民生问题”，削弱“重中之重”——<strong>错</strong>；<br>
+        · 把“投资于人”说成“只投入教育”，遗漏养老托育——<strong>错</strong>；<br>
+        · 把“政府和社会协同治理”换成“政府管为主”——<strong>高频坑</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 42 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">42</span>
+      <span class="tag">未来产业 · 哲理对应</span>
+      <span class="ans ok">答案 D（③④）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列习近平总书记的相关论述与哲理对应<strong>正确</strong>的是？</div>
+      <div class="opt"><b>①</b> 科技突破程度决定未来产业发展速度、广度、深度——<strong>生产关系是人类社会进步的最终决定力量</strong> <span class="bad">✗ 生产力才是最终决定力量；科技属生产力</span></div>
+      <div class="opt"><b>②</b> 坚持全国一盘棋，因地制宜、错位发展——<strong>量变与质变的辩证统一</strong> <span class="bad">✗ 体现的是矛盾特殊性/具体问题具体分析、系统观念</span></div>
+      <div class="opt"><b>③</b> 加大重点领域关键核心技术攻关力度，加强基础研究战略性、前瞻性、体系化布局——<strong>坚持两点论与重点论的统一</strong> <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 强化产业协同，推动未来产业同新兴产业、传统产业相得益彰——<strong>事物的普遍联系原理</strong> <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：最终决定力量是生产力</span>
+        人类社会进步的<em class="hl">最终决定力量是生产力</em>，不是生产关系。生产关系一定要适应生产力状况。①项把“生产力”换成了“生产关系”，是原理错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：未来产业与新质生产力知识网络</span>
+        <strong>未来产业的特点：</strong><br>
+        <em class="hl">前瞻性、战略性、颠覆性</em>；培育周期长、市场风险大。<br><br>
+        <strong>“十五五”未来产业主攻方向：</strong><br>
+        量子科技、生物制造、氢能和核聚变能、脑机接口、具身智能、第六代移动通信。<br><br>
+        <strong>发展未来产业的几个关键：</strong><br>
+        · 坚持全国一盘棋，因地制宜、错位发展，防止盲目“跟风”上项目；<br>
+        · 充分发挥新型举国体制优势，坚持“<em class="hl">产业出题、科技答题</em>”；<br>
+        · 强化产业协同，未来产业同新兴产业、传统产业相得益彰；<br>
+        · 统筹发展和安全，确保既“放得活”又“管得好”。<br><br>
+        <strong>“两点论与重点论”的对应：</strong><br>
+        加大重点领域关键核心技术攻关（重点）＋加强基础研究战略性前瞻性体系化布局（全面）——<em class="hl">重点突破与整体布局相统一</em>。<br><br>
+        <strong>“普遍联系”的对应：</strong><br>
+        未来产业、新兴产业、传统产业不是孤立的，而是相互促进、相得益彰——体现事物<em class="hl">普遍联系</em>。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“生产力”换成“生产关系”作为最终决定力量——<strong>已经考过</strong>；<br>
+        · 把“因地制宜、错位发展”对应到“量变质变”——<strong>已经考过</strong>；<br>
+        · 把“产业出题、科技答题”换成“科技出题、产业答题”——<strong>高频坑</strong>；<br>
+        · 把“未来产业主力军”说成“高校”而不是“中央企业”——<strong>错</strong>，中央企业是科技创新的国家队，也应成为未来产业的主力军。
+      </div>
+    </div>
+  </div>
+
+  <!-- 43 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">43</span>
+      <span class="tag">唯物论 · 物质与运动</span>
+      <span class="ans ok">答案 B（③④）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于神舟二十号对接事件所蕴含的唯物论原理，说法<strong>正确</strong>的有：</div>
+      <div class="opt"><b>①</b> 运动是永恒的、绝对的和<strong>有条件的</strong> <span class="bad">✗ 运动是绝对的、无条件的</span></div>
+      <div class="opt"><b>②</b> 运动是物质的<strong>唯一特性</strong> <span class="bad">✗ 物质的唯一特性是客观实在性；运动是根本属性</span></div>
+      <div class="opt"><b>③</b> 物质是运动的物质，体现物质与运动的不可分割 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 运动是物质的运动，飞船运动变化离不开自身机械结构和操作空间 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：运动是绝对的、无条件的</span>
+        运动是<em class="hl">永恒的、绝对的、无条件的</em>；静止是相对的、有条件的、暂时的。①项说“运动有条件”，说反了。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：物质与运动完整知识框架</span>
+        <strong>物质：</strong><br>
+        · 唯一特性：<em class="hl">客观实在性</em>；<br>
+        · 根本属性/存在方式：<em class="hl">运动</em>。<br><br>
+        <strong>运动与静止：</strong><br>
+        · 运动是无条件的、永恒的、绝对的；<br>
+        · 静止是有条件的、暂时的、相对的；<br>
+        · 动中有静、静中有动；<br>
+        · 世界上一切事物的存在和发展，都是绝对运动和相对静止的统一。<br><br>
+        <strong>两种错误倾向：</strong><br>
+        · 否认物质的运动 → 形而上学；<br>
+        · 否认物质是运动的主体 → 唯心主义。<br><br>
+        <strong>“物质是运动的物质，运动是物质的运动”：</strong><br>
+        前者强调物质离不开运动；后者强调运动离不开物质。③④正是这两句话的分别对应。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“运动无条件”换成“有条件”——<strong>已经考过</strong>；<br>
+        · 把“客观实在性”和“运动”互换——<strong>高频坑</strong>；<br>
+        · 把“运动是物质的运动”说成“运动可以脱离物质”——<strong>错</strong>，会陷入唯心主义。
+      </div>
+    </div>
+  </div>
+
+  <!-- 44 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">44</span>
+      <span class="tag">认识论 · 实践是认识发展的动力</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">“本领恐慌”、解决靠学习，上述材料蕴含的哲理是：</div>
+      <div class="opt"><b>A．</b>实践是检验认识真理性的唯一标准 <span class="bad">✗ 材料未涉及检验真理</span></div>
+      <div class="opt"><b>B．</b>实践是认识发展的动力 <span class="good">✓ 实践发展提出新问题、新要求，推动学习</span></div>
+      <div class="opt"><b>C．</b>认识决定实践的方向与进程 <span class="bad">✗ 实践决定认识</span></div>
+      <div class="opt"><b>D．</b>事物发展是前进性与曲折性的统一 <span class="bad">✗ 无关</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：实践是认识发展的动力</span>
+        科技创新突飞猛进、社会变革深刻、新生事物层出不穷 → 实践中出现新情况新问题 → 干部原有认识跟不上 → 产生“本领恐慌” → 需要通过学习发展认识。这正是<em class="hl">实践是认识发展的动力</em>。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：实践决定认识的四个表现</span>
+        <table style="margin-top:6px;box-shadow:none;border:1px solid var(--line);">
+          <tr><th style="width:30%;">表现</th><th>核心含义</th></tr>
+          <tr><td class="k">实践是认识的来源</td><td>认识在实践基础上“从无到有”</td></tr>
+          <tr><td class="k">实践是认识发展的动力</td><td>实践提出新问题、提供新工具、锻炼新能力，推动认识深化</td></tr>
+          <tr><td class="k">实践是认识的目的</td><td>认识最终要回到实践、指导实践</td></tr>
+          <tr><td class="k">实践是检验认识真理性的唯一标准</td><td>把主观认识与客观结果对照</td></tr>
+        </table>
+        <br>
+        <strong>“本领恐慌”的完整逻辑链：</strong><br>
+        实践发展（科技创新、社会变革）→ 新问题新挑战 → 原有能力不足 → 产生恐慌 → 加强学习 → 提升认识能力和实践能力。<br><br>
+        <strong>注意区分：</strong><br>
+        · 如果材料强调“用什么检验对错” → 检验标准；<br>
+        · 如果材料强调“为什么需要学习、认识为什么进步” → 认识发展的动力。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“实践是认识发展的动力”换成“实践是检验真理的唯一标准”——<strong>已经考过</strong>；<br>
+        · 把“实践决定认识”换成“认识决定实践”——<strong>高频坑</strong>；<br>
+        · 把“实践是认识的来源”和“动力”混淆——<strong>注意</strong>：来源强调从无到有，动力强调深化发展。
+      </div>
+    </div>
+  </div>
+
+  <!-- 45 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">45</span>
+      <span class="tag">真理观 · 与时俱进</span>
+      <span class="ans ok">答案 A（①②）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">马克思主义行告诉我们：</div>
+      <div class="opt"><b>①</b> 要坚持与时俱进、开拓创新，在实践中认识和发展真理 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 真理是主观与客观、理论与实践的具体的历史的统一 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 真理不会停止前进的步伐，而是在实践中不断地<strong>否定自身</strong> <span class="bad">✗ 真理是不断发展，不是“否定自身”</span></div>
+      <div class="opt"><b>④</b> 实践是连接主客观的桥梁，<strong>接受实践检验的认识才是真理</strong> <span class="bad">✗ 接受实践检验的正确认识才是真理</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：真理是发展，不是否定自身</span>
+        真理随着实践发展而不断丰富和发展，但不是“否定自身”。③项“不断地否定自身”表述错误，容易与辩证否定观混淆。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：真理观完整知识网络</span>
+        <strong>真理的含义：</strong><br>
+        真理是标志<em class="hl">主观和客观相符合</em>的哲学范畴，是客观事物及其规律在人的意识中的正确反映。<br><br>
+        <strong>真理的三个特性：</strong><br>
+        · <strong>客观性</strong>：真理的本质属性，内容和检验标准都是客观的；<br>
+        · <strong>绝对性</strong>：任何真理都是对客观事物及其规律的正确反映；人的认识能够正确认识无限发展的世界；<br>
+        · <strong>相对性</strong>：人们在一定条件下对客观事物及其规律的正确认识是有限的。<br><br>
+        <strong>真理是具体的历史的：</strong><br>
+        真理是<em class="hl">主观与客观、理论与实践的具体的历史的统一</em>——离开具体条件谈真理，就会变成谬误。<br><br>
+        <strong>实践是检验真理的唯一标准：</strong><br>
+        注意表述：<em class="hl">接受实践检验的正确认识才是真理</em>，不是“接受检验的认识都是真理”。④项少了“正确”二字。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“真理不断发展”换成“真理不断否定自身”——<strong>已经考过</strong>；<br>
+        · 把“正确认识才是真理”换成“认识都是真理”——<strong>高频坑</strong>；<br>
+        · 把“具体的历史的统一”换成“抽象的永恒的统一”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 46 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">46</span>
+      <span class="tag">历史唯物主义 · 社会基本矛盾</span>
+      <span class="ans ok">答案 A</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于历史唯物主义，说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>任何社会的基本矛盾都是生产力和生产关系、经济基础和上层建筑的矛盾 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>科学技术是第一生产力，是生产力的<strong>基本要素</strong> <span class="bad">✗ 科技是渗透性要素，不是基本要素</span></div>
+      <div class="opt"><b>C．</b>上层建筑由经济基础决定，<strong>不具有相对独立性</strong> <span class="bad">✗ 上层建筑具有相对独立性</span></div>
+      <div class="opt"><b>D．</b>在人类的一切社会关系中，最基本的关系是<strong>分配关系</strong> <span class="bad">✗ 最基本的是生产关系（经济关系）</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：生产力基本要素 vs 渗透性要素</span>
+        生产力基本要素（实体性要素）：<em class="hl">劳动者、劳动资料、劳动对象</em>。<br>
+        渗透性要素：<em class="hl">科学技术、教育、管理</em>等。<br>
+        B项把“科学技术”说成“基本要素”，是概念错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：历史唯物主义完整框架</span>
+        <strong>社会基本矛盾：</strong><br>
+        生产力和生产关系、经济基础和上层建筑的矛盾——<em class="hl">贯穿人类社会发展始终</em>。<br><br>
+        <strong>生产力与生产关系：</strong><br>
+        · 生产力决定生产关系；<br>
+        · 生产关系反作用于生产力：适合时推动，不适合时阻碍。<br><br>
+        <strong>经济基础与上层建筑：</strong><br>
+        · 经济基础决定上层建筑；<br>
+        · 上层建筑具有<em class="hl">相对独立性</em>，反作用于经济基础。<br><br>
+        <strong>社会关系中最基本的关系：</strong><br>
+        <em class="hl">生产关系</em>是最基本的社会关系；生产资料所有制是生产关系的基础，是区分不同生产方式、判定社会经济结构性质的客观依据。<br><br>
+        <strong>科学技术是第一生产力：</strong><br>
+        科技不是独立的生产力要素，而是渗透到劳动者、劳动资料、劳动对象中，转化为现实生产力。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“科技是渗透性要素”换成“基本要素”——<strong>已经考过</strong>；<br>
+        · 把“上层建筑具有相对独立性”换成“不具有”——<strong>已经考过</strong>；<br>
+        · 把“生产关系”换成“分配关系”作为最基本关系——<strong>已经考过</strong>；<br>
+        · 把“生产力决定生产关系”换成“生产关系决定生产力”——<strong>高频坑</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 47 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">47</span>
+      <span class="tag">辩证否定观 · 传统文化</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">优秀传统文化是根本，丢掉了割断精神命脉；实现创造性转化和创新性发展，与现实文化相融相通。这告诉我们要：</div>
+      <div class="opt"><b>A．</b>承认矛盾的特殊性是坚持唯物辩证法的前提 <span class="bad">✗ 承认矛盾普遍性是前提</span></div>
+      <div class="opt"><b>B．</b>正确把握矛盾的普遍性与特殊性的关系 <span class="bad">✗ 材料核心不是共性与个性</span></div>
+      <div class="opt"><b>C．</b>坚持辩证的否定观来看待事物 <span class="good">✓ 扬弃：既继承又发展</span></div>
+      <div class="opt"><b>D．</b>自在事物的联系是客观的，不以人的意志为转移 <span class="bad">✗ 无关</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：辩证否定观 = 扬弃</span>
+        辩证否定的实质是“<em class="hl">扬弃</em>”——既克服又保留，既继承又发展。对待传统文化，要“创造性转化、创新性发展”，正是辩证否定观的具体体现。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：辩证否定观与传统文化“两创”</span>
+        <strong>辩证否定观的四个要点：</strong><br>
+        ① 辩证的否定是包含肯定的否定；<br>
+        ② 辩证的否定是事物的自我否定；<br>
+        ③ 辩证否定的实质是“<em class="hl">扬弃</em>”；<br>
+        ④ 辩证的否定是发展和联系的环节。<br><br>
+        <strong>对待传统文化的正确态度：</strong><br>
+        · 坚持<em class="hl">古为今用、推陈出新</em>；<br>
+        · 坚持<em class="hl">创造性转化、创新性发展</em>；<br>
+        · 用马克思主义激活中华传统文化中的优秀因子并赋予新的时代内涵；<br>
+        · 反对全盘否定（历史虚无主义）和全盘继承（复古主义）。<br><br>
+        <strong>“两个结合”与传统文化：</strong><br>
+        第二个结合是马克思主义基本原理同中华优秀传统文化相结合——不是简单拼盘，而是深刻化学反应，造就新的文化生命体。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“承认矛盾普遍性是前提”换成“特殊性”——<strong>已经考过</strong>；<br>
+        · 把“辩证否定”换成“全盘肯定/全盘否定”——<strong>高频坑</strong>；<br>
+        · 把“扬弃”换成“抛弃”——<strong>错</strong>，扬弃是既克服又保留。
+      </div>
+    </div>
+  </div>
+
+  <!-- 48 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">48</span>
+      <span class="tag">联系的客观性 · 创新</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">“明者因时而变，智者随势而变”，解决深层次矛盾根本途径在于创新。理解<strong>错误</strong>的是：</div>
+      <div class="opt"><b>A．</b>要善于把握矛盾的特殊性 <span class="good">✓ 因时而变、随势而变</span></div>
+      <div class="opt"><b>B．</b>提高创新思维活力，建立全面发展观 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>人们可以根据<strong>主观需要</strong>建立新的联系 <span class="bad">✗ 联系是客观的，不能根据主观需要任意建立</span></div>
+      <div class="opt"><b>D．</b>要按客观规律办事 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：联系是客观的</span>
+        联系是事物本身所固有的，不以人的意志为转移。人们可以<em class="hl">根据事物固有的联系，改变事物的状态，调整原有的联系，建立新的具体联系</em>，但不能“根据主观需要”任意建立联系。C项是典型的主观唯心主义。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：联系的特征与创新思维</span>
+        <strong>联系的五个特征：</strong><br>
+        · <strong>客观性</strong>：联系是事物本身固有的，不以人的意志为转移；<br>
+        · <strong>普遍性</strong>：联系无处不在、无时不有；<br>
+        · <strong>条件性</strong>：任何联系都在一定条件下存在；<br>
+        · <strong>多样性</strong>：内部/外部、直接/间接、必然/偶然、本质/非本质等；<br>
+        · <strong>系统性</strong>：系统与要素、整体与部分。<br><br>
+        <strong>“因时而变、随势而变”的哲理：</strong><br>
+        体现<em class="hl">矛盾的特殊性</em>——不同时间、不同条件，矛盾特点不同，要具体问题具体分析；也体现<em class="hl">一切以时间、地点、条件为转移</em>。<br><br>
+        <strong>创新的哲学依据：</strong><br>
+        发展是前进上升的运动，发展的实质是新事物产生、旧事物灭亡；创新要<em class="hl">按客观规律办事</em>，不是随意妄为。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“根据固有联系”换成“根据主观需要”——<strong>已经考过</strong>；<br>
+        · 把“联系客观性”换成“联系主观性”——<strong>高频坑</strong>；<br>
+        · 把“矛盾特殊性”换成“矛盾普遍性”——<strong>错</strong>，因时因地是特殊性。
+      </div>
+    </div>
+  </div>
+
+  <!-- 49 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">49</span>
+      <span class="tag">商品二因素 · 劳动二重性</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于马克思主义政治经济学中的“商品”，说法<strong>错误</strong>的是：</div>
+      <div class="opt"><b>A．</b>商品是用来交换的劳动产品 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>商品的二重性是由劳动二重性决定的 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>商品的<strong>价值是使用价值的物质承担者</strong> <span class="bad">✗ 说反了：使用价值是价值的物质承担者</span></div>
+      <div class="opt"><b>D．</b>商品的价值量和社会必要劳动时间成正比，与社会劳动生产率成反比 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：使用价值是价值的物质承担者</span>
+        <em class="hl">使用价值是价值的物质承担者</em>——没有使用价值的东西，不可能有价值。C项把二者关系说反了。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：商品与劳动二重性知识树</span>
+        <strong>商品的二因素：</strong><br>
+        · <strong>使用价值</strong>：物的有用性，自然属性，构成社会财富的物质内容；<br>
+        · <strong>价值</strong>：凝结在商品中无差别的一般人类劳动，社会属性，商品的根本属性。<br><br>
+        <strong>劳动二重性：</strong><br>
+        · <strong>具体劳动</strong>：生产一定使用价值的具体形式的劳动 → 形成使用价值；<br>
+        · <strong>抽象劳动</strong>：撇开具体形式的无差别人类劳动 → 形成价值。<br>
+        劳动二重性理论是理解马克思主义政治经济学的<em class="hl">枢纽</em>。<br><br>
+        <strong>价值量：</strong><br>
+        · 由<em class="hl">社会必要劳动时间</em>决定，不是个别劳动时间；<br>
+        · 与社会必要劳动时间成正比；<br>
+        · 与社会劳动生产率成反比。<br><br>
+        <strong>使用价值与价值的对立统一：</strong><br>
+        二者统一于商品中；但对买者和卖者而言不可兼得——卖者让渡使用价值获得价值，买者支付价值获得使用价值。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“使用价值是价值的物质承担者”说反——<strong>已经考过</strong>；<br>
+        · 把“社会必要劳动时间”换成“个别劳动时间”——<strong>高频坑</strong>；<br>
+        · 把“具体劳动形成使用价值、抽象劳动形成价值”互换——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 50 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">50</span>
+      <span class="tag">剩余价值理论 · 历史地位</span>
+      <span class="ans ok">答案 D</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列关于剩余价值理论的说法<strong>不正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>剩余价值理论是马克思首创，是建立现代科学社会主义的重要依据 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>阐明了资本主义雇佣劳动的本质，揭示了资本主义生产方式产生、发展和灭亡的规律 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>阐明了无产阶级在资本主义制度中的地位和历史使命 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>剩余价值理论及其范式<strong>不属于现代经济学</strong>，在解释现实经济问题时，日趋为利润理论所代替 <span class="bad">✗ 剩余价值理论仍是马克思主义政治经济学核心</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：剩余价值理论没有被“利润理论”代替</span>
+        剩余价值理论是马克思<em class="hl">两大发现</em>之一（唯物史观、剩余价值学说），揭示了资本主义剥削的秘密，是马克思主义政治经济学的基石。D项说它“不属于现代经济学”“为利润理论所代替”，是完全错误的。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：剩余价值理论完整逻辑</span>
+        <strong>剩余价值的来源：</strong><br>
+        剩余价值不是由全部资本创造的，而是由<em class="hl">可变资本</em>（劳动力）创造的；雇佣劳动者的<em class="hl">剩余劳动</em>是剩余价值的唯一源泉。<br><br>
+        <strong>两种生产方法：</strong><br>
+        · <strong>绝对剩余价值</strong>：必要劳动时间不变，延长工作日；<br>
+        · <strong>相对剩余价值</strong>：工作日不变，缩短必要劳动时间（靠全社会劳动生产率提高）。<br><br>
+        <strong>不变资本与可变资本：</strong><br>
+        · 不变资本（c）：以生产资料形态存在，价值转移到新产品中；<br>
+        · 可变资本（v）：以劳动力形态存在，再生产出劳动力价值并创造剩余价值。<br><br>
+        <strong>剩余价值率与利润率：</strong><br>
+        · 剩余价值率 m' = m/v，反映剥削程度；<br>
+        · 利润率 p' = m/(c+v)，表示预付资本增殖程度，掩盖剩余价值来源。<br><br>
+        <strong>两大发现：</strong><br>
+        唯物史观 + 剩余价值学说 → 社会主义从空想变为科学。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“剩余价值理论仍是核心”说成“已被利润理论代替”——<strong>已经考过</strong>；<br>
+        · 把“可变资本创造剩余价值”换成“全部资本创造剩余价值”——<strong>高频坑</strong>；<br>
+        · 把“剩余劳动是唯一源泉”换成“生产资料是源泉”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 51 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">51</span>
+      <span class="tag">江泽民历史功绩 · 三步走</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于江泽民同志的历史功绩，说法<strong>不正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>“三个代表”重要思想的主要创立者 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>领导我们成功加入世界贸易组织 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>指导我们党制定现代化建设“<strong>三步走</strong>”发展战略 <span class="bad">✗ “三步走”是邓小平提出的</span></div>
+      <div class="opt"><b>D．</b>领导实现香港、澳门顺利回归，推动两岸双方达成“九二共识” <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：“三步走”战略的提出者</span>
+        现代化建设“三步走”发展战略是<em class="hl">邓小平</em>提出的：第一步解决温饱，第二步达到小康，第三步基本实现现代化。C项把功劳安到江泽民头上，是历史事实错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：江泽民同志历史功绩完整清单</span>
+        <strong>江泽民同志的主要贡献：</strong><br>
+        ① “三个代表”重要思想的主要创立者；<br>
+        ② 领导我们成功加入世界贸易组织（2001年）；<br>
+        ③ 领导实现香港、澳门顺利回归；<br>
+        ④ 推动两岸双方达成体现一个中国原则的“九二共识”；<br>
+        ⑤ 确立社会主义市场经济体制的改革目标和基本框架；<br>
+        ⑥ 确立公有制为主体、多种所有制经济共同发展的基本经济制度，按劳分配为主体、多种分配方式并存的分配制度；<br>
+        ⑦ 提出抓住机遇、深化改革、扩大开放、促进发展、保持稳定的基本方针，全面阐述正确处理社会主义现代化建设中的十二大关系；<br>
+        ⑧ 坚持把发展作为党执政兴国的第一要务。<br><br>
+        <strong>“三步走”战略：</strong><br>
+        邓小平提出：1980—1990解决温饱；1990—20世纪末达到小康；21世纪中叶基本实现现代化。<br><br>
+        <strong>“新三步走”/“两个一百年”：</strong><br>
+        江泽民在十五大提出新“三步走”目标，为全面建设小康社会奠定基础。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“三步走”的提出者从邓小平换成江泽民——<strong>已经考过</strong>；<br>
+        · 把“加入WTO”换成“加入亚太经合组织”——<strong>错</strong>，WTO是2001年；<br>
+        · 把“九二共识”换成“一国两制”——<strong>错</strong>，九二共识是两岸共识。
+      </div>
+    </div>
+  </div>
+
+  <!-- 52 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">52</span>
+      <span class="tag">纪念江泽民同志诞辰100周年 · 讲话精神</span>
+      <span class="ans ok">答案 D（4项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列说法符合纪念江泽民同志诞辰100周年大会讲话精神的有几项？</div>
+      <div class="opt"><b>①</b> 有力推动了人民生活从温饱不足到总体小康、奔向全面小康的历史性跨越 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 提出抓住机遇、深化改革、扩大开放、促进发展、保持稳定的基本方针，全面阐述十二大关系 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 坚持把发展作为党执政兴国的第一要务，引领全党全国各族人民聚精会神搞建设、一心一意谋发展 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 领导我们确立了公有制为主体、多种所有制经济共同发展，按劳分配为主体、多种分配方式并存，社会主义市场经济体制的基本经济制度 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：四项全对</span>
+        ①②③④均符合江泽民同志的历史贡献和纪念大会讲话精神。特别是④，江泽民时期确立了社会主义基本经济制度和社会主义市场经济体制的改革目标。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：纪念讲话中的“五个学习”</span>
+        纪念江泽民同志，要学习他：<br>
+        ① <strong>坚定如磐的政治信仰</strong>——对马克思主义的信仰、对共产主义的信念、对中国特色社会主义的信心；<br>
+        ② <strong>真挚深厚的为民情怀</strong>——全心全意为人民服务，立党为公、执政为民；<br>
+        ③ <strong>与时俱进的创新精神</strong>——创新是一个民族进步的灵魂；<br>
+        ④ <strong>深谋远虑的战略思维</strong>——重要战略机遇期、十二大关系、发展第一要务；<br>
+        ⑤ <strong>坚毅果敢的非凡胆略</strong>——香港澳门回归、九二共识、反分裂反“台独”。<br><br>
+        <strong>基本经济制度的形成脉络：</strong><br>
+        · 公有制为主体、多种所有制经济共同发展——十五大确立；<br>
+        · 按劳分配为主体、多种分配方式并存——十五大确立；<br>
+        · 社会主义市场经济体制——十四大确立改革目标。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“温饱不足→总体小康→全面小康”换成“全面富裕”——<strong>错</strong>，全面小康不是全面富裕；<br>
+        · 把“十二大关系”换成“十大关系”——<strong>错</strong>，毛泽东《论十大关系》，江泽民是十二大关系；<br>
+        · 把“发展是第一要务”换成“改革是第一要务”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 53 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">53</span>
+      <span class="tag">建党105周年 · “六个始终”优秀特质</span>
+      <span class="ans ok">答案 C（①②③④⑥）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列选项属于“六个始终”优秀特质的有：</div>
+      <div class="opt"><b>①</b> 深深植根人民，始终拥有坚实根基 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 矢志追求真理，始终把准前进方向 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 敢于善于斗争，始终保持必胜信心 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 勇担历史使命，始终掌握战略主动 <span class="good">✓</span></div>
+      <div class="opt"><b>⑤</b> <strong>胸怀天下大势，始终引领人类进步</strong> <span class="bad">✗ 应为“顺应发展潮流，始终走在时代前列”</span></div>
+      <div class="opt"><b>⑥</b> 注重强健自身，始终充满生机活力 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：第五个“始终”</span>
+        正确表述是：<em class="hl">顺应发展潮流，始终走在时代前列</em>，不是“胸怀天下大势，始终引领人类进步”。⑤项是典型的偷换。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：“六个始终”完整表述</span>
+        <table style="margin-top:6px;box-shadow:none;border:1px solid var(--line);">
+          <tr><th style="width:14%;">序号</th><th>优秀特质</th></tr>
+          <tr><td class="k">①</td><td>深深植根人民，始终拥有坚实根基</td></tr>
+          <tr><td class="k">②</td><td>矢志追求真理，始终把准前进方向</td></tr>
+          <tr><td class="k">③</td><td>敢于善于斗争，始终保持必胜信心</td></tr>
+          <tr><td class="k">④</td><td>勇担历史使命，始终掌握战略主动</td></tr>
+          <tr><td class="k">⑤</td><td>顺应发展潮流，始终走在时代前列</td></tr>
+          <tr><td class="k">⑥</td><td>注重强健自身，始终充满生机活力</td></tr>
+        </table>
+        <br>
+        <strong>“六个始终”的定位：</strong><br>
+        深刻揭示了我们党具有其他政党和政治力量无可比拟的优秀特质，是<em class="hl">中国共产党为什么能的关键密码</em>。<br><br>
+        <strong>记忆口诀：</strong><br>
+        植根人民、追求真理、敢于斗争、勇担使命、顺应潮流、强健自身。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“顺应发展潮流，始终走在时代前列”换成“胸怀天下大势，始终引领人类进步”——<strong>已经考过</strong>；<br>
+        · 把“敢于善于斗争”换成“敢于斗争、善于斗争”拆开——<strong>意思相近但表述要完整</strong>；<br>
+        · 把“注重强健自身”换成“注重经济发展”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 54 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">54</span>
+      <span class="tag">建党105周年 · 伟大成就</span>
+      <span class="ans ok">答案 D（5项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列相关说法<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 从根本上改变了中国人民的前途命运 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 锻造了强大的中国共产党 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 深刻影响了世界历史进程 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 展示了马克思主义的强大生命力 <span class="good">✓</span></div>
+      <div class="opt"><b>⑤</b> 开辟了实现中华民族伟大复兴的正确道路 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：五项全对</span>
+        这五项是建党105周年讲话中概括的伟大成就，全部正确。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：105年奋斗的“五个伟大成就”</span>
+        ① 从根本上改变了<em class="hl">中国人民的前途命运</em>；<br>
+        ② 开辟了<em class="hl">实现中华民族伟大复兴的正确道路</em>；<br>
+        ③ 展示了<em class="hl">马克思主义的强大生命力</em>；<br>
+        ④ 深刻影响了<em class="hl">世界历史进程</em>；<br>
+        ⑤ 锻造了<em class="hl">强大的中国共产党</em>。<br><br>
+        <strong>逻辑关系：</strong><br>
+        从“人民”到“民族”到“马克思主义”到“世界”到“党自身”——层层递进，覆盖国内、国际、理论、主体四个维度。<br><br>
+        <strong>易混点：</strong><br>
+        · “根本改变前途命运”是人民层面；<br>
+        · “开辟正确道路”是民族复兴层面；<br>
+        · “展示强大生命力”是理论层面；<br>
+        · “影响世界历史进程”是国际层面；<br>
+        · “锻造强大政党”是主体层面。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“从根本上改变中国人民前途命运”换成“从根本上改变世界历史进程”——<strong>错</strong>；<br>
+        · 把“展示马克思主义强大生命力”换成“展示社会主义强大生命力”——<strong>不准确</strong>；<br>
+        · 把“锻造强大的中国共产党”换成“锻造强大的中国”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 55 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">55</span>
+      <span class="tag">建党105周年 · 讲话精神辨析</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列表述符合该讲话精神的是：</div>
+      <div class="opt"><b>A．</b>人民生活从温饱不足到总体小康再到<strong>全面富裕</strong>的历史性跨越 <span class="bad">✗ 应为“全面小康”</span></div>
+      <div class="opt"><b>B．</b>成功开辟和坚持了中国特色社会主义道路，仅用几十年时间就走完发达国家几百年走过的现代化历程 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>我们党坚持长远目标和阶段目标相统一，适应<strong>经济发展变化</strong>确立中心任务 <span class="bad">✗ 应为“社会主要矛盾变化”</span></div>
+      <div class="opt"><b>D．</b>我们党以自强不息的奋斗深刻改变了世界发展的趋势和格局 <span class="bad">✗ 表述本身在讲话中有，但本题单选B更准确；注意D与原文“世界发展的趋势和格局”的细微差别</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：全面小康 ≠ 全面富裕</span>
+        A项把“全面小康”换成“全面富裕”，是概念偷换。全面小康是2021年实现的目标；全面富裕是共同富裕的更高目标，尚未实现。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：105周年讲话中的关键表述</span>
+        <strong>人民生活跨越：</strong><br>
+        <em class="hl">温饱不足 → 总体小康 → 全面小康</em>，不是“全面富裕”。<br><br>
+        <strong>道路与奇迹：</strong><br>
+        成功开辟和坚持了中国特色社会主义道路，仅用几十年时间就走完发达国家几百年走过的<em class="hl">工业化/现代化历程</em>，创造了经济快速发展和社会长期稳定两大奇迹。<br><br>
+        <strong>中心任务的确定依据：</strong><br>
+        我们党坚持长远目标和阶段目标相统一，适应<em class="hl">社会主要矛盾变化</em>确立中心任务——不是“经济发展变化”。<br><br>
+        <strong>“五个必须”的接续奋斗：</strong><br>
+        ① 必须坚持党的基本理论、基本路线、基本方略；<br>
+        ② 必须紧紧依靠人民创造历史伟业；<br>
+        ③ 必须积极应对前进道路上的风险挑战；<br>
+        ④ 必须持续推动构建人类命运共同体；<br>
+        ⑤ 必须持之以恒推进全面从严治党。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“全面小康”换成“全面富裕”——<strong>已经考过</strong>；<br>
+        · 把“社会主要矛盾变化”换成“经济发展变化”——<strong>已经考过</strong>；<br>
+        · 把“工业化历程”换成“现代化历程”——<strong>注意原文表述</strong>，本题B按答案视为正确，但需留意命题人可能在“工业化/现代化”上做文章。
+      </div>
+    </div>
+  </div>
+
+  <!-- 56 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">56</span>
+      <span class="tag">七一勋章 · 人物事迹对应</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列功绩描述与“七一勋章”获得者对应<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>李连成——把论文写在大地上，探索出“党支部+合作社+农户”的戴庄经验 <span class="bad">✗ 戴庄经验是赵亚夫；李连成是西辛庄村支书</span></div>
+      <div class="opt"><b>B．</b>钟掘——推动我国铝工业由落后于人到跻身世界前列 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>马善祥——扎根社区治理30余载，探索出“四步议事”等治理方法 <span class="bad">✗ 马善祥是基层调解“老马工作法”</span></div>
+      <div class="opt"><b>D．</b>陈俊武——深藏功名的英雄老兵，运用“近快战法”两次击落U-2 <span class="bad">✗ 陈俊武是石油炼制专家；深藏功名是张富清；击落U-2是岳振华等</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：人物与事迹精准对应</span>
+        钟掘：冶金机械专家，推动我国铝工业由落后于人到跻身世界前列。B项正确。<br>
+        李连成：河南省濮阳县西辛庄村党支部书记，以“吃亏精神”闻名。<br>
+        马善祥：重庆市江北区观音桥街道“老马工作室”负责人，基层调解工作法。<br>
+        陈俊武：中国科学院院士，石油炼制工程专家，催化裂化技术奠基人之一。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：七一勋章人物群像记忆法</span>
+        <strong>按领域归类：</strong><br>
+        · <strong>科技界</strong>：钟掘（铝工业）、陈俊武（石油炼制）、陆元九（航天）、艾爱国（焊接）等；<br>
+        · <strong>基层干部</strong>：李连成（西辛庄）、黄文秀（扶贫）、张桂梅（教育）等；<br>
+        · <strong>政法公安</strong>：马善祥（调解）、崔道植（刑侦）等；<br>
+        · <strong>英雄老兵</strong>：张富清（深藏功名）、王占山（战斗英雄）等；<br>
+        · <strong>文艺界</strong>：蓝天野（话剧）、吕其明（作曲）等。<br><br>
+        <strong>易混辨析：</strong><br>
+        · “把论文写在大地上”→ 赵亚夫（戴庄经验）；<br>
+        · “深藏功名”→ 张富清；<br>
+        · “近快战法”→ 岳振华（地空导弹英雄营）；<br>
+        · “四步议事”→ 不是马善祥，马善祥是“老马工作法”。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把赵亚夫的戴庄经验安到李连成头上——<strong>已经考过</strong>；<br>
+        · 把张富清的深藏功名安到陈俊武头上——<strong>已经考过</strong>；<br>
+        · 把马善祥的“老马工作法”换成“四步议事”——<strong>已经考过</strong>；<br>
+        · 把钟掘的铝工业安到别人头上——<strong>注意</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 57 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">57</span>
+      <span class="tag">基础研究 · 投入与评价</span>
+      <span class="ans ok">答案 A</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于基础研究，说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>逐步提高基础研究经费占比，形成多元化投入格局 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>坚持<strong>市场效益</strong>战略导向，进一步明确基础研究的主攻方向和重点领域 <span class="bad">✗ 应坚持“四个面向”战略导向</span></div>
+      <div class="opt"><b>C．</b>健全符合基础研究特点的<strong>标准化</strong>评价体系 <span class="bad">✗ 应为分类评价体系，不是标准化</span></div>
+      <div class="opt"><b>D．</b>对从事基础研究的科研机构和平台基地采取<strong>滚动式支持</strong> <span class="bad">✗ 应为稳定支持；滚动式支持针对重大原创项目</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：基础研究的支持方式</span>
+        · 对科研机构和平台基地：<em class="hl">稳定支持</em>；<br>
+        · 对优秀研究团队和人才：竞争择优基础上的<em class="hl">接续支持</em>；<br>
+        · 对重大原创项目：<em class="hl">滚动式支持</em>。<br>
+        D项把对象和方式搞混了。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：基础研究完整知识网络</span>
+        <strong>基础研究的定位：</strong><br>
+        · 是整个科学体系的<em class="hl">源头</em>；<br>
+        · 是所有技术问题的<em class="hl">总机关</em>；<br>
+        · 是科技创新的源头活水。<br><br>
+        <strong>战略导向：</strong><br>
+        坚持“<em class="hl">四个面向</em>”——面向世界科技前沿、面向经济主战场、面向国家重大需求、面向人民生命健康。<br><br>
+        <strong>系统布局：</strong><br>
+        · 有组织推进<em class="hl">战略导向的体系化基础研究</em>；<br>
+        · <em class="hl">前沿导向的探索性基础研究</em>；<br>
+        · <em class="hl">市场导向的应用性基础研究</em>。<br><br>
+        <strong>投入机制：</strong><br>
+        · 逐步提高基础研究经费占比；<br>
+        · 形成<em class="hl">多元化投入格局</em>（财政投入、企业投入、社会力量投入）；<br>
+        · 竞争性支持和稳定支持相结合。<br><br>
+        <strong>评价体系：</strong><br>
+        健全符合基础研究特点的<em class="hl">分类评价体系</em>——代表成果评价、长周期评价、国际同行评价、团队评价，注重原创性和学术价值。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“四个面向”换成“市场效益导向”——<strong>已经考过</strong>；<br>
+        · 把“分类评价”换成“标准化评价”——<strong>已经考过</strong>；<br>
+        · 把“稳定支持”和“滚动式支持”的对象互换——<strong>已经考过</strong>；<br>
+        · 把“多元化投入”换成“政府单一投入”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 58 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">58</span>
+      <span class="tag">基础研究 · 人才与力量布局</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于加强基础研究，说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>基础研究转化周期明显<strong>变长</strong> <span class="bad">✗ 应为明显缩短</span></div>
+      <div class="opt"><b>B．</b>加强基础研究，归根结底要靠高水平人才，要下气力打造体系化、高层次基础研究人才培养平台 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>注重发挥国家实验室、国家科研机构“<strong>出题人、答题人、阅卷人</strong>”作用 <span class="bad">✗ 应为科技领军企业</span></div>
+      <div class="opt"><b>D．</b>有组织推进战略导向的体系化基础研究、前沿导向的<strong>应用性</strong>基础研究、市场导向的<strong>探索性</strong>基础研究 <span class="bad">✗ 应为“前沿导向的探索性、市场导向的应用性”</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：三类基础研究的正确搭配</span>
+        · 战略导向的<em class="hl">体系化</em>基础研究；<br>
+        · 前沿导向的<em class="hl">探索性</em>基础研究；<br>
+        · 市场导向的<em class="hl">应用性</em>基础研究。<br>
+        D项把“探索性”和“应用性”的位置调换了，是顺序错配。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：基础研究力量布局与人才培养</span>
+        <strong>国家战略科技力量的各自定位：</strong><br>
+        · <strong>国家实验室</strong>：<em class="hl">引领作用</em>；<br>
+        · <strong>国家科研机构</strong>：<em class="hl">建制化组织作用</em>；<br>
+        · <strong>高水平研究型大学</strong>：<em class="hl">主力军作用</em>；<br>
+        · <strong>科技领军企业</strong>：<em class="hl">“出题人”“答题人”“阅卷人”作用</em>。<br><br>
+        <strong>基础研究人才队伍：</strong><br>
+        · 自主培养是主渠道；<br>
+        · 统筹拔尖计划、强基计划、英才计划；<br>
+        · 完善本硕博贯通培养模式；<br>
+        · 注重基础教育阶段早期培养；<br>
+        · 大力扶持青年人才——青年人才是基础研究的生力军。<br><br>
+        <strong>基础研究转化周期：</strong><br>
+        当前科学研究范式深刻变革，基础研究转化周期<em class="hl">明显缩短</em>，国际科技竞争向基础前沿前移。A项说“变长”，方向反了。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“转化周期缩短”换成“变长”——<strong>已经考过</strong>；<br>
+        · 把“科技领军企业”的出题人作用安到“国家实验室”头上——<strong>已经考过</strong>；<br>
+        · 把“探索性”和“应用性”互换——<strong>已经考过</strong>；<br>
+        · 把“高水平研究型大学主力军”换成“国家科研机构主力军”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 59 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">59</span>
+      <span class="tag">科技奖励大会 · 人工智能与研发投入</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列表述符合国家科学技术奖励大会等讲话精神的是：</div>
+      <div class="opt"><b>A．</b>我国科技事业发生历史性变革，<strong>已经成为</strong>全球科技开拓者、引领者 <span class="bad">✗ 应为“正从参与者、贡献者向开拓者、引领者加速转变”</span></div>
+      <div class="opt"><b>B．</b>当前，人工智能蓬勃兴起，以数据、算力、算法等为关键要素 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>“十四五”时期，我国全社会研发经费投入强度首次超过<strong>全球平均水平</strong> <span class="bad">✗ 应为超过经合组织国家平均水平</span></div>
+      <div class="opt"><b>D．</b>要<strong>降低</strong>科技攻关组织化程度，打好关键核心技术攻坚战 <span class="bad">✗ 应为提高组织化程度</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：研发经费投入强度的比较对象</span>
+        “十四五”时期，我国全社会研发经费投入强度2025年达到2.8%，<em class="hl">首次超过经合组织（OECD）国家平均水平</em>，不是“全球平均水平”。C项是偷换比较对象。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：科技奖励大会讲话要点</span>
+        <strong>我国科技事业的定位转变：</strong><br>
+        正从全球科技<em class="hl">参与者、贡献者</em>向<em class="hl">开拓者、引领者</em>加速转变，成为创新力上升最快的国家之一。<br><br>
+        <strong>人工智能的关键要素：</strong><br>
+        数据、算力、算法——三大关键要素；<br>
+        以神经科学、认知科学、计算科学、数学等理论突破和学科交叉为基础；<br>
+        呈现<em class="hl">数据驱动、万物互联、人机协同、跨界融合</em>等显著特征。<br><br>
+        <strong>科技攻关的组织化程度：</strong><br>
+        科技创新涉及领域、主体、要素多，要<em class="hl">提高</em>科技攻关组织化程度，提升国家创新体系整体效能——不是“降低”。<br><br>
+        <strong>“十四五”研发投入：</strong><br>
+        全社会研发经费投入保持年均10%增长；<br>
+        投入强度2025年达到2.8%，首次超过经合组织国家平均水平；<br>
+        “十五五”时期是科技强国建设的关键攻坚期。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“正从参与者向引领者转变”换成“已经成为引领者”——<strong>已经考过</strong>；<br>
+        · 把“经合组织国家平均”换成“全球平均”——<strong>已经考过</strong>；<br>
+        · 把“提高组织化程度”换成“降低”——<strong>已经考过</strong>；<br>
+        · 把“数据、算力、算法”换成“数据、算力、网络”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 60 -->
+  <div class="q right">
+    <div class="q-head">
+      <span class="qno">60</span>
+      <span class="tag">科技创新与产业创新融合 · 主体辨析</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于推动科技创新和产业创新深度融合的举措，下列表述<strong>不正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>突出科技创新供给和产业需求牵引，推动产学研融通创新 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b><strong>科技创新要提出科学问题</strong>，强化企业创新主体地位 <span class="bad">✗ 应为“产业创新要提出科学问题”</span></div>
+      <div class="opt"><b>C．</b>科技创新要突出应用导向，支持高校、科研院所对接企业开展科研攻关和人才培养 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>提高科技成果转化率，要加强国家技术转移体系建设，布局建立一批概念验证中心和中试平台 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：谁提出科学问题？</span>
+        正确表述是：<em class="hl">产业创新要提出科学问题</em>，强化企业创新主体地位；<em class="hl">科技创新要突出应用导向</em>，支持高校、科研院所对接企业。B项把“产业创新”和“科技创新”的角色说反了。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">🔗 毛细血管式拓展：科技创新与产业创新融合的完整逻辑</span>
+        <strong>融合的定位：</strong><br>
+        推动科技创新和产业创新深度融合，是<em class="hl">以高水平科技自立自强引领发展新质生产力的关键</em>。<br><br>
+        <strong>融合的三条路径：</strong><br>
+        ① <strong>融合的基础</strong>：增加高质量科技供给；<br>
+        ② <strong>融合的关键</strong>：强化企业科技创新主体地位；<br>
+        ③ <strong>融合的途径</strong>：促进科技成果转化应用。<br><br>
+        <strong>科技创新与产业创新的分工：</strong><br>
+        · <strong>科技创新</strong>：突出应用导向，支持高校、科研院所对接企业开展科研攻关和人才培养，以高质量科技供给赋能产业创新；<br>
+        · <strong>产业创新</strong>：提出科学问题，强化企业创新主体地位，支持企业与高校、科研院所共建平台、共克难题。<br><br>
+        <strong>成果转化的关键平台：</strong><br>
+        国家技术转移体系、概念验证中心、中试平台。<br>
+        “概念验证”解决“从0到1”的可行性；“中试”解决“从1到10”的工程化。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“产业创新提出科学问题”换成“科技创新提出科学问题”——<strong>已经考过</strong>；<br>
+        · 把“强化企业创新主体地位”换成“强化高校创新主体地位”——<strong>高频坑</strong>；<br>
+        · 把“概念验证中心”换成“成果转化中心”——<strong>不准确</strong>，概念验证和中试是不同环节。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 挖坑总结 ============ -->
+<section>
+  <h2 class="sec">二、挖坑总结：41-60题覆盖的全部坑型</h2>
+  <p class="sec-desc">41-60题覆盖民生、未来产业、马原、政治经济学、党史人物、时政讲话等多个模块。把坑归成十类，下次看到类似手法就能条件反射地警觉。</p>
+
+  <div class="trapgrid">
+    <div class="trapcard">
+      <h4><span class="n">1</span>固定搭配错配</h4>
+      <ul>
+        <li>普遍性寓于特殊性 → 说反（第41题）</li>
+        <li>生产力是最终决定力量 → 换成生产关系（第42题）</li>
+        <li>使用价值是价值的物质承担者 → 说反（第49题）</li>
+        <li>稳定支持/滚动式支持对象互换（第57题）</li>
+        <li>探索性/应用性基础研究互换（第58题）</li>
+        <li>产业创新提出科学问题 → 换成科技创新（第60题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">2</span>主体/属性错配</h4>
+      <ul>
+        <li>“三步走”提出者：江泽民 → 邓小平（第51题）</li>
+        <li>“出题人、答题人、阅卷人”：国家实验室 → 科技领军企业（第58题）</li>
+        <li>企业创新主体 → 换成高校/政府（第60题）</li>
+        <li>戴庄经验：李连成 → 赵亚夫（第56题）</li>
+        <li>深藏功名：陈俊武 → 张富清（第56题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">3</span>近义词/概念偷换</h4>
+      <ul>
+        <li>全面小康 → 全面富裕（第55题）</li>
+        <li>社会主要矛盾变化 → 经济发展变化（第55题）</li>
+        <li>分类评价 → 标准化评价（第57题）</li>
+        <li>经合组织国家平均 → 全球平均（第59题）</li>
+        <li>“六个始终”中“顺应发展潮流” → “胸怀天下大势”（第53题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">4</span>方向/顺序颠倒</h4>
+      <ul>
+        <li>运动有条件 → 无条件（第43题）</li>
+        <li>特殊性寓于普遍性 → 普遍性寓于特殊性（第41题）</li>
+        <li>基础研究转化周期变长 → 缩短（第58题）</li>
+        <li>提高组织化程度 → 降低（第59题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">5</span>绝对化 / 一刀切</h4>
+      <ul>
+        <li>“已经成为全球科技引领者” → 正加速转变（第59题）</li>
+        <li>“运动是物质的唯一特性” → 客观实在性（第43题）</li>
+        <li>“接受实践检验的认识才是真理” → 缺少“正确”（第45题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">6</span>主体/范围错位</h4>
+      <ul>
+        <li>“一老一小”不是矛盾双方（第41题）</li>
+        <li>科技不是生产力基本要素（第46题）</li>
+        <li>分配关系不是最基本社会关系（第46题）</li>
+        <li>基础研究不是市场效益导向（第57题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">7</span>时态/阶段错配</h4>
+      <ul>
+        <li>“已经成为” → 正加速转变（第59题）</li>
+        <li>“全面小康” → 全面富裕（第55题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">8</span>概念层级/范围大小</h4>
+      <ul>
+        <li>“六个始终”第五项偷换（第53题）</li>
+        <li>“十二大关系”不是“十大关系”（第52题）</li>
+        <li>“三步走”是邓小平提出（第51题）</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">9</span>本身正确但无关</h4>
+      <ul>
+        <li>第44题A“检验标准”本身正确，但材料强调学习动力；</li>
+        <li>第47题B“普遍性与特殊性”本身正确，但材料核心是辩证否定；</li>
+        <li>第48题A、B、D本身正确，但C明显错误。</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">10</span>哲学原理错配</h4>
+      <ul>
+        <li>“因地制宜、错位发展” → 量变质变（第42题）</li>
+        <li>“因时而变、随势而变” → 矛盾特殊性（第48题）</li>
+        <li>“运动有条件” → 运动无条件（第43题）</li>
+        <li>“真理否定自身” → 真理发展（第45题）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 固定搭配速记表 ============ -->
+<section>
+  <h2 class="sec">三、固定搭配速记表（41-60题重点）</h2>
+  <p class="sec-desc">政治理论的失分大头不是“不懂”，而是“搭配记混”。以下是从41-60题中提炼的高频固定搭配。</p>
+
+  <table>
+    <thead>
+      <tr><th style="width:38%;">关键词</th><th>正确搭配</th><th style="width:16%;">出处</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="k">矛盾普遍性与特殊性</td><td><strong>普遍性寓于特殊性之中</strong>（不是反过来）</td><td>第41题</td></tr>
+      <tr><td class="k">“一老一小”</td><td>投资于人的<strong>重中之重</strong>；5项工程：养老机构、社区养老、医养结合、普惠托育、生育医疗服务</td><td>第41题</td></tr>
+      <tr><td class="k">最终决定力量</td><td><strong>生产力</strong>（不是生产关系）</td><td>第42题</td></tr>
+      <tr><td class="k">未来产业主攻方向</td><td>量子科技、生物制造、氢能和核聚变能、脑机接口、具身智能、第六代移动通信</td><td>第42题</td></tr>
+      <tr><td class="k">未来产业出题答题</td><td><strong>产业出题、科技答题</strong>（不是反过来）</td><td>第42题</td></tr>
+      <tr><td class="k">物质的唯一特性</td><td><strong>客观实在性</strong></td><td>第43题</td></tr>
+      <tr><td class="k">物质的根本属性</td><td><strong>运动</strong></td><td>第43题</td></tr>
+      <tr><td class="k">运动</td><td><strong>绝对的、无条件的</strong>；静止是相对的、有条件的</td><td>第43题</td></tr>
+      <tr><td class="k">实践是认识发展的动力</td><td>实践提出新问题、提供新工具、锻炼新能力</td><td>第44题</td></tr>
+      <tr><td class="k">真理</td><td>主观与客观、理论与实践的<strong>具体的历史的统一</strong></td><td>第45题</td></tr>
+      <tr><td class="k">检验真理</td><td>接受实践检验的<strong>正确认识</strong>才是真理</td><td>第45题</td></tr>
+      <tr><td class="k">社会基本矛盾</td><td>生产力和生产关系、经济基础和上层建筑</td><td>第46题</td></tr>
+      <tr><td class="k">生产力基本要素</td><td><strong>劳动者、劳动资料、劳动对象</strong>；科技是渗透性要素</td><td>第46题</td></tr>
+      <tr><td class="k">最基本社会关系</td><td><strong>生产关系</strong>（不是分配关系）</td><td>第46题</td></tr>
+      <tr><td class="k">辩证否定实质</td><td><strong>扬弃</strong>——既克服又保留</td><td>第47题</td></tr>
+      <tr><td class="k">联系</td><td><strong>客观的</strong>；不能根据主观需要任意建立</td><td>第48题</td></tr>
+      <tr><td class="k">商品二因素</td><td>使用价值和价值；<strong>使用价值是价值的物质承担者</strong></td><td>第49题</td></tr>
+      <tr><td class="k">劳动二重性</td><td>具体劳动形成使用价值，抽象劳动形成价值</td><td>第49题</td></tr>
+      <tr><td class="k">价值量</td><td>由<strong>社会必要劳动时间</strong>决定；与社会必要劳动时间成正比，与社会劳动生产率成反比</td><td>第49题</td></tr>
+      <tr><td class="k">剩余价值源泉</td><td><strong>可变资本</strong>（劳动力）；剩余劳动是唯一源泉</td><td>第50题</td></tr>
+      <tr><td class="k">两大发现</td><td><strong>唯物史观、剩余价值学说</strong></td><td>第50题</td></tr>
+      <tr><td class="k">“三步走”</td><td><strong>邓小平</strong>提出</td><td>第51题</td></tr>
+      <tr><td class="k">江泽民贡献</td><td>三个代表、加入WTO、香港澳门回归、九二共识、十二大关系</td><td>第51、52题</td></tr>
+      <tr><td class="k">“六个始终”第五项</td><td><strong>顺应发展潮流，始终走在时代前列</strong></td><td>第53题</td></tr>
+      <tr><td class="k">105年伟大成就</td><td>改变人民前途命运、开辟复兴正确道路、展示马克思主义生命力、影响世界历史进程、锻造强大中国共产党</td><td>第54题</td></tr>
+      <tr><td class="k">人民生活跨越</td><td>温饱不足→总体小康→<strong>全面小康</strong>（不是全面富裕）</td><td>第55题</td></tr>
+      <tr><td class="k">中心任务确定依据</td><td><strong>社会主要矛盾变化</strong>（不是经济发展变化）</td><td>第55题</td></tr>
+      <tr><td class="k">钟掘</td><td>推动我国<strong>铝工业</strong>跻身世界前列</td><td>第56题</td></tr>
+      <tr><td class="k">李连成</td><td>西辛庄村支书，“吃亏精神”</td><td>第56题</td></tr>
+      <tr><td class="k">马善祥</td><td>基层调解“<strong>老马工作法</strong>”</td><td>第56题</td></tr>
+      <tr><td class="k">陈俊武</td><td><strong>石油炼制</strong>专家</td><td>第56题</td></tr>
+      <tr><td class="k">基础研究战略导向</td><td><strong>四个面向</strong>（不是市场效益导向）</td><td>第57题</td></tr>
+      <tr><td class="k">基础研究评价</td><td><strong>分类评价</strong>（不是标准化）</td><td>第57题</td></tr>
+      <tr><td class="k">基础研究支持方式</td><td>机构平台→<strong>稳定支持</strong>；重大原创项目→<strong>滚动式支持</strong></td><td>第57题</td></tr>
+      <tr><td class="k">三类基础研究</td><td>战略导向的<strong>体系化</strong>、前沿导向的<strong>探索性</strong>、市场导向的<strong>应用性</strong></td><td>第58题</td></tr>
+      <tr><td class="k">“出题人、答题人、阅卷人”</td><td><strong>科技领军企业</strong>（不是国家实验室）</td><td>第58题</td></tr>
+      <tr><td class="k">基础研究转化周期</td><td><strong>明显缩短</strong>（不是变长）</td><td>第58题</td></tr>
+      <tr><td class="k">研发经费投入强度</td><td>首次超过<strong>经合组织国家平均水平</strong>（不是全球平均）</td><td>第59题</td></tr>
+      <tr><td class="k">科技攻关组织化程度</td><td><strong>提高</strong>（不是降低）</td><td>第59题</td></tr>
+      <tr><td class="k">科技创新与产业创新分工</td><td><strong>产业创新</strong>提出科学问题；<strong>科技创新</strong>突出应用导向</td><td>第60题</td></tr>
+      <tr><td class="k">融合三条路径</td><td>基础是增加高质量科技供给；关键是强化企业创新主体地位；途径是促进科技成果转化应用</td><td>第60题</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 建议与提升 ============ -->
+<section>
+  <h2 class="sec">四、建议与提升：最后一个月怎么练</h2>
+  <p class="sec-desc">结合41-60题的复盘，以及政治理论的命题规律，给出可落地的提升路径。</p>
+
+  <div class="adv">
+    <h3><span class="num">1</span>用“知识网络”代替“孤立知识点”</h3>
+    <ul>
+      <li>提到“一老一小”，就要想到投资于人、5项工程、民生“七个有所”、人口高质量发展。</li>
+      <li>提到“基础研究”，就要想到“四个面向”、三类基础研究、稳定支持/滚动式支持、分类评价、出题人答题人阅卷人。</li>
+      <li>提到“科技创新与产业创新融合”，就要想到融合基础、关键、途径，以及科技创新和产业创新的不同分工。</li>
+      <li>方法：每学一个点，问自己三个问题——<strong>它和谁对应？它属于哪个体系？命题人会怎么换皮？</strong></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">2</span>把固定搭配当“单词”来背</h3>
+    <ul>
+      <li>高频搭配：普遍性寓于特殊性、生产力是最终决定力量、使用价值是价值承担者、稳定支持/滚动式支持、产业出题科技答题、产业创新提出科学问题。</li>
+      <li>方法上，记“<strong>错误的替换项</strong>”比记“正确项”更有效——比如记住“不能是特殊性寓于普遍性、不能是生产关系、不能是科技创新提出科学问题”。</li>
+      <li>建议用本页的<strong>固定搭配速记表</strong>，每天花5分钟过一遍，考前一周重点滚动。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">3</span>建立“绝对词 + 方向词”双敏感度</h3>
+    <ul>
+      <li>绝对词：<strong>唯一、完全、绝对、已经、所有、一律、标准化……</strong></li>
+      <li>方向词：<strong>提高/降低、变长/缩短、稳定/滚动、探索性/应用性、产业/科技……</strong></li>
+      <li>反例积累：已经成为引领者、运动有条件、转化周期变长、降低组织化程度、科技创新提出科学问题。</li>
+      <li>规律：<em class="hl">凡是把方向说反、把程度说绝对的，基本都是错的。</em></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">4</span>用“逻辑反推”救不会的题</h3>
+    <ul>
+      <li>第43题：运动如果是“有条件”的，那还叫绝对运动吗？——逻辑即可判错。</li>
+      <li>第49题：没有使用价值的东西没人买，怎么会有价值？——使用价值是承担者，逻辑即可判错。</li>
+      <li>第60题：科技是供给方，产业是需求方，谁更接近市场提出真问题？——产业创新提出科学问题，逻辑即可判对。</li>
+      <li>考场时间紧张时，<em class="hl">逻辑反推 + 排除法</em>往往比硬啃知识点更快更准。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">5</span>“一一对应”原则贯穿全卷</h3>
+    <ul>
+      <li>第42题：哲理与论述一一对应，不能张冠李戴。</li>
+      <li>第53题：“六个始终”逐条对应，第五项不能偷换。</li>
+      <li>第56题：人物与事迹一一对应，不能混搭。</li>
+      <li>第58题：国家战略科技力量各自定位一一对应。</li>
+      <li>做题时问自己：<strong>“这句话的每一个部分，都能和题干一一对上吗？”</strong></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">6</span>把“往季高频点”当成必考点</h3>
+    <ul>
+      <li>第57-58题（基础研究）：四个面向、三类基础研究、稳定支持/滚动式支持、出题人答题人阅卷人，连续多季出现。</li>
+      <li>第60题（科技创新与产业创新）：产业创新提出科学问题、企业创新主体，是高频坑。</li>
+      <li>第53-55题（建党105周年）：“六个始终”、五个伟大成就、全面小康，是时政必考。</li>
+      <li>结论：<em class="hl">往季复盘里被点名强调过的搭配和陷阱，下一季极大概率换皮重来。</em></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">7</span>错题按“坑型”归档，而不是按“题号”</h3>
+    <ul>
+      <li>不要只抄“我错在第X题”，而要写“我错在<strong>固定搭配没记住</strong>”或“我错在<strong>主体错配</strong>”。</li>
+      <li>同一坑型归到一起（如“固定搭配错配”下挂第41、42、49、57、58、60题），复习时看的是<strong>规律</strong>。</li>
+      <li>建议按上面十类坑型一一归档，两周后回看，检查是否还会二次入坑。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">8</span>政治素养的基本盘要稳</h3>
+    <ul>
+      <li>第48题（联系客观性）、第56题（人物事迹）这类题靠的是<strong>基本政治素养和常识</strong>，不是死记硬背。</li>
+      <li>平时多看新闻、多读原文，语感自然就有了。</li>
+      <li>最后一个月，建议每天花10分钟看《新闻联播》要点或《人民日报》评论，重点抓<strong>固定表述</strong>。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">9</span>时间分配与心态</h3>
+    <ul>
+      <li>政治理论20题，建议控制在<strong>15—18分钟</strong>内完成，为后面的行测模块留时间。</li>
+      <li>遇到“看不懂的知识点”先跳过，用排除法锁定“最不像”的选项，不要恋战。</li>
+      <li>心态：<em class="hl">政治理论是可以靠“背搭配 + 认坑型”在短期内提分的模块</em>——它比数量关系、资料分析更“性价比高”。</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  超格200题 · 41-60题深度复盘 · 毛细血管式拓展版 ｜ 基于《政治理论背诵手册》及考场思维整理<br>
+  内容仅供个人学习复习使用
+</footer>
+
+</div>
+</body>
+</html>
