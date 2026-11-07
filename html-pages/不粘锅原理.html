@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我总结了一个“9030不粘法”：铁锅、不锈钢锅煎鱼煎蛋炒肉不粘的底层逻辑</title>
+  <meta name="description" content="90秒热锅，30秒小火润油，食材擦干，下锅别急翻。一篇关于铁锅、不锈钢锅不粘思路的个人厨房实验笔记。" />
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --paper: #fffdf9;
+      --text: #26221d;
+      --muted: #6f665c;
+      --line: #e7ded2;
+      --accent: #b4532a;
+      --accent-soft: #f5e5da;
+      --green: #3f6b4f;
+      --green-soft: #e8f1ea;
+      --yellow-soft: #fff5d8;
+      --shadow: 0 18px 50px rgba(60, 42, 24, 0.10);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(180, 83, 42, 0.10), transparent 32rem),
+        radial-gradient(circle at bottom right, rgba(63, 107, 79, 0.08), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 64px;
+    }
+
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: clamp(28px, 5vw, 56px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "9030";
+      position: absolute;
+      right: -10px;
+      bottom: -50px;
+      font-size: clamp(120px, 24vw, 240px);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: rgba(180, 83, 42, 0.055);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.22;
+      letter-spacing: -0.035em;
+      margin: 20px 0 18px;
+      max-width: 780px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 18px);
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .article {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      margin-top: 24px;
+      padding: clamp(24px, 5vw, 56px);
+      box-shadow: var(--shadow);
+    }
+
+    .lead {
+      font-size: clamp(17px, 2vw, 19px);
+      color: #3b342d;
+      border-left: 4px solid var(--accent);
+      padding-left: 18px;
+      margin: 0 0 38px;
+    }
+
+    h2 {
+      font-size: clamp(23px, 3vw, 30px);
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      margin: 46px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 19px;
+      margin: 26px 0 10px;
+    }
+
+    p {
+      margin: 12px 0;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.35em;
+      margin: 12px 0;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    strong {
+      color: #17130f;
+    }
+
+    .highlight {
+      background: linear-gradient(transparent 62%, rgba(180, 83, 42, 0.18) 62%);
+      padding: 0 2px;
+    }
+
+    .callout {
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin: 24px 0;
+      border: 1px solid var(--line);
+      background: #fbf7f1;
+    }
+
+    .callout.warning {
+      background: var(--yellow-soft);
+      border-color: #ead89c;
+    }
+
+    .callout.success {
+      background: var(--green-soft);
+      border-color: #c9ddcf;
+      color: #24432f;
+    }
+
+    .callout-title {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: inherit;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      position: relative;
+    }
+
+    .step-card .num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .step-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .formula {
+      margin: 28px 0;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: #26221d;
+      color: #fff9f2;
+      text-align: center;
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .formula span {
+      color: #ffb98f;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 620px;
+      background: #fff;
+      font-size: 15px;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      background: #faf5ee;
+      font-weight: 800;
+      color: #3b342d;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .footer-note {
+      margin-top: 42px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .back-top {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 20px, 960px);
+        padding: 20px 0 40px;
+      }
+
+      .hero,
+      .article {
+        border-radius: 20px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .meta {
+        gap: 8px 14px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .article {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+      }
+
+      .hero::after,
+      .back-top {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="top">
+    <header class="hero">
+      <div class="eyebrow">个人厨房实验笔记</div>
+      <h1>我总结了一个“9030不粘法”：铁锅、不锈钢锅煎鱼煎蛋炒肉不粘的底层逻辑</h1>
+      <p class="subtitle">
+        90秒热锅，30秒小火润油，食材擦干，下锅别急翻。它不是一个玄学口诀，而是一个帮助判断“锅够热、油别太热”的土办法。
+      </p>
+      <div class="meta">
+        <span>分类：生活实验</span>
+        <span>关键词：铁锅 / 不锈钢锅 / 热锅凉油 / 不粘</span>
+        <span>方法名：9030不粘法</span>
+      </div>
+    </header>
+
+    <main class="article">
+      <p class="lead">
+        煎鱼、煎蛋、煎豆腐、炒肉丝，最容易粘锅。很多人以为是锅不好，其实核心往往在<strong>锅温、油膜和食材表面水分</strong>。我根据自己的做饭经验，总结了一个“9030不粘法”：大火热锅90秒，转小火倒油润锅30秒，再下食材。
+      </p>
+
+      <h2>一、为什么会粘锅？</h2>
+      <p>
+        鱼、蛋、豆腐、肉有一个共同点：蛋白质丰富。锅面受热后，蛋白质容易和金属表面结合，尤其当锅温不够、油膜没形成、食材表面水太多时，更容易粘。
+      </p>
+      <p>不粘的关键不是拼命倒油，而是：</p>
+      <ol>
+        <li><strong>锅先充分热</strong>，让锅面状态均匀；</li>
+        <li><strong>油形成一层隔离膜</strong>，把蛋白质和锅面隔开；</li>
+        <li><strong>食材表面尽量干</strong>，水下锅会立刻拉低锅温；</li>
+        <li><strong>下锅后别急着翻</strong>，等表面凝固再动。</li>
+      </ol>
+
+      <div class="callout success">
+        <span class="callout-title">一句话原理</span>
+        锅热、油膜、少水、别急翻。把蛋白质和锅面隔开，粘锅概率就会明显下降。
+      </div>
+
+      <h2>二、9030不粘法怎么做？</h2>
+
+      <div class="steps">
+        <section class="step-card">
+          <div class="num">1</div>
+          <h3>90秒热锅</h3>
+          <p>
+            家用火开到最大，锅放上去计时约90秒。薄铁锅升温快，可适当缩短；厚锅、不锈钢锅可适当延长。
+          </p>
+        </section>
+
+        <section class="step-card">
+          <div class="num">2</div>
+          <h3>判断锅温</h3>
+          <p>
+            滴一点水进去，如果水立刻汽化并形成跳动水珠，说明锅温够了。这是“莱顿弗洛斯特效应”的直观表现。
+          </p>
+        </section>
+
+        <section class="step-card">
+          <div class="num">3</div>
+          <h3>30秒润油</h3>
+          <p>
+            锅热后转小火，倒油，晃锅让油均匀润过锅面，保持小火约30秒。不要继续大火，否则油温升太快，鸡蛋等容易焦。
+          </p>
+        </section>
+
+        <section class="step-card">
+          <div class="num">4</div>
+          <h3>下食材</h3>
+          <p>
+            鱼、豆腐下锅前尽量吸干表面水分；鱼可以薄拍一点干淀粉。下锅后先别动，等表面凝固再推。
+          </p>
+        </section>
+      </div>
+
+      <div class="formula">
+        <span>9030不粘法</span> = 90秒热锅 + 30秒小火润油
+      </div>
+
+      <div class="callout warning">
+        <span class="callout-title">安全提示</span>
+        不粘锅不要空烧。此方法主要适用于铁锅、铸铁锅、不锈钢锅等能空烧的锅具。时间和火力需根据自家灶具、锅具调整，请以锅具说明书和安全操作为准。
+      </div>
+
+      <h2>三、关键细节</h2>
+      <h3>1. 食材表面要干</h3>
+      <p>
+        水分是粘锅和降温的大敌。鱼、豆腐、肉下锅前尽量吸干表面水分。炒肉可先简单腌制，抓到水分吸收，再稍微封一点油，下锅前让肉丝有缓冲。
+      </p>
+
+      <h3>2. 锅温够不够，不能只看时间</h3>
+      <p>
+        看水滴状态、油纹状态，结合锅的厚薄调整。薄锅升温快，厚锅吸热慢，90秒不是万能公式。
+      </p>
+
+      <h3>3. 下锅后别急着翻</h3>
+      <p>
+        等蛋白质凝固，食材表面形成一层“壳”，自然容易推动。鱼下锅后可以等几十秒再尝试轻推。
+      </p>
+
+      <h3>4. 清洗和养护</h3>
+      <p>
+        铁锅不要刚烧热就用冷水冲，等降温后用温水刷，洗完后烧干，薄薄养一层油。是否用洗洁精要看锅的类型和个人养锅习惯，不必绝对化。
+      </p>
+
+      <h2>四、我的实验记录</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>项目</th>
+              <th>记录</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>锅具</td>
+              <td>铁锅 / 不锈钢锅 / 铸铁锅</td>
+            </tr>
+            <tr>
+              <td>火力</td>
+              <td>最大火热锅，转最小火润油</td>
+            </tr>
+            <tr>
+              <td>热锅时间</td>
+              <td>约90秒，薄锅适当缩短</td>
+            </tr>
+            <tr>
+              <td>润油时间</td>
+              <td>约30秒</td>
+            </tr>
+            <tr>
+              <td>测试食材</td>
+              <td>鸡蛋、鱼、豆腐、肉丝</td>
+            </tr>
+            <tr>
+              <td>结果</td>
+              <td>按上述细节操作，食材表面凝固后基本可滑动</td>
+            </tr>
+            <tr>
+              <td>失败复盘</td>
+              <td>食材带水、锅温不足、下锅过早翻动，仍可能粘</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>五、结论</h2>
+      <p>
+        “9030不粘法”可以记成一句话：
+        <strong class="highlight">90秒热锅，30秒小火润油，食材擦干，下锅别急翻。</strong>
+      </p>
+      <p>
+        它不是芯片型号，也不是万能公式，而是一个把“热锅凉油”变得更容易执行的个人方法。真正要记住的是原理：<strong>锅热、油膜、少水、别急翻。</strong>
+      </p>
+
+      <div class="callout">
+        <span class="callout-title">博客备注</span>
+        本文为个人厨房实验记录，时间和火力需根据自家灶具、锅具调整；请以锅具说明书和安全操作为准。方法名称“9030不粘法”为个人经验命名，不代表绝对标准。
+      </div>
+
+      <p class="footer-note">
+        记录的意义，是把“当时看懂了”变成“以后还能想起来、还能验证”。这篇先存进博客，下一次做饭再回来复盘。
+      </p>
+
+      <a class="back-top" href="#top">↑ 回到顶部</a>
+    </main>
+  </div>
+</body>
+</html>
