@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>粉笔模考第四十一季·政治理论20题深度复盘｜毛细血管式拓展版</title>
+<style>
+  :root{
+    --ink:#1b2436;--sub:#5d6c85;--line:#e4e9f2;--bg:#f4f7fc;--card:#ffffff;
+    --blue:#2f6bd8;--blue-l:#eaf1fe;--green:#0f9d67;--green-l:#e6f7f0;
+    --red:#dc4a3d;--red-l:#fdecea;--orange:#d9880f;--orange-l:#fdf4e3;
+    --purple:#7048c4;--purple-l:#f1ecfd;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    line-height:1.85;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 18px 80px;}
+
+  header{background:linear-gradient(135deg,#152238 0%,#28487e 55%,#3c72d2 100%);
+    color:#fff;padding:46px 18px 38px;margin-bottom:28px;position:relative;overflow:hidden;}
+  header::after{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.07);}
+  header::before{content:"";position:absolute;left:-50px;bottom:-90px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05);}
+  .head-inner{max-width:980px;margin:0 auto;position:relative;z-index:2;}
+  .kicker{display:inline-block;font-size:13px;letter-spacing:2px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  header h1{font-size:27px;margin:0 0 10px;font-weight:700;letter-spacing:.5px;}
+  header p.sub{margin:0;font-size:14.5px;color:rgba(255,255,255,.82);}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px;}
+  .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 10px;text-align:center;}
+  .stat b{display:block;font-size:22px;line-height:1.3;}
+  .stat span{font-size:12px;color:rgba(255,255,255,.78);}
+
+  section{margin-bottom:38px;}
+  h2.sec{font-size:20px;margin:0 0 6px;padding-left:14px;border-left:5px solid var(--blue);line-height:1.4;}
+  .sec-desc{font-size:13.5px;color:var(--sub);margin:0 0 18px;padding-left:19px;}
+
+  .q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:14px;padding:20px 22px 18px;margin-bottom:16px;box-shadow:0 2px 10px rgba(27,42,74,.045);position:relative;}
+  .q.c-green{border-left-color:var(--green);}
+  .q.c-purple{border-left-color:var(--purple);}
+  .q.c-orange{border-left-color:var(--orange);}
+  .q.c-red{border-left-color:var(--red);}
+  .q-head{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+  .qno{font-size:16px;font-weight:700;background:var(--ink);color:#fff;border-radius:8px;padding:2px 11px;line-height:1.7;}
+  .tag{font-size:12px;padding:2px 9px;border-radius:6px;background:var(--blue-l);color:var(--blue);font-weight:600;}
+  .tag.g{background:var(--green-l);color:var(--green);}
+  .tag.p{background:var(--purple-l);color:var(--purple);}
+  .tag.o{background:var(--orange-l);color:#b06d06;}
+  .tag.r{background:var(--red-l);color:var(--red);}
+  .ans{font-size:12.5px;padding:2px 10px;border-radius:6px;font-weight:700;}
+  .ans.ok{background:var(--green-l);color:var(--green);}
+  .ans.half{background:var(--orange-l);color:#b06d06;}
+  .q-body{font-size:14.5px;}
+  .stem{background:#f7f9fd;border-radius:9px;padding:10px 14px;color:#33415c;font-size:14px;margin-bottom:13px;border-left:3px solid #c8d8f5;}
+  .opt{margin:8px 0;padding-left:2px;}
+  .opt b{color:var(--ink);}
+  .opt .bad{color:var(--red);font-weight:700;}
+  .opt .good{color:var(--green);font-weight:700;}
+
+  .box{border-radius:10px;padding:11px 15px;margin-top:12px;font-size:13.8px;}
+  .box .ttl{font-weight:700;font-size:13px;display:block;margin-bottom:5px;letter-spacing:.5px;}
+  .box.expand{background:var(--blue-l);border-left:4px solid var(--blue);}
+  .box.expand .ttl{color:var(--blue);}
+  .box.trap{background:var(--orange-l);border-left:4px solid var(--orange);}
+  .box.trap .ttl{color:var(--orange);}
+  .box.key{background:var(--purple-l);border-left:4px solid var(--purple);}
+  .box.key .ttl{color:var(--purple);}
+  .box.mind{background:var(--green-l);border-left:4px solid var(--green);}
+  .box.mind .ttl{color:var(--green);}
+  .box.net{background:#fff7ed;border-left:4px solid #c2410c;}
+  .box.net .ttl{color:#c2410c;}
+  .box.src{background:#f2f6fc;border-left:4px solid #94a9c9;color:#44546e;}
+  .box.src .ttl{color:#4a6b96;}
+
+  em.hl{font-style:normal;background:linear-gradient(transparent 62%,#ffe9a8 62%);font-weight:600;}
+  em.hl-r{font-style:normal;background:linear-gradient(transparent 62%,#ffd6d1 62%);font-weight:600;}
+
+  .trapgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .trapcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;box-shadow:0 2px 8px rgba(27,42,74,.04);}
+  .trapcard h4{margin:0 0 8px;font-size:14.5px;color:var(--red);display:flex;align-items:center;gap:7px;}
+  .trapcard h4 .n{width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .trapcard ul{margin:0;padding-left:19px;font-size:13.5px;color:#3a4761;}
+  .trapcard li{margin-bottom:4px;}
+
+  .adv{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin-bottom:14px;box-shadow:0 2px 10px rgba(27,42,74,.045);}
+  .adv h3{margin:0 0 10px;font-size:16px;color:var(--blue);display:flex;align-items:center;gap:9px;}
+  .adv h3 .num{background:var(--blue);color:#fff;width:24px;height:24px;border-radius:7px;font-size:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .adv ul{margin:6px 0 0;padding-left:20px;font-size:14px;}
+  .adv li{margin-bottom:6px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(27,42,74,.045);}
+  th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#eef3fc;color:#2a3c5e;font-size:13px;font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+  td.k{color:var(--blue);font-weight:700;white-space:nowrap;}
+
+  footer{text-align:center;font-size:13px;color:var(--sub);padding:22px 0 0;border-top:1px dashed var(--line);margin-top:30px;}
+  @media (max-width:680px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .trapgrid{grid-template-columns:1fr;}
+    header h1{font-size:21px;}
+    .q{padding:16px 15px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <span class="kicker">粉笔模考 · 第四十一季 · 政治理论 · 考场思维</span>
+    <h1>政治理论 20 题深度复盘 · 知识网络构建</h1>
+    <p class="sub">每个知识点向四周延伸：横向对应、纵向延伸、预判换皮挖坑</p>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>总题量</span></div>
+      <div class="stat"><b>11</b><span>本次正确</span></div>
+      <div class="stat"><b>13</b><span>及格线</span></div>
+      <div class="stat"><b>9</b><span>错题数</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ 逐题解析 ============ -->
+<section>
+  <h2 class="sec">一、逐题解析（1—20）</h2>
+  <p class="sec-desc">本卷覆盖马原哲学、全面从严治党、教育科技人才、三农、网信、应急、依法治国、民营经济、就业社保、生态、文物、卫健等模块。老师原话是“<strong>七八成知识点都讲过，没有大家非常陌生的东西</strong>”——所以失分不在“没背过”，而在“<strong>背过的那个词被挪了位置</strong>”。每题按「题干 → 选项辨析 → <strong>核心辨析</strong> → <strong>毛细血管式拓展</strong> → 挖坑预判」五层拆解。</p>
+
+  <!-- 1 -->
+  <div class="q c-purple">
+    <div class="q-head">
+      <span class="qno">1</span>
+      <span class="tag p">马原 · 联系与辩证否定</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">全国各地推进传统产业数字化改造，依托原有产业基础叠加数字技术，实现迭代升级。关于这一现象体现的哲学观点，下列表述<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>人们可以根据<strong>自身需要</strong>建立新的具体联系 <span class="bad">✗ 联系具有客观性，不以人的意志为转移</span></div>
+      <div class="opt"><b>B．</b>依托原有基础叠加新技术实现迭代升级，体现辩证否定的实质是“<strong>扬弃</strong>” <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>抓住关键环节重点突破，体现主要矛盾<strong>决定事物的性质</strong> <span class="bad">✗ 主要矛盾决定发展方向；定性质的是矛盾的主要方面</span></div>
+      <div class="opt"><b>D．</b>因地制宜开展数字化改造，体现矛盾特殊性、具体问题具体分析 <span class="bad">✗ 原理成立，但材料是“全国各地普遍推开”，不体现“因地制宜”</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：主要矛盾 vs 矛盾的主要方面</span>
+        这两个概念是哲学题的<em class="hl">第一互换对</em>，每年至少考一次：<br>
+        · <strong>主要矛盾</strong>——决定事物发展的<em class="hl">方向、进程、重点</em>。标志词：“以……为中心”“以……为关键”“抓重点”“牵牛鼻子”。<br>
+        · <strong>矛盾的主要方面</strong>——决定事物的<em class="hl">性质、主流、定性</em>。标志词：“主流”“本质上是好还是坏”“总体上”。<br>
+        C 项前半句判断“主要矛盾”是对的（有“关键环节”），但后半句把“决定性质”这个后果错挂给了主要矛盾，所以整项作废。<strong>判断主次矛盾看“做事的重点”，判断主次方面看“定性的主流”。</strong>
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：联系观 + 否定观的完整网络</span>
+        <strong>一、联系的四个性质（必须成套记）：</strong><br>
+        · <em class="hl">客观性</em>——不以人的意志为转移。所以“根据自身需要建立联系”必错；<br>
+        · <em class="hl">普遍性</em>——任何事物都与周围事物有条件地联系着；<br>
+        · <em class="hl">多样性</em>——直接/间接、内部/外部、本质/非本质、必然/偶然；<br>
+        · <em class="hl">条件性</em>——联系依赖一定条件，条件可以改变，但人不能任意创造。<br>
+        <strong>人到底能对联系做什么？</strong>只有一句话：<em class="hl">根据事物固有的联系，改变事物的状态，调整原有的联系，建立新的具体联系</em>。四个动词缺一不可，“固有”是最容易被偷掉的前提。<br><br>
+        <strong>二、辩证否定观的三句话：</strong><br>
+        · 否定的实质是<em class="hl">“扬弃”</em>——既克服又保留：克服旧事物中消极过时的因素，保留积极合理的因素，并增添新的内容；<br>
+        · 否定是<em class="hl">事物自身的否定</em>（自我否定），不是外力强加；<br>
+        · 否定是<em class="hl">发展的环节、联系的环节</em>——所以“迭代升级”既连着过去（原有基础），又走向未来（新技术）。<br>
+        B 项两个动作都能对上：<strong>“原有基础”＝保留合理因素，“叠加新技术”＝克服不足＋增添新内容</strong>，这就是标准的扬弃结构。<br><br>
+        <strong>三、易混三连（都考过）：</strong><br>
+        ① 扬弃 ≠ 抛弃（“全盘否定”“彻底重构”一律错）；<br>
+        ② 发展 ≠ 变化（发展一定是前进上升的，变化可好可坏）；<br>
+        ③ 新事物 ≠ 新出现的事物（判断标准是<em class="hl">是否符合客观规律、有没有强大生命力</em>，不是时间先后）。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        二十届三中全会《决定》“健全促进实体经济和数字经济深度融合制度”；大规模设备更新和技术改造；“智改数转”地方实践。<strong>新瓶装旧酒</strong>是哲学题的固定配方——材料永远最新，选项永远考最老的原理。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“根据自身需要”换成“根据主观愿望”“突破客观条件制约”“按人的意志”——<strong>全是错</strong>；<br>
+        · 把“扬弃”换成“抛弃”“全盘否定”“另起炉灶”——<strong>错</strong>，扬弃必须“既克服又保留”；<br>
+        · 反过来把 C 项改成“矛盾的主要方面决定发展方向”——<strong>同样错</strong>，方向归主要矛盾；<br>
+        · 把材料换成“某地因地制宜、一县一策”，D 项立刻由“不选”变成“正确答案”——<strong>同一句话，材料一变，对错就变</strong>；<br>
+        · 把题干从“体现的观点”换成“蕴含的道理”，选项照旧，考的还是这四句话。
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="q c-purple">
+    <div class="q-head">
+      <span class="qno">2</span>
+      <span class="tag p">马原 · 古语与哲理对应</span>
+      <span class="ans ok">答案 A</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">下列古语与“<strong>增强忧患意识、防范风险挑战</strong>”所体现的哲理<strong>一致</strong>的是？</div>
+      <div class="opt"><b>A．</b>泾溪石险人兢慎，终岁不闻倾覆人；却是平流无石处，时时闻说有沉沦 <span class="good">✓ 矛盾双方在一定条件下相互转化</span></div>
+      <div class="opt"><b>B．</b>博学之，审问之，慎思之，明辨之，笃行之 <span class="bad">✗ 认识论：学—问—思—辨—行五环节、知行合一</span></div>
+      <div class="opt"><b>C．</b>骏马能历险，力田不如牛；坚车能载重，渡河不如舟 <span class="bad">✗ 矛盾特殊性：尺有所短、寸有所长</span></div>
+      <div class="opt"><b>D．</b>万物并育而不相害，道并行而不相悖 <span class="bad">✗ 矛盾同一性：和而不同、求同存异</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：这句话到底落在哪个原理上</span>
+        险滩因为人人“<em class="hl">兢慎</em>”反倒常年不翻船；平流没有礁石、无人设防，反而常听说有人沉没。这里有两个要点：<br>
+        · 险与安、祸与福是<em class="hl">一对矛盾</em>，且它们<strong>向对方走去了</strong>——这是“相互转化”；<br>
+        · 转化需要<strong>条件</strong>，A 句里的条件就藏在“兢慎”二字上。没有“兢慎”，险处照样翻船。<br>
+        所以它对应的是<em class="hl">矛盾双方在一定条件下相互转化</em>，方法论落点是居安思危、安不忘危。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：古语题的四个落点 + 忧患意识的全链条</span>
+        <strong>一、古语题只有四个落点（其余都是干扰）：</strong><br>
+        ① <em class="hl">对立统一 / 相互转化</em>——见“险/安”“祸/福”“危/机”“盛/衰”；<br>
+        ② <em class="hl">矛盾特殊性</em>——见“各有长短”“因材施教”“对症下药”“量体裁衣”；<br>
+        ③ <em class="hl">矛盾同一性</em>——见“并育”“并行”“和而不同”“求同存异”；<br>
+        ④ <em class="hl">认识论 / 实践</em>——见“学、问、思、辨、行”“纸上得来终觉浅”“绝知此事要躬行”。<br>
+        <strong>口诀：见险安想转化，见长短想特殊，见并行想同一，见学行想实践。</strong><br><br>
+        <strong>二、“道”在古文里几乎等于“规律”：</strong><br>
+        D 句“道并行而不相悖”，把“道”翻译成“规律”就好懂了——不同的规律同时起作用而不冲突，讲的是<em class="hl">多样性共存</em>，不是忧患意识。<br><br>
+        <strong>三、忧患意识在时政里的现代形态（纵向延伸）：</strong><br>
+        · 哲学层：矛盾转化 → <em class="hl">居安思危</em>；<br>
+        · 思维层：<em class="hl">底线思维</em>（守住最坏情况的底线）＋<em class="hl">极限思维</em>（设想极端情形）；<br>
+        · 战略层：<em class="hl">总体国家安全观</em>（统筹发展和安全）；<br>
+        · 价值层：“人民至上、生命至上”。<br>
+        · 原文锚点：“备豫不虞，为国常道”；二十大“准备经受风高浪急甚至惊涛骇浪的重大考验”。<br><br>
+        <strong>四、同一性 ≠ 转化（最容易糊的一对）：</strong><br>
+        · 同一性讲的是<em class="hl">相互依存、相互贯通</em>（你离不开我，我包含着你）；<br>
+        · 转化讲的是<em class="hl">在一定条件下向对立面走去</em>（安变危、危转安）。<br>
+        A 句有“兢慎”这个条件，所以是转化；D 句只讲共存，所以是同一性。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        “备豫不虞，为国常道”（习近平引用）；党的二十大报告关于“准备经受风高浪急甚至惊涛骇浪的重大考验”的表述；统筹发展和安全纳入“五位一体”“四个全面”战略布局。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 把“沉沦”换成“覆舟”“倾覆”“溺”——<strong>换字不换理，答案照旧</strong>；<br>
+        · B 项换成“纸上得来终觉浅，绝知此事要躬行”——仍是认识论；<br>
+        · C 项换成“梅须逊雪三分白，雪却输梅一段香”——仍是特殊性；<br>
+        · D 项换成“君子和而不同，小人同而不和”——仍是同一性；<br>
+        · 最狠的一招：<strong>题干从“忧患意识”改成“矛盾双方相互转化”</strong>，四个选项原样不动，答案仍是 A；<br>
+        · 反向设坑：给一句讲“量变质变”的诗（“千里之堤，溃于蚁穴”）混进来，看着也像忧患，其实是量变质变。
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="q c-red">
+    <div class="q-head">
+      <span class="qno">3</span>
+      <span class="tag r">党建 · 全面从严治党责任体系</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于<strong>全面从严治党</strong>，下列说法<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>以党的<strong>政治建设为统领</strong>，全面加强党的各方面建设，不断增强党的政治领导力、思想引领力、群众组织力、社会号召力 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>明确（<strong>非党委党组</strong>）全面从严治党的<strong>主体责任</strong> <span class="bad">✗ 主体责任只能由党委（党组）负；纪委负的是监督责任</span></div>
+      <div class="opt"><b>C．</b>始终保持零容忍，把中央八项规定作为<strong>铁规矩、硬杠杠</strong>，严肃查处顶风违纪、隐形变异问题 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>一个地方和部门全面从严治党的局面如何，关键在党组织和领导干部特别是<strong>一把手</strong>是否尽到了责任 <span class="good">✓ 求是原文口径</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：责任链五连，一个都不能挪</span>
+        <strong>党委（党组）</strong> → <em class="hl">主体责任</em>（最重的那一档，写错主体整题作废）<br>
+        <strong>党委（党组）书记</strong> → <em class="hl">第一责任人责任</em><br>
+        <strong>领导班子其他成员</strong> → <em class="hl">“一岗双责”</em>（管业务也要管党建）<br>
+        <strong>各级纪委</strong> → <em class="hl">监督责任</em>（监督，不是主体）<br>
+        <strong>党员干部</strong> → <em class="hl">具体责任</em><br>
+        这五句话出自《党委（党组）落实全面从严治党主体责任规定》，是制度性表述，<strong>五年不变，背一次管三年</strong>。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：党的建设总体布局（一个“统领”四个“力”）</span>
+        <strong>一、新时代党的建设总体布局：</strong><br>
+        · 以<em class="hl">党的政治建设</em>为统领（只有政治建设能“统领”）；<br>
+        · 以<em class="hl">坚定理想信念宗旨</em>为根基（思想建设是基础性建设）；<br>
+        · 以<em class="hl">调动全党积极性、主动性、创造性</em>为着力点；<br>
+        · 全面推进政治建设、思想建设、组织建设、作风建设、纪律建设，<strong>把制度建设贯穿其中</strong>，深入推进反腐败斗争。<br>
+        <em class="hl-r">注意：“制度建设”是“贯穿”，不是“统领”，也不是“基础”——三个词各归各家。</em><br><br>
+        <strong>二、四个“力”的原配：</strong><br>
+        政治领导力、思想引领力、<em class="hl">群众组织力</em>、<em class="hl">社会号召力</em>。常被换成“群众号召力”“社会凝聚力”，一换就错。<br><br>
+        <strong>三、纵向延伸：从“全面从严”到“自我革命”</strong><br>
+        · 政治建设 → <em class="hl">“两个维护”</em>（坚决维护习近平总书记核心地位、坚决维护党中央权威和集中统一领导）；<br>
+        · 政治监督 → 具体化、精准化、常态化；<br>
+        · 自我革命 → “<em class="hl">九个以</em>”的实践要求与理论要求；<br>
+        · 跳出历史周期率的<em class="hl">两个答案</em>：第一个是“让人民来监督政府”，第二个是“<strong>自我革命</strong>”。<br><br>
+        <strong>四、作风建设的三个“永远在路上”：</strong><br>
+        作风问题具有<em class="hl">反复性和顽固性</em>，所以“中央八项规定”不是五年十年的权宜之计，而是<em class="hl">长期有效的铁规矩、硬杠杠</em>。C 项的“铁规矩、硬杠杠”就是这层意思。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        《党委（党组）落实全面从严治党主体责任规定》（2020）；二十届中央纪委历次全会关于“两个责任”的表述；D 项出自《求是》杂志相关文章原文。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 五个责任位置随便挪：主体责任↔监督责任↔第一责任人↔一岗双责↔具体责任——<strong>本卷原样上演</strong>；<br>
+        · “统领”↔“贯穿”↔“基础”↔“根基”互换（制度建设是贯穿、思想建设是基础）——<strong>高频坑</strong>；<br>
+        · 把“铁规矩、硬杠杠”换成“软约束”“倡导体”“指导性意见”——<strong>错</strong>；<br>
+        · 把“一把手”换成“分管领导”“纪检组长”——<strong>错</strong>，关键在一把手；<br>
+        · 把“群众组织力、社会号召力”换成“群众号召力、社会凝聚力”——<strong>一字之差</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="q c-green">
+    <div class="q-head">
+      <span class="qno">4</span>
+      <span class="tag g">教育 · 教育强国建设</span>
+      <span class="ans ok">答案 C（①②③）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于教育发展，下列表述<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 牢记为党育人、为国育才的初心使命，落实<strong>立德树人</strong>根本任务，涵养高尚师德师风 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 把<strong>教师队伍建设</strong>作为建设教育强国<strong>最重要的基础工作</strong>来抓 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 建设教育强国是全面建设社会主义现代化强国的<strong>战略先导</strong> <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 落实<strong>“素质第一”</strong>的教育理念，提升教育教学质量 <span class="bad">✗ 应为“健康第一”；五育并举、德育为先</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：三顶帽子不能戴错头</span>
+        · <em class="hl">教育强国</em> → <strong>战略先导</strong>（“先导”两个字只给它）；<br>
+        · <em class="hl">基础教育</em> → <strong>基础性、先导性</strong>（党中央把基础教育作为基础性、先导性工作来抓）；<br>
+        · <em class="hl">教师队伍建设</em> → <strong>建设教育强国最重要的基础工作</strong>。<br>
+        ④ 项的“素质第一”是把“<em class="hl">健康第一</em>”换掉了——正品是“树立健康第一的教育理念”，配套的是“<strong>五育并举、德育为先</strong>”。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：教育—科技—人才三位一体</span>
+        <strong>一、“三个第一”整体记（顺序不能乱）：</strong><br>
+        · 科技是第一<em class="hl">生产力</em>；<br>
+        · 人才是第一<em class="hl">资源</em>；<br>
+        · 创新是第一<em class="hl">动力</em>。<br>
+        二十大报告配套表述：教育、科技、人才是全面建设社会主义现代化国家的<em class="hl">基础性、战略性支撑</em>。<br><br>
+        <strong>二、五育的完整说法：</strong><br>
+        <em class="hl">德智体美劳</em>全面发展 → <em class="hl">五育并举、德育为先</em> → 把<strong>德育</strong>贯穿智育、体育、美育、劳动教育全过程。<br>
+        <em class="hl-r">注意：贯穿的是“德育”，不是“智育”，也不是“思政课”；贯穿的对象是“智体美劳”，不是“教育全过程”四个空字。</em><br><br>
+        <strong>三、立德树人的完整链条：</strong><br>
+        根本任务（立德树人）→ 根本问题（培养什么人、怎样培养人、为谁培养人）→ 初心使命（为党育人、为国育才）→ 具体抓手（德智体美劳全面发展、师德师风、教材建设）。<br><br>
+        <strong>四、教育强国的几个硬指标（纵向延伸）：</strong><br>
+        · 到 <em class="hl">2035 年</em>建成教育强国（与基本实现现代化同步）；<br>
+        · 基础教育扩优提质、职业教育产教融合、高等教育龙头作用；<br>
+        · <em class="hl">教育数字化</em>是重要突破口；<br>
+        · 教师队伍：<em class="hl">“四有”好老师</em>（有理想信念、有道德情操、有扎实学识、有仁爱之心）＋“四个引路人”。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        党的二十大报告（教育科技人才三位一体）；全国教育大会；《教育强国建设规划纲要（2024—2035年）》；“健康第一”教育理念见于关于教育的重要论述。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · “健康第一”↔“素质第一”“成绩第一”“智育第一”——<strong>本卷原样上演</strong>；<br>
+        · “战略先导”↔“基础性先导性”互换（教育强国 vs 基础教育）——<strong>高频坑</strong>；<br>
+        · “德育贯穿”改成“德育为主”“思政课贯穿”——<strong>错</strong>；<br>
+        · 把“教师队伍建设”换成“教材建设”“教育数字化”来抢“最重要的基础工作”——<strong>错</strong>；<br>
+        · 把“立德树人”换成“提高质量”当“根本任务”——<strong>错</strong>，根本任务是立德树人。
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="q c-red">
+    <div class="q-head">
+      <span class="qno">5</span>
+      <span class="tag r">党建 · 树立正确政绩观</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">树立正确政绩观，处理好<strong>稳和近、立和破、虚和实、标和本、近和远</strong>的关系。下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>A．</b>完善考核评价体系，注重考核的<strong>全面性</strong> <span class="bad">✗ 应为“差异化”考核评价体系，指向针对性和科学性</span></div>
+      <div class="opt"><b>B．</b>经常性开展政绩观教育，重点抓好“一把手” <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>各级领导干部要从<strong>地方发展需要</strong>出发 <span class="bad">✗ 应从实现党的使命任务出发</span></div>
+      <div class="opt"><b>D．</b>用好正反两方面典型，发挥<strong>警示</strong>作用 <span class="bad">✗ 反面典型才警示；正面典型的作用是示范、引领</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：“出发点”是政治理论最贵的三个字</span>
+        出发点是<em class="hl">立场</em>，不是<em class="hl-r">条件</em>。写“从地方发展需要出发”，等于把立场从“全党全国”缩到了“本地本部门”，必然导向本位主义：为了本地 GDP 牺牲全局利益、牺牲生态环境。<br>
+        正确表述是：<strong>从实现党的使命任务出发</strong>。而党的使命任务＝<em class="hl">以中国式现代化全面推进中华民族伟大复兴</em>（二十大报告“中心任务”原文）。<br>
+        一句话记住：<em class="hl">出发点只能是“人民”和“使命”，不能是“地方”“部门”“考核”。</em>
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：政绩观的四问 + 五对关系</span>
+        <strong>一、政绩观四问（回答完这四个问题，政绩观就通了）：</strong><br>
+        ① <strong>为谁创造政绩</strong>——人民（不是上级、不是自己）；<br>
+        ② <strong>创造什么样的政绩</strong>——打基础、利长远的事，<em class="hl">“功成不必在我”</em>；<br>
+        ③ <strong>靠什么创造政绩</strong>——实事求是，不搞形象工程、政绩工程；<br>
+        ④ <strong>怎样衡量政绩</strong>——<em class="hl">差异化考核评价体系</em>，针对性和科学性。<br><br>
+        <strong>二、为什么必须“差异化”而不能“一刀切”：</strong><br>
+        · 主体功能区不同：有的地方是生态功能区，就不能拿 GDP 衡量；<br>
+        · 发展阶段不同：发达地区与欠发达地区的重点任务不一样；<br>
+        · 所以差异化考核 → 落到<em class="hl">针对性和科学性</em>，而不是“全面性”；<br>
+        · 反面后果：<em class="hl">“数字出官、官出数字”</em>的恶性循环。<br><br>
+        <strong>三、五对关系各自指什么：</strong><br>
+        · <em class="hl">稳和近</em>——稳与进（不能只求快）；<br>
+        · <em class="hl">立和破</em>——先立后破（不能未立先破）；<br>
+        · <em class="hl">虚和实</em>——务实功、求实效，不搞虚功；<br>
+        · <em class="hl">标和本</em>——标本兼治，重在治本；<br>
+        · <em class="hl">近和远</em>——当前与长远，不能寅吃卯粮。<br><br>
+        <strong>四、配套的制度语言：</strong><br>
+        · <em class="hl">“三个区分开来”</em>——把先行先试的失误与明知故犯区分开、把探索性试验的失误与明令禁止区分开、把为推动发展的无意过失与谋取私利区分开；<br>
+        · <em class="hl">能上能下</em>——不担当、不作为的调整下来；<br>
+        · 整治<em class="hl">形式主义、官僚主义</em>，为基层减负；<br>
+        · “新官要理旧账”——政策连续性也是政绩观。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        习近平总书记关于树立正确政绩观的重要论述（“功成不必在我”的精神境界和“功成必定有我”的历史担当）；关于推动高质量发展的考核评价要求；整治形式主义为基层减负的相关规定。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 出发点换成“上级评价”“部门职责”“本地 GDP”“群众眼前利益”——<strong>全是错</strong>；<br>
+        · “差异化”配“针对性科学性”，“一刀切”配“标准统一”——<strong>两个方向都能出题</strong>；<br>
+        · “警示”↔“示范”互换（本卷 D 项）；<br>
+        · “先立后破”改成“先破后立”——<strong>错</strong>，顺序反了；<br>
+        · 把“功成不必在我”换成“功成必定在我”——<strong>错</strong>，一字之差，格局全变。
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="q c-green">
+    <div class="q-head">
+      <span class="qno">6</span>
+      <span class="tag g">三农 · 乡村全面振兴</span>
+      <span class="ans ok">答案 C（3 项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于“三农”工作，下列表述<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 中国式现代化离不开农业农村现代化，坚持农业农村<strong>优先发展</strong> <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 以推进<strong>乡村全面振兴</strong>为总抓手，学习运用“<strong>千万工程</strong>”经验 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 把<strong>增加粮食产量</strong>作为“三农”工作的<strong>中心任务</strong> <span class="bad">✗ 中心任务是“增加农民收入”</span></div>
+      <div class="opt"><b>④</b> 以改革创新为根本动力；产量产能、生产生态、增产增收一起抓；实施新一轮<strong>千亿斤</strong>粮食产能提升行动 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：中心任务只有一个——增加农民收入</span>
+        粮食安全是<em class="hl">底线</em>，农民增收是<em class="hl">中心</em>。这两件事都极重要，但占的“位子”不同：<br>
+        · 中心任务：<em class="hl">增加农民收入</em>（“三农”工作的出发点和落脚点）；<br>
+        · 底线要求：<em class="hl">粮食安全</em>（“国之大者”，党政同责）；<br>
+        · 总抓手：<em class="hl">推进乡村全面振兴</em>；<br>
+        · 根本动力：<em class="hl">改革创新</em>。<br>
+        ③ 项把“底线”塞进了“中心”的位子，是典型的<strong>序位错配</strong>。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：三农的完整知识树</span>
+        <strong>一、五个振兴（记住是“五”，不是“三”）：</strong><br>
+        <em class="hl">产业振兴</em>（重中之重）、人才振兴、文化振兴、生态振兴、组织振兴。<br>
+        <em class="hl-r">易错：“生活富裕”不是第六个振兴，它是乡村振兴的<strong>综合结果</strong>。</em><br><br>
+        <strong>二、粮食安全的“两个要害”：</strong><br>
+        · <em class="hl">耕地</em>——18 亿亩红线，高标准农田，耕地占补平衡；<br>
+        · <em class="hl">种子</em>——种业振兴行动，把种源牢牢握在自己手里。<br>
+        配套：<em class="hl">“藏粮于地、藏粮于技”</em>；产量稳定在 <em class="hl">1.3 万亿斤</em>以上；新一轮<em class="hl">千亿斤</em>产能提升行动（不是百亿斤）。<br><br>
+        <strong>三、“千万工程”到底是什么：</strong><br>
+        浙江“千村示范、万村整治”工程——从<em class="hl">农村人居环境整治</em>入手，二十年久久为功，迭代到美丽乡村、未来乡村。<br>
+        它给的经验是：<em class="hl">因地制宜、循序渐进、久久为功、由点及面</em>。<br>
+        <em class="hl-r">别和“枫桥经验”混：枫桥经验是基层社会治理（矛盾不上交、就地解决），不是乡村振兴的经验。</em><br><br>
+        <strong>四、城乡关系的三次跃迁（纵向延伸）：</strong><br>
+        城乡二元 → 城乡统筹 → <em class="hl">城乡融合</em>（县域是切入点，不是市域）→ 农业农村现代化。<br><br>
+        <strong>五、“三农”的定位：</strong><br>
+        <em class="hl">压舱石</em>——经济形势越复杂，越要稳住农业这个“压舱石”；<br>
+        <em class="hl">基本盘</em>——14 亿人的饭碗。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        中央农村工作会议、中央一号文件；“千万工程”经验（2023 年中央一号文件专门部署学习运用）；新一轮千亿斤粮食产能提升行动方案。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 千亿斤 ↔ 百亿斤、1.3 万亿斤 ↔ 1.5 万亿斤——<strong>数字坑，最不像坑的坑</strong>；<br>
+        · “千万工程” ↔ “枫桥经验”“浦江经验”——<strong>跨域偷换，高频</strong>；<br>
+        · “优先发展” ↔ “同步发展”“率先发展”——<strong>错</strong>，是优先；<br>
+        · “总抓手” ↔ “总目标”“总要求”——<strong>错</strong>；<br>
+        · 把“增加农民收入”换成“增加粮食产量”“提高农业产值”当中心任务——<strong>本卷原样上演</strong>。
+      </div>
+    </div>
+  </div>
+  <!-- 7 -->
+  <div class="q c-blue">
+    <div class="q-head">
+      <span class="qno">7</span>
+      <span class="tag">网信 · 网络强国建设</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于<strong>网络强国</strong>建设，下列表述<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>完善<strong>分级分类</strong>的安全监管机制，筑牢网络安全和数据安全防线 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>完善网上思想道德教育，做到<strong>分众化、精准化</strong>；新闻宣传和网络舆论管理追求<strong>一体化</strong> <span class="good">✓ “看起来最像错、其实最对”的一项</span></div>
+      <div class="opt"><b>C．</b>正能量是<strong>硬道理</strong>、管得住是<strong>总要求</strong>、用得好是真本事 <span class="bad">✗ 主语被对调</span></div>
+      <div class="opt"><b>D．</b>网络安全为人民、网络安全靠人民，维护公民在网络空间的合法权益 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：三句话的主语不可轮换</span>
+        <strong>正能量是总要求</strong>——管方向、定调子，所以是“总”要求；<br>
+        <strong>管得住是硬道理</strong>——管得住才叫硬，所以“管”配“硬”；<br>
+        <strong>用得好是真本事</strong>——会用才是能力，所以“用”配“真本事”。<br>
+        记忆锚：<em class="hl">方向 → 底线 → 能力</em>，对应<em class="hl">总要求 → 硬道理 → 真本事</em>。<br>
+        C 项把前两句的主语对调，句式毫无破绽，是最典型的“词序题”。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：网信工作的完整框架</span>
+        <strong>一、“一体化”与“分众化”是一对反向词（本卷 B 项的真正考点）：</strong><br>
+        · <em class="hl">管理要一体化</em>——新闻宣传和网络舆论的管理追求一体化，便于统一调度、统一口径；<br>
+        · <em class="hl">宣传要分众化、精准化</em>——对党员讲严肃话、对青少年讲话泼话、对专业人士讲专业话、对老年人讲通俗话。<br>
+        <em class="hl-r">一个“管”，一个“说”，方向相反，这是本卷最容易误判的一项。</em><br><br>
+        <strong>二、网信工作的五个方面：</strong><br>
+        ① 网络内容建设（正能量、主流价值）；<br>
+        ② 网络安全（技术、数据、关键信息基础设施）；<br>
+        ③ 信息化（数字中国、数字经济）；<br>
+        ④ 网络空间治理（法律、技术、经济、行政多手段）；<br>
+        ⑤ 网信军民融合。<br><br>
+        <strong>三、“两个所有”（网络综合治理的抓手）：</strong><br>
+        · 所有从事新闻信息服务、具有媒体属性和舆论动员功能的<em class="hl">传播平台</em>都纳入管理范围；<br>
+        · 所有新闻信息服务和相关业务<em class="hl">从业人员</em>都实行准入管理。<br><br>
+        <strong>四、安全与发展的关系（纵向延伸）：</strong><br>
+        <em class="hl">网络安全和信息化是一体之两翼、驱动之双轮</em>——安全是发展的前提，发展是安全的保障，不能偏废。<br><br>
+        <strong>五、几个高频搭配：</strong><br>
+        · <em class="hl">分级分类</em>的安全监管（不是统一监管）；<br>
+        · <em class="hl">技术管网、依法治网、内容建网</em>；<br>
+        · <em class="hl">数字中国</em>“2522”整体布局；<em class="hl">东数西算</em>。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        2018 年全国网络安全和信息化工作会议（“正能量是总要求、管得住是硬道理、用得好是真本事”即出自此）；网信工作“十个坚持”；网络综合治理体系相关部署。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 三句主语轮换一圈，必有一项错——<strong>本卷原样上演</strong>；<br>
+        · “一体化”↔“分众化”互换（管理说成宣传、宣传说成管理）——<strong>高频坑</strong>；<br>
+        · “分级分类”换成“统一”“集中”——<strong>错</strong>；<br>
+        · “为人民、靠人民”换成“靠政府、为人民”——<strong>错</strong>，主体变了；<br>
+        · “筑牢防线”改成“筑牢底线”——<strong>一字之差</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="q c-orange">
+    <div class="q-head">
+      <span class="qno">8</span>
+      <span class="tag o">应急 · 防灾减灾救灾</span>
+      <span class="ans ok">答案 C（3 项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于防范应对各类自然灾害，下列表述<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 充分发挥<strong>新型举国体制</strong>优势，推动应急领域科技创新和产业创新 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 夯实防灾救灾基层基础，基层是抵御自然灾害的<strong>“大后方”</strong> <span class="bad">✗ 基层是“第一线”</span></div>
+      <div class="opt"><b>③</b> 鼓励和支持社会应急力量建设，发挥群团组织、志愿服务等组织作用 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 坚持<strong>预防为主</strong>、改革创新、系统观念、社会共治 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：“第一线”与“大后方”是反义，不是近义</span>
+        灾害来了，先顶上去的是基层——所以基层是<em class="hl">第一线</em>（第一道防线、第一响应人）。<br>
+        “大后方”指的是<em class="hl-r">后方的支援保障</em>（物资、医疗、运输），是“后方”不是“前线”。<br>
+        这类“序位词”专骗读得快的人：<strong>第一线 / 第一责任人 / 第一要务 / 第一生产力</strong> 是一套，<strong>大后方 / 保障线 / 后方基地</strong> 是另一套，不能串。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：应急管理的“两个坚持、三个转变”</span>
+        <strong>一、两个坚持：</strong><br>
+        · 坚持<em class="hl">以防为主、防抗救相结合</em>；<br>
+        · 坚持<em class="hl">常态减灾和非常态救灾相统一</em>。<br><br>
+        <strong>二、三个转变（方向感最强的一段）：</strong><br>
+        ① 从注重<em class="hl">灾后救助</em>向注重<em class="hl">灾前预防</em>转变；<br>
+        ② 从应对<em class="hl">单一灾种</em>向<em class="hl">综合减灾</em>转变；<br>
+        ③ 从减少<em class="hl">灾害损失</em>向减轻<em class="hl">灾害风险</em>转变。<br>
+        <em class="hl-r">三个转变的共同逻辑：从“事后”走向“事前”，从“损失”走向“风险”。</em><br><br>
+        <strong>三、“全灾种、大应急”格局：</strong><br>
+        应急管理部整合了安全生产、防灾减灾、应急救援等多条线，形成<em class="hl">统一指挥、专常兼备、反应灵敏、上下联动</em>的体制。<br><br>
+        <strong>四、四方力量（缺一不可）：</strong><br>
+        · <em class="hl">国家综合性消防救援队伍</em>——主力军、国家队；<br>
+        · <em class="hl">专业应急救援队伍</em>——行业骨干；<br>
+        · <em class="hl">社会应急力量</em>——蓝天救援队等，本卷 ③ 项指的就是这一块；<br>
+        · <em class="hl">基层应急力量</em>＋群团组织、志愿服务组织——第一线的第一响应。<br><br>
+        <strong>五、为什么强调“新型举国体制”：</strong><br>
+        应急科技（监测预警、卫星遥感、无人机、应急通信）投入大、周期长、外部性强，靠单一主体做不动，必须<em class="hl">集中力量办大事</em>——这就是新型举国体制在应急领域的落地。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        关于应急管理体系和能力现代化的重要论述；“两个坚持、三个转变”为应急管理改革的总要求；防灾减灾救灾体制机制改革相关意见。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 第一线 ↔ 大后方（本卷）；第一线 ↔ 第二线、主战场 ↔ 后方——同类互换；<br>
+        · “预防为主”换成“救灾为主”“救援为主”——<strong>错</strong>，方向反了；<br>
+        · “社会共治”换成“政府包办”“市场主导”——<strong>错</strong>；<br>
+        · “新型举国体制”换成“传统体制”“市场机制”——<strong>错</strong>；<br>
+        · 把“群团组织、志愿服务”换成“企业主体、营利机构”——<strong>主体错位</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="q c-blue">
+    <div class="q-head">
+      <span class="qno">9</span>
+      <span class="tag">法治 · 全面依法治国</span>
+      <span class="ans ok">答案 C（3 项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于<strong>全面依法治国</strong>，下列表述<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 更加注重法治与<strong>改革发展稳定</strong>相协同 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 围绕保障和促进社会公平正义，坚持法治国家、法治政府、法治社会<strong>一体建设</strong> <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 正确处理政治和法治、改革和法治、依法治国和以德治国、依法治国和依规治国的关系 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 抓住<strong>法治国家建设</strong>这个<strong>总抓手</strong> <span class="bad">✗ 总抓手是“中国特色社会主义法治体系”建设</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：抓手是把手，目标是那张网</span>
+        为什么“法治国家”不能当抓手？因为它是<em class="hl">终点</em>，不是<em class="hl">突破口</em>。<br>
+        · <strong>总抓手＝法治体系</strong>：它把立法、执法、司法、守法、党内法规<em class="hl">全部串起来</em>，牵一发而动全身，所有工作都围绕它展开——像织渔网时的<strong>总框架</strong>；<br>
+        · <strong>总目标＝法治体系＋法治国家</strong>：即“一法两法”，法治国家是最后要织成的那张<strong>完整的网</strong>。<br>
+        <em class="hl-r">用老师的话：你不可能把“织好的网”当“织网的工具”。</em>
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：法治体系的五根梁 + 两组口诀</span>
+        <strong>一、法治体系五部分（出过真题，必须能默写）：</strong><br>
+        ① <em class="hl">完备的法律规范体系</em>——对应<strong>立法</strong>，解决“有法可依”；<br>
+        ② <em class="hl">高效的法治实施体系</em>——对应<strong>执法、司法</strong>，解决“法律落地”；<br>
+        ③ <em class="hl">严密的法治监督体系</em>——对应<strong>监督</strong>，解决“权力制约”；<br>
+        ④ <em class="hl">有力的法治保障体系</em>——对应<strong>队伍、经费、制度</strong>保障；<br>
+        ⑤ <em class="hl">完善的党内法规体系</em>——对应<strong>管党治党</strong>，这是中国特色。<br>
+        <em class="hl-r">记忆口诀：规范（立法）—实施（执法司法）—监督—保障—党内法规，五个形容词分别是“完备、高效、严密、有力、完善”。</em><br><br>
+        <strong>二、两个总目标，一对口诀（最容易混）：</strong><br>
+        · 全面依法治国 → <em class="hl">一法两法</em>：建设中国特色社会主义<strong>法</strong>治体系、建设社会主义<strong>法</strong>治国家；<br>
+        · 全面深化改革 → <em class="hl">一改两制</em>：完善和发展中国特色社会主义<strong>制</strong>度、推进国家治理体系和治理能力现代化。<br><br>
+        <strong>三、三个共同推进 + 三个一体建设：</strong><br>
+        · 共同推进：<em class="hl">依法治国、依法执政、依法行政</em>；<br>
+        · 一体建设：<em class="hl">法治国家、法治政府、法治社会</em>。<br>
+        其中<em class="hl">法治政府建设是重点任务和主体工程</em>（不是法治社会）。<br><br>
+        <strong>四、十六字方针：</strong><br>
+        <em class="hl">科学立法、严格执法、公正司法、全民守法</em>——四句话对应立法、执法、司法、守法四个环节。<br><br>
+        <strong>五、四对关系（本卷 ③ 项）：</strong><br>
+        政治和法治（政治是法治的依托）、改革和法治（重大改革于法有据）、依法治国和以德治国（德法并举）、依法治国和依规治党（党内法规也是法）。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        党的二十大报告法治建设专章；二十届三中全会《决定》第九部分“完善中国特色社会主义法治体系”；中央全面依法治国工作会议“十一个坚持”。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 总抓手 ↔ 总目标互换——<strong>本卷原样上演，最高频</strong>；<br>
+        · 五体系改词：“完备的法律规范体系”→ “完善的法律制度体系”——<strong>错</strong>；<br>
+        · 五个形容词错位：“高效的法律规范体系”+“完备的法治实施体系”——<strong>错</strong>；<br>
+        · “一体建设”改成“分别建设”“先后建设”——<strong>错</strong>；<br>
+        · “法治政府是主体工程”换成“法治社会”——<strong>高频坑</strong>；<br>
+        · “一法两法”配成“一法三法”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="q c-orange">
+    <div class="q-head">
+      <span class="qno">10</span>
+      <span class="tag o">经济 · 民营经济</span>
+      <span class="ans ok">答案 A（①②③）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于<strong>民营经济</strong>，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>①</b> 高质量发展是民营经济发展的<strong>必由之路</strong>；坚守主业、做强实业 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 民营企业要打造百年老店、成为“长青树”，必须有<strong>先进的管理制度</strong> <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 鼓励民营企业加大科技创新和产业升级投资力度，推动新兴领域应用场景向民营企业开放 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> <strong>企业营销有国界</strong> <span class="bad">✗ 原话是“企业营销没有国界，但企业家有祖国”</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：无国界的是“营销”，有祖国的是“企业家”</span>
+        为什么营销没有国界？因为营销就是<em class="hl">卖产品、做市场、做生意</em>：商品可以卖到全世界，可以在海外建厂、打广告、设渠道，市场贸易本身不受国境线限制。<br>
+        为什么企业家有祖国？因为企业家是<em class="hl">人</em>，有立场、有责任、有家国情怀。<br>
+        同构句还有一句：<em class="hl">“科学无国界，科学家有祖国。”</em> 命题人就爱在这种句子上动手——<strong>只改一个主语，或只加一个“不”字。</strong>
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：民营经济的政策框架</span>
+        <strong>一、“两个毫不动摇”：</strong><br>
+        毫不动摇巩固和发展<em class="hl">公有制经济</em>，毫不动摇鼓励、支持、引导<em class="hl">非公有制经济</em>发展。<br><br>
+        <strong>二、“三个没有变”：</strong><br>
+        非公有制经济在我国经济社会发展中的<em class="hl">地位和作用没有变</em>；我们毫不动摇鼓励、支持、引导非公有制经济发展的<em class="hl">方针政策没有变</em>；我们致力于为非公有制经济发展营造良好环境和提供更多机会的<em class="hl">方针政策没有变</em>。<br><br>
+        <strong>三、定位金句：</strong><br>
+        · 民营企业和民营企业家是<em class="hl">“自己人”</em>；<br>
+        · 民营经济是<em class="hl">推进中国式现代化的生力军</em>；<br>
+        · 民营经济具有“<em class="hl">五六七八九</em>”的特征（贡献 50% 以上税收、60% 以上 GDP、70% 以上技术创新成果、80% 以上城镇劳动就业、90% 以上企业数量）。<br><br>
+        <strong>四、制度保障（纵向延伸）：</strong><br>
+        民营经济 31 条 → <em class="hl">《民营经济促进法》</em>（把“两个毫不动摇”写进法律）→ 全国统一大市场 → 市场准入负面清单 → <em class="hl">亲清政商关系</em>。<br><br>
+        <strong>五、“两个健康”：</strong><br>
+        促进<em class="hl">非公有制经济健康发展</em>和<em class="hl">非公有制经济人士健康成长</em>——经济和人，两条线一起抓。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        民营企业座谈会（“自己人”表述）；《民营经济促进法》；“企业营销没有国界，但企业家有祖国”出自企业家座谈会讲话。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · “营销”↔“企业家”（有／无国界互换）——<strong>本卷原样上演</strong>；<br>
+        · “必由之路”换成“根本出路”“唯一出路”——<strong>加码过头</strong>；<br>
+        · “做强实业”换成“脱实向虚”“多元扩张”——<strong>错</strong>；<br>
+        · 加入“民营经济是主体”——<strong>错</strong>，公有制经济是主体；<br>
+        · 把“生力军”换成“主力军”“主体”——<strong>错</strong>，用词有严格层次。
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="q c-red">
+    <div class="q-head">
+      <span class="qno">11</span>
+      <span class="tag r">党建 · 干部队伍建设</span>
+      <span class="ans ok">答案 A（①②③）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于<strong>干部队伍建设</strong>，下列说法<strong>正确</strong>的是？</div>
+      <div class="opt"><b>①</b> 打造党性过硬、视野开阔、善于创新、真抓实干的干部队伍 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 坚决破除<strong>论资排辈、平衡照顾</strong>等错误观念，对看得准的年轻人才要<strong>大胆使用</strong> <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 坚持正确用人导向，把<strong>政治标准放在首位</strong>，建强领导班子和干部队伍 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 干部既要想干、愿干、积极干，又要能干、会干、善于干——但<strong>“首要”</strong>二字被安到了错误的位置 <span class="bad">✗ 政治标准占“首位”，“首要”另有其主</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：首位、首要、第一、根本、核心——五个词五个家</span>
+        · <em class="hl">首位</em>＝<strong>政治标准</strong>（用人导向）；<br>
+        · <em class="hl">首要任务</em>＝<strong>高质量发展</strong>；<br>
+        · <em class="hl">第一要务</em>＝<strong>发展</strong>；<br>
+        · <em class="hl">根本任务</em>＝<strong>立德树人</strong>；<em class="hl">根本动力</em>＝<strong>改革创新</strong>；<em class="hl">根本保证</em>＝<strong>党的领导</strong>；<br>
+        · <em class="hl">核心</em>＝<strong>党的领导</strong>（领导核心）。<br>
+        老师特别提示：干部队伍建设中还有一处<em class="hl">“特殊表述”</em>——<strong>“积极性”是“首要”的</strong>，这类不按常理出牌的，只能单独记、特殊记。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：干部工作的“选育管用”四环节</span>
+        <strong>一、选（用人导向）：</strong><br>
+        · 政治标准放<em class="hl">首位</em>；<br>
+        · 破除“<em class="hl">四唯</em>”：唯票、唯分、唯学历、唯年龄（不是“唯论文”，那是人才评价）；<br>
+        · 破除<em class="hl">论资排辈、平衡照顾</em>；<br>
+        · 对看得准的优秀年轻干部要<em class="hl">大胆使用</em>——注意是“大胆使用”，不是“破格提拔”（破格有严格条件和程序）。<br><br>
+        <strong>二、育（年轻干部）：</strong><br>
+        七种能力（政治能力、调查研究能力、科学决策能力、改革攻坚能力、应急处突能力、群众工作能力、抓落实能力）；在<em class="hl">基层一线、吃劲岗位</em>磨炼。<br><br>
+        <strong>三、管：</strong><br>
+        · <em class="hl">能上能下</em>——不担当、不作为、乱作为的调整下来；<br>
+        · <em class="hl">三个区分开来</em>——为担当者担当、为负责者负责；<br>
+        · 严管和厚爱结合、激励和约束并重。<br><br>
+        <strong>四、用（激励）：</strong><br>
+        干部要“<em class="hl">想干、愿干、积极干</em>”＋“<em class="hl">能干、会干、善于干</em>”——前者是<strong>态度</strong>，后者是<strong>本领</strong>，两句必须成对。<br><br>
+        <strong>五、纵向延伸：</strong><br>
+        干部队伍 → 组织体系 → 党的领导 → 自我革命 → 长期执政能力。干部是“关键少数”，所以干部题永远和政治建设、自我革命连在一起。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        党的二十大报告干部队伍建设部分；《推进领导干部能上能下规定》；关于“三个区分开来”的重要论述。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 首位／首要／第一／根本／核心五词乱串——<strong>本卷原样上演，最细的刀</strong>；<br>
+        · “大胆使用”→“破格提拔”（破格有严格条件，不能泛化）——<strong>错</strong>；<br>
+        · “论资排辈”→“唯票唯分唯年龄”——<strong>换了个说法，同属“错”</strong>；<br>
+        · “政治标准”换成“能力标准”“实绩标准”占首位——<strong>错</strong>；<br>
+        · 把“四唯”说成“唯论文、唯职称、唯学历、唯奖项”——<strong>这是人才评价的“四唯”，不是选人用人的</strong>，两套别混。
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="q c-green">
+    <div class="q-head">
+      <span class="qno">12</span>
+      <span class="tag g">人才 · 人才强国战略</span>
+      <span class="ans ok">答案 A</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于人才工作，下列说法<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>完善基础研究人才<strong>短周期</strong>支持机制 <span class="bad">✗ 应为“长周期”支持机制</span></div>
+      <div class="opt"><b>B．</b><strong>自主培养</strong>是人才培养的主渠道 <span class="good">✓</span></div>
+      <div class="opt"><b>C．</b>在<strong>科研一线</strong>发现、培养、使用人才；完善学校管理体系，落实办学自主权 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>教育、科技、人才<strong>内在一致、相互支撑</strong>——科技创新靠人才，人才培养靠教育 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：基础研究为什么必须“长周期”</span>
+        基础研究有三个特点：<em class="hl">风险大、周期长、外部性强</em>。<br>
+        · 出成果慢——可能要十年二十年；<br>
+        · 不确定性高——失败了也是有价值的数据；<br>
+        · 所以不能搞“短周期考核”，否则逼着科研人员做短平快、不敢碰真问题。<br>
+        正确表述是<em class="hl">“长周期支持机制”</em>＋<em class="hl">稳定支持</em>（不是“竞争性支持逐步取代稳定支持”，而是<strong>竞争性支持和稳定支持相结合</em>）。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：人才工作的四环节与三对反义</span>
+        <strong>一、三对反义（本卷的核心考点群）：</strong><br>
+        · <em class="hl">长周期</em> ↔ 短周期（基础研究支持）<br>
+        · <em class="hl">自主培养</em> ↔ 人才引进（主渠道 vs 重要补充）<br>
+        · <em class="hl">科研一线</em> ↔ 机关、象牙塔（成长路径）<br><br>
+        <strong>二、引、育、用、留四环节：</strong><br>
+        · 引：<em class="hl">聚天下英才而用之</em>，但要“不唯地域、不求所有、不拘一格”；<br>
+        · 育：<em class="hl">自主培养</em>是主渠道——关键核心技术人才买不来、要不来、讨不来；<br>
+        · 用：<em class="hl">人尽其才、才尽其用</em>，向用人主体授权、为人才松绑；<br>
+        · 留：<em class="hl">待遇留人、事业留人、感情留人</em>，营造“近悦远来”的人才生态。<br><br>
+        <strong>三、五支队伍（层次要清）：</strong><br>
+        <em class="hl">战略科学家</em>（帅才）→ <em class="hl">一流科技领军人才和创新团队</em> → <em class="hl">青年科技人才</em>（主力军）→ <em class="hl">卓越工程师</em> → <em class="hl">高技能人才</em>。<br><br>
+        <strong>四、“破四唯”与分类评价：</strong><br>
+        破除<em class="hl">唯论文、唯职称、唯学历、唯奖项</em>，实行<em class="hl">分类评价</em>——基础研究看原创贡献，应用研究看实际价值，不看“一把尺子”。<br><br>
+        <strong>五、纵向延伸：</strong><br>
+        人才强国 → 教育强国 → 科技自立自强 → <em class="hl">新质生产力</em>。人才是这条链的中间齿轮：教育出人才，人才搞科技，科技生新质生产力。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        中央人才工作会议（2021）“八个坚持”；关于加强基础研究的相关部署；“人才是第一资源”的重要论断。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 长 ↔ 短周期（本卷）；稳定支持 ↔ 竞争性支持（“取代”与“相结合”之别）——<strong>两季连考</strong>；<br>
+        · 自主培养 ↔ 人才引进（主渠道）——<strong>高频</strong>；<br>
+        · “分类评价” ↔ “统一标准”“一把尺子”——<strong>错</strong>；<br>
+        · “科研一线” → “实验室”“办公室”——<strong>错</strong>；<br>
+        · “内在一致、相互支撑” → “相互独立”“各自为战”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="q c-orange">
+    <div class="q-head">
+      <span class="qno">13</span>
+      <span class="tag o">经济 · 内外贸一体化与促消费</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于扩大内需与内外贸一体化，下列说法<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>促进内外贸认证等自主衔接融合，完善内外贸产品<strong>“同线同标同质”</strong>政策措施 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b><strong>有序</strong>放宽服务业准入限制 <span class="good">✓ 是“有序”，不是“加速”</span></div>
+      <div class="opt"><b>C．</b>加大面向<strong>企业</strong>的消费场景供给 <span class="bad">✗ 消费场景重点面向“消费者”</span></div>
+      <div class="opt"><b>D．</b>（其余表述未设坑） <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：场景是给“掏钱的人”造的</span>
+        “消费场景”四个字的重心在<strong>消费</strong>——它是<em class="hl">为消费者打造的</em>：商圈、夜间经济、首发经济、银发经济、冰雪经济，都是让消费者愿意花、方便花。<br>
+        正确表述是<strong>“加大直达消费者的普惠政策力度”</strong>——注意“直达”和“普惠”两个词：直达是少绕弯，普惠是广覆盖。<br>
+        <em class="hl-r">老师原话：这个点连续三次出现，正确率却只有 20% 多。原因不是不会，是“企业”和“消费者”看串了。</em>
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：慢词表 + 统一大市场 + 三同</span>
+        <strong>一、程度副词是隐形考点（慢词 vs 猛词）：</strong><br>
+        · <em class="hl">慢词</em>：有序、稳步、逐步、稳妥、渐进、分步、分类；<br>
+        · <em class="hl-r">猛词</em>：加速、全面、率先、彻底、一律、同步。<br>
+        政策文件天生“留余地”，把慢词换成猛词，就是在制造错项。<br><br>
+        <strong>二、“三同”是三个同，不是四个：</strong><br>
+        <em class="hl">同线生产、同标生产、同质供应</em>——出口和内销的产品在同一生产线上、按同一标准、达到同一质量。<br>
+        <em class="hl-r">常见改法：“同线同标同价”（错，没有“同价”）、“同标同质同检”（错）。</em><br><br>
+        <strong>三、全国统一大市场“五统一、一开放”：</strong><br>
+        统一市场基础制度、统一市场基础设施、统一政府行为尺度、统一市场监管执法、统一要素资源市场；持续扩大对内对外开放。<br><br>
+        <strong>四、促消费的组合拳（纵向延伸）：</strong><br>
+        · <em class="hl">以旧换新</em>（汽车、家电、家装）；<br>
+        · <em class="hl">服务消费</em>（餐饮、文旅、体育、康养）——服务消费是下一阶段的主要增长点；<br>
+        · <em class="hl">首发经济、银发经济、冰雪经济、夜间经济</em>；<br>
+        · 收入端：<em class="hl">提高居民收入在国民收入分配中的比重</em>——没有收入就没有消费，这是根子。<br><br>
+        <strong>五、内外贸一体化的难点在哪：</strong><br>
+        标准不同、认证不同、渠道不同、结算不同——所以抓手是<em class="hl">认证衔接、标准互认、渠道对接</em>。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        二十届三中全会《决定》“加快内外贸一体化改革”；关于加快内外贸一体化发展的若干措施；提振消费专项行动；服务业扩大开放综合试点。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 消费者 ↔ 企业／商户／平台（本卷，<strong>连续三季</strong>）；<br>
+        · “有序” ↔ “加速”“全面”“率先”——<strong>程度词，最高频</strong>；<br>
+        · “同线同标同质” → “同标同质同价”——<strong>加一个字就错</strong>；<br>
+        · “直达消费者” → “直达基层”“直达企业”——<strong>对象错位</strong>；<br>
+        · “五统一、一开放” → “四统一、两开放”——<strong>数量坑</strong>。
+      </div>
+    </div>
+  </div>
+  <!-- 14 -->
+  <div class="q c-green">
+    <div class="q-head">
+      <span class="qno">14</span>
+      <span class="tag g">生态 · 生态环境分区管控</span>
+      <span class="ans ok">答案 A</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于生态环境保护，下列说法<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>探索生态环境<strong>统一管控</strong> <span class="bad">✗ 应为“分区管控”</span></div>
+      <div class="opt"><b>B．</b>推动重点用能行业绿色化、清洁化发展，逐步明确可再生能源<strong>最低比重</strong> <span class="good">✓ 设下限、设门槛</span></div>
+      <div class="opt"><b>C．</b>坚持<strong>源头减量、过程控制、末端高效治理</strong>相结合 <span class="good">✓ 本项正确，但下次会被改成“源头控制、过程减量”</span></div>
+      <div class="opt"><b>D．</b>健全绿色消费激励机制，拓展政府采购绿色产品范围与规模 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：三个动词，三顶帽子</span>
+        · <em class="hl">分区</em>管控——按资源禀赋、环境容量、功能定位划区，分区分策；<br>
+        · <em class="hl">一体化</em>保护——山水林田湖草沙是生命共同体，不能各管一摊；<br>
+        · <em class="hl">系统</em>治理——上下游、左右岸、干支流协同。<br>
+        <em class="hl-r">很多人记得“生态要统一”，但统一的是“保护和治理”，不是“管控”。这就是“记对了词、记错了位置”。</em><br>
+        为什么必须分区？有的地方要最大限度保留原貌、维持水源涵养和生物多样性；有的地方人口密集、经济活跃，就要允许建设更多基础设施。一刀切管控，两头都办不成事。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：生态环保的“四梁八柱”</span>
+        <strong>一、“三线一单”（分区管控的具体抓手）：</strong><br>
+        · <em class="hl">生态保护红线</em>——不可逾越的底线；<br>
+        · <em class="hl">环境质量底线</em>——不能突破的天花板；<br>
+        · <em class="hl">资源利用上线</em>——不能透支的上限；<br>
+        · <em class="hl">生态环境准入清单</em>——什么能进、什么不能进。<br><br>
+        <strong>二、双碳“1+N”政策体系：</strong><br>
+        “1”是<em class="hl">碳达峰碳中和指导意见</em>，“N”是分领域分行业的实施方案（能源、工业、建筑、交通、农业农村等）。<br>
+        两个“不要”：<em class="hl-r">不搞“碳冲锋”，不搞“运动式减碳”</em>——节奏要稳。<br><br>
+        <strong>三、绿色转型的三条主线：</strong><br>
+        ① <em class="hl">能源</em>——先立后破，建设新型能源体系；<br>
+        ② <em class="hl">产业</em>——重点用能行业绿色化、清洁化；<br>
+        ③ <em class="hl">生活</em>——绿色消费、绿色采购、绿色出行。<br><br>
+        <strong>四、山水林田湖草沙：</strong><br>
+        <em class="hl">“沙”是后来加进去的</em>——从“山水林田湖”到“山水林田湖草”，再到“山水林田湖草沙”，体现的是系统观念的深化。<br><br>
+        <strong>五、纵向延伸：</strong><br>
+        两山理念 → 双碳目标 → 绿色低碳转型 → <em class="hl">美丽中国</em> → 全球气候治理话语权。<br>
+        生态题的终点永远落在“美丽中国”，这是它的“母题”。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        《关于加强生态环境分区管控的意见》；全国生态环境保护大会（2023）；《关于加快经济社会发展全面绿色转型的意见》；《2030 年前碳达峰行动方案》。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 管控／保护／治理三个动词互换定语——<strong>本卷原样上演</strong>；<br>
+        · “分区”→“统一”“分级”“集中”——<strong>错</strong>；<br>
+        · “源头减量、过程控制”对调成“源头控制、过程减量”——<strong>下一季的雷，老师已提前预警</strong>；<br>
+        · “最低比重”→“最高比重”“平均比重”——<strong>错</strong>；<br>
+        · “山水林田湖草沙”漏掉一个“沙”——<strong>数量坑</strong>；<br>
+        · “先立后破”改成“先破后立”——<strong>顺序倒置</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="q c-green">
+    <div class="q-head">
+      <span class="qno">15</span>
+      <span class="tag g">生态 · 节能降碳</span>
+      <span class="ans ok">答案 B（1 项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于节能降碳，下列表述<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 加强公共机构<strong>能耗定额管理</strong>，完善节约能源资源信息管理 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 动态调整固定资产投资项目节能审查和碳排放评价权限，发挥行业协会作用，加强<strong>所有行业</strong>节能降碳能力建设 <span class="bad">✗ 应为“重点行业和领域”</span></div>
+      <div class="opt"><b>③</b> 含绝对化表述 <span class="bad">✗ 直接判错，不必细究</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：为什么“所有行业”一定是错的</span>
+        政策语言天生留有<em class="hl">轻重缓急</em>：节能降碳的重点是<em class="hl">钢铁、电解铝、水泥、炼油、合成氨、甲醇</em>等高耗能行业，不是“所有行业”。<br>
+        “所有、全部、一切、任何、唯一、完全、彻底”——这七个词，在政治理论里几乎等于<em class="hl-r">“此地无银”</em>。<br>
+        <strong>这是本卷唯一可以“不靠知识”得分的题</strong>：①对，②③错，答案只有 1 项。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：节能降碳的五大领域</span>
+        <strong>一、五个重点领域：</strong><br>
+        ① <em class="hl">能源</em>（煤炭清洁高效利用、新能源）；<br>
+        ② <em class="hl">工业</em>（重点用能行业节能降碳改造）；<br>
+        ③ <em class="hl">建筑</em>（绿色建筑、超低能耗建筑）；<br>
+        ④ <em class="hl">交通</em>（公转铁、公转水、新能源车）；<br>
+        ⑤ <em class="hl">公共机构</em>（党政机关、学校、医院——本卷 ① 项）。<br><br>
+        <strong>二、能耗双控 → 碳排放双控：</strong><br>
+        从“<em class="hl">能耗总量和强度双控</em>”逐步转向“<em class="hl">碳排放总量和强度双控</em>”——区别在于：前者管“用了多少能源”，后者管“排了多少碳”，后者更精准，不误伤清洁能源。<br><br>
+        <strong>三、三个市场工具：</strong><br>
+        · <em class="hl">全国碳市场</em>（配额交易）；<br>
+        · <em class="hl">绿电绿证</em>（证明你用的是绿电）；<br>
+        · <em class="hl">用能权交易</em>。<br><br>
+        <strong>四、几个固定搭配：</strong><br>
+        · <em class="hl">能耗定额管理</em>（公共机构）——不是“限额管理”；<br>
+        · <em class="hl">“两高”项目</em>——高耗能、高排放，要严格管控；<br>
+        · <em class="hl">新增可再生能源消费不纳入能源消费总量控制</em>——这是鼓励性条款，容易被改错。<br><br>
+        <strong>五、数量题心态（本卷最该记的一条）：</strong><br>
+        <em class="hl">“只有 1 项对”的选项常年被忽略</em>——很多人下意识觉得“至少两项”，于是在 B 上犹豫、改错。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        《2030 年前碳达峰行动方案》；节能降碳专项行动（分年度）；公共机构节约能源资源相关规划；能耗双控向碳排放双控转变的部署。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · “重点” → “所有／全部／一切”——<strong>本卷原样上演</strong>；<br>
+        · “定额” → “限额”“定量”“配额”——<strong>一字之差</strong>；<br>
+        · “逐步” → “立即”“全面”“率先”——<strong>程度猛化</strong>；<br>
+        · “动态调整” → “固定不变”“一次性确定”——<strong>错</strong>；<br>
+        · 把“能耗双控”说成“碳排放双控”（或反之）——<strong>概念互换</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 16 -->
+  <div class="q c-blue">
+    <div class="q-head">
+      <span class="qno">16</span>
+      <span class="tag">民生 · 就业优先</span>
+      <span class="ans ok">答案 C</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于就业工作，下列说法<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>支持多渠道灵活就业，引导非全日制就业规范有序健康发展 <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>鼓励<strong>东部地区</strong>更多吸纳高校毕业生就业 <span class="good">✓ 经济发达地区责任更大</span></div>
+      <div class="opt"><b>C．</b>以<strong>扩大就业容量为主</strong> <span class="bad">✗ 应为“扩大就业容量和提升就业质量相结合”</span></div>
+      <div class="opt"><b>D．</b>完善人才流动公共服务，编制发布重点区域、重点领域人才需求目录 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：“高质量”是当前所有领域的总前缀</span>
+        · 高质量<em class="hl">发展</em>；<br>
+        · 高质量<em class="hl">充分就业</em>；<br>
+        · 高质量<em class="hl">教育体系</em>；<br>
+        · 高质量<em class="hl">共建“一带一路”</em>；<br>
+        · 高质量<em class="hl">发展是全面建设社会主义现代化国家的首要任务</em>。<br>
+        <em class="hl-r">凡是“只讲数量、只讲速度、只讲规模”的选项，先打问号——那是上一个时代的语法。</em><br>
+        C 项的“以……为主”，把“质量”这一半砍掉了，所以错。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：就业是最基本的民生</span>
+        <strong>一、就业的三重定位：</strong><br>
+        · <em class="hl">最基本的民生</em>；<br>
+        · <em class="hl">最大的民生工程、民心工程、根基工程</em>；<br>
+        · <em class="hl">经济发展的“晴雨表”、社会稳定的“压舱石”</em>（注意：压舱石在这里是比喻用法，与三农的“压舱石”不冲突，但社保不能叫压舱石）。<br><br>
+        <strong>二、四类重点群体：</strong><br>
+        <em class="hl">高校毕业生</em>（重中之重）、<em class="hl">农民工</em>、<em class="hl">退役军人</em>、<em class="hl">就业困难人员</em>。<br><br>
+        <strong>三、政策工具箱：</strong><br>
+        · 稳岗返还、社保补贴、创业担保贷款；<br>
+        · <em class="hl">以工代赈</em>；<br>
+        · <em class="hl">职业技能提升行动</em>；<br>
+        · <em class="hl">新就业形态劳动者权益保障</em>（外卖骑手、网约车司机——这是近年新增的重点）。<br><br>
+        <strong>四、为什么是“东部吸纳更多”：</strong><br>
+        东部经济发达、岗位多、财政强，<em class="hl">相应承担的责任就应该更大</em>。西部有“西部计划”等专项引导，但“更多吸纳”的主体是东部。<br><br>
+        <strong>五、纵向延伸：</strong><br>
+        就业优先 → 居民收入 → 扩大内需 → <em class="hl">共同富裕</em>。四步一线，这是民生题的固定逻辑链。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        《关于实施就业优先战略促进高质量充分就业的意见》；就业优先政策；关于新就业形态劳动者权益保障的指导意见。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · “容量” ↔ “质量”（本卷）；“为主” ↔ “相结合”——<strong>同一个位置两种坑</strong>；<br>
+        · “东部” ↔ “西部”（主体互换）——<strong>高频</strong>；<br>
+        · “鼓励” ↔ “强制”“限制”“禁止”——<strong>程度错位</strong>；<br>
+        · “充分就业” → “完全就业”（不存在的提法）——<strong>造词坑</strong>；<br>
+        · 把“最基本民生”换成“根本民生”“首要民生”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 17 -->
+  <div class="q c-green">
+    <div class="q-head">
+      <span class="qno">17</span>
+      <span class="tag g">经济 · 未来产业与新质生产力</span>
+      <span class="ans ok">答案 C（3 项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于培育<strong>未来产业</strong>，下列表述<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 把准发展方向，在<strong>量子科技、生物制造</strong>等领域聚焦发力、精准施策 <span class="good">✓</span></div>
+      <div class="opt"><b>②</b> 科技突破的程度，很大程度上决定未来产业发展的<strong>速度、广度、深度</strong> <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 推动各类创新资源向<strong>高校院所／政府</strong>集聚 <span class="bad">✗ 应为“向企业集聚”</span></div>
+      <div class="opt"><b>④</b> 完善财税等政策，大力发展<strong>科技金融</strong>，优化政府采购等政策 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：创新资源到底往哪儿聚</span>
+        <strong>向企业集聚</strong>——强化企业科技创新主体地位，科技领军企业是“<em class="hl">出题人、答题人、阅卷人</em>”：<br>
+        · 出题人——企业最知道市场缺什么；<br>
+        · 答题人——企业最能把技术变成产品；<br>
+        · 阅卷人——市场最能用订单投票。<br>
+        <em class="hl-r">注意“主体”二字的层次：企业是“科技创新主体”，高校院所是“基础研究主力军”，政府是“组织者、服务者”。三个角色不能互换。</em>
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：新质生产力的完整逻辑</span>
+        <strong>一、新质生产力的三个要素：</strong><br>
+        ① 由<em class="hl">技术革命性突破</em>催生；<br>
+        ② 由<em class="hl">生产要素创新性配置</em>催生；<br>
+        ③ 由<em class="hl">产业深度转型升级</em>催生。<br>
+        特征是<em class="hl">高科技、高效能、高质量</em>，本质是<em class="hl">先进生产力</em>。<br><br>
+        <strong>二、未来产业六大方向：</strong><br>
+        <em class="hl">未来制造、未来信息、未来材料、未来能源、未来空间、未来健康</em>。<br>
+        <em class="hl-r">别和“战略性新兴产业”混：战略性新兴产业是“现在的主战场”（新一代信息技术、生物、新能源、新材料、高端装备、新能源汽车、绿色环保、航空航天），未来产业是“十年后的主战场”。</em><br><br>
+        <strong>三、“四链融合”：</strong><br>
+        <em class="hl">创新链、产业链、资金链、人才链</em>深度融合——单打一都不成。<br><br>
+        <strong>四、科技金融的“四投”（高频）：</strong><br>
+        <em class="hl">投早、投小、投长期、投硬科技</em>——目的：培育<em class="hl">耐心资本</em>。<br>
+        四个“投”缺一不可：投大、投短期、投模式创新，全是错的。<br><br>
+        <strong>五、纵向延伸：</strong><br>
+        基础研究 → 技术攻关 → 成果转化 → <em class="hl">未来产业</em> → 现代化产业体系 → 新质生产力 → 高质量发展。<br>
+        <em class="hl">“因地制宜发展新质生产力”——不是所有地方都搞量子、搞芯片，要防止一哄而上。</em>
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        中央经济工作会议“以科技创新引领新质生产力发展”；关于推动未来产业创新发展的实施意见；科技金融相关政策。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 企业 ↔ 高校 ↔ 政府（主体三分，本卷原样上演）——<strong>最高频</strong>；<br>
+        · “前瞻性、颠覆性” → “成熟性、应用性”——<strong>错</strong>；<br>
+        · “未来产业” ↔ “战略性新兴产业”——<strong>概念互换</strong>；<br>
+        · “投早投小投长期投硬科技” → “投大投短期”——<strong>已考过</strong>；<br>
+        · “因地制宜” → “统一部署”“全面铺开”——<strong>错</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 18 -->
+  <div class="q c-blue">
+    <div class="q-head">
+      <span class="qno">18</span>
+      <span class="tag">民生 · 社会保障</span>
+      <span class="ans ok">答案 B</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于<strong>社会保障</strong>，下列说法<strong>错误</strong>的是？</div>
+      <div class="opt"><b>A．</b>健全基本公共服务体系，提高公共服务水平，增强<strong>均衡性和可及性</strong> <span class="good">✓</span></div>
+      <div class="opt"><b>B．</b>更好发挥社会保障<strong>“经济增长压舱石”</strong>作用 <span class="bad">✗ 应为“社会稳定器”</span></div>
+      <div class="opt"><b>C．</b>把发展经济和改善民生有机统一，把改善民生要求同步嵌入经济发展政策；保障特殊困难群体基本生活是<strong>最底线</strong>的民生保障任务 <span class="good">✓</span></div>
+      <div class="opt"><b>D．</b>（其余表述未设坑） <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：比喻词各有其主（这张表值 2 分）</span>
+        · 三农＝<em class="hl">压舱石</em>；<br>
+        · 实体经济＝<em class="hl">根基</em>；<br>
+        · 社会保障＝<em class="hl">稳定器</em>／安全网；<br>
+        · 就业＝<em class="hl">最基本的民生</em>；<br>
+        · 创新＝<em class="hl">第一动力</em>；<br>
+        · 理想信念＝<em class="hl">总开关</em>；<br>
+        · 金融＝<em class="hl">血脉</em>。<br>
+        B 项把“压舱石”从三农那里借过来安在社保头上，句式毫无破绽——这是比喻题最阴的地方。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：社会保障的“五个词”与“多层次”</span>
+        <strong>一、社会保障体系的五个定语（二十大原文，一个字都不能改）：</strong><br>
+        <em class="hl">覆盖全民、统筹城乡、公平统一、安全规范、可持续</em>的多层次社会保障体系。<br><br>
+        <strong>二、“多层次”到底是几层：</strong><br>
+        ① <em class="hl">基本</em>（社会保险、社会救助、社会福利、社会优抚）；<br>
+        ② <em class="hl">补充</em>（企业年金、职业年金、补充医疗）；<br>
+        ③ <em class="hl">商业</em>（商业养老、商业健康保险）；<br>
+        ④ <em class="hl">慈善</em>（公益慈善、第三次分配）。<br><br>
+        <strong>三、社保的定位是“兜底”，不是“提标”：</strong><br>
+        · 保基本、<em class="hl">兜底线</em>、织密网、建机制；<br>
+        · <em class="hl-r">重点是“兜底”，不是“提高待遇水平”——这是福利主义与可持续之间的分界线。</em><br><br>
+        <strong>四、与社会保障连着的三句话：</strong><br>
+        · <em class="hl">社会保障是治国安邦的大问题</em>；<br>
+        · 三次分配：初次分配讲效率、再分配讲公平（社保是再分配的主渠道）、第三次分配讲道德；<br>
+        · <em class="hl">共同富裕</em>是社保的最终指向。<br><br>
+        <strong>五、纵向延伸：</strong><br>
+        社会保障 → 民生“七有”（幼有所育、学有所教、劳有所得、病有所医、老有所养、住有所居、弱有所扶）→ 共同富裕 → 中国式现代化的本质要求。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        党的二十大报告关于社会保障体系的表述；“社会保障是治国安邦的大问题”的重要论断；多层次社会保障体系建设相关部署。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 稳定器 ↔ 压舱石（本卷）↔ 安全网（正确）——<strong>三个词来回换</strong>；<br>
+        · “兜底” ↔ “提标”“攀比福利”——<strong>错</strong>；<br>
+        · “多层次” → “单一层次”“统一标准”——<strong>错</strong>；<br>
+        · “可持续” → “高福利”“高待遇”——<strong>错</strong>；<br>
+        · 五个定语少一个（如漏掉“安全规范”）——<strong>数量坑</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 19 -->
+  <div class="q c-purple">
+    <div class="q-head">
+      <span class="qno">19</span>
+      <span class="tag p">文化 · 文物保护与文化遗产</span>
+      <span class="ans ok">答案 D</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">关于<strong>文物保护</strong>，下列表述<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 坚持“保护第一、<strong>最大干预</strong>”原则 <span class="bad">✗ 应为“最小干预”原则</span></div>
+      <div class="opt"><b>②</b> <strong>先调查、后建设；先考古、后出让</strong> <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 合理利用，让文物活起来 <span class="good">✓</span></div>
+      <div class="opt"><b>④</b> 落实“保护为主、<strong>抢救第一</strong>、合理利用、加强管理”的文物工作方针 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：“最大干预”在逻辑上就不成立</span>
+        文物是不可再生的。修得越多、动得越多，破坏越大——所以原则是<em class="hl">最小干预</em>：最大限度减少人为干预破坏，能不动就不动，必须动就最小动。<br>
+        <em class="hl-r">看到“最大干预”“全面修复”“整体重建”这类词，先判错，不用回忆原文。</em><br>
+        同理，“先调查、后建设；先考古、后出让”的核心是<strong>顺序不可逆</strong>：改成“边调查边建设”“边考古边出让”，等于取消了前置条件。
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：文物保护的四层网络</span>
+        <strong>一、新时代文物工作方针（完整二十四字）：</strong><br>
+        <em class="hl">保护第一、加强管理、挖掘价值、有效利用、让文物活起来</em>。<br>
+        <em class="hl-r">另有传统表述：“保护为主、抢救第一、合理利用、加强管理”——两套表述都出现过，考“十六字”时用后者，考“新时代方针”时用前者。</em><br><br>
+        <strong>二、三对易混：</strong><br>
+        · <em class="hl">最小干预</em> ↔ 最大干预（本卷）；<br>
+        · <em class="hl">有效利用</em> ↔ 过度开发；<br>
+        · <em class="hl">抢救性保护</em> ↔ 建设性破坏。<br><br>
+        <strong>三、“先考古、后出让”的制度意义：</strong><br>
+        土地出让前必须完成考古调查勘探，避免施工把地下文物毁了——这是<em class="hl">把保护前置到决策环节</em>，是制度性安排，不是工作习惯。<br><br>
+        <strong>四、纵向延伸：</strong><br>
+        文物保护 → 文化自信 → <em class="hl">“两个结合”</em>（马克思主义基本原理同中国具体实际相结合、同中华优秀传统文化相结合）→ 中华文明探源 → 中华民族现代文明。<br><br>
+        <strong>五、中华文明五个突出特性：</strong><br>
+        <em class="hl">连续性、创新性、统一性、包容性、和平性</em>——五个词常被抽换（如把“和平性”换成“开放性”）。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        “先考古、后出让”制度；关于加强文物保护利用改革的若干意见；关于中华文明五个突出特性的重要论述；国家文化公园建设。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 最大 ↔ 最小（本卷）；“全面修复” ↔ “最小干预”——<strong>反义替换</strong>；<br>
+        · “先……后……” → “边……边……”或“同步”——<strong>顺序倒置，最高频</strong>；<br>
+        · “抢救第一” → “开发第一”“利用第一”——<strong>错</strong>；<br>
+        · “有效利用” → “过度开发”“商业化运营”——<strong>错</strong>；<br>
+        · 五个突出特性抽换一个（“和平性”→“开放性”）——<strong>数量+词形双坑</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 20 -->
+  <div class="q c-blue">
+    <div class="q-head">
+      <span class="qno">20</span>
+      <span class="tag">民生 · 卫生健康</span>
+      <span class="ans ok">答案 B（2 项）</span>
+    </div>
+    <div class="q-body">
+      <div class="stem">坚持从我国国情出发推动卫生与健康事业发展，下列表述<strong>正确</strong>的有几项？</div>
+      <div class="opt"><b>①</b> 坚持健康优先发展战略，坚持基本医疗卫生事业<strong>市场化</strong> <span class="bad">✗ 应坚持“公益性”</span></div>
+      <div class="opt"><b>②</b> 健全党委统一领导、党政齐抓共管的工作格局，完善健康促进政策制度体系，把健康理念融入公共政策制定实施全过程 <span class="good">✓</span></div>
+      <div class="opt"><b>③</b> 重视心理健康和精神卫生问题，<strong>加快治疗速度</strong> <span class="bad">✗ 应为加强预防引导、早期发现、综合干预</span></div>
+      <div class="opt"><b>④</b> 按常住人口和服务半径合理布局市域内基本医疗卫生资源，实现人人享有<strong>均等化</strong>的基本医疗卫生服务 <span class="good">✓</span></div>
+
+      <div class="box key">
+        <span class="ttl">★ 核心辨析：公益性、均等化、防在前——三个词三句话</span>
+        · <em class="hl">公益性</em>：基本医疗卫生是公共产品，不能交给市场定价。营利性医疗机构是补充，不是主体。<br>
+        · <em class="hl">均等化 ≠ 平均化</em>：均等化是“人人都有机会享有”，不是“人人一样多”“人人同一水平”。<br>
+        · <em class="hl">以治病为中心 → 以人民健康为中心</em>：这是一次根本转向，所以凡是“加快治疗速度”类的表述，都属于旧范式。<br>
+        <em class="hl-r">③ 项的“加快治疗速度”是最好识别的：治已病不如治未病，方向都反了，速度再快也是错的。</em>
+      </div>
+
+      <div class="box net">
+        <span class="ttl">◆ 毛细血管式拓展：健康中国的完整框架</span>
+        <strong>一、五句话记住卫健的总纲：</strong><br>
+        · 把保障人民健康放在<em class="hl">优先发展的战略位置</em>；<br>
+        · 坚持<em class="hl">预防为主</em>；<br>
+        · 坚持<em class="hl">基本医疗卫生事业的公益性</em>；<br>
+        · 坚持<em class="hl">以人民健康为中心</em>；<br>
+        · 坚持<em class="hl">共建共享</em>。<br><br>
+        <strong>二、三医联动：</strong><br>
+        <em class="hl">医疗、医保、医药</em>——三者联动，缺一不可。<br><br>
+        <strong>三、五大体系：</strong><br>
+        公共卫生体系、医疗服务体系、医疗保障体系、药品供应保障体系、健康产业（+ 支撑体系）。<br><br>
+        <strong>四、分级诊疗：</strong><br>
+        <em class="hl">基层首诊、双向转诊、急慢分治、上下联动</em>——十六字。<br><br>
+        <strong>五、健康中国 2030 的指标逻辑：</strong><br>
+        从“<em class="hl">以治病为中心</em>”转向“<em class="hl">以人民健康为中心</em>”，核心指标是<em class="hl">健康期望寿命</em>，不是“治疗速度”。<br><br>
+        <strong>六、纵向延伸：</strong><br>
+        健康中国 → <em class="hl">人口高质量发展</em> → 共同富裕 → 人的全面发展。
+      </div>
+
+      <div class="box src">
+        <span class="ttl">◆ 题目背后的实证</span>
+        党的二十大“把保障人民健康放在优先发展的战略位置”；《“健康中国 2030”规划纲要》；全国卫生健康大会关于“预防为主”的表述。
+      </div>
+
+      <div class="box trap">
+        <span class="ttl">挖坑预判：命题人还可能怎么换皮</span>
+        · 公益性 ↔ 市场化／产业化——<strong>本卷原样上演</strong>；<br>
+        · “加快速度” ↔ “高质量发展”（所有领域通用）——<strong>最高频</strong>；<br>
+        · “均等化” → “平均化”“统一化”“同等化”——<strong>错</strong>；<br>
+        · “预防为主” → “治疗为主”“救治为主”——<strong>错</strong>；<br>
+        · “以人民健康为中心” → “以治病为中心”——<strong>方向倒置</strong>。
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- ============ 挖坑总结 ============ -->
+<section>
+  <h2 class="sec">二、挖坑总结：本卷全部坑型归档</h2>
+  <p class="sec-desc">把 20 道题的错项放在一起看，会发现它们是同一套手法——<strong>知识不变，只挪位置</strong>。归成十类，下次看到类似手法就能条件反射地警觉。</p>
+
+  <div class="trapgrid">
+    <div class="trapcard">
+      <h4><span class="n">1</span>序位词错配</h4>
+      <ul>
+        <li>出发点：地方发展需要 → 应为“实现党的使命任务”（第5题）</li>
+        <li>中心任务：增加粮食产量 → 应为“增加农民收入”（第6题）</li>
+        <li>总抓手：法治国家建设 → 应为“法治体系”建设（第9题）</li>
+        <li>首要：安到政治标准头上 → “首位”才是政治标准（第11题）</li>
+        <li><strong>对策</strong>：见这八个词先圈出来——出发、落脚、总抓、总目标、中心、首要、首位、第一</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">2</span>主体错位</h4>
+      <ul>
+        <li>主体责任：挂到非党委党组头上 → 只有党委（党组）负主体责任（第3题）</li>
+        <li>消费场景：面向企业 → 面向消费者（第13题）</li>
+        <li>创新资源：向高校院所集聚 → 向企业集聚（第17题）</li>
+        <li>反面典型：发挥警示作用 → 警示是反面的，示范才是正面的（第5题）</li>
+        <li><strong>对策</strong>：读选项先问“谁，对谁，做了什么”</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">3</span>反义替换</h4>
+      <ul>
+        <li>短周期支持 → 长周期支持（第12题）</li>
+        <li>最大干预 → 最小干预（第19题）</li>
+        <li>市场化 → 公益性（第20题）</li>
+        <li>大后方 → 第一线（第8题）</li>
+        <li>统一管控 → 分区管控（第14题）</li>
+        <li><strong>对策</strong>：见到成对的极性词，先怀疑被对调</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">4</span>概念后果互换</h4>
+      <ul>
+        <li>主要矛盾决定<strong>性质</strong> → 决定方向；定性质的是矛盾主要方面（第1题）</li>
+        <li>正能量是<strong>硬道理</strong> → 是总要求；硬道理是“管得住”（第7题）</li>
+        <li>社保是<strong>压舱石</strong> → 是稳定器；压舱石是三农（第18题）</li>
+        <li>法治国家是<strong>抓手</strong> → 是目标；抓手是法治体系（第9题）</li>
+        <li><strong>对策</strong>：前后半句分开判，别被前半句的正确带走</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">5</span>绝对化 / 一刀切</h4>
+      <ul>
+        <li>“<strong>所有</strong>行业”节能降碳 → 重点行业和领域（第15题）</li>
+        <li>“标准<strong>统一</strong>”的考核 → 差异化考核（第5题）</li>
+        <li>“<strong>素质</strong>第一” → 健康第一（第4题）</li>
+        <li>“<strong>加快</strong>治疗速度” → 高质量发展口径（第20题）</li>
+        <li><strong>对策</strong>：所有／全部／一切／任何／唯一／完全／彻底，七个词见一个划一个</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">6</span>定语 / 范围错配</h4>
+      <ul>
+        <li>“统一”管控 ↔ 分区管控（第14题）</li>
+        <li>管理“分众化” ↔ 管理一体化、宣传分众化（第7题）</li>
+        <li>“所有”行业 ↔ 重点行业（第15题）</li>
+        <li>“素质”第一 ↔ 健康第一（第4题）</li>
+        <li><strong>对策</strong>：把“动词+定语”当一个整体背，不要拆开</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">7</span>比喻词张冠李戴</h4>
+      <ul>
+        <li>社保＝压舱石 → 稳定器（第18题）</li>
+        <li>正能量＝硬道理 → 总要求（第7题）</li>
+        <li>三农才是压舱石、实体经济才是根基（隐性对照）</li>
+        <li><strong>对策</strong>：做一张“比喻—本体”对照卡，二十个够用一年</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">8</span>数量级 / 数字</h4>
+      <ul>
+        <li>百亿斤 → 千亿斤粮食产能（第6题）</li>
+        <li>“三”与“五”体系数目混用（法治体系五个部分，第9题）</li>
+        <li>1.3 万亿斤、18 亿亩、2035、本世纪中叶——四个时间/数量锚</li>
+        <li><strong>对策</strong>：把所有带数字的政策单独列一页，只记数字不记句子</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">9</span>程度副词（快慢）</h4>
+      <ul>
+        <li>“加速”放宽服务业准入 → “有序”放宽（第13题）</li>
+        <li>“逐步”明确最低比重 → 改成“立即/全面”就错（第14题）</li>
+        <li>慢词表：有序、稳步、逐步、稳妥、渐进、分步</li>
+        <li>猛词表：加速、全面、率先、彻底、一律、同步</li>
+        <li><strong>对策</strong>：政策语言天生留余地，抹平余地的就是错项</li>
+      </ul>
+    </div>
+
+    <div class="trapcard">
+      <h4><span class="n">10</span>顺序倒置</h4>
+      <ul>
+        <li>“边调查边建设” → 先调查、后建设（第19题）</li>
+        <li>“边考古边出让” → 先考古、后出让（第19题）</li>
+        <li>“先破后立” → 先立后破（第5、14题隐性）</li>
+        <li><strong>对策</strong>：凡“先……后……”把顺序默念一遍，别让眼睛滑过去</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 固定搭配速记表 ============ -->
+<section>
+  <h2 class="sec">三、固定搭配速记表（本卷 53 条）</h2>
+  <p class="sec-desc">政治理论的失分大头不是“不懂”，而是“搭配记混”。下表按“序位词 → 模块搭配”排列，考前十分钟只看这一张。</p>
+
+  <table>
+    <thead>
+      <tr><th style="width:30%;">关键词</th><th>正确搭配</th><th style="width:13%;">出处</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="k">出发点</td><td><strong>实现党的使命任务</strong>；人民利益（不能是地方需要、部门利益、上级评价）</td><td>第5题</td></tr>
+      <tr><td class="k">落脚点</td><td><strong>增进民生福祉</strong>；人民（与出发点常同指）</td><td>—</td></tr>
+      <tr><td class="k">总抓手（法治）</td><td><strong>建设中国特色社会主义法治体系</strong></td><td>第9题</td></tr>
+      <tr><td class="k">总抓手（三农）</td><td><strong>推进乡村全面振兴</strong></td><td>第6题</td></tr>
+      <tr><td class="k">总目标（依法治国）</td><td><strong>一法两法</strong>：法治体系 + 法治国家</td><td>第9题</td></tr>
+      <tr><td class="k">总目标（深化改革）</td><td><strong>一改两制</strong>：完善和发展制度 + 治理现代化</td><td>第9题</td></tr>
+      <tr><td class="k">中心任务（三农）</td><td><strong>增加农民收入</strong>（不是增产量）</td><td>第6题</td></tr>
+      <tr><td class="k">首要任务</td><td><strong>高质量发展</strong></td><td>第11题</td></tr>
+      <tr><td class="k">首位</td><td><strong>政治标准</strong>（用人导向）</td><td>第11题</td></tr>
+      <tr><td class="k">首要（特例）</td><td>干部队伍中“<strong>积极性</strong>”是首要的——特殊记忆</td><td>第11题</td></tr>
+      <tr><td class="k">第一要务</td><td><strong>发展</strong></td><td>—</td></tr>
+      <tr><td class="k">统领</td><td><strong>党的政治建设</strong>（制度建设是“贯穿”，思想建设是“基础”）</td><td>第3题</td></tr>
+      <tr><td class="k">战略先导</td><td><strong>教育强国</strong>（基础教育是“基础性、先导性”）</td><td>第4题</td></tr>
+      <tr><td class="k">根本任务</td><td><strong>立德树人</strong></td><td>第4题</td></tr>
+      <tr><td class="k">根本动力</td><td><strong>改革创新</strong></td><td>第6题</td></tr>
+      <tr><td class="k">第一线</td><td><strong>基层</strong>（防灾、治理、服务都是基层）</td><td>第8题</td></tr>
+      <tr><td class="k">压舱石</td><td><strong>三农</strong>（不是社会保障）</td><td>第18题</td></tr>
+      <tr><td class="k">稳定器</td><td><strong>社会保障</strong>（不是三农）</td><td>第18题</td></tr>
+      <tr><td class="k">总要求</td><td>网信：<strong>正能量</strong>；党建：新时代党的建设总要求</td><td>第7题</td></tr>
+      <tr><td class="k">硬道理</td><td>网信：<strong>管得住</strong>；发展是硬道理</td><td>第7题</td></tr>
+      <tr><td class="k">真本事</td><td>网信：<strong>用得好</strong></td><td>第7题</td></tr>
+      <tr><td class="k">主渠道</td><td>人才培养：<strong>自主培养</strong>（不是引进）</td><td>第12题</td></tr>
+      <tr><td class="k">全面从严治党责任链</td><td>党委党组<strong>主体</strong>｜书记<strong>第一责任人</strong>｜班子其他成员<strong>一岗双责</strong>｜纪委<strong>监督</strong>｜干部<strong>具体</strong></td><td>第3题</td></tr>
+      <tr><td class="k">四个“力”</td><td>政治领导力、思想引领力、<strong>群众组织力</strong>、<strong>社会号召力</strong></td><td>第3题</td></tr>
+      <tr><td class="k">五育</td><td>德智体美劳——<strong>五育并举、德育为先</strong></td><td>第4题</td></tr>
+      <tr><td class="k">贯穿项</td><td>把<strong>德育</strong>贯穿智体美劳全过程</td><td>第4题</td></tr>
+      <tr><td class="k">教育理念</td><td><strong>健康第一</strong>（不是素质第一）</td><td>第4题</td></tr>
+      <tr><td class="k">政绩观考核</td><td><strong>差异化</strong>考核评价体系 → 针对性、科学性</td><td>第5题</td></tr>
+      <tr><td class="k">政绩观两典型</td><td>正面<strong>示范引领</strong>｜反面<strong>警示</strong></td><td>第5题</td></tr>
+      <tr><td class="k">粮食安全</td><td>两个要害：<strong>耕地、种子</strong>；藏粮于地、藏粮于技</td><td>第6题</td></tr>
+      <tr><td class="k">产能提升</td><td>新一轮<strong>千亿斤</strong>；产量稳定 <strong>1.3 万亿斤</strong>；耕地 <strong>18 亿亩</strong></td><td>第6题</td></tr>
+      <tr><td class="k">乡村经验</td><td><strong>千万工程</strong>（枫桥经验是基层治理）</td><td>第6题</td></tr>
+      <tr><td class="k">网信管理</td><td>管理<strong>一体化</strong>、宣传<strong>分众化精准化</strong></td><td>第7题</td></tr>
+      <tr><td class="k">安全监管</td><td><strong>分级分类</strong>（不是统一监管）</td><td>第7题</td></tr>
+      <tr><td class="k">应急总要求</td><td>两个坚持、三个转变：<strong>以防为主、防抗救结合</strong></td><td>第8题</td></tr>
+      <tr><td class="k">法治体系五部分</td><td>完备的<strong>法律规范</strong>｜高效的<strong>法治实施</strong>｜严密的<strong>法治监督</strong>｜有力的<strong>法治保障</strong>｜完善的<strong>党内法规</strong></td><td>第9题</td></tr>
+      <tr><td class="k">法治主体工程</td><td><strong>法治政府</strong>建设（不是法治社会）</td><td>第9题</td></tr>
+      <tr><td class="k">民营经济</td><td>“<strong>自己人</strong>”；<strong>两个毫不动摇</strong>、<strong>三个没有变</strong></td><td>第10题</td></tr>
+      <tr><td class="k">营销与祖国</td><td><strong>企业营销没有国界，但企业家有祖国</strong></td><td>第10题</td></tr>
+      <tr><td class="k">基础研究支持</td><td><strong>长周期</strong>支持 + 稳定支持（竞争性与稳定性相结合）</td><td>第12题</td></tr>
+      <tr><td class="k">人才评价</td><td>破<strong>四唯</strong>（论文、职称、学历、奖项）→ <strong>分类评价</strong></td><td>第12题</td></tr>
+      <tr><td class="k">内外贸</td><td><strong>同线、同标、同质</strong>（没有“同价”）</td><td>第13题</td></tr>
+      <tr><td class="k">服务业开放</td><td><strong>有序</strong>放宽准入（不是加速）</td><td>第13题</td></tr>
+      <tr><td class="k">消费场景</td><td>面向<strong>消费者</strong>；加大<strong>直达消费者</strong>的普惠政策力度</td><td>第13题</td></tr>
+      <tr><td class="k">生态三锁</td><td><strong>分区</strong>管控｜<strong>一体化</strong>保护 + <strong>系统</strong>治理｜源头<strong>减量</strong>、过程<strong>控制</strong></td><td>第14题</td></tr>
+      <tr><td class="k">双碳纪律</td><td>不搞“<strong>碳冲锋</strong>”、不搞“运动式减碳”；先立后破</td><td>第14题</td></tr>
+      <tr><td class="k">节能降碳范围</td><td><strong>重点行业和领域</strong>（不是所有行业）；<strong>能耗定额</strong>管理</td><td>第15题</td></tr>
+      <tr><td class="k">就业总口径</td><td><strong>高质量充分就业</strong>；容量与质量<strong>相结合</strong></td><td>第16题</td></tr>
+      <tr><td class="k">创新资源</td><td><strong>向企业集聚</strong>；企业是科技创新<strong>主体</strong></td><td>第17题</td></tr>
+      <tr><td class="k">科技金融</td><td><strong>投早、投小、投长期、投硬科技</strong> → 耐心资本</td><td>第17题</td></tr>
+      <tr><td class="k">社保体系</td><td>覆盖全民、统筹城乡、公平统一、安全规范、可持续的<strong>多层次</strong>体系</td><td>第18题</td></tr>
+      <tr><td class="k">文物原则</td><td><strong>最小干预</strong>；先调查后建设、先考古后出让</td><td>第19题</td></tr>
+      <tr><td class="k">卫健三词</td><td><strong>公益性</strong>、<strong>均等化</strong>（≠平均化）、<strong>预防为主</strong></td><td>第20题</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 建议与提升 ============ -->
+<section>
+  <h2 class="sec">四、建议与提升：从 11 分到 15 分怎么走</h2>
+  <p class="sec-desc">老师在这套卷子里反复说“这都是老演员”“这个点连续三次出现”——意思是：<strong>你的失分不是随机的，它高度集中在几种固定的手法上</strong>。下面九条，按可执行程度排。</p>
+
+  <div class="adv">
+    <h3><span class="num">1</span>把“序位词表”当单词背，别背整段原文</h3>
+    <ul>
+      <li>知识点每年换，<strong>序位词的位置关系十年不变</strong>。出发点、落脚点、总抓手、总目标、中心任务、首要任务、首位、统领、贯穿、基础、底线、压舱石、稳定器——这十三个词覆盖了本卷 4 道错题。</li>
+      <li>背的时候只回答一个问题：<strong>“这个词，该配谁？”</strong>不背句子，只背配对。</li>
+      <li>方法：把第三部分的表格抄成 13 张卡片，正面写词、背面写“唯一搭配 + 常见错配”，每天早晚各过一遍，一周就能条件反射。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">2</span>把每条表述拆成“四元组”</h3>
+    <ul>
+      <li>任何一条政策表述，只记四个槽位：<strong>谁（主体）＋ 做什么（动作）＋ 对谁（对象）＋ 到什么程度（程度）</strong>。</li>
+      <li>例：“党委（党组）负全面从严治党的主体责任”＝主体【党委党组】动作【负】对象【全面从严治党】程度【主体（最重）】。考场上看到“纪委”进了这个槽，立刻判错。</li>
+      <li>这套方法对本卷第 3、13、17、18 题同时生效——<strong>一个方法救四道题，这是最划算的投资</strong>。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">3</span>建立“绝对词 + 极性词”双敏感度</h3>
+    <ul>
+      <li><strong>绝对词</strong>：所有、全部、一切、任何、唯一、完全、彻底、一律、根本（滥用时）。见一个划一个，第 15 题就是白送的。</li>
+      <li><strong>极性词</strong>：最大/最小、长/短、先/后、增/减、统一/分类、公益/市场、兜底/提标。成对出现时，先怀疑被对调——第 12、19、20 题全靠这个。</li>
+      <li>规律：<em class="hl">凡是把复杂政策压缩成“一个动作解决所有问题”的，基本都是错的。</em></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">4</span>把“三秒排雷”练成肌肉记忆</h3>
+    <ul>
+      <li>不要指望考场上“想起来要细心”。固定成顺序：<strong>① 圈问法（正/误/几项）→ ② 扫绝对词 → ③ 扫极性词 → ④ 扫序位词 → ⑤ 只剩两项才回原文</strong>。</li>
+      <li>前三步不依赖知识，只依赖动作；练二十套之后，这四步会变成呼吸一样不需要意志力的事。</li>
+      <li>本卷有 8 道题是“错误的是”——<strong>动笔前用笔尖点一下“错”字</strong>，这个习惯值 2 分。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">5</span>每半句都要“一一对应”核对</h3>
+    <ul>
+      <li>第 5 题 C 项：“从地方发展需要出发”——前半句主语没问题，错在“出发点”这三个字；</li>
+      <li>第 1 题 C 项：“主要矛盾”判断对，错在“决定性质”这四个字；</li>
+      <li>第 7 题 C 项：三个短句都对，错在<strong>两个主语的位置</strong>；</li>
+      <li>做题时问自己：<strong>“这句话的每一个成分，都能和原文对上吗？”</strong>——只要有一个成分对不上，整项作废。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">6</span>把“往季高频点”当成必考点</h3>
+    <ul>
+      <li>“消费场景面向消费者”——老师原话：<strong>连续三次出现</strong>，正确率却只有 20% 多；</li>
+      <li>“管理一体化 / 宣传分众化”——讲过不止一次，本卷换个说法又来；</li>
+      <li>“企业营销没有国界，但企业家有祖国”——上一季刚讲，这一季立刻进卷；</li>
+      <li>结论：<em class="hl">往季复盘里被老师点名强调过的搭配，下一季极大概率换皮重来。复盘的价值不在“这道题我会了”，而在“这个坑我认出来了”。</em></li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">7</span>错题按“坑型”归档，不按“题号”归档</h3>
+    <ul>
+      <li>不要写“我错在第 9 题”，要写“我错在<strong>总抓手和总目标混了</strong>”。</li>
+      <li>同一坑型归到一起（如“序位词错配”下挂第 5、6、9、11 题），复习时看的是<strong>规律</strong>，不是题。</li>
+      <li>两周后回看这张归档表，检查自己是否还会二次入坑——<strong>二次入坑的，才是真短板</strong>。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">8</span>数量题与问法的纪律</h3>
+    <ul>
+      <li>四项逐项打 √/✗，<strong>打完再数</strong>，不要边读边估。</li>
+      <li>特别注意“只有 1 项对”（本卷第 15 题）——它长得最不像答案，很多人下意识觉得“至少两项”，于是在 B 上改错。</li>
+      <li>“与某句古语哲理一致”类：先给题干定标签，再给选项定标签，最后配对，<strong>不要顺着选项读诗</strong>。</li>
+    </ul>
+  </div>
+
+  <div class="adv">
+    <h3><span class="num">9</span>考前两周的落地安排</h3>
+    <ul>
+      <li>政治理论 20 题，建议控制在 <strong>12—15 分钟</strong>，平均每题 35—45 秒，犹豫超过 50 秒先标记走人。</li>
+      <li>心态上把它当<strong>“精度模块”</strong>而不是“送分模块”——它像资料分析的速算，练的是流程，不是灵感。</li>
+    </ul>
+    <table style="margin-top:10px;box-shadow:none;border:1px solid var(--line);">
+      <thead><tr><th style="width:22%;">时间</th><th style="width:38%;">任务</th><th>产出物（必须有形）</th></tr></thead>
+      <tbody>
+        <tr><td class="k">第 1—2 天</td><td>20 题重做一遍，不看解析</td><td>第二遍仍错的题画红圈——那才是真错题</td></tr>
+        <tr><td class="k">第 3—4 天</td><td>错项按十种坑型归档</td><td>一页 A4：左边“我错的表述”，右边“正确表述”</td></tr>
+        <tr><td class="k">第 5—7 天</td><td>抄第三部分速记表</td><td>13 张序位词卡片，每天早晚各过一遍</td></tr>
+        <tr><td class="k">第 8—10 天</td><td>定向补四块空白：应急、节能降碳、文物、网信</td><td>每块 10 个词条，共 40 张卡片</td></tr>
+        <tr><td class="k">第 11—12 天</td><td><strong>自己当命题人</strong>：把 9 个正确项各改出一个错项</td><td>9 道自命题——改得出来，才说明你真懂了那个位置</td></tr>
+        <tr><td class="k">第 13 天</td><td>计时刷一套新卷，只做政治理论 20 题</td><td>记录：正确率、平均秒数、因看错问法丢的分</td></tr>
+        <tr><td class="k">第 14 天</td><td>只复习速记表，不做新题</td><td>考前最后一天做新题只会制造焦虑</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  粉笔模考·第四十一季 政治理论 20 题深度复盘 · 毛细血管式拓展版<br>
+  基于小歪老师《考场思维》复盘视频整理，结合二十大报告、二十届三中全会《决定》等公开文本校验<br>
+  内容仅供个人学习复习使用
+</footer>
+
+</div>
+</body>
+</html>
