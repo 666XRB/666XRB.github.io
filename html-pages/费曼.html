@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>费曼超强记忆与深度学习交互舱 | 从“短暂租借”到“终身拥有”</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #26354d;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-amber: #fbbf24;
+            --accent-emerald: #34d399;
+            --accent-rose: #fb7185;
+            --accent-purple: #c084fc;
+            --border-color: #334155;
+            --radius: 14px;
+            --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 80px;
+        }
+
+        /* 顶部英雄区 */
+        header {
+            background: radial-gradient(circle at 50% 0%, #1e3a8a 0%, var(--bg-dark) 75%);
+            padding: 60px 24px 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-blue);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 4px 14px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.75rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, #ffffff, #93c5fd, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            max-width: 780px;
+            margin: 0 auto 28px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏 */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin-bottom: 36px;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: var(--bg-card);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            color: var(--text-main);
+            border-color: var(--accent-blue);
+            background: rgba(56, 189, 248, 0.12);
+        }
+
+        /* 章节通用标题 */
+        .section-header {
+            margin: 48px 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-num {
+            background: var(--accent-blue);
+            color: #0f172a;
+            font-weight: 800;
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* 第一部分：认知底层公式互动面板 */
+        .formula-box {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            margin-bottom: 36px;
+        }
+
+        .formula-display {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px dashed var(--accent-blue);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 28px;
+            letter-spacing: 0.5px;
+        }
+
+        .formula-var {
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin: 0 4px;
+            display: inline-block;
+        }
+
+        .var-m { background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); }
+        .var-r { background: rgba(251, 113, 133, 0.15); color: var(--accent-rose); }
+        .var-c { background: rgba(251, 191, 36, 0.15); color: var(--accent-amber); }
+        .var-e { background: rgba(192, 132, 252, 0.15); color: var(--accent-purple); }
+
+        .simulator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .slider-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid var(--border-color);
+            padding: 18px;
+            border-radius: 10px;
+        }
+
+        .slider-card label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .slider-card input[type="range"] {
+            width: 100%;
+            accent-color: var(--accent-blue);
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .slider-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .retention-meter {
+            background: #090d16;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .meter-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 16px;
+            background: #1e293b;
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 45%;
+            background: linear-gradient(90deg, var(--accent-rose), var(--accent-amber), var(--accent-emerald));
+            transition: width 0.3s ease;
+        }
+
+        /* 第二部分：五大习惯精解卡片 */
+        .habits-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .habit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .habit-card:hover {
+            border-color: #475569;
+        }
+
+        .habit-top {
+            padding: 24px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(15, 23, 42, 0.4);
+            flex-wrap: wrap;
+        }
+
+        .habit-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .habit-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+        }
+
+        .habit-quote {
+            font-size: 0.92rem;
+            color: var(--accent-amber);
+            background: rgba(251, 191, 36, 0.1);
+            border-left: 3px solid var(--accent-amber);
+            padding: 8px 14px;
+            border-radius: 0 8px 8px 0;
+            max-width: 420px;
+        }
+
+        .habit-body {
+            padding: 28px;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 28px;
+        }
+
+        @media (max-width: 820px) {
+            .habit-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sub-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .science-box p {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+        }
+
+        .data-pill {
+            display: inline-block;
+            background: rgba(52, 211, 153, 0.12);
+            border: 1px solid rgba(52, 211, 153, 0.35);
+            color: var(--accent-emerald);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .action-box {
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .action-steps {
+            list-style: none;
+        }
+
+        .action-steps li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-size: 0.93rem;
+            color: #e2e8f0;
+        }
+
+        .action-steps li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            background: rgba(56, 189, 248, 0.2);
+            color: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+
+        /* 第三部分：全景对比表与联动飞轮 */
+        .table-wrap {
+            overflow-x: auto;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            margin-bottom: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 680px;
+        }
+
+        th, td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.94rem;
+        }
+
+        th {
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.82rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .bad-cell {
+            color: var(--accent-rose);
+        }
+
+        .good-cell {
+            color: var(--accent-emerald);
+            font-weight: 600;
+        }
+
+        .flywheel-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 16px;
+        }
+
+        .flywheel-step {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+            position: relative;
+        }
+
+        .flywheel-step span {
+            font-size: 0.78rem;
+            color: var(--accent-amber);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .flywheel-step h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .flywheel-step p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* 第四部分：实战训练工作台 */
+        .workbench {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-blue);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(15, 23, 42, 0.6);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.92rem;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-blue);
+            color: #0f172a;
+            border-color: var(--accent-blue);
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.25s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 10px;
+            padding: 14px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            margin: 12px 0;
+            resize: vertical;
+        }
+
+        textarea:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            color: #0f172a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.92rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-left: 8px;
+        }
+
+        .feedback-box {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 10px;
+            background: rgba(15, 23, 42, 0.8);
+            border-left: 4px solid var(--accent-emerald);
+            font-size: 0.92rem;
+            display: none;
+        }
+
+        .item-list {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .saved-item {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            padding: 12px 16px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.92rem;
+        }
+
+        .del-btn {
+            background: rgba(251, 113, 133, 0.15);
+            color: var(--accent-rose);
+            border: none;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="badge">FEYNMAN DEEP LEARNING SYSTEM</div>
+    <h1>费曼超强记忆与深度学习交互舱</h1>
+    <p class="subtitle">
+        费曼能把 30 年前读过的方程式、脚注像“从厨房抽屉取勺子”一样精准提取，靠的不是照相式记忆，而是把知识从<strong>“向作者短暂租借”</strong>锻造为<strong>“大脑终身拥有”</strong>的 5 个日常仪式。
+    </p>
+</header>
+
+<nav class="sticky-nav">
+    <div class="container nav-inner">
+        <a href="#part1" class="nav-btn">01. 认知底层方程</a>
+        <a href="#part2" class="nav-btn">02. 五大习惯拆解</a>
+        <a href="#part3" class="nav-btn">03. 假装学习 vs 费曼飞轮</a>
+        <a href="#part4" class="nav-btn">04. 现场通关训练台</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- 第一部分：认知底层逻辑 -->
+    <div id="part1" class="section-header">
+        <div class="section-num">01</div>
+        <h2 class="section-title">先破除最大幻觉：为什么你“看懂了”却“记不住”？</h2>
+    </div>
+
+    <div class="formula-box">
+        <p style="margin-bottom: 20px; color: #cbd5e1;">
+            绝大多数成年人最大的学习陷阱，是<strong>把“阅读时的熟悉感”当成了“真正理解”</strong>。当你顺畅地划高亮线、看第三遍书时，大脑毫无阻力，而“轻松”正是遗忘的温床。费曼记忆法的本质，可以用下面这条认知科学乘法公式来概括（拖动下方滑块体验你的记忆留存率变化）：
+        </p>
+
+        <div class="formula-display">
+            <span class="formula-var var-m">M 长期记忆留存</span> &propto;
+            <span class="formula-var var-r">R 提取摩擦阻力</span> &times;
+            <span class="formula-var var-c">C 终身问题挂钩</span> &times;
+            <span class="formula-var var-e">E 多巴胺情绪胶水</span>
+        </div>
+
+        <div class="simulator-grid">
+            <div class="slider-card">
+                <label>
+                    <span style="color: var(--accent-rose);">R 认知摩擦阻力 (习惯1/2/4)</span>
+                    <span id="val-r">30%</span>
+                </label>
+                <input type="range" id="slide-r" min="5" max="100" value="30" oninput="updateFormula()">
+                <p class="slider-desc">低：被动听讲、画线摘抄 | 高：合书白纸默写、直面卡壳点</p>
+            </div>
+
+            <div class="slider-card">
+                <label>
+                    <span style="color: var(--accent-amber);">C 问题挂钩密度 (习惯3)</span>
+                    <span id="val-c">30%</span>
+                </label>
+                <input type="range" id="slide-c" min="5" max="100" value="30" oninput="updateFormula()">
+                <p class="slider-desc">低：孤立背闪卡、盲目阅读 | 高：嵌进常年思考的 12 个大问题</p>
+            </div>
+
+            <div class="slider-card">
+                <label>
+                    <span style="color: var(--accent-purple);">E 情绪玩耍胶水 (习惯5)</span>
+                    <span id="val-e">30%</span>
+                </label>
+                <input type="range" id="slide-e" min="5" max="100" value="30" oninput="updateFormula()">
+                <p class="slider-desc">低：苦大仇深死磕任务 | 高：像玩玩具一样反转、质疑、找乐子</p>
+            </div>
+        </div>
+
+        <div class="retention-meter">
+            <div class="meter-header">
+                <span>预计 30 天后真实记忆留存率：</span>
+                <span id="total-score" style="color: var(--accent-emerald); font-size: 1.25rem;">2.7% (短暂租借状态)</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="meter-bar" style="width: 3%;"></div>
+            </div>
+            <p id="meter-Diagnosis" style="font-size: 0.88rem; color: var(--text-muted);">
+                诊断：由于这是乘法模型，只要有一项接近 0（比如只看不练、毫无问题意识或极度枯燥），整体长期记忆就会迅速归零。试着把三个滑块推到 80% 以上看看！
+            </p>
+        </div>
+    </div>
+
+    <!-- 第二部分：五大习惯拆解 -->
+    <div id="part2" class="section-header">
+        <div class="section-num">02</div>
+        <h2 class="section-title">费曼五大习惯：从认知原理到今晚落地的实操指令</h2>
+    </div>
+
+    <div class="habits-grid">
+        <!-- 习惯一 -->
+        <div class="habit-card">
+            <div class="habit-top">
+                <div>
+                    <span class="habit-tag" style="background: rgba(56,189,248,0.15); color: var(--accent-blue);">习惯一 · 破除术语遮羞布</span>
+                    <h3 class="habit-title">像给 12 岁孩子讲解那样去教学</h3>
+                </div>
+                <div class="habit-quote">
+                    “满屋聪明学生能一字不差背诵牛顿定律，但追问在现实中意味着什么，教室瞬间沉默——他们储存的是词语，而不是思想。”
+                </div>
+            </div>
+            <div class="habit-body">
+                <div class="science-box">
+                    <div class="sub-title">🧠 为什么有效？（教学预期效应）</div>
+                    <p>
+                        大脑真正记住的不是<strong>摄入（Input）</strong>的信息，而是<strong>产出（Output）</strong>的信息。听课只会留下退潮沙滩上的浅浅脚印，而用朴素语言表达则会像刀锋切入岩石。
+                    </p>
+                    <p>
+                        专业术语往往是我们“假装理解”的保护伞。一旦禁止使用黑话，逼自己讲给一个手指沾着糖浆、毫无耐心的 12 岁孩子听，<strong>你突然卡壳、停顿、绕圈子的地方，就是你知识真正中止的缺口。</strong>
+                    </p>
+                    <div class="data-pill">📊 2014 华盛顿大学实验：仅被告知“学完要教别人”的学生，记忆效果比“准备考试组”高出 28%！</div>
+                </div>
+                <div class="action-box">
+                    <div class="sub-title">⚡ 今晚睡前 5 分钟微习惯</div>
+                    <ul class="action-steps">
+                        <li><strong>选靶子：</strong>挑一个你本周刚读过或以为自己懂了的概念。</li>
+                        <li><strong>空手进屋：</strong>不带任何笔记，想象对面坐着一个 12 岁小孩，大声把原理讲出来。</li>
+                        <li><strong>猎杀卡壳点：</strong>只要你不得不借用专业名词糊弄，立刻停下画圈——回到原书只重读那个缺口，直到能大白话顺畅流淌出来。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 习惯二 -->
+        <div class="habit-card">
+            <div class="habit-top">
+                <div>
+                    <span class="habit-tag" style="background: rgba(251,191,36,0.15); color: var(--accent-amber);">习惯二 · 狩猎认知盲区</span>
+                    <h3 class="habit-title">建立一本《我不知道的东西》笔记本</h3>
+                </div>
+                <div class="habit-quote">
+                    “1988 年费曼去世后，同事发现了一本横跨 40 年的皮革笔记，封面潦草写着《我不知道的东西》——这才是他天才真正的发动机。”
+                </div>
+            </div>
+            <div class="habit-body">
+                <div class="science-box">
+                    <div class="sub-title">🧠 为什么有效？（认知摩擦与必要难度）</div>
+                    <p>
+                        大多数成年人的笔记全在记录<strong>“自己已经懂了的东西”</strong>（漂亮的高亮、整齐的摘要），这只是为了获得廉价的安全感。你已经拥有的知识不需要被保护。
+                    </p>
+                    <p>
+                        就像肌肉不会因为重复举起早已适应的重量而生长，大脑也需要<strong>“我还没完全弄懂”的轻微疼痛与尴尬感</strong>。大脑会毫不留情地抛弃来得太容易的结论，却会死死记住它曾拼命挣扎才争取到的知识。
+                    </p>
+                    <div class="data-pill">💡 记忆恰恰生长在“已知”与“未知”交界的裂缝里。</div>
+                </div>
+                <div class="action-box">
+                    <div class="sub-title">⚡ 你的“最丑笔记本”行动指南</div>
+                    <ul class="action-steps">
+                        <li><strong>买本最丑的本子：</strong>越便宜越丑越好，防止完美主义让你不敢在上面写下混乱愚蠢的困惑。</li>
+                        <li><strong>记录模糊感：</strong>平时读书或聊天时，遇到那种“其实没太懂但硬撑着点头混过去”的地方，立刻记下来。</li>
+                        <li><strong>周末单点爆破：</strong>每周找一个安静早晨翻开它，只挑 1 个条目研究透，直到能通过【习惯一】的 12 岁孩子测试。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 习惯三 -->
+        <div class="habit-card">
+            <div class="habit-top">
+                <div>
+                    <span class="habit-tag" style="background: rgba(52,211,153,0.15); color: var(--accent-emerald);">习惯三 · 打造记忆磁铁</span>
+                    <h3 class="habit-title">脑中常年携带“12 个最重要的问题”</h3>
+                </div>
+                <div class="habit-quote">
+                    “没有问题作为挂钩，大脑就没有货架去安放新知识，信息只会掉落在地板上，悄无声息地滚走。”
+                </div>
+            </div>
+            <div class="habit-body">
+                <div class="science-box">
+                    <div class="sub-title">🧠 为什么有效？（精细化编码 Elaborative Encoding）</div>
+                    <p>
+                        为什么背单词软件、闪卡（Flashcards）最终都会失效？因为孤立的新知识悬浮在空荡荡的心理空间里，几天就会消散。
+                    </p>
+                    <p>
+                        费曼常年在脑中装着 12 个让他痴迷的大问题（刮胡子、通勤、买咖啡时都在琢磨）。当平时看书、听播客遇到一条新信息时，他会本能地拿去和这 12 个问题对照——<strong>一旦匹配，新信息就会像钥匙滑入等待多年的锁孔一样瞬间卡紧，停留数十年。</strong>
+                    </p>
+                    <div class="data-pill">🔑 别人一小时后就忘的事实，因为嵌进了你的长期问题里，世界便以为你是天才。</div>
+                </div>
+                <div class="action-box">
+                    <div class="sub-title">⚡ 10 分钟构建你的“问题锁孔”</div>
+                    <ul class="action-steps">
+                        <li><strong>关门断网：</strong>今晚留 10 分钟，写下 5~12 个你四下无人时真正反复琢磨的问题（别写为了显得聪明的问题）。</li>
+                        <li><strong>周日早咖仪式：</strong>每周日早晨喝咖啡时重读一遍清单，激活大脑的网状激活系统（RAS）。</li>
+                        <li><strong>主动碰撞：</strong>你会发现全世界的文章、闲谈都开始主动向你的问题递来拼图碎片。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 习惯四 -->
+        <div class="habit-card">
+            <div class="habit-top">
+                <div>
+                    <span class="habit-tag" style="background: rgba(251,113,133,0.15); color: var(--accent-rose);">习惯四 · 神经科学黄金标准</span>
+                    <h3 class="habit-title">白纸测试：合上书本，从零开始重建</h3>
+                </div>
+                <div class="habit-quote">
+                    “你亲手构建的东西才真正属于你；而你只是读过的东西，不过是短暂租借而已。”
+                </div>
+            </div>
+            <div class="habit-body">
+                <div class="science-box">
+                    <div class="sub-title">🧠 为什么有效？（主动提取练习效应）</div>
+                    <p>
+                        读完一本 300 页的书合上封面时充满满足感，一周后却连一章都概括不出——因为当你重读第三遍时，眼睛只是在自动滑过熟悉句子，<strong>熟悉感悄悄伪装成了理解</strong>。
+                    </p>
+                    <p>
+                        费曼学习新领域时，会把教材推到桌子另一端，拿出一张白纸，<strong>完全靠脑中已有内容从零推导方程、例子和逻辑链</strong>。卡住时翻书只看缺失的那一块，再合上书重头推演。每一次艰难的回忆填补，都是在把知识焊进长期记忆。
+                    </p>
+                    <div class="data-pill">📊 2011 普渡大学研究：反复重读组一周后测试仅得 30%，而合书白纸重写组超过 50%！</div>
+                </div>
+                <div class="action-box">
+                    <div class="sub-title">⚡ 三步“白纸重建法”</div>
+                    <ul class="action-steps">
+                        <li><strong>物理推开：</strong>读完一章书、看完纪录片或开完会后，先别急着翻下一页，合上书推远。</li>
+                        <li><strong>裸手默写：</strong>拿出一张白纸，用自己的话画出核心观点、推导链路或时间线。</li>
+                        <li><strong>拥抱第一次失败：</strong>你第一次必定会卡壳！精准记下卡在哪里，回看修补后再次合书重推。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 习惯五 -->
+        <div class="habit-card">
+            <div class="habit-top">
+                <div>
+                    <span class="habit-tag" style="background: rgba(192,132,252,0.15); color: var(--accent-purple);">习惯五 · 续航一切的终极引擎</span>
+                    <h3 class="habit-title">把知识当成手里的玩具（多巴胺记忆胶水）</h3>
+                </div>
+                <div class="habit-quote">
+                    “无聊会遗忘，惊奇会铭记。大多数成年人在 40 岁左右停止了玩耍，而正是在那个年龄，他们开始抱怨记忆力衰退。”
+                </div>
+            </div>
+            <div class="habit-body">
+                <div class="science-box">
+                    <div class="sub-title">🧠 为什么有效？（神经化学调制）</div>
+                    <p>
+                        1948 年费曼在康奈尔大学陷入严重倦怠，直到他在食堂看到学生抛起餐盘，纯粹出于好玩去计算餐盘摆动与旋转的频率关系——这个毫无功利心的“小游戏”，最终通向了他的诺贝尔物理学奖。
+                    </p>
+                    <p>
+                        大脑天生记不住无聊的苦役。你能轻松背出 20 年前看过的电影台词，却记不住昨晚死磕 4 小时的教材，区别在于<strong>情绪</strong>。好奇、惊讶和玩耍会让大脑释放<strong>多巴胺与去甲肾上腺素</strong>，这是把短期记忆固化的生物胶水。
+                    </p>
+                    <div class="data-pill">🎮 忘掉任务感和责任感：它不是桌上的作业，而是你手里的玩具。</div>
+                </div>
+                <div class="action-box">
+                    <div class="sub-title">⚡ 调戏枯燥知识的 3 个问题</div>
+                    <ul class="action-steps">
+                        <li><strong>反转实验：</strong>“如果这个理论恰好完全相反，世界会发生什么荒唐事？”</li>
+                        <li><strong>酒桌吹牛：</strong>“如果我现在正跟死党喝啤酒，怎么用最接地气的画面把这件事当八卦讲出来？”</li>
+                        <li><strong>寻找崩塌点：</strong>“这个高大上的公式/规律，在现实哪个极端场景下会彻底失效变成笑话？”</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第三部分：全景对比与联动飞轮 -->
+    <div id="part3" class="section-header">
+        <div class="section-num">03</div>
+        <h2 class="section-title">全景对照表 & 五大习惯 90 天联动飞轮</h2>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>学习维度</th>
+                    <th>普通成年人的“假装学习”（短暂租借）</th>
+                    <th>费曼的“超强记忆系统”（终身拥有）</th>
+                    <th>底层认知神经机制</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>吸收检验</strong></td>
+                    <td class="bad-cell">看视频频频点头，满口专业黑话与行业术语</td>
+                    <td class="good-cell">习惯一：向 12 岁孩子用大白话从头讲通</td>
+                    <td>教学预期效应 + 刺破能力错觉</td>
+                </tr>
+                <tr>
+                    <td><strong>笔记重心</strong></td>
+                    <td class="bad-cell">用五颜六色高亮整齐摘抄“已经懂了的内容”</td>
+                    <td class="good-cell">习惯二：丑本子专门捕捉“半懂不懂的困惑”</td>
+                    <td>必要认知难度 + 盲区精准锚定</td>
+                </tr>
+                <tr>
+                    <td><strong>日常状态</strong></td>
+                    <td class="bad-cell">空着脑袋被动读书，信息散落一地3天即忘</td>
+                    <td class="good-cell">习惯三：随身携带 12 个痴迷大问题去捕猎</td>
+                    <td>精细化编码（Elaborative Encoding）</td>
+                </tr>
+                <tr>
+                    <td><strong>复习动作</strong></td>
+                    <td class="bad-cell">反复重读划线重点，把“眼熟”当成“掌握”</td>
+                    <td class="good-cell">习惯四：推开书本，面对白纸从零推导重建</td>
+                    <td>主动提取练习（Testing Effect）</td>
+                </tr>
+                <tr>
+                    <td><strong>情绪引擎</strong></td>
+                    <td class="bad-cell">靠喝咖啡与意志力死撑，充满沉重任务感</td>
+                    <td class="good-cell">习惯五：把思想当玩具，反转、争论、找乐子</td>
+                    <td>多巴胺 + 去甲肾上腺素（记忆胶水）</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="flywheel-box">
+        <div class="flywheel-step">
+            <span>STEP 01 · 习惯三 & 五</span>
+            <h4>带着问题去玩耍</h4>
+            <p>脑中揣着 12 个真正痴迷的问题，像玩解谜游戏一样在日常阅读与闲谈中搜寻线索。</p>
+        </div>
+        <div class="flywheel-step">
+            <span>STEP 02 · 习惯二</span>
+            <h4>捕捉认知裂缝</h4>
+            <p>一旦遇到卡壳或半懂不懂的概念，立刻抓进《我不知道的东西》笔记本，绝不假装看懂。</p>
+        </div>
+        <div class="flywheel-step">
+            <span>STEP 03 · 习惯四</span>
+            <h4>白纸从零推导</h4>
+            <p>周末挑出 1 个困惑深挖后，合上所有资料，在白纸上硬着头皮把逻辑链从头默写出来。</p>
+        </div>
+        <div class="flywheel-step">
+            <span>STEP 04 · 习惯一</span>
+            <h4>12 岁孩童终审</h4>
+            <p>对着空气用大白话讲给虚拟的 12 岁孩子听，哪里卡住就回炉重造，直到彻底焊入长期记忆。</p>
+        </div>
+    </div>
+
+    <!-- 第四部分：互动通关工作台 -->
+    <div id="part4" class="section-header">
+        <div class="section-num">04</div>
+        <h2 class="section-title">现场通关训练台：现在，把刚刚读到的内容变成你的！</h2>
+    </div>
+
+    <div class="workbench">
+        <p style="margin-bottom: 18px; color: #cbd5e1;">
+            如果只看完上面的网页就关掉，你依然只是在“短暂租借”。现在请直接用下面三个交互工具，花 3 分钟完成一次真正的<strong>费曼编码闭环</strong>（数据会自动保存在你的浏览器本地）：
+        </p>
+
+        <div class="tabs-header">
+            <button class="tab-btn active" onclick="switchTab(0)">🎯 挑战一：白纸 + 12岁孩童测试 (习惯1 & 4)</button>
+            <button class="tab-btn" onclick="switchTab(1)">📓 挑战二：《我不知道的东西》捕获器 (习惯2)</button>
+            <button class="tab-btn" onclick="switchTab(2)">🧲 挑战三：我的 12 个终身问题库 (习惯3)</button>
+        </div>
+
+        <!-- 面板 1 -->
+        <div class="tab-panel active" id="panel-0">
+            <h4 style="color: var(--accent-blue); margin-bottom: 6px;">任务：不要往上翻网页！用大白话向 12 岁小学生解释：</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+                “为什么大多数人看书做笔记特别认真、划满了重点，最后却还是什么都记不住？怎样才能真正记住？”
+            </p>
+            <textarea id="feynman-input" rows="4" placeholder="假装对面坐着一个12岁小孩，别用“精细化编码”、“提取效应”这种词，用你自己的比喻写下来..."></textarea>
+            <div>
+                <button class="btn-primary" onclick="checkFeynmanTest()">提交检验我的大白话解释</button>
+                <button class="btn-secondary" onclick="document.getElementById('feynman-input').value=''">清空重写</button>
+            </div>
+            <div class="feedback-box" id="feynman-feedback"></div>
+        </div>
+
+        <!-- 面板 2 -->
+        <div class="tab-panel" id="panel-1">
+            <h4 style="color: var(--accent-amber); margin-bottom: 6px;">任务：写下你最近一周“其实半懂不懂、硬撑着混过去”的一个概念或困惑</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+                越具体、越诚实越好。写下它的那一刻，你的大脑就已经开始产生认知摩擦了。
+            </p>
+            <input type="text" id="unknown-input" placeholder="例如：大家都常说的“底层逻辑”到底指什么？ / 为什么美联储加息会影响到我的生活？">
+            <button class="btn-primary" onclick="addUnknownItem()">存入《我不知道的东西》清单</button>
+            <div class="item-list" id="unknown-list"></div>
+        </div>
+
+        <!-- 面板 3 -->
+        <div class="tab-panel" id="panel-2">
+            <h4 style="color: var(--accent-emerald); margin-bottom: 6px;">任务：建立你的“记忆磁铁”——写下你私底下真正反复琢磨的大问题（目标 5~12 个）</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+                不要写为了在朋友面前显得聪明的问题，写你在通勤、洗澡、发呆时真正想弄明白的事。
+            </p>
+            <input type="text" id="question-input" placeholder="例如：为什么有些人在高强度压力下依然精力充沛，而有些人却迅速倦怠？">
+            <button class="btn-primary" onclick="addQuestionItem()">添加至我的终身问题锁孔</button>
+            <div class="item-list" id="question-list"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // 1. 认知公式模拟器逻辑
+    function updateFormula() {
+        const r = parseInt(document.getElementById('slide-r').value);
+        const c = parseInt(document.getElementById('slide-c').value);
+        const e = parseInt(document.getElementById('slide-e').value);
+
+        document.getElementById('val-r').innerText = r + '%';
+        document.getElementById('val-c').innerText = c + '%';
+        document.getElementById('val-e').innerText = e + '%';
+
+        // 乘法模型计算 (归一化到 0-100)
+        const retention = ((r / 100) * (c / 100) * (e / 100) * 100).toFixed(1);
+        const bar = document.getElementById('meter-bar');
+        const scoreText = document.getElementById('total-score');
+        const diag = document.getElementById('meter-Diagnosis');
+
+        bar.style.width = Math.max(retention, 2) + '%';
+
+        if (retention < 15) {
+            scoreText.style.color = 'var(--accent-rose)';
+            scoreText.innerText = retention + '% (一碰即碎的短暂租借)';
+            diag.innerText = '🚨 警告：当前处于典型的“假装学习”状态！眼睛看懂了，但缺乏主动输出阻力、问题挂钩或情绪投入，一周后几乎会遗忘殆尽。';
+        } else if (retention < 50) {
+            scoreText.style.color = 'var(--accent-amber)';
+            scoreText.innerText = retention + '% (中度留存，仍有短板)';
+            diag.innerText = '⚡ 提示：你已经开始跳出被动阅读了！看看三个滑块里哪一个是短板？补齐它，记忆留存会呈指数级跃升。';
+        } else {
+            scoreText.style.color = 'var(--accent-emerald)';
+            scoreText.innerText = retention + '% (费曼级终身锁定状态！)';
+            diag.innerText = '🔥 太棒了！高摩擦白纸输出 + 强问题挂钩 + 好玩的多巴胺胶水，知识已经像钥匙卡入锁孔一样焊进你的深层记忆！';
+        }
+    }
+
+    // 2. 选项卡切换
+    function switchTab(idx) {
+        const btns = document.querySelectorAll('.tab-btn');
+        const panels = document.querySelectorAll('.tab-panel');
+        btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+        panels.forEach((p, i) => p.classList.toggle('active', i === idx));
+    }
+
+    // 3. 挑战一：12岁孩童大白话检测
+    function checkFeynmanTest() {
+        const text = document.getElementById('feynman-input').value.trim();
+        const fb = document.getElementById('feynman-feedback');
+        fb.style.display = 'block';
+
+        if (text.length < 20) {
+            fb.style.borderLeftColor = 'var(--accent-rose)';
+            fb.innerHTML = '<strong>🤔 稍微有点短哦！</strong> 12 岁的小朋友还在眨着眼睛等你讲清楚呢。试着多写两句：为什么光看书没用？到底要怎么做才有用？';
+            return;
+        }
+
+        const jargons = ['精细化编码', '提取练习', '认知负荷', '去甲肾上腺素', '神经突触', '元认知'];
+        const usedJargon = jargons.filter(j => text.includes(j));
+
+        if (usedJargon.length > 0) {
+            fb.style.borderLeftColor = 'var(--accent-amber)';
+            fb.innerHTML = `<strong>⚠️ 抓到专业术语警报！</strong> 你使用了【${usedJargon.join('、')}】。12 岁的小孩听到这个词已经开始走神啦！试着把这些词换成生活里的比喻（比如“肌肉举铁”、“钥匙插锁孔”、“胶水”）。`;
+        } else {
+            fb.style.borderLeftColor = 'var(--accent-emerald)';
+            fb.innerHTML = `<strong>🎉 漂亮的费曼式输出！</strong> 你没有依赖任何专业黑话，完全靠自己的语言从零重建了核心逻辑！<br><br><strong>对照复盘看有无比漏：</strong> ① 只看不练就像只看别人举铁自己不长肌肉（需要合书白纸默写+讲给小孩听制造阻力）；② 脑子里要先有真正好奇的问题做挂钩；③ 把知识当玩具玩才能分泌记忆胶水。`;
+        }
+    }
+
+    // 4. 本地存储列表管理（挑战二 & 挑战三）
+    function loadLists() {
+        const unknowns = JSON.parse(localStorage.getItem('feynman_unknowns') || '["为什么准备教别人比准备考试记得更牢？（示例：点击右侧可删除）"]');
+        const questions = JSON.parse(localStorage.getItem('feynman_questions') || '["在我的专业领域里，哪 5% 的核心底层规律决定了 95% 的结果？（示例）"]');
+
+        renderList('unknown-list', unknowns, 'feynman_unknowns');
+        renderList('question-list', questions, 'feynman_questions');
+    }
+
+    function renderList(containerId, items, storageKey) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = items.map((item, idx) => `
+            <div class="saved-item">
+                <span>${idx + 1}. ${item}</span>
+                <button class="del-btn" onclick="removeItem('${storageKey}', ${idx})">已攻克 / 删除</button>
+            </div>
+        `).join('');
+    }
+
+    function addUnknownItem() {
+        const input = document.getElementById('unknown-input');
+        const val = input.value.trim();
+        if (!val) return;
+        const items = JSON.parse(localStorage.getItem('feynman_unknowns') || '[]');
+        items.unshift(val);
+        localStorage.setItem('feynman_unknowns', JSON.stringify(items));
+        input.value = '';
+        loadLists();
+    }
+
+    function addQuestionItem() {
+        const input = document.getElementById('question-input');
+        const val = input.value.trim();
+        if (!val) return;
+        const items = JSON.parse(localStorage.getItem('feynman_questions') || '[]');
+        items.push(val);
+        localStorage.setItem('feynman_questions', JSON.stringify(items));
+        input.value = '';
+        loadLists();
+    }
+
+    function removeItem(storageKey, idx) {
+        const items = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        items.splice(idx, 1);
+        localStorage.setItem(storageKey, JSON.stringify(items));
+        loadLists();
+    }
+
+    window.onload = function() {
+        updateFormula();
+        loadLists();
+    };
+</script>
+
+</body>
+</html>
