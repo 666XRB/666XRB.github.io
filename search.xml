@@ -1368,7 +1368,7 @@
       <link href="/post/5096661a.html"/>
       <url>/post/5096661a.html</url>
       
-        <content type="html"><![CDATA[<p>1</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><img src="/post/5096661a/image-20260825160559591.png" class="" title="image-20260825160559591"><p>这个叫做</p><blockquote><p>重新配置 SSH 密钥</p></blockquote><p>主要分为 <strong>生成新密钥</strong> 和 <strong>添加到代码托管平台</strong> 两大步。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="生成新的-SSH-密钥"><a href="#生成新的-SSH-密钥" class="headerlink" title="生成新的 SSH 密钥"></a>生成新的 SSH 密钥</h3><p>cmd或者git bash here</p><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure><img src="/post/5096661a/image-20260825160724936.png" class="" title="image-20260825160724936"><h3 id="复制你的公钥"><a href="#复制你的公钥" class="headerlink" title="复制你的公钥"></a>复制你的公钥</h3><img src="/post/5096661a/image-20260825160751798.png" class="" title="image-20260825160751798"><p>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGpMEzH2LAt6+8C7kiGT1p0Vrb7mLTkmL3nXNotEw6Iy <a href="mailto:&#49;&#57;&#56;&#x32;&#56;&#51;&#48;&#48;&#x39;&#53;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#49;&#57;&#56;&#x32;&#56;&#51;&#48;&#48;&#x39;&#53;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p><blockquote><ol><li><img src="/post/5096661a/image-20260825160835938.png" class="" title="image-20260825160835938"> </li><li><img src="/post/5096661a/image-20260825160934326.png" class="" title="image-20260825160934326"> </li><li>ok</li></ol></blockquote><h2 id="配置图床"><a href="#配置图床" class="headerlink" title="配置图床"></a>配置图床</h2><p><a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn&#x2F;PicGo</a></p><p><a href="https://github.com/Kuingsmile/PicList/releases">Releases · Kuingsmile&#x2F;PicList</a><img src="/post/5096661a/image-20260825161217346.png" class="" title="image-20260825161217346"></p><p><a href="https://github.com/Kuingsmile/PicList">Kuingsmile&#x2F;PicList: An image upload and manage tool, base on PicGo</a></p><img src="/post/5096661a/image-20260825162328719.png" class="" title="image-20260825162328719"><p>创建token然后配置jiuok!</p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571.png" class=""><p><img src="https://017328.xyz/images/%E4%BA%A4%E6%98%93steam.png"></p><p><img src="https://017328.xyz/images/IMG_4185_watermarked_1785985971022.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843-1787648186270-11.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787648710536-20.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787649632043-32.png" class=""><p><a href="https://017328.xyz//IMG_4195_watermarked_1785990476571.png">https://017328.xyz//IMG_4195_watermarked_1785990476571.png</a></p><p><img src="https://017328.xyz/images/0B85297BAB2D7F25AC2BB8183445E124.jpg"></p><p><img src="https://017328.xyz/images/_MG_0781.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-05-22%20171011.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-22%20193623.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-17%20091514.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-09%20104254.png"></p>]]></content>
+        <content type="html"><![CDATA[<p>1</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><img src="/post/5096661a/image-20260825160559591.png" class="" title="image-20260825160559591"><p>这个叫做</p><blockquote><p>重新配置 SSH 密钥</p></blockquote><p>主要分为 <strong>生成新密钥</strong> 和 <strong>添加到代码托管平台</strong> 两大步。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="生成新的-SSH-密钥"><a href="#生成新的-SSH-密钥" class="headerlink" title="生成新的 SSH 密钥"></a>生成新的 SSH 密钥</h3><p>cmd或者git bash here</p><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure><img src="/post/5096661a/image-20260825160724936.png" class="" title="image-20260825160724936"><h3 id="复制你的公钥"><a href="#复制你的公钥" class="headerlink" title="复制你的公钥"></a>复制你的公钥</h3><img src="/post/5096661a/image-20260825160751798.png" class="" title="image-20260825160751798"><p>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGpMEzH2LAt6+8C7kiGT1p0Vrb7mLTkmL3nXNotEw6Iy <a href="mailto:&#49;&#x39;&#x38;&#50;&#x38;&#x33;&#48;&#48;&#x39;&#53;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#49;&#x39;&#x38;&#50;&#x38;&#x33;&#48;&#48;&#x39;&#53;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a></p><blockquote><ol><li><img src="/post/5096661a/image-20260825160835938.png" class="" title="image-20260825160835938"> </li><li><img src="/post/5096661a/image-20260825160934326.png" class="" title="image-20260825160934326"> </li><li>ok</li></ol></blockquote><h2 id="配置图床"><a href="#配置图床" class="headerlink" title="配置图床"></a>配置图床</h2><p><a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn&#x2F;PicGo</a></p><p><a href="https://github.com/Kuingsmile/PicList/releases">Releases · Kuingsmile&#x2F;PicList</a><img src="/post/5096661a/image-20260825161217346.png" class="" title="image-20260825161217346"></p><p><a href="https://github.com/Kuingsmile/PicList">Kuingsmile&#x2F;PicList: An image upload and manage tool, base on PicGo</a></p><img src="/post/5096661a/image-20260825162328719.png" class="" title="image-20260825162328719"><p>创建token然后配置jiuok!</p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571.png" class=""><p><img src="https://017328.xyz/images/%E4%BA%A4%E6%98%93steam.png"></p><p><img src="https://017328.xyz/images/IMG_4185_watermarked_1785985971022.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><p><img src="https://017328.xyz/images/IMG_4175_watermarked_1785983218430.png"></p><img src="/post/5096661a/IMG_4185_watermarked_1785985001843-1787648186270-11.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787648710536-20.png" class=""><img src="/post/5096661a/IMG_4195_watermarked_1785990476571-1787649632043-32.png" class=""><p><a href="https://017328.xyz//IMG_4195_watermarked_1785990476571.png">https://017328.xyz//IMG_4195_watermarked_1785990476571.png</a></p><p><img src="https://017328.xyz/images/0B85297BAB2D7F25AC2BB8183445E124.jpg"></p><p><img src="https://017328.xyz/images/_MG_0781.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-12%20121301.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-05-22%20171011.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-22%20193623.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-06-17%20091514.png"></p><p><img src="https://017328.xyz/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-09%20104254.png"></p>]]></content>
       
       
       <categories>
@@ -2566,31 +2566,6 @@
     
     
     <entry>
-      <title>张弓12-12出题人思维</title>
-      <link href="/post/ebc40516.html"/>
-      <url>/post/ebc40516.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="出题人思维"><a href="#出题人思维" class="headerlink" title="出题人思维"></a>出题人思维</h1><h3 id="🎯-核心认知：万变不离其宗"><a href="#🎯-核心认知：万变不离其宗" class="headerlink" title="🎯 核心认知：万变不离其宗"></a>🎯 核心认知：万变不离其宗</h3><p>言语理解看似题型多（排序、标题、接语等），本质只考两个：<strong>中心理解 + 逻辑填空</strong>。只要掌握了中心理解，其他题型一通百通。</p><hr><h3 id="🗺️-解题唯一主线：三步走战略"><a href="#🗺️-解题唯一主线：三步走战略" class="headerlink" title="🗺️ 解题唯一主线：三步走战略"></a>🗺️ 解题唯一主线：三步走战略</h3><h4 id="第一步：找重点（精准定位中心句）"><a href="#第一步：找重点（精准定位中心句）" class="headerlink" title="第一步：找重点（精准定位中心句）"></a>第一步：找重点（精准定位中心句）</h4><p>不要被长篇大论绕进去，快速通过<strong>“7大句子关系”</strong>锁定重点：</p><ul><li><strong>转折关系</strong>：转折后重要（但是、然而）。</li><li><strong>因果关系</strong>：结论&#x2F;结果重要（进而、所以）。</li><li><strong>对策关系</strong>：解决问题的做法最重要（需要、应该）。</li><li><strong>解释关系</strong>：明确的观点重要，具体的解释&#x2F;例子不重要。</li><li><strong>强调关系</strong>：被强调的内容重要（特别是）。</li><li><strong>新旧关系</strong>：后文出现的新话题重要。</li><li><strong>并列关系</strong>：同等重要，需全面概括。</li></ul><blockquote><p>⚠️ <strong>思维防坑预警</strong>：</p><ol><li><strong>关联词只是“拐杖”</strong>：不要死记硬背关联词，删掉关联词不影响句意的，要透过表象看真实逻辑关系。</li><li><strong>局部不代表整体</strong>：文段要看完整。前文有个转折，但如果尾句又抛出了针对该转折的“对策”，那对策才是真正的重点。</li></ol></blockquote><h4 id="第二步：同义替换（如何匹配正确选项）"><a href="#第二步：同义替换（如何匹配正确选项）" class="headerlink" title="第二步：同义替换（如何匹配正确选项）"></a>第二步：同义替换（如何匹配正确选项）</h4><p>找到中心句后，去选项里找“替身”。</p><ul><li><p><strong>核心套路：抓大放小</strong>。“大”就是<strong>主题词</strong>。只要选项包含了绝对正确的主题词，哪怕个别修饰语（星座、身高）不完美，大概率也是对的。</p></li><li><p><strong>如何揪出主题词？</strong></p><blockquote><ol><li><strong>中心句</strong>里的核心动名词（最首要依据）。</li></ol><p>\2.  <strong>首句</strong>引出的话题（常被忽略的做题大招，首句定基调）。</p><p>\3.  全文的<strong>高频词</strong>。</p></blockquote></li></ul><h4 id="第三步：排除干扰选项（纠结时的“判案标准”）"><a href="#第三步：排除干扰选项（纠结时的“判案标准”）" class="headerlink" title="第三步：排除干扰选项（纠结时的“判案标准”）"></a>第三步：排除干扰选项（纠结时的“判案标准”）</h4><p>遇到两个选项犹豫不决时，严格按照以下三类标准排雷：</p><table><thead><tr><th><strong>选项定性</strong></th><th><strong>典型特征（出题人套路）</strong></th></tr></thead><tbody><tr><td>🚫 <strong>一定不能选（死罪）</strong></td><td>与原文意思相反、无中生有（如：最可行）、无关对策（解决不了文段问题）。</td></tr><tr><td>❌ <strong>基本不能选（非重点）</strong></td><td>缺少主题词、<strong>属于解释说明部分</strong>（如只是原文里的一个背景、原因、或像“挪威大鼠”、“干细胞”这样的例子）、表述片面。</td></tr><tr><td>✅ <strong>对比可次选（备胎）</strong></td><td>表述不明确（过于笼统）、主题词适度扩大&#x2F;缩小。<strong>注意：</strong> 当其他选项都犯了“死罪”或“非重点”错误时，这种不完美的选项就是正确答案。</td></tr></tbody></table><hr><p>可以反推出出题人干扰选项如果看到并列的时候</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 省考 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 行测 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>宝藏成语</title>
       <link href="/post/3c8a3883.html"/>
       <url>/post/3c8a3883.html</url>
@@ -2608,6 +2583,31 @@
         <tags>
             
             <tag> 成语 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>张弓12-12出题人思维</title>
+      <link href="/post/ebc40516.html"/>
+      <url>/post/ebc40516.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="出题人思维"><a href="#出题人思维" class="headerlink" title="出题人思维"></a>出题人思维</h1><h3 id="🎯-核心认知：万变不离其宗"><a href="#🎯-核心认知：万变不离其宗" class="headerlink" title="🎯 核心认知：万变不离其宗"></a>🎯 核心认知：万变不离其宗</h3><p>言语理解看似题型多（排序、标题、接语等），本质只考两个：<strong>中心理解 + 逻辑填空</strong>。只要掌握了中心理解，其他题型一通百通。</p><hr><h3 id="🗺️-解题唯一主线：三步走战略"><a href="#🗺️-解题唯一主线：三步走战略" class="headerlink" title="🗺️ 解题唯一主线：三步走战略"></a>🗺️ 解题唯一主线：三步走战略</h3><h4 id="第一步：找重点（精准定位中心句）"><a href="#第一步：找重点（精准定位中心句）" class="headerlink" title="第一步：找重点（精准定位中心句）"></a>第一步：找重点（精准定位中心句）</h4><p>不要被长篇大论绕进去，快速通过<strong>“7大句子关系”</strong>锁定重点：</p><ul><li><strong>转折关系</strong>：转折后重要（但是、然而）。</li><li><strong>因果关系</strong>：结论&#x2F;结果重要（进而、所以）。</li><li><strong>对策关系</strong>：解决问题的做法最重要（需要、应该）。</li><li><strong>解释关系</strong>：明确的观点重要，具体的解释&#x2F;例子不重要。</li><li><strong>强调关系</strong>：被强调的内容重要（特别是）。</li><li><strong>新旧关系</strong>：后文出现的新话题重要。</li><li><strong>并列关系</strong>：同等重要，需全面概括。</li></ul><blockquote><p>⚠️ <strong>思维防坑预警</strong>：</p><ol><li><strong>关联词只是“拐杖”</strong>：不要死记硬背关联词，删掉关联词不影响句意的，要透过表象看真实逻辑关系。</li><li><strong>局部不代表整体</strong>：文段要看完整。前文有个转折，但如果尾句又抛出了针对该转折的“对策”，那对策才是真正的重点。</li></ol></blockquote><h4 id="第二步：同义替换（如何匹配正确选项）"><a href="#第二步：同义替换（如何匹配正确选项）" class="headerlink" title="第二步：同义替换（如何匹配正确选项）"></a>第二步：同义替换（如何匹配正确选项）</h4><p>找到中心句后，去选项里找“替身”。</p><ul><li><p><strong>核心套路：抓大放小</strong>。“大”就是<strong>主题词</strong>。只要选项包含了绝对正确的主题词，哪怕个别修饰语（星座、身高）不完美，大概率也是对的。</p></li><li><p><strong>如何揪出主题词？</strong></p><blockquote><ol><li><strong>中心句</strong>里的核心动名词（最首要依据）。</li></ol><p>\2.  <strong>首句</strong>引出的话题（常被忽略的做题大招，首句定基调）。</p><p>\3.  全文的<strong>高频词</strong>。</p></blockquote></li></ul><h4 id="第三步：排除干扰选项（纠结时的“判案标准”）"><a href="#第三步：排除干扰选项（纠结时的“判案标准”）" class="headerlink" title="第三步：排除干扰选项（纠结时的“判案标准”）"></a>第三步：排除干扰选项（纠结时的“判案标准”）</h4><p>遇到两个选项犹豫不决时，严格按照以下三类标准排雷：</p><table><thead><tr><th><strong>选项定性</strong></th><th><strong>典型特征（出题人套路）</strong></th></tr></thead><tbody><tr><td>🚫 <strong>一定不能选（死罪）</strong></td><td>与原文意思相反、无中生有（如：最可行）、无关对策（解决不了文段问题）。</td></tr><tr><td>❌ <strong>基本不能选（非重点）</strong></td><td>缺少主题词、<strong>属于解释说明部分</strong>（如只是原文里的一个背景、原因、或像“挪威大鼠”、“干细胞”这样的例子）、表述片面。</td></tr><tr><td>✅ <strong>对比可次选（备胎）</strong></td><td>表述不明确（过于笼统）、主题词适度扩大&#x2F;缩小。<strong>注意：</strong> 当其他选项都犯了“死罪”或“非重点”错误时，这种不完美的选项就是正确答案。</td></tr></tbody></table><hr><p>可以反推出出题人干扰选项如果看到并列的时候</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 省考 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 行测 </tag>
             
         </tags>
       
