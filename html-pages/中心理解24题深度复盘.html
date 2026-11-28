@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中心理解 · 24题深度复盘 | 国考考前冲刺</title>
+<style>
+:root{
+  --bg:#F4F1EA; --panel:#FFFFFF; --ink:#1B2027; --ink2:#454D55; --ink3:#7C848B;
+  --line:#E5DFD3; --line2:#EFEAE0;
+  --acc:#A8322A; --acc-dim:#C97A72; --blue:#1F4E6E; --ok:#2E7D5B; --warn:#B5761B;
+  --prob:#C0392B; --prob-bg:#FDEDEA;
+  --act:#1F6FB2;  --act-bg:#E9F2FA;
+  --sig:#2E7D5B;  --sig-bg:#E8F5EE;
+  --sta:#6B7280;  --sta-bg:#F2F3F5;
+  --cau:#7D5BA6;  --cau-bg:#F3EDF9;
+  --eg:#8A7B52;   --eg-bg:#F6F2E6;
+  --thr:#34568B;  --thr-bg:#EBF0F9;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC",Georgia,"SimSun",serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 12% 0%,rgba(168,50,42,.05),transparent 42%),radial-gradient(circle at 88% 8%,rgba(31,78,110,.05),transparent 40%);}
+::selection{background:#F6D8C9;color:#5A1F19}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(244,241,234,.9);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);padding:9px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:.02em;font-size:15px;display:flex;align-items:center;gap:8px}
+.brand i{display:inline-block;width:9px;height:9px;background:var(--acc);border-radius:2px;transform:rotate(45deg)}
+.tb-tools{display:flex;gap:8px;margin-left:auto;align-items:center;flex-wrap:wrap}
+.btn{font:inherit;font-size:12.5px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;color:var(--ink2);cursor:pointer;transition:.18s;white-space:nowrap}
+.btn:hover{border-color:var(--acc-dim);color:var(--acc);transform:translateY(-1px)}
+.btn.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.meter{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink3)}
+.meter .bar{width:88px;height:6px;border-radius:99px;background:#E3DDD1;overflow:hidden}
+.meter .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2E7D5B,#5FA97F);transition:width .35s}
+
+/* ---------- layout ---------- */
+.wrap{display:grid;grid-template-columns:206px minmax(0,1fr);gap:34px;max-width:1240px;margin:0 auto;padding:34px 24px 90px}
+main{min-width:0;overflow-x:clip}
+.rail{position:sticky;top:62px;align-self:start;max-height:calc(100vh - 84px);overflow:auto;padding-right:4px}
+.rail h5{font-size:11px;letter-spacing:.14em;color:var(--ink3);margin:0 0 10px;font-weight:700}
+.rail a{display:flex;gap:8px;align-items:baseline;font-size:12.5px;color:var(--ink2);text-decoration:none;
+  padding:5px 8px;border-radius:6px;border-left:2px solid transparent;transition:.15s}
+.rail a:hover{background:#fff;color:var(--acc)}
+.rail a.active{background:#fff;border-left-color:var(--acc);color:var(--acc);font-weight:600}
+.rail a b{font-family:var(--mono);font-size:10.5px;color:var(--ink3);font-weight:600}
+.rail a.active b{color:var(--acc)}
+.rail .grp{margin-bottom:16px}
+
+/* ---------- hero ---------- */
+.hero{margin-bottom:44px}
+.kicker{font-size:11.5px;letter-spacing:.2em;color:var(--acc);font-weight:700;margin-bottom:12px}
+h1{font-family:var(--serif);font-size:clamp(30px,4.4vw,46px);line-height:1.18;margin:0 0 14px;letter-spacing:-.01em;font-weight:800}
+h1 em{font-style:normal;color:var(--acc);position:relative}
+h1 em::after{content:"";position:absolute;left:-2px;right:-2px;bottom:4px;height:9px;background:rgba(168,50,42,.13);z-index:-1}
+.lede{font-size:14.5px;color:var(--ink2);max-width:64ch;margin:0 0 22px}
+.stats{display:flex;gap:0;flex-wrap:wrap;border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}
+.stat{padding:12px 20px;border-right:1px solid var(--line2);flex:1 1 120px}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--serif);font-size:23px;line-height:1.2;color:var(--acc)}
+.stat span{font-size:11.5px;color:var(--ink3)}
+
+/* ---------- section ---------- */
+section{margin-bottom:52px;scroll-margin-top:70px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.sec-head .num{font-family:var(--mono);font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.08em}
+.sec-head h2{font-family:var(--serif);font-size:23px;margin:0;font-weight:800;letter-spacing:.01em}
+.sec-head .sub{margin-left:auto;font-size:11.5px;color:var(--ink3)}
+.sec-note{font-size:13px;color:var(--ink3);margin:10px 0 20px}
+
+/* ---------- cards generic ---------- */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:16px}
+.card h3{font-family:var(--serif);font-size:17px;margin:0 0 10px;font-weight:800}
+.card h4{font-size:13px;margin:18px 0 8px;color:var(--acc);letter-spacing:.04em;font-weight:800}
+.card h4:first-child{margin-top:0}
+.card p{margin:0 0 10px;font-size:14px;color:var(--ink2)}
+.card ul,.card ol{margin:0 0 10px;padding-left:20px;font-size:14px;color:var(--ink2)}
+.card li{margin-bottom:6px}
+.card li b,.card p b{color:var(--ink);font-weight:700}
+kbd{font-family:var(--mono);font-size:12px;background:#F6F2EA;border:1px solid var(--line);border-bottom-width:2px;
+  border-radius:4px;padding:1px 5px;color:var(--ink)}
+
+/* ---------- 三步走 ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+.step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;position:relative;overflow:hidden}
+.step::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--acc)}
+.step:nth-child(2)::before{background:var(--blue)}
+.step:nth-child(3)::before{background:var(--ok)}
+.step .st{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink3);font-weight:700}
+.step h3{font-family:var(--serif);font-size:19px;margin:4px 0 8px;font-weight:800}
+.step p{font-size:13px;color:var(--ink2);margin:0 0 8px}
+.step .kv{font-size:12px;color:var(--ink3);border-top:1px dashed var(--line);padding-top:8px;margin-top:8px}
+.step .kv b{color:var(--acc);font-weight:700}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:18px}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:560px}
+th{background:#FAF8F3;text-align:left;font-weight:700;font-size:11.5px;letter-spacing:.06em;color:var(--ink3);
+  padding:10px 13px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:11px 13px;border-bottom:1px solid var(--line2);color:var(--ink2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td b{color:var(--ink)}
+tbody tr:hover{background:#FCFAF6}
+td .qs{font-family:var(--mono);font-size:11.5px;color:var(--acc);text-decoration:none;border-bottom:1px dotted var(--acc-dim);white-space:nowrap;margin-right:4px}
+td .qs:hover{background:#FDECE9}
+.pill{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;border:1px solid;white-space:nowrap;line-height:1.6}
+.p-prob{color:var(--prob);border-color:#EBC0BA;background:var(--prob-bg)}
+.p-act{color:var(--act);border-color:#BBD6EC;background:var(--act-bg)}
+.p-sig{color:var(--sig);border-color:#B7DBC8;background:var(--sig-bg)}
+.p-sta{color:var(--sta);border-color:#D3D7DC;background:var(--sta-bg)}
+.p-cau{color:var(--cau);border-color:#D8C8E6;background:var(--cau-bg)}
+.p-eg{color:var(--eg);border-color:#DCD2B4;background:var(--eg-bg)}
+.p-thr{color:var(--thr);border-color:#C2CFE6;background:var(--thr-bg)}
+
+/* ---------- filter ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px;align-items:center}
+.filters .lab{font-size:11.5px;color:var(--ink3);letter-spacing:.08em;font-weight:700;margin-right:2px}
+.chip{font:inherit;font-size:12.5px;padding:5px 12px;border-radius:99px;border:1px solid var(--line);
+  background:#fff;color:var(--ink2);cursor:pointer;transition:.16s}
+.chip:hover{border-color:var(--acc-dim)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip small{opacity:.55;margin-left:4px;font-size:10.5px}
+.searchbox{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 12px}
+.searchbox input{border:0;outline:0;font:inherit;font-size:12.5px;width:150px;color:var(--ink);background:transparent}
+.searchbox svg{width:13px;height:13px;stroke:var(--ink3);fill:none;stroke-width:2}
+
+/* ---------- question card ---------- */
+.q{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:16px;overflow:hidden;
+  transition:box-shadow .2s,border-color .2s;scroll-margin-top:66px}
+.q:hover{box-shadow:0 6px 22px -14px rgba(27,32,39,.4)}
+.q.done{border-color:#BBDCC9}
+.q-head{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:15px 18px;
+  background:linear-gradient(180deg,#fff,#FCFAF6);border-bottom:1px solid var(--line2);cursor:pointer}
+.q-no{font-family:var(--serif);font-size:26px;font-weight:800;color:#DCD5C7;line-height:1;letter-spacing:-.03em}
+.q.done .q-no{color:#A9CDBA}
+.q-title{min-width:0}
+.q-title h3{font-size:15.5px;margin:0 0 5px;font-weight:800;letter-spacing:.01em}
+.q-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:10.5px;padding:1px 8px;border-radius:4px;background:#F4F1EA;color:var(--ink3);border:1px solid var(--line);white-space:nowrap}
+.tag.m{background:#FBEEEB;color:#A8322A;border-color:#EFD3CC;font-weight:600}
+.tag.t{background:#EDF2F7;color:#1F4E6E;border-color:#D2DEE9}
+.q-right{display:flex;align-items:center;gap:10px}
+.ansbox{font-family:var(--mono);font-size:12px;color:var(--ink3);border:1px dashed var(--line);border-radius:8px;
+  padding:4px 10px;white-space:nowrap;background:#fff}
+.ansbox b{color:var(--ok);font-size:15px;font-family:var(--serif);font-weight:800}
+.q:not(.open) .ansbox{filter:blur(4.5px);user-select:none}
+.q-body{display:none;padding:4px 18px 20px}
+.q.open .q-body{display:block}
+
+/* passage + layers */
+.passage{font-family:var(--serif);font-size:15.5px;line-height:2;color:#22282E;margin:14px 0 6px;
+  background:#FCFBF7;border:1px solid var(--line2);border-radius:10px;padding:14px 16px}
+.layer{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;padding:7px 0 7px 0;border-bottom:1px dashed var(--line2)}
+.layer:last-child{border-bottom:0}
+.layer .lt{font-family:var(--sans);font-size:10.5px;font-weight:800;height:fit-content;padding:2px 0;
+  border-radius:4px;text-align:center;letter-spacing:.03em;margin-top:5px}
+.layer .lc{font-size:13.5px;line-height:1.95}
+.layer .lc u{text-decoration:none;border-bottom:2px solid;padding-bottom:1px;font-weight:600}
+.layer.prob .lt{color:var(--prob);background:var(--prob-bg)} .layer.prob .lc u{border-color:#E8A9A1}
+.layer.act  .lt{color:var(--act);background:var(--act-bg)}   .layer.act  .lc u{border-color:#9CC6E7}
+.layer.sig  .lt{color:var(--sig);background:var(--sig-bg)}   .layer.sig  .lc u{border-color:#9FD2B8}
+.layer.sta  .lt{color:var(--sta);background:var(--sta-bg)}   .layer.sta  .lc u{border-color:#C4C9CF}
+.layer.cau  .lt{color:var(--cau);background:var(--cau-bg)}   .layer.cau  .lc u{border-color:#C8B2E0}
+.layer.eg   .lt{color:var(--eg);background:var(--eg-bg)}     .layer.eg   .lc u{border-color:#D2C49A}
+.layer.thr  .lt{color:var(--thr);background:var(--thr-bg)}   .layer.thr  .lc u{border-color:#A9BCDD}
+.layer .key{font-size:12px;color:var(--ink3);display:block;margin-top:2px}
+
+.center-line{display:flex;gap:10px;align-items:flex-start;background:#F0F7F3;border:1px solid #CFE6DA;
+  border-left:3px solid var(--ok);border-radius:8px;padding:11px 14px;margin:14px 0;font-size:13.5px;color:#20543D}
+.center-line .c{font-weight:800;white-space:nowrap;font-size:11.5px;letter-spacing:.08em;padding-top:2px}
+
+.opts{margin:16px 0 0;border-top:1px solid var(--line2);padding-top:6px}
+.opt{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px dashed var(--line2)}
+.opt:last-child{border-bottom:0}
+.opt .ol{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--ink3);padding-top:1px}
+.opt .oc{font-size:13.5px;color:var(--ink2)}
+.opt .oc .tx{color:var(--ink);font-weight:600}
+.opt .oc .why{display:block;font-size:12.5px;color:var(--ink3);margin-top:3px;line-height:1.8}
+.opt .oc .why em{font-style:normal;color:var(--acc);font-weight:700}
+.opt.right{background:#F2F9F5;border-radius:8px;padding-left:10px;padding-right:10px}
+.opt.right .ol{color:var(--ok)}
+.opt.right .oc .tx{color:#1E6B4C}
+.opt.wrong .ol{color:#C9A9A4}
+
+.takeaway{margin-top:16px;background:#FDF7EC;border:1px solid #EFDFC0;border-radius:9px;padding:12px 15px;
+  font-size:13.5px;color:#6B4E15;line-height:1.85}
+.takeaway b{color:#A0761A;font-weight:800;letter-spacing:.06em;font-size:11.5px;display:block;margin-bottom:4px}
+.q-foot{display:flex;gap:10px;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid var(--line2);flex-wrap:wrap}
+.mini{font:inherit;font-size:12px;padding:5px 11px;border-radius:7px;border:1px solid var(--line);background:#fff;
+  color:var(--ink3);cursor:pointer;transition:.16s}
+.mini:hover{border-color:var(--acc-dim);color:var(--acc)}
+.mini.checked{background:#EAF6EF;border-color:#B4DAC6;color:#2E7D5B;font-weight:700}
+.spacer{flex:1}
+.rel{font-size:11.5px;color:var(--ink3)}
+.rel a{color:var(--acc);text-decoration:none;border-bottom:1px dotted var(--acc-dim);margin:0 2px}
+
+/* checklist */
+.check{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 20px 14px}
+.check .row{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px dashed var(--line2);
+  align-items:start;font-size:13.5px;color:var(--ink2)}
+.check .row:last-child{border-bottom:0}
+.check .row i{width:16px;height:16px;border:1.5px solid #CFC8BA;border-radius:4px;display:block;margin-top:5px;cursor:pointer;transition:.15s}
+.check .row.on i{background:var(--ok);border-color:var(--ok);position:relative}
+.check .row.on i::after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;border:2px solid #fff;border-top:0;border-left:0;transform:rotate(42deg)}
+.check .row.on{color:var(--ink3)}
+.check .row b{color:var(--ink)}
+
+footer{border-top:1px solid var(--line);padding-top:20px;font-size:12px;color:var(--ink3);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+@media(max-width:1000px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0;padding:22px 16px 70px}
+  .rail{display:none}
+  .steps{grid-template-columns:1fr}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .stat{flex:none;border-bottom:1px solid var(--line2);padding:11px 14px}
+  .stat:nth-child(3n){border-right:0}
+  .stat:nth-child(n+4){border-bottom:0}
+  .q-head{grid-template-columns:40px minmax(0,1fr);gap:10px}
+  .q-right{grid-column:1/-1;justify-content:flex-end}
+  .q-no{font-size:21px}
+  .layer{grid-template-columns:52px minmax(0,1fr);gap:8px}
+  .sec-head{flex-wrap:wrap;gap:6px}
+  .sec-head .sub{margin-left:0;width:100%}
+}
+@media print{
+  .topbar,.rail,.filters,.q-foot,.searchbox{display:none!important}
+  .wrap{display:block;max-width:none;padding:0}
+  .q-body{display:block!important}
+  .q:not(.open) .ansbox{filter:none}
+  .q{break-inside:avoid;box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><i></i>中心理解 · 24题深度复盘</div>
+  <div class="tb-tools">
+    <div class="meter"><span>掌握度</span><div class="bar"><i id="meterBar"></i></div><span id="meterTxt">0 / 24</span></div>
+    <button class="btn" id="expandAll">全部展开</button>
+    <button class="btn" id="collapseAll">全部收起</button>
+    <button class="btn" id="resetDone">清空打卡</button>
+    <button class="btn" onclick="window.print()">打印</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <aside class="rail">
+    <div class="grp">
+      <h5>方法</h5>
+      <a href="#s1"><b>01</b>三步走总纲</a>
+      <a href="#s2"><b>02</b>六大模型速查</a>
+      <a href="#s3"><b>03</b>答案速查表</a>
+    </div>
+    <div class="grp">
+      <h5>24题逐题复盘</h5>
+      <div id="railQs"></div>
+    </div>
+    <div class="grp">
+      <h5>收口</h5>
+      <a href="#s4"><b>04</b>错因索引</a>
+      <a href="#s5"><b>05</b>考前十查</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="hero">
+      <div class="kicker">国 考 中 心 理 解 · 考 前 最 后 一 轮</div>
+      <h1>把 24 道题<em>拆到骨头</em>，<br>把一套方法焊进肌肉。</h1>
+      <p class="lede">这份复盘只做一件事：让每道题的<strong>每一个层次、每一个错误选项的设坑手法</strong>都显形。左边是方法论，中间是 24 道真题的分层解剖，右边（你的脑子）负责把"读句子时给句子定性"变成下意识动作。</p>
+      <div class="stats">
+        <div class="stat"><b>24</b><span>道真题全覆盖</span></div>
+        <div class="stat"><b>6</b><span>类论述模型</span></div>
+        <div class="stat"><b>9</b><span>种设错手法</span></div>
+        <div class="stat"><b>3</b><span>步解题闭环</span></div>
+        <div class="stat"><b>2</b><span>道争议题标注</span></div>
+      </div>
+    </div>
+
+    <!-- ================= SECTION 1 ================= -->
+    <section id="s1">
+      <div class="sec-head"><span class="num">01</span><h2>三步走总纲</h2><span class="sub">读题 · 定位 · 提炼</span></div>
+      <p class="sec-note">中心理解慢，几乎都不是"读得慢"，而是"读的时候不知道自己在读什么"。<strong>读句子的同时给句子贴标签</strong>，后面所有的定位、排除、反推才有落点。</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="st">STEP 1</div>
+          <h3>分层 · 定性</h3>
+          <p>不求通读，只求<b>切块</b>：哪几句在说同一件事？这一块在干什么（提问题／给对策／讲意义／描述现状／解释原因／举例）？</p>
+          <div class="kv">产出：① ② ③ ④ 四层 + 每层一个类型标签</div>
+        </div>
+        <div class="step">
+          <div class="st">STEP 2</div>
+          <h3>确定中心</h3>
+          <p>四层里只有一层是中心。靠<b>模型</b>（对策型→对策层）、靠<b>关联词</b>（转折后／因此后／特别是后）、靠<b>反复出现的目的词</b>快速定位。</p>
+          <div class="kv">产出：一句"作者到底想让我记住什么"</div>
+        </div>
+        <div class="step">
+          <div class="st">STEP 3</div>
+          <h3>精准提炼</h3>
+          <p>知道重点句还会错，是因为<b>提炼偏了</b>。三查：查主体、查动作、查目的（国考最爱换的正好是后两个）。</p>
+          <div class="kv">产出：把选项按"主体／动作／目的／时态"四项逐一比对</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>① 定性词典：看到这些词，就该条件反射</h3>
+        <p style="font-size:13px;color:var(--ink3);margin-bottom:14px">不用背，用眼睛过两遍。做题时刻意去"找"这些词，找着找着就成了本能。</p>
+        <div class="tw">
+          <table>
+            <thead><tr><th style="width:110px">表述类型</th><th style="width:34%">典型信号词</th><th>在结构里的角色</th></tr></thead>
+            <tbody>
+              <tr><td><span class="pill p-sta">现状</span></td><td>当前／近年来／随着／已／在……中／广泛采用／体现／普遍</td><td>背景板。通常<b>不是中心</b>，但它藏着"已然"信息——用来打掉"应/须"类时态错误的选项。</td></tr>
+              <tr><td><span class="pill p-prob">问题</span></td><td>存在……问题／短板／困境／难以为继／缺乏／不足／造成负面影响／区域分割／存在争议／远远不够</td><td><b>转折之后的问题层，是中心的高发区</b>（尤其后文没给对策时）。也是检验对策"对不对得准"的锚。</td></tr>
+              <tr><td><span class="pill p-cau">原因</span></td><td>是因为／由于／之所以／取决于／基于／其本质是</td><td>论据。只为解释"为什么会这样"，几乎不可能是中心。</td></tr>
+              <tr><td><span class="pill p-sig">意义</span></td><td>重要性、迫切性／是关键／是基础／有利于／有助于／能够／意义重大</td><td>佐证。回答"为什么值得做"，为对策做背书，通常也不是中心。</td></tr>
+              <tr><td><span class="pill p-act">对策</span></td><td>必须／应／需要／要／亟待／通过……方式／依托／借助／为此／因此+动词／特别是要</td><td><b>中心最高发区</b>。国考很少给它送分，一定会在"换字""偷目的"上做手脚。</td></tr>
+              <tr><td><span class="pill p-sig">成效</span></td><td>从而／进而／使得／实现／提升／才能／有效降低</td><td>回扣。它出现在对策之后，作用是把"这个对策值得做"钉死。</td></tr>
+              <tr><td><span class="pill p-eg">举例</span></td><td>比如／例如／以……为例／如……等</td><td>跳过。判断标准：<b>例子的逻辑与前面宏观逻辑同构</b>，只是换了个小场景。</td></tr>
+              <tr><td><span class="pill p-thr">理论</span></td><td>……是必要条件／一般而言／从……看／两者共生共荣／兵法中说</td><td>给后文提供推理前提。理论—实践型里，<b>它常常比对策更像中心，但它是前提不是落点</b>。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>② 判断中心的四条硬标准（冲突时按顺序用）</h3>
+        <ol>
+          <li><b>关联词优先</b>：转折词（但／然而）后 &gt; 结论词（因此／可见）后 &gt; 递进词（特别是／更重要的是）后。三者同时出现，谁在最后谁最大。<a class="qs" href="#q4">→ Q4</a><a class="qs" href="#q10">→ Q10</a></li>
+          <li><b>层级优先</b>：有一个"总对策"统领几个"分对策"时，选总对策；<b>只有一堆并列分对策、没有总对策时，用"问题／目的"去统领</b>。<a class="qs" href="#q5">→ Q5</a><a class="qs" href="#q6">→ Q6</a><a class="qs" href="#q16">→ Q16</a><a class="qs" href="#q17">→ Q17</a></li>
+          <li><b>目的词优先</b>：全文反复出现的那个动词（核算／协调／保护／联动），往往就是作者真正在谈的对象，选项里没它基本可以排除。<a class="qs" href="#q6">→ Q6</a><a class="qs" href="#q18">→ Q18</a></li>
+          <li><b>问题导向校验</b>：对策型文段，正确选项通常"带着问题走"。如果选项只讲意义、不讲它要解决的那个问题，八成是坑。<a class="qs" href="#q19">→ Q19</a><a class="qs" href="#q10">→ Q10</a><a class="qs" href="#q3">→ Q3</a></li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>③ 设问动词决定答案类型（最容易白丢分的一处）</h3>
+        <p>同一篇文章，设问是"意在说明"还是"主要介绍"，正确答案可能不是同一句话。这是国考控制难度的隐形开关。</p>
+        <div class="tw">
+          <table>
+            <thead><tr><th style="width:150px">设问</th><th style="width:120px">要找什么</th><th>判定要点</th></tr></thead>
+            <tbody>
+              <tr><td><b>意在说明／意在强调／想说的是</b></td><td>观点·对策·目的</td><td>重心在"作者主张什么"，答案多含"应／需／要／有利于"，且必须咬住问题。<a class="qs" href="#q3">Q3</a><a class="qs" href="#q17">Q17</a><a class="qs" href="#q19">Q19</a></td></tr>
+              <tr><td><b>主要介绍／主要讲的是／主要解释了</b></td><td>说明对象（内容概括）</td><td>重心是"这段讲了什么知识"，不一定是对策句。别硬找对策，容易选到拔高的观点项。<a class="qs" href="#q2">Q2</a><a class="qs" href="#q6">Q6</a><a class="qs" href="#q15">Q15</a><a class="qs" href="#q24">Q24</a></td></tr>
+              <tr><td><b>最适合做标题</b></td><td>中心 + 抓人 + 锚点</td><td>三个条件：<b>含中心动作</b>（乘／辨／察／造）、<b>含时间或事件锚点</b>（秋老虎）、<b>有吸引力</b>。<a class="qs" href="#q8">Q8</a><a class="qs" href="#q20">Q20</a><a class="qs" href="#q21">Q21</a></td></tr>
+              <tr><td><b>接下来最有可能</b></td><td>顺最后话题往下走</td><td>上一段做了什么（否定旧说法／提出原理），下一步就补它没说完的那一块；还要合文体。<a class="qs" href="#q13">Q13</a></td></tr>
+              <tr><td><b>"××"指的是</b></td><td>指代词回填</td><td>警惕"这种"指的不是紧邻的机制，而是<b>机制产生的结果</b>。<a class="qs" href="#q14">Q14</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2 ================= -->
+    <section id="s2">
+      <div class="sec-head"><span class="num">02</span><h2>六大模型速查</h2><span class="sub">认模型 = 提前知道中心在哪一层</span></div>
+      <p class="sec-note">时评、论述文的逻辑链高度相似，不过换了个具体事件。<strong>积累模型 = 积累"逻辑链→中心位置"的对应关系</strong>。复盘错题时按这张表给题归类，比记答案有用十倍。</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:150px">模型</th><th style="width:22%">骨架</th><th style="width:130px">中心在哪</th><th>高频陷阱</th><th style="width:96px">题号</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>① 问题—对策型</b><br><span class="pill p-act">最常见</span></td>
+              <td>背景/问题 → 对策（→ 成效回扣）</td>
+              <td>对策层</td>
+              <td>偷换对策动词（吃螺蛳粉→吃桂林米粉）、只讲问题不讲对策、丢掉对策要解决的问题</td>
+              <td><a class="qs" href="#q3">3</a><a class="qs" href="#q5">5</a><a class="qs" href="#q6">6</a><a class="qs" href="#q17">17</a><a class="qs" href="#q19">19</a><a class="qs" href="#q20">20</a></td>
+            </tr>
+            <tr>
+              <td><b>② 递进回扣型</b></td>
+              <td>现状 → 问题 → 对策 → 意义/成效（专门解释这个对策有什么用）</td>
+              <td>被"特别／更"标记的<b>最具体</b>对策</td>
+              <td>停在宏观大方向（扩大内需）而不进入具体落点（释放消费潜力）；用"长远／平衡"之一替换整体目的</td>
+              <td><a class="qs" href="#q4">4</a></td>
+            </tr>
+            <tr>
+              <td><b>③ 理论—实践型</b></td>
+              <td>理论（A对B很重要）→ 实践（当前某举措帮了A）→ 结论（所以这举措对B也重要）</td>
+              <td>实践层的对策</td>
+              <td>把"实践"当"例子"跳过；场域漂移（京津冀→城市群→我国）；停在理论层显得很"正确"</td>
+              <td><a class="qs" href="#q7">7</a><a class="qs" href="#q9">9</a><a class="qs" href="#q20">20</a></td>
+            </tr>
+            <tr>
+              <td><b>④ 现象—争议—结论型</b><br><span class="pill p-cau">时评/观点</span></td>
+              <td>现象 → 分析原因 → 后果 → 结论（时评）／现象 → 争议 → 法理 → 结论（法律类）</td>
+              <td>结论层（作者观点）</td>
+              <td>把结论抽象成一般原则（脱离现象）、时态偷换（应明确 vs 已明确）</td>
+              <td><a class="qs" href="#q11">11</a><a class="qs" href="#q12">12</a><a class="qs" href="#q24">24</a></td>
+            </tr>
+            <tr>
+              <td><b>⑤ 顺推型</b><br><span class="pill p-thr">科普</span></td>
+              <td>机制 → 效果 → 意义；成因 → 机制 → 结果</td>
+              <td>逻辑链<b>最末端</b>的现象</td>
+              <td>停在中间环节（机制本身／影响因素），把末端结果丢掉</td>
+              <td><a class="qs" href="#q14">14</a><a class="qs" href="#q15">15</a><a class="qs" href="#q2">2</a></td>
+            </tr>
+            <tr>
+              <td><b>⑥ 归纳型</b></td>
+              <td>分述两种/多种情况 → "这两种/都……" 归纳共性</td>
+              <td>"都"字后面的共性</td>
+              <td>以偏概全选任一分支；偷换"权属／经营权"这类近义概念</td>
+              <td><a class="qs" href="#q22">22</a><a class="qs" href="#q21">21</a><a class="qs" href="#q18">18</a><a class="qs" href="#q5">5</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="border-left:3px solid var(--warn);background:#FEFBF4">
+        <h3 style="color:#8A5E12;font-size:15.5px">特殊提醒：国考的两条"隐性偏好"</h3>
+        <p><b>偏好一：问题导向。</b>大量正确选项是"为了解决问题"，而不是"为了说明道理"。所以读题时不仅要看"要怎么做"，更要看"为什么这么做、冲着什么问题去的"。</p>
+        <p><b>偏好二：面向未来。</b>文段一边写现状、一边写未来时，重点常往"未来趋势／尚未发生"那边偏。<a class="qs" href="#q23">→ Q23</a> 这也是那道争议题唯一能说服自己选 D 的理由。</p>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3 ================= -->
+    <section id="s3">
+      <div class="sec-head"><span class="num">03</span><h2>答案速查表</h2><span class="sub">考前 3 分钟扫一遍</span></div>
+      <p class="sec-note">先自己默写一遍答案与错因，再对表。<strong>错的不只是答案，是错因类型</strong>——把错因对上号，同一坑才不会踩第二次。</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:46px">题</th><th style="width:150px">主题</th><th style="width:56px">答案</th><th style="width:120px">模型</th><th>最容易掉进去的坑</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>社会心态培育</td><td><b style="color:var(--ok)">B</b></td><td>问题—对策</td><td>把"体系建设"这个载体当中心；列举项以偏概全</td></tr>
+            <tr><td>2</td><td>太阳系元素分布</td><td><b style="color:var(--ok)">C</b></td><td>顺推/说明</td><td>停在"氢"这一引子；把举例的行星当主体</td></tr>
+            <tr><td>3</td><td>新就业形态权益</td><td><b style="color:var(--ok)">C</b></td><td>问题—对策</td><td>目的与对策倒置（D）；选"理论型"表述（A）</td></tr>
+            <tr><td>4</td><td>释放消费潜力</td><td><b style="color:var(--ok)">C</b></td><td>递进回扣</td><td>停在"扩大内需"大方向；用"长远"替换整体目的</td></tr>
+            <tr><td>5</td><td>基层执法赋权</td><td><b style="color:var(--ok)">B</b></td><td>归纳/对策</td><td>"加快下放"与文意相反；分对策与成效张冠李戴</td></tr>
+            <tr><td>6</td><td>生态产品核算</td><td><b style="color:var(--ok)">B</b></td><td>问题—对策</td><td>偷换目的为"监管"；把"服务平台"当"管理平台"</td></tr>
+            <tr><td>7</td><td>净息差与实体经济</td><td><b style="color:var(--ok)">D</b></td><td>理论—实践</td><td>停在理论层（A/B）；"降低"被换成"保持合理"</td></tr>
+            <tr><td>8</td><td>造敌之隙</td><td><b style="color:var(--ok)">D</b></td><td>理论—实践</td><td>中心动作认错：乘／辨／察 ≠ 造</td></tr>
+            <tr><td>9</td><td>高精尖产业</td><td><b style="color:var(--ok)">D</b></td><td>理论—实践</td><td>场域漂移（城市群／我国）；把手段说成目标</td></tr>
+            <tr><td>10</td><td>食药追溯体系</td><td><b style="color:var(--ok)">D</b></td><td>转折—问题</td><td>把执行层的"缺合力"说成制度"待完善"</td></tr>
+            <tr><td>11</td><td>个人信息连带责任</td><td><b style="color:var(--ok)">B</b></td><td>争议—结论</td><td>选法理层（C）；时态偷换"应明确"（D）</td></tr>
+            <tr><td>12</td><td>水电费纳入征信</td><td><b style="color:var(--ok)">B</b></td><td>时评</td><td>把观点抽象成原则，丢掉"水电费"这一锚</td></tr>
+            <tr><td>13</td><td>手机像素与画质</td><td><b style="color:var(--ok)">D</b></td><td>科普·接语</td><td>选"技巧"类（文体错位）；选已说过的内容</td></tr>
+            <tr><td>14</td><td>两头下注策略</td><td><b style="color:var(--ok)">C</b></td><td>顺推·指代</td><td>"这种"回填到机制，而非机制产生的两个群体</td></tr>
+            <tr><td>15</td><td>西风带</td><td><b style="color:var(--ok)">A</b></td><td>顺推</td><td>停在成因或中间环节，丢掉"中纬度极端天气"</td></tr>
+            <tr><td>16</td><td>行政复议</td><td><b style="color:var(--ok)">A</b></td><td>理论—总对策</td><td>把隐喻"抓末端"二次概括成"具体问题具体分析"</td></tr>
+            <tr><td>17</td><td>区块链与基层治理</td><td><b style="color:var(--ok)">B</b></td><td>问题—对策</td><td>只选原因层（A）或只选问题层（D）</td></tr>
+            <tr><td>18</td><td>经济带与经济发展轴</td><td><b style="color:var(--ok)">A</b></td><td>归纳/对策</td><td>把对策（经济轴）说成目标（D）；手段当中心（C）</td></tr>
+            <tr><td>19</td><td>公共法律服务</td><td><b style="color:var(--ok)">C</b></td><td>问题—对策</td><td>对策不带问题（A）；因果倒置（B）</td></tr>
+            <tr><td>20</td><td>数智化治理平台</td><td><b style="color:var(--ok)">A</b></td><td>目标—抓手</td><td>落到"基层"这一小切口，丢掉"城市智治"全局</td></tr>
+            <tr><td>21</td><td>秋老虎与心梗</td><td><b style="color:var(--ok)">D</b></td><td>归纳+呼吁</td><td>并列概括（C）丢掉呼吁与"秋老虎"锚点</td></tr>
+            <tr><td>22</td><td>土地适度规模经营</td><td><b style="color:var(--ok)">C</b></td><td>归纳</td><td>"权属"≠"经营权"；选任一分支（B）</td></tr>
+            <tr><td>23</td><td>颠覆性技术与空袭</td><td><b style="color:var(--ok)">D</b></td><td>总分+趋势</td><td><span class="pill p-cau">争议</span>常规思路选 A，官方偏"未来趋势+防御视角"</td></tr>
+            <tr><td>24</td><td>AI模仿人声侵权</td><td><b style="color:var(--ok)">A</b></td><td>现象—法理</td><td><span class="pill p-cau">争议</span>讲义主张 B；设问是"主要介绍"，重心在后半段法律界定</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4 : QUESTIONS ================= -->
+    <section id="qs">
+      <div class="sec-head"><span class="num">04</span><h2>24 题逐题解剖</h2><span class="sub">先自己做，再展开</span></div>
+      <p class="sec-note">每题答案默认模糊处理。做法：<strong>先读题干 → 自己在纸上写层次标签 → 选答案 → 再展开对解析</strong>。顺序反过来，这套复盘就白做了。</p>
+
+      <div class="filters">
+        <span class="lab">模型</span>
+        <button class="chip on" data-f="all">全部<small>24</small></button>
+        <button class="chip" data-f="问题对策">问题—对策<small>7</small></button>
+        <button class="chip" data-f="递进回扣">递进回扣<small>1</small></button>
+        <button class="chip" data-f="理论实践">理论—实践<small>3</small></button>
+        <button class="chip" data-f="时评观点">时评/观点<small>3</small></button>
+        <button class="chip" data-f="顺推科普">顺推/科普<small>4</small></button>
+        <button class="chip" data-f="归纳">归纳/转折/标题<small>6</small></button>
+        <div class="searchbox">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="search" placeholder="搜关键词，如 时态 / 区块链">
+        </div>
+      </div>
+
+      <!-- ============ Q1 ============ -->
+      <article class="q" id="q1" data-model="问题对策" data-k="社会心态 培育 社会治理 服务体系 心理疏导 以偏概全">
+        <header class="q-head">
+          <div class="q-no">01</div>
+          <div class="q-title">
+            <h3>社会转型期的健康社会心态</h3>
+            <div class="q-tags"><span class="tag m">问题—对策型</span><span class="tag">干扰项高发：载体当中心</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>B</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer prob"><div class="lt">① 问题</div><div class="lc">在急剧的社会转型中，各种社会问题难免会对民众的社会心态<u>造成负面影响</u>，使得民众在社会态度、社会认知、社会情绪方面出现消极的变化。</div></div>
+            <div class="layer sig"><div class="lt">② 意义</div><div class="lc"><u>这也说明了</u>“培育人民自尊自信、理性平和、积极向上的社会心态”对当今社会治理的<u>重要性和迫切性</u>。<span class="key">判断句：作者在这里给出了自己的评价。</span></div></div>
+            <div class="layer act"><div class="lt">③ 对策</div><div class="lc"><u>同时，它也提示了</u>社会心理服务体系建设的具体方向和策略，即社会心态培育主要<u>通过</u>心理疏导和干预、个体心态和群体心态的培育<u>等方式</u>……最终维护社会的和谐与稳定。<span class="key">只是“怎么做”，是执行层。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>社会转型带来心态问题（①）→ <b>所以要注重培育健康社会心态（②）</b>→ 靠体系、靠疏导与群体培育（③）。②是判断，③是执行；中心是“培育”，不是“体系”。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">推进社会心理服务体系建设有重要意义</span><span class="why"><em>主体嫁接＋层级降级。</em>文段给“体系建设”的定位只是“具体方向和策略”，是个载体；而“重要性和迫切性”这个评价，指向的是“培育社会心态”，不是“体系建设”。作者夸的是目的，选项夸的是手段。</span></div></div>
+            <div class="opt right"><div class="ol">B</div><div class="oc"><span class="tx">社会转型期要注重健康社会心态的培育</span><span class="why">三层全接住：<b>社会转型期</b>咬住①的背景，<b>注重培育</b>是②的核心判断，③正好补足“怎么培育”。这是唯一一个“主体＋动作＋背景”全中的选项。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">民众的社会心态容易受社会问题的影响</span><span class="why"><em>停在问题层。</em>只对应①，而①只是引子，作用是把话题引出来。停在“因”上，没有回答“所以呢”。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">社会心态的培育离不开心理疏导和干预</span><span class="why"><em>两处硬伤。</em>①以偏概全：心理疏导和干预只是“主要通过……等方式”里的并列项之一，后面还有“个体心态和群体心态的培育”；②无中生有：原文说的是“主要通过”，选项改成“离不开”。用加强削弱思维验一遍——要论证“A 离不开 B”，至少要说明“没有 B，A 会怎样”，文段没有这一步。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>看到“××体系建设”“××平台”“××机制”这种名词化的载体，先反问一句：作者夸的到底是这个载体，还是它服务的那个目的？国考非常喜欢拿载体去替换目的。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q6">Q6</a><a href="#q20">Q20</a>（都是“手段被当中心”）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q2 ============ -->
+      <article class="q" id="q2" data-model="顺推科普" data-k="太阳系 元素 分布 行星 主体 举例 说明文">
+        <header class="q-head">
+          <div class="q-no">02</div>
+          <div class="q-title">
+            <h3>太阳系中元素的分布</h3>
+            <div class="q-tags"><span class="tag m">顺推 / 说明文</span><span class="tag t">设问：主要介绍</span><span class="tag">按空间分层</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>C</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer thr"><div class="lt">① 引子</div><div class="lc">在整个宇宙中，氢是最常见的元素，现今太阳中大约75%是氢。<u>据此可以推测</u>，太阳系在形成的时候，主要成分也应该是氢元素。<span class="key">功能：给出一个“起点结论”，后面就被超越了。</span></div></div>
+            <div class="layer sta"><div class="lt">② 转折</div><div class="lc"><u>随着</u>太阳的形成，太阳系绝大部分物质都集中到了太阳，<u>而在太阳之外，元素发生了分层</u>：<span class="key">这一句是全文的“总”，后面全是“分”。</span></div></div>
+            <div class="layer sta"><div class="lt">③ 分述</div><div class="lc"><u>靠近太阳的地方</u>，温度很高，只留下硅、铁、氧等相对较重的元素……形成水星、金星、地球等岩质行星；</div></div>
+            <div class="layer sta"><div class="lt">④ 分述</div><div class="lc"><u>在逐渐远离太阳的地方</u>，温度降低，元素比例也逐渐降低，行星的大气成分就以氢为主，还有一些氦，如木星、土星等；</div></div>
+            <div class="layer sta"><div class="lt">⑤ 分述</div><div class="lc"><u>而在太阳系边缘</u>，星体中的重元素已经很少，大多以水冰、甲烷等为主。</div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>主体是<b>元素</b>，骨架是<b>空间推移</b>（太阳之中 → 太阳之外：靠近／远离／边缘）。中心＝“太阳系中不同元素随位置而分层分布”。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">温度对太阳系物质构成的影响</span><span class="why"><em>把论据当中心。</em>温度只出现在③④里，用来解释“为什么会分层”，是<em>机制</em>不是<em>对象</em>。全文真正的分层依据是“离太阳的距离”，温度只是这个距离的伴随现象。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">氢元素对于太阳系形成的意义</span><span class="why"><em>以偏概全。</em>只覆盖①这一句引子。而且①的功能是“推测的起点”，是铺垫，不是结论。</span></div></div>
+            <div class="opt right"><div class="ol">C</div><div class="oc"><span class="tx">太阳系中不同元素的分布情况</span><span class="why">“太阳之中”（①）＋“太阳之外的三段分层”（③④⑤）一个都不落，且用的是“分布”这个中性说明词，与“主要介绍”的说明性设问完全对味。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">太阳系各行星的元素构成情况</span><span class="why"><em>主体偷换＋以偏概全。</em>①“太阳”不是行星，被排除在“各行星”之外；②行星在文中只是举例（“就形成了水星、金星、地球”“如木星、土星”），论述主体始终是“元素”。举例名词绝不能升格为主体。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>说明文按“对象／空间”分层，分层依据词（太阳之外、靠近、远离、边缘）就是文章骨架。凡是文中以“如／就形成了”出现的名词，都是例子，不是主体。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q15">Q15</a>（顺推，中心在最末端）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q3 ============ -->
+      <article class="q" id="q3" data-model="问题对策" data-k="数字经济 劳动者 权益 法律 协同 目的倒置 对策">
+        <header class="q-head">
+          <div class="q-no">03</div>
+          <div class="q-title">
+            <h3>新就业形态劳动者权益保护</h3>
+            <div class="q-tags"><span class="tag m">问题—对策型</span><span class="tag">干扰项高发：目的倒置</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>C</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer prob"><div class="lt">① 问题</div><div class="lc">在数字经济时代，因为用工关系的多样化、灵活化、去组织体化、去劳动关系化等特征，市场配置劳动力资源的一面更加凸显，<u>就更需要</u>回到市场经济的一般法律体系，从数字经济协同治理的角度考虑<u>新就业形态劳动者权益保护的问题</u>。<span class="key">先立“问题域”：数字经济＋新就业形态＋权益保护。</span></div></div>
+            <div class="layer sta"><div class="lt">② 并列</div><div class="lc">劳动法的制度和思路<u>处于兜底保障的位置</u>，是一种<u>末端</u>解决问题的思路；</div></div>
+            <div class="layer sta"><div class="lt">③ 并列</div><div class="lc">其他市场经济的法律<u>处于优化产业和市场秩序的位置</u>，是一种<u>前端</u>解决问题的思路。</div></div>
+            <div class="layer act"><div class="lt">④ 对策</div><div class="lc"><u>源头治理与兜底保障相结合</u>，<u>才能</u>更好实现产业有序发展与新就业形态劳动者权益维护的平衡。</div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>问题：数字经济下新就业形态劳动者的权益保护 → 对策：<b>前端（其他市场经济法律）＋末端（劳动法）相结合</b>。中心＝“法律体系协同”，且必须咬住“数字经济时代劳动者权益”。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">劳动法与市场经济的其他法律是相辅相成的</span><span class="why"><em>双重问题。</em>①性质错：这是“关系判断／理论型表述”，本文是问题对策型，中心必须落到“怎么做”；②内容错：丢掉了“数字经济时代”“新就业形态劳动者权益”这一整个问题域，抽象成两法关系。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">新就业形态下劳动者权益维护思路亟待更新</span><span class="why"><em>自我加戏。</em>“亟待更新”要成立，得论证旧思路之弊、为何非改不可。文段只说了新思路是什么（结合），没有一句在批旧思路。而且原文关键词是“结合”，不是“更新”。</span></div></div>
+            <div class="opt right"><div class="ol">C</div><div class="oc"><span class="tx">数字经济时代劳动保障需加强法律体系协同</span><span class="why">问题域（数字经济时代劳动保障）＋对策（法律体系协同＝源头治理与兜底保障相结合），两项全中，且用了“需”这个对策标记词。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">维护劳动者权益才能更好促进数字经济发展</span><span class="why"><em>目的与对策倒置。</em>原文：对策＝法律协同；目的＝权益维护与产业有序发展的平衡。D 把“维护权益”（目的）当成对策，把“促进数字经济发展”（更上位的目的）当成结果。方向整个反过来了。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>“A 与 B 相辅相成／相互促进”这种关系陈述，永远不会是问题对策型的答案。看到“才能”两个字，先分清谁是为了谁：能不能用“为了 A 而做 B”替换回去，替换不通就是倒置。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q18">Q18</a>（对策被说成目标）、<a href="#q23">Q23</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q4 ============ -->
+      <article class="q" id="q4" data-model="递进回扣" data-k="消费潜力 扩大内需 高质量发展 特别是 递进 层级">
+        <header class="q-head">
+          <div class="q-no">04</div>
+          <div class="q-title">
+            <h3>释放消费潜力与高质量发展</h3>
+            <div class="q-tags"><span class="tag m">递进回扣型</span><span class="tag">“特别是”＝作者画的重点线</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>C</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 现状</div><div class="lc">我国经济<u>已</u>由高速增长阶段转向高质量发展阶段，这是一个重要转变。</div></div>
+            <div class="layer prob"><div class="lt">② 问题</div><div class="lc">一个时期以来，传统投资驱动的经济增长模式<u>已经难以为继</u>；同时经济全球化遭遇逆流，大进大出的环境条件已经变化，<u>不可能单纯依靠出口</u>实现经济发展质的提升。</div></div>
+            <div class="layer act"><div class="lt">③ 对策</div><div class="lc"><u>因此，必须</u>……建立起扩大内需的有效制度，<u>特别是要</u>更好更充分<u>释放消费潜力</u>。<span class="key">“特别是”＝递进，作者亲手把重心挪到了后半句。</span></div></div>
+            <div class="layer sig"><div class="lt">④ 成效</div><div class="lc">消费作用的不断强化，<u>能有效</u>降低我们对出口和投资的依赖，有利于经济长远发展，促进经济内外平衡发展，实现提质增效。<span class="key">整段都在给“消费”做背书，不是给“扩大内需”整体。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>中心在③里被“特别是”标出来的那一截：<b>释放消费潜力</b>。④的回扣句主语也是“消费作用”。所以中心是“释放消费潜力→高质量发展”，不是笼统的“扩大内需”。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">高质量的经济发展需重点平衡好质与量的关系</span><span class="why"><em>无中生有。</em>全文没有讨论“质与量”的关系，这是拿“高质量发展”四个字自由联想出来的。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">单纯依靠出口实现经济发展的模式亟待改变</span><span class="why"><em>停在问题层。</em>只对应②，是“旧模式要改”；而文段已经给出了“怎么改”（扩大内需＋释放消费）。只答病不答药。</span></div></div>
+            <div class="opt right"><div class="ol">C</div><div class="oc"><span class="tx">释放消费潜力有利于推动经济高质量发展</span><span class="why">对策（释放消费潜力）＋目的（高质量发展，由④的“长远／平衡／提质增效”共同指向），与③④严丝合缝。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">优化扩大内需制度是经济长远发展的关键</span><span class="why"><em>两处问题。</em>①层级停得太高：扩大内需是宏观方向，“特别是”已经把它具体化了；②目的被切片：“经济长远发展”只是④三个目的之一，还有“内外平衡”“提质增效”，用一片代替整体。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>“特别是／更重要的是／关键在于”是作者亲手画的重点线，有它就别停在它前面那一层。<br><b>但要和下面对比着记：</b>本篇具体抓手之后，回扣句的主语是“消费作用”→所以选具体层；<a href="#q20">Q20</a> 抓手之后回扣的是“城市治理整体”→所以不能滑到抓手。<b>判断标准只有一条：回扣句在夸谁。</b></div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">对照：<a href="#q20">Q20</a>（同一组陷阱的反面）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q5 ============ -->
+      <article class="q" id="q5" data-model="归纳" data-k="执法权限 赋权 精准 动态调整 目录 张冠李戴 分对策">
+        <header class="q-head">
+          <div class="q-no">05</div>
+          <div class="q-title">
+            <h3>基层执法的“精准赋权”</h3>
+            <div class="q-tags"><span class="tag m">归纳型 / 问题—对策</span><span class="tag">无总对策，自己概括</span><span class="tag">张冠李戴</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>B</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer thr"><div class="lt">① 理论</div><div class="lc"><u>足够的执法权限是基层治理高效运行的必要条件</u>。<span class="key">全文的推理前提，后面的对策都在服务它。</span></div></div>
+            <div class="layer prob"><div class="lt">② 问题</div><div class="lc">权限<u>不足</u>，可能导致……“看得见的管不着”的低效治理困境；<u>但</u>权限如果<u>过度下放</u>，又可能出现“接不住、管不好”的现象。<span class="key">两面夹击：不足不行，过度也不行 → 隐含标准＝“适度／精准”。</span></div></div>
+            <div class="layer act"><div class="lt">③ 对策A</div><div class="lc"><u>因此，一方面需要</u>进一步完善执法目录动态调整机制和制度，确保执法职能<u>精准划转</u>、行政职权<u>科学配置</u>；</div></div>
+            <div class="layer act"><div class="lt">④ 对策B</div><div class="lc"><u>另一方面需要</u>加快完善基层执法事项基准库，建立基层执法事项指导目录，确保执法事项在基层供需<u>精准对接</u>、有效贯通执行、全面落实落细。</div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>没有“总对策”，只有两个并列分对策 → <b>要用“问题／目的”去统领</b>：②的矛盾是“不足或过度”，所以两个分对策共同的指向就是——<b>赋权要精准、要科学动态调整</b>。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">重视“基层执法”，提升基层执法服务效果</span><span class="why"><em>泛化脱靶。</em>文段谈的是“执法权限的配置”，选项放大成“基层执法”；“服务效果”原文无据。</span></div></div>
+            <div class="opt right"><div class="ol">B</div><div class="oc"><span class="tx">围绕“精准赋权”，科学动态调整执法权属</span><span class="why">“精准”正好对上了“不足／过度”这对矛盾（本质都是不精准）；“科学动态调整”直接对应③原文表述。是唯一能同时统领两个分对策的概括。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">加快“权限下放”，精准对接基层执法需求</span><span class="why"><em>方向反了。</em>文段明确警示“过度下放”会“接不住、管不好”，C 却主张“加快下放”。另外“精准对接”只截了④的成效。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">调整“执法目录”，落实落细基层执法事项</span><span class="why"><em>张冠李戴。</em>“调整执法目录”是③的手段，“落实落细执法事项”是④的成效，被硬焊在一起；同时漏掉了③的“精准划转、科学配置”。<b>识别方法：把选项的两个短语分别回填到不同分支，就是拼装项。</b></span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>两个并列分对策时，正确答案往往不是其中任何一个，而是它们共同服务的那个“标准”（这里＝适度／精准）。凡是把 A 分支的手段和 B 分支的成效拼在一起的选项，一律排除。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q6">Q6</a><a href="#q16">Q16</a><a href="#q17">Q17</a>（都是“总分对策”结构）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q6 ============ -->
+      <article class="q" id="q6" data-model="问题对策" data-k="生态产品 核算 平台 数字技术 目的词 以偏概全">
+        <header class="q-head">
+          <div class="q-no">06</div>
+          <div class="q-title">
+            <h3>生态产品价值的核算效能</h3>
+            <div class="q-tags"><span class="tag m">问题—对策型</span><span class="tag t">设问：主要讲的是</span><span class="tag">目的词＝核算</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>B</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer prob"><div class="lt">① 问题</div><div class="lc">如何<u>精准评估</u>生态产品的受益主体与范围，<u>准确核算</u>产品的价值量，是实现生态产品价值<u>绕不开的问题</u>，鼓励研发自然资源资产信息化管理平台是<u>主要途径之一</u>。<span class="key">先抛“问题”，再给“手段”。问题里的动词就是全文的目的词。</span></div></div>
+            <div class="layer act"><div class="lt">② 对策1</div><div class="lc">将资产负债表所涉资源信息和<u>评估核算模块</u>录入系统，依托技术、数据，叠加功能图形信息，形成自然资源资产“一张图”信息化管理平台。</div></div>
+            <div class="layer act"><div class="lt">③ 对策2</div><div class="lc"><u>还应</u>鼓励<u>有条件的城市</u>建设生态系统生产总值数字化服务平台……绘制生态产品价值地图，实现<u>精细化动态核算</u>。</div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>两个分对策（管理平台／服务平台）是<b>手段</b>，共同目的只有一个：<b>评估＋核算价值量</b>。所以中心＝“用数字技术提升生态产品价值的核算效能”。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">开发信息化管理平台，提升生态产品监管水平</span><span class="why"><em>偷换目的。</em>原文反复出现的是“评估／核算”，从头到尾没有“监管水平”。平台只是手段之一，还被当成了主语。</span></div></div>
+            <div class="opt right"><div class="ol">B</div><div class="oc"><span class="tx">利用数字技术，增强生态产品价值的核算效能</span><span class="why">手段（数字技术，涵盖“依托技术、数据”“大数据、云计算”）＋目的（核算效能），两个分对策都能被它吞下，且没有越界。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">建设统一的服务平台，实现生态资源系统管理</span><span class="why"><em>三处错。</em>①“服务平台”只是③那个“有条件的城市”才建的分对策，被当成总对策；②“统一”“系统管理”原文没有；③丢掉“核算”这个目的词。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">整合自然资源资产，推动数字化管理平台建构</span><span class="why"><em>限定丢失＋停在手段。</em>原文是“鼓励<b>有条件的城市</b>建设”，D 写成普遍做法；且仍然停在“建平台”，没回应“核算价值量”。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>分对策特别多的时候，盯住它们共同的“为什么”。<b>反复出现的动词（核算）比反复出现的名词（平台）更接近中心。</b></div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q1">Q1</a>（载体当中心）、<a href="#q20">Q20</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q7 ============ -->
+      <article class="q" id="q7" data-model="理论实践" data-k="净息差 银行 实体经济 金融 理论 实践 偷换对策">
+        <header class="q-head">
+          <div class="q-no">07</div>
+          <div class="q-title">
+            <h3>净息差、实体经济与银行</h3>
+            <div class="q-tags"><span class="tag m">理论—实践型</span><span class="tag">实践不是例子</span><span class="tag">偷换对策动词</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>D</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer thr"><div class="lt">① 理论</div><div class="lc">经济是肌体，金融是血脉，两者共生共荣。银行利润建立在企业发展的基础上，实体经济如果没有足够的利润率或者盈利能力，银行是没有办法获得持续发展和盈利空间的。<span class="key">这一层只证明了一件事：实体好 → 银行才好。</span></div></div>
+            <div class="layer act"><div class="lt">② 实践</div><div class="lc"><u>而当前</u>净息差的降低，使企业从银行获得了低成本贷款，能够极大减轻企业经营发展负担……进而实现高质量发展。</div></div>
+            <div class="layer sig"><div class="lt">③ 回扣</div><div class="lc"><u>唯有</u>实体经济规模扩大、效益改善、质量提升，银行<u>才能</u>获得自身高质量发展的坚实基础。</div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>推理链：①「实体好→银行好」＋②「降净息差→实体好」 ⇒ <b>降净息差→银行也好</b>。作者写①②这么多，是为了让②这个举措站得住，所以中心是②及其双赢效果。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">银行的盈利空间与企业盈利能力相辅相成</span><span class="why"><em>停在理论层。</em>只对应①；而且“企业盈利能力”偷换了“实体经济”这个主体；最重要的是把“净息差”这个真正的落点丢了。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">经济的稳定与繁荣是金融持续发展的根基</span><span class="why"><em>同样停在理论层。</em>“根基”这个判断在①里就有，但文段写它只是为了给②做铺垫。只读第一层，就会选它。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">银行要稳健发展须保持合理的净息差水平</span><span class="why"><em>偷换对策动词。</em>原文是“净息差的<b>降低</b>”（已经发生，且被正面评价），C 改成“<b>保持合理水平</b>”——暗含“现在不合理”，方向被偷偷改掉了。这就是讲义里“吃螺蛳粉→吃桂林米粉”的同类坑。</span></div></div>
+            <div class="opt right"><div class="ol">D</div><div class="oc"><span class="tx">降低净息差有助于促进企业和银行的共赢</span><span class="why">对策（降低净息差）＋目的（企业减负高质量发展、银行获得坚实发展基础）全对上，把②③两层都收进去了。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>理论—实践型里，理论层写得最多、最漂亮，最容易诱人。<b>但理论写这么多，是为了让后面那个具体举措站得住。</b>实践层不是例子，是老大。<br>区分“例子”与“实践”的唯一标准：例子的逻辑与前面宏观逻辑<b>同构</b>；实践是“还没做到、迫切需要”，本质是问题＋对策。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">对照：<a href="#q9">Q9</a>（真例子）、<a href="#q18">Q18</a>（比如…＝例子）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q8 ============ -->
+      <article class="q" id="q8" data-model="理论实践" data-k="谋略 敌之隙 造 乘 察 辨 标题 中心动作">
+        <header class="q-head">
+          <div class="q-no">08</div>
+          <div class="q-title">
+            <h3>“造敌之隙”：标题题考的是中心动作</h3>
+            <div class="q-tags"><span class="tag m">理论—实践型</span><span class="tag t">设问：标题</span><span class="tag">四选项＝同一动作的四个版本</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>D</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer thr"><div class="lt">① 理论</div><div class="lc">兵法中说“必胜之术，合变之形，妙在于乘”，<u>强调作战中乘敌之隙的重要性</u>。<span class="key">“乘”＝用现成的隙。这只是引子。</span></div></div>
+            <div class="layer prob"><div class="lt">② 问题</div><div class="lc">战场上激烈角逐中，战机从来不是无缘无故就有的，<u>敌之隙不可能轻而易举地得到</u>，它是双方指挥员进行谋略博弈的结果，<u>离不开</u>指挥员发挥主观能动性去<u>创造</u>，离不开指挥员运用各种手段去<u>促成</u>。</div></div>
+            <div class="layer act"><div class="lt">③ 对策</div><div class="lc">信息化战争中，要<u>充分运用谋略</u>，善用战术技术手段，灵活运用隐真示假、声东击西等方法，诱惑敌人产生错觉，<u>从而产生</u>部署失误、行动失当等“隙”。</div></div>
+            <div class="layer sig"><div class="lt">④ 成效</div><div class="lc">使有准备之敌变成毫无准备之敌……并伺机击敌，达成作战胜利。</div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>中心动作＝<b>造</b>。①说“乘”很重要 → ②但隙不会白来，得主动创造 → ③信息化战争中怎么造 → ④造出来有什么用。全文都在回答“隙从哪来”。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">科学预见，敢于乘敌之隙</span><span class="why"><em>停在引子。</em>“乘”是①的立场，而②明确否定了“隙可以现成地乘”这个前提。选A 等于没读到“不可能轻而易举地得到”。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">沉着冷静，精于辨敌之隙</span><span class="why"><em>无中生有。</em>全文没有“辨别／判断”这一动作，“沉着冷静”更是原文没有的气质描写。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">运用谋略，善于察敌之隙</span><span class="why"><em>两处错。</em>①“察”（观察发现）与原文的“创造／促成”方向相反；②“运用谋略”只是③里造隙的手段之一，被当成了中心动作。</span></div></div>
+            <div class="opt right"><div class="ol">D</div><div class="oc"><span class="tx">主动作为，工于造敌之隙</span><span class="why">“主动作为”＝②的“发挥主观能动性”；“造”＝③的“诱惑敌人产生错觉，从而产生隙”。四个选项本质是同一动作的四个版本，考的就是你有没有读到“创造”二字。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>标题题第一步不是通读，是把四个选项的<b>中心动词圈出来</b>（乘／辨／察／造），再回原文找作者真正主张的那个。第二步才是加锚点（对象、场域），第三步才是看吸引力。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类标题题：<a href="#q20">Q20</a><a href="#q21">Q21</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q9 ============ -->
+      <article class="q" id="q9" data-model="理论实践" data-k="高精尖 京津冀 协同 城市群 场域 例子">
+        <header class="q-head">
+          <div class="q-no">09</div>
+          <div class="q-title">
+            <h3>“高精尖”产业与京津冀协同</h3>
+            <div class="q-tags"><span class="tag m">理论—实践型</span><span class="tag">干扰项高发：场域漂移</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>D</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer thr"><div class="lt">① 理论</div><div class="lc">“高精尖”产业是辐射带动力强的产业集群，对经济具有极强的拉动作用，不仅能实现中心城市的经济高质量发展，而且能带动周边地区的产业联动转型。</div></div>
+            <div class="layer sta"><div class="lt">② 实践</div><div class="lc"><u>京津冀协同发展中</u>，产业对接协作是区域战略的核心内容之一，产业升级是三地的共同任务，在疏解非首都核心功能的过程中，天津和河北是北京产业转移的主要承接者。<span class="key">场域收窄到“京津冀”，后面全都在这块地上说话。</span></div></div>
+            <div class="layer prob"><div class="lt">③ 问题</div><div class="lc"><u>然而</u>，两地仅简单承接北京转移的一般产业是<u>远远不够</u>的，</div></div>
+            <div class="layer act"><div class="lt">④ 对策</div><div class="lc"><u>迫切需要</u>发展“高精尖”产业，带动区域科技创新与成果转化，促进区域产业联动，形成经济协同发展的格局。</div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>①给理论（高精尖很重要）→ ②③把镜头对准京津冀，指出“只承接一般产业不够” → ④所以京津冀迫切需要发展高精尖产业。<b>中心＝对京津冀协同发展的意义</b>。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">“高精尖”产业承担着高水平创新的重大使命</span><span class="why"><em>只截了理论层的一角。</em>“带动科技创新”只是④三个效果中的一个；而且完全脱离“京津冀”这个具体场域，变成一句放之四海皆准的表态。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">形成“高精尖”产业是城市群建设的长远目标</span><span class="why"><em>场域漂移＋手段变目标。</em>文段说的是“京津冀协同发展”，B 换成“城市群建设”；另外原文是“迫切需要发展”，是对策，B 说成“长远目标”，性质被换了。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">我国区域经济发展应以“高精尖”产业为依托</span><span class="why"><em>范围无限放大。</em>京津冀 → 我国，一个具体区域的经验被升格成全国方针；“依托”也太空，丢掉了“协同发展”这个真正的目的。</span></div></div>
+            <div class="opt right"><div class="ol">D</div><div class="oc"><span class="tx">“高精尖”产业对京津冀协同发展有重要意义</span><span class="why">场域（京津冀）＋对象（高精尖产业）＋目的（协同发展），三项精确命中，既没放大也没缩小。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>理论—实践型一定要盯住<b>“实践落到哪个具体场域”</b>。选项把京津冀换成“城市群”“我国”，就是把一个具体判断偷换成普遍真理——听着都对，但已经不是这篇文章了。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">对照：<a href="#q18">Q18</a>（“比如……”才是真例子）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q10 ============ -->
+      <article class="q" id="q10" data-model="归纳" data-k="食品药品 追溯 制度 区域分割 部门合力 转折 时态">
+        <header class="q-head">
+          <div class="q-no">10</div>
+          <div class="q-title">
+            <h3>食药追溯体系：转折之后是重点</h3>
+            <div class="q-tags"><span class="tag m">转折—问题型</span><span class="tag">时态偷换（已/应）</span><span class="tag">层面偷换（制度/执行）</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>D</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 定义</div><div class="lc">食品药品安全追溯体系是依赖现代信息技术，对可能存在的食品药品安全隐患发出预警的一项制度。</div></div>
+            <div class="layer cau"><div class="lt">② 原因</div><div class="lc">它<u>之所以</u>被一些国家广泛采用，<u>是因为</u>一方面能降低监管部门信息获取成本，提升监管效率；另一方面也能倒逼企业提高安全意识，主动进行风险控制。</div></div>
+            <div class="layer sta"><div class="lt">③ 现状</div><div class="lc">这项制度<u>已</u>引进我国多年，<u>并体现在</u>相关法律法规以及行动规划中。<span class="key">“已”“体现在”——制度层面已经到位了。</span></div></div>
+            <div class="layer prob"><div class="lt">④ 问题</div><div class="lc"><u>但在实践中</u>，区域分割、部门分治等问题仍比较突出，<u>没有形成</u>高效的地方联动、部门合力，对解决食品药品安全问题缺少整体效果。<span class="key">转折后就是中心。全文没给对策，那中心就是这个问题本身。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>制度已经有了（③），但<b>执行层面缺“地方联动、部门合力”（④）</b>。中心＝需要多方合作形成合力。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">我国的食品药品安全追溯制度仍有待完善</span><span class="why"><em>两处偷换。</em>①层面：制度已引进、已进入法规（③），卡住的是执行联动，不是制度本身“不完善”；②程度：“仍有待完善”太大太宽泛，和“区域分割、部门分治”这个具体病灶对不上。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">完善的食品药品安全追溯体系有重要价值</span><span class="why"><em>只对应②。</em>这是背景介绍，回答“为什么值得引进”，不回答“现在怎么办”。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">相关部门应该加强对食品药品安全的监管</span><span class="why"><em>脱离问题。</em>文段的病灶是“分割、分治”，要求的是“联动、合力”，不是“加强监管力度”；而且“相关部门”这个主体也太窄。</span></div></div>
+            <div class="opt right"><div class="ol">D</div><div class="oc"><span class="tx">多方合作是解决食品药品安全问题的关键</span><span class="why">直接对上④的“地方联动、部门合力”，“多方合作”就是原文的另一种说法。中心落在问题上，且带对策意味，最贴合。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>①转折词（但／然而）之后的<b>问题层</b>常常就是中心，尤其当后文不再给对策时；②“已／已体现在”这类已然标记，是打掉“应完善／应明确”类选项的钥匙——<b>制度已经不缺，缺的是执行</b>。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类时态坑：<a href="#q11">Q11</a>（法律应明确）、<a href="#q23">Q23</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q11 ============ -->
+      <article class="q" id="q11" data-model="时评观点" data-k="个人信息 连带责任 争议 民法典 观点 时态">
+        <header class="q-head">
+          <div class="q-no">11</div>
+          <div class="q-title">
+            <h3>能否追究“下游违法者”的连带责任</h3>
+            <div class="q-tags"><span class="tag m">现象—争议—结论型</span><span class="tag">有争议就有答案</span><span class="tag">法理层是论据</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>B</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 背景</div><div class="lc">个人信息保护案件往往涉及非法收集、获取、提供、出售、购买、使用个人信息等多个环节，责任主体除了<u>已被追究刑事责任</u>的犯罪者外，还可能包括<u>下游的违法处理信息者</u>。</div></div>
+            <div class="layer prob"><div class="lt">② 争议</div><div class="lc">在民事公益诉讼案件办理中，<u>是否可以</u>连带追究下游违法者的赔偿责任，司法实践中<u>存在争议</u>。<span class="key">设问出来了：能不能？后面必然给答案。</span></div></div>
+            <div class="layer thr"><div class="lt">③ 法理</div><div class="lc"><u>根据民法典</u>，认定连带责任必须遵循法定或约定原则，在此原则指导下，个人信息保护法规定了共同处理者的连带责任。</div></div>
+            <div class="layer sig"><div class="lt">④ 结论</div><div class="lc"><u>因此</u>，当不同侵权主体主观具有共同过错，客观上实施了共同侵害个人信息权益的行为时，<u>可以依法追究</u>各侵权人的连带责任。</div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>争议是“能否追究下游违法者”→ 结论是“<b>可以依法追究</b>”。③的法条只是支撑④的论据，不能当中心。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">应该强化对犯罪者民事责任的追究</span><span class="why"><em>脱靶。</em>犯罪者“已被追究刑事责任”（①），文段的争议完全在“下游违法者”身上。A 把矛头指回了已经解决的那一头。</span></div></div>
+            <div class="opt right"><div class="ol">B</div><div class="oc"><span class="tx">应当依法追究下游违法者的赔偿责任</span><span class="why">正面回答了②的设问，与④“可以依法追究”一致，主体（下游违法者）、动作（追究赔偿责任）都对上。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">认定连带责任须在法定原则指导下进行</span><span class="why"><em>论据当中心。</em>这是③的内容，用来说明“为什么可以追究”，是推理链条的中间站，不是终点。选它等于把证明过程当结论。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">法律应明确案件中各侵权人的相关责任</span><span class="why"><em>时态偷换。</em>法律<b>已经</b>明确了（民法典＋个人信息保护法），所以作者才能得出“可以追究”。“应明确”是未然，与文意相反。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>出现“是否存在争议／能不能／是否应该”这种设问句，后面八成跟着作者的态度，<b>那才是中心</b>。另外记住一句话：<b>法条是论据，不是中心</b>——凡是以“根据××法规定”开头的句子，基本都是为结论服务的。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q12">Q12</a><a href="#q24">Q24</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q12 ============ -->
+      <article class="q" id="q12" data-model="时评观点" data-k="水电费 征信 误伤 审慎 时评 脱离现象 锚点">
+        <header class="q-head">
+          <div class="q-no">12</div>
+          <div class="q-title">
+            <h3>水电费纳入征信：时评必须咬住事件</h3>
+            <div class="q-tags"><span class="tag m">时评型（现象—观点）</span><span class="tag">脱离现象＝空中楼阁</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>B</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 现象</div><div class="lc"><u>不久前</u>，“水电费纳入征信”的传闻引起了公众的广泛关注。</div></div>
+            <div class="layer cau"><div class="lt">② 分析</div><div class="lc">从现有社会经济活动的精细程度看，征信这种数字式指标性评价，<u>未必能穷尽</u>经济生活中的所有可能性。疏忽、出差、留学、搬家、住院乃至因纠纷而暂停缴纳，均有可能造成水电费的拖欠，显然，这些突发状况<u>未必就能准确体现</u>“个人信用”。</div></div>
+            <div class="layer prob"><div class="lt">③ 后果</div><div class="lc"><u>倘若</u>将这些指标以一种窄口径列入统计，就<u>有可能造成误伤</u>。</div></div>
+            <div class="layer act"><div class="lt">④ 对策</div><div class="lc"><u>正因为</u>突发情况多，作为社会服务部门，<u>更要</u>尽到足够的提示、通知责任，并提供充足、便捷的补救渠道。</div></div>
+            <div class="layer sig"><div class="lt">⑤ 结论</div><div class="lc"><u>在相关准备不充分时</u>，水电费纳入征信<u>理应审慎推进</u>。<span class="key">作者态度句，全文落点。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>现象（水电费要进征信）→ 为什么不靠谱（会误伤）→ 该怎么办（补渠道）→ <b>结论：准备不充分，审慎推进</b>。中心必须同时含“水电费／征信”这个事件锚和“审慎”这个态度。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">选取征信指标应做到谨慎合理</span><span class="why"><em>脱离现象。</em>它把一篇针对具体新闻的时评，抽象成了一条通用原则。原则本身没错，但它已经不是在说这篇文章了——<b>“水电费”这个写作对象被抽掉了</b>。</span></div></div>
+            <div class="opt right"><div class="ol">B</div><div class="oc"><span class="tx">当下水电费不宜纳入征信系统</span><span class="why">事件锚（水电费＋征信）＋态度（不宜／审慎）＋时间限定（当下，对应“在相关准备不充分时”）。三项全中。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">服务工作的精细程度有待提高</span><span class="why"><em>以偏概全。</em>只截了④里的一个分对策（尽提示通知责任、给补救渠道），把它当成了全文中心，还丢掉了结论句。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">征信系统与日常活动密切相关</span><span class="why"><em>无中生有。</em>文段讨论的是“该不该纳入”，不是“两者关系密不密切”。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>时评类文章的观点必须<b>咬住它评论的那件事</b>。把观点抽象升格成一条普适原则（A），看着更“高级”，其实是脱离写作背景、脱离现象。<br>小提示：B 的“不宜”比原文“审慎推进”略硬，但作为最优项仍然成立——考场上遇到这种程度差异，选“事件＋态度”都在的那个。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q21">Q21</a>（锚点“秋老虎”）、<a href="#q24">Q24</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q13 ============ -->
+      <article class="q" id="q13" data-model="顺推科普" data-k="像素 拍照 进光量 接语 文体 科普">
+        <header class="q-head">
+          <div class="q-no">13</div>
+          <div class="q-title">
+            <h3>像素越高，拍照越好吗？（接语题）</h3>
+            <div class="q-tags"><span class="tag m">科普 · 顺推</span><span class="tag t">设问：接下来最有可能</span><span class="tag">文体意识</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>D</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 设问</div><div class="lc">人们在评判手机拍照功能时，总是直观地认为手机像素越高，拍照效果越好。<u>事实真的是这样吗？</u><span class="key">悬念句＝下文要解决的任务。</span></div></div>
+            <div class="layer cau"><div class="lt">② 原理</div><div class="lc">从成像原理来看，像素值的大小对生成的图像会产生一定的影响。当手机图像传感器面积一定的时候，像素值越高，单位像素面积就越小。而单位像素面积又直接影响到进光量，单位像素面积越小，进光量就越少，拍摄出的照片就会变得灰暗模糊；像素值越低，单位感光面积大，感光性能更好，因此在成像的高感光画质以及画面层次等方面都有更好的表现。<span class="key">已经回答了“像素不是越高越好”，答案是：关键在进光量／感光面积。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">接 语 逻 辑</span><div>上一段做完了两件事：<b>否定了“像素越高越好”</b>，并<b>解释了原因（进光量）</b>。那么下一步最自然的接续是：<b>那到底什么在影响成像效果？</b>（把“进光量”这个单因素扩展成一组因素）</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">阐述像素的定义及其提升途径</span><span class="why"><em>双重跑偏。</em>“像素是什么”上文已经交代得差不多（像素值↔单位像素面积）；“提升途径”偏离了本段“像素与画质的关系”这条论证线。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">介绍提高手机拍照效果的技巧</span><span class="why"><em>文体错位。</em>这是一篇讲成像原理的科普文，不是小红书上那种“拍照技巧”帖。全文一个“技巧”都没提过，突然转去教技巧，逻辑断裂。高频错选项往往就长这样：很实用、很亲切，但不是这篇文章。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">揭示进光量与像素值间的关系</span><span class="why"><em>已经说过了。</em>②里“像素值越高→单位像素面积越小→进光量越少”就是这层关系，接语不能重复上文。</span></div></div>
+            <div class="opt right"><div class="ol">D</div><div class="oc"><span class="tx">指出影响手机成像效果的因素</span><span class="why">承上（已否定单因素论）启下（那到底有哪些因素），且完全符合科普文的写法。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>接语题两把尺子：①<b>上文做到哪一步了</b>（是提出疑问、还是已经给了原理）；②<b>这是什么文体</b>（科普文不会去教技巧，时评不会去列数据）。用文体一票否决，比逐句分析快得多。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q21">Q21</a>（科普文标题的“抓人”属性）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q14 ============ -->
+      <article class="q" id="q14" data-model="顺推科普" data-k="休眠 幼苗群体 两头下注 指代 顺推 逻辑链">
+        <header class="q-head">
+          <div class="q-no">14</div>
+          <div class="q-title">
+            <h3>“两头下注”到底指什么（指代题）</h3>
+            <div class="q-tags"><span class="tag m">顺推型 · 指代</span><span class="tag t">设问：“××”指的是</span><span class="tag">“这种”回填陷阱</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>C</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 机制</div><div class="lc">条叶庭荠和四齿芥是沙漠中常见的两种短命植物，其新成熟种子具有生理休眠特性，传播后的种子能在夏季高温中通过后熟作用，进入非休眠状态，随后在秋季土壤湿度适宜时萌发。</div></div>
+            <div class="layer sta"><div class="lt">② 机制</div><div class="lc">未能在秋季萌发的种子，则会在冬季重新休眠。在早春湿润的雪融期，部分种子通过低温层积作用再次结束休眠，在早春季节萌发。</div></div>
+            <div class="layer act"><div class="lt">③ 效果</div><div class="lc"><u>这种一年两次的休眠循环机制</u>使其能在一年内<u>形成两个不同的萌发幼苗群体</u>。<span class="key">“这种”先指机制，机制的产物是“两个群体”。</span></div></div>
+            <div class="layer sig"><div class="lt">④ 意义</div><div class="lc"><u>这种适应策略</u>可能是植物长期适应荒漠降水和温度胁迫生境的一种“两头下注”策略，<u>有助于</u>它们在极端环境下的维持和繁衍。</div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>逻辑链是<b>顺推</b>：休眠循环机制 → 形成两个萌发群体 → 有助于极端环境下繁衍。④的“这种适应策略”承接的是整条链的<b>结果层</b>；“两头”下注的两个“头”＝两个幼苗群体。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">一年中在不同季节发生两次休眠</span><span class="why"><em>回填错位。</em>这是③“这种……机制”所指的内容，也就是“两头”的<b>载体</b>。但“下注”的落点不在机制本身，而在机制赌出来的东西。选 A 是把“怎么做的”当成了“赌的是什么”。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">在休眠与非休眠状态间随机切换</span><span class="why"><em>无中生有。</em>文段强调的是对季节（夏、秋、冬、早春）的<b>规律性响应</b>，恰恰不是随机。</span></div></div>
+            <div class="opt right"><div class="ol">C</div><div class="oc"><span class="tx">形成两个环境适应性不同的幼苗群体</span><span class="why">两个“头”＝两个萌发群体（秋萌／早春萌），这才叫“分散下注”——不把繁衍押在一个时间点上。与③④的推导完全咬合。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">能同时应对降水和温度两种极端环境</span><span class="why"><em>偷换“两头”。</em>“降水”和“温度”是文末提到的<b>生境胁迫</b>（环境条件），不是“下注”的对象。把并列的两个环境条件当成“两头”，是典型的近义拼接。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>指代题的关键动作：<b>判断“这种”指的是“机制”还是“机制的结果”</b>。做法是看句子主干——③的主语是机制，谓语是“使其形成两个群体”，那被强调的落点就是“两个群体”。<br>另外：这段话有两条现成的因果链（机制→群体、群体→繁衍），<b>凡是把链上不同环节拼在一起的选项，都是坑</b>。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q15">Q15</a>（顺推，停在中间环节就错）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q15 ============ -->
+      <article class="q" id="q15" data-model="顺推科普" data-k="西风带 温差 极涡 中纬度 极端寒潮 顺推 结果">
+        <header class="q-head">
+          <div class="q-no">15</div>
+          <div class="q-title">
+            <h3>西风带：解释的落点在最后</h3>
+            <div class="q-tags"><span class="tag m">顺推型</span><span class="tag t">设问：主要解释了</span><span class="tag">末端现象才是解释对象</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>A</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 是什么</div><div class="lc">中纬度地区高空的西风带，是在北极极涡外环绕全球一周的强大气流，由上升的赤道暖空气在向两极运动过程中受地球自转影响而偏转形成。</div></div>
+            <div class="layer cau"><div class="lt">② 机制</div><div class="lc">西风带就像是地球大气环流中的一根“皮筋儿”，其松紧程度<u>取决于</u>赤道和极地之间的温度差。</div></div>
+            <div class="layer cau"><div class="lt">③ 变化</div><div class="lc">当温差较大时，西风带流动较强，冷空气被束缚在极地。而随着全球变暖，南北温差减小，西风带环流变弱，这根“皮筋儿”变松了。</div></div>
+            <div class="layer prob"><div class="lt">④ 结果</div><div class="lc">当极涡分裂南下时，冷暖空气的南北交汇现象会变得更加剧烈。西风带上大尺度波动的增强，会使<u>中纬度地区的天气变得更加极端</u>，急剧降温，并且持续时间更长。<span class="key">全文的“为什么”，答案就在这一句。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>成因（①）→ 机制（②）→ 变化（③）→ <b>结果（④）</b>。①在西风带出现频率极高，但它只是背景；真正要解释的现象是“中纬度为什么会有极端寒潮”。</div></div>
+          <div class="opts">
+            <div class="opt right"><div class="ol">A</div><div class="oc"><span class="tx">为何中纬度地区会有极端寒潮天气</span><span class="why">正好接住④——西风带波动增强 → 中纬度天气更极端、急剧降温。这是全文解释链条的终点。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">为何中纬度地区高空会形成西风带</span><span class="why"><em>只对应①。</em>成因只是开场的背景交代，如果这是中心，后面三段就都成了废话。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">西风带的风力为何如此巨大而持久</span><span class="why"><em>无中生有。</em>文段讲的是“松紧／强弱／流动强弱”，从没讨论“巨大而持久”，更没给原因。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">西风带的风力为何与南北温差有关</span><span class="why"><em>停在中间环节。</em>②③确实在说这个，但它只是通往④的一段路。选 D 就是把“机制”当成了“结论”。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>顺推型文章，<b>“解释对象”永远在最末端</b>。中间环节（成因、机制、影响因素）都是论据，出现频次再高也不是中心。<br>一个自查动作：读完问自己“作者最想让我明白的那个现象是什么”——如果答案是“西风带是什么”，那这篇文章就没必要写后面三段。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q2">Q2</a><a href="#q14">Q14</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q16 ============ -->
+      <article class="q" id="q16" data-model="问题对策" data-k="行政复议 抓末端 治已病 行政管理 隐喻 总对策">
+        <header class="q-head">
+          <div class="q-no">16</div>
+          <div class="q-title">
+            <h3>“抓末端、治已病”：隐喻必须回填</h3>
+            <div class="q-tags"><span class="tag m">理论—总对策—分对策</span><span class="tag">二次概括陷阱</span><span class="tag">隐喻回填</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>A</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer thr"><div class="lt">① 理论</div><div class="lc">从行政管理链条看，制度建设处于<u>前端</u>，行政复议处于<u>末端</u>。</div></div>
+            <div class="layer sta"><div class="lt">② 作用</div><div class="lc">行政复议案件的产生，必然经过一般性行政管理规定、行政机关具体实施、产生具体行政行为、不服行政行为申请行政复议等环节。<u>每个复议案件或多或少反映了行政管理中存在的问题</u>。</div></div>
+            <div class="layer act"><div class="lt">③ 总对策</div><div class="lc">行政机关，特别是作为行政复议被申请人的行政机关，<u>要善于“抓末端、治已病”</u>。<span class="key">隐喻。必须回填＝抓行政复议。</span></div></div>
+            <div class="layer act"><div class="lt">④ 分对策</div><div class="lc">如果是<u>个案具体实施问题</u>，可以个案纠正；如果是<u>制度性、普遍性问题</u>，则要对制度进行查漏补缺；如果是<u>制定制度时不曾预见的新问题</u>，更要予以关注，适时进行规范，避免小问题变成大问题。</div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>“抓末端、治已病”＝<b>抓行政复议，用来治行政管理之病</b>。所以中心＝行政机关要善用行政复议来提升行政管理水平。④只是“怎么抓”，是分述。</div></div>
+          <div class="opts">
+            <div class="opt right"><div class="ol">A</div><div class="oc"><span class="tx">善用行政复议可以提升行政管理水平</span><span class="why">把隐喻回填成了实体（末端＝行政复议、已病＝行政管理中的问题），同时目的（提升行政管理水平）与主体（行政机关）都能对上。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">对行政复议案件要具体问题具体分析</span><span class="why"><em>最诱人的错项。</em>它是对④那三个“如果……”的二次概括，读起来非常顺。但它犯了两个错：①丢掉总对策“抓末端、治已病”；②“具体问题具体分析”是个万能词，<b>谁都能用，就等于没说</b>——它已经不再指向“行政复议”这件事了。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">行政管理链条是环环相扣的有机整体</span><span class="why"><em>只对应①。</em>是铺垫性理论，不含任何主张。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">行政复议案件是行政管理问题的外化</span><span class="why"><em>只对应②。</em>这句是“为什么要抓复议”的理由（论据），不是结论。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>遇到隐喻、俗语、口号式表述（抓末端治已病、下好先手棋、牵住牛鼻子），<b>必须回填成前文的实体概念</b>再判断。不回填，就会滑向“具体问题具体分析”这种放之四海皆准、实际上已经跑题的选项。<br>另一条：<b>不要自己二次概括分对策</b>。分对策写得越具体，越容易让人想“总结一下”，而这一总结往往就把中心总结没了。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q5">Q5</a><a href="#q17">Q17</a>（总对策 vs 分对策）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q17 ============ -->
+      <article class="q" id="q17" data-model="问题对策" data-k="区块链 基层治理 信任 多元主体 改革 对策">
+        <header class="q-head">
+          <div class="q-no">17</div>
+          <div class="q-title">
+            <h3>区块链与基层治理改革</h3>
+            <div class="q-tags"><span class="tag m">问题—对策型</span><span class="tag">只选原因层/问题层＝错</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>B</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer prob"><div class="lt">① 问题</div><div class="lc">在传统基层治理中，<u>缺乏</u>社会组织、市场等各主体的共同参与、质询和监督，<u>必然导致</u>政府公共服务能力下降、权力垄断和滥用等问题，容易弱化公众信任程度，引发社会信任危机。</div></div>
+            <div class="layer thr"><div class="lt">② 特性</div><div class="lc">区块链技术基于去中介信任机制、共识机制、协调共享机制，<u>适用于</u>多环节、多方协同参与且互不信任的场景。</div></div>
+            <div class="layer cau"><div class="lt">③ 契合</div><div class="lc"><u>而</u>信任是多元主体进行基层协同治理和互信规则建构的合作基础，区块链的算法信任机制与基层社会治理“公共性+信任”的价值追求<u>相契合</u>。<span class="key">这一层是“为什么能用它”的理由，属于论据。</span></div></div>
+            <div class="layer act"><div class="lt">④ 对策</div><div class="lc"><u>借助区块链技术</u>可以促进治理生态中双边信任向多边信任及社会公信的转变，<u>突破</u>传统国家治理体系所形成的认知固化和思维僵化。<span class="key">“突破传统治理体系”＝改革。落点在这里。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>问题（缺多元共治→信任危机）→ 区块链特性 → 与治理需求契合 → <b>结论：借助区块链推进基层治理改革</b>。选项必须同时含“区块链”和“治理变革”。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">健全信任机制是基层协同治理的条件</span><span class="why"><em>只对应③。</em>这是原因层，用来说明“为什么区块链管用”，本身就是论据。而且它把区块链整个抽掉了，等于没读这篇文章。</span></div></div>
+            <div class="opt right"><div class="ol">B</div><div class="oc"><span class="tx">区块链技术有助于推进基层治理改革</span><span class="why">手段（区块链）＋目的（突破传统治理体系＝改革）＋场域（基层治理），三层全收，且“有助于”这个语气与原文“可以”一致，没有过度拔高。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">区块链技术的应用能够提升政府公信力</span><span class="why"><em>两处偏差。</em>①以偏概全：“社会公信”只是④里“双边→多边→社会公信”这条转变链的一环；②偷换主体：原文是“社会公信”，C 换成“政府公信力”。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">治理生态离不开多元社会主体间的协作</span><span class="why"><em>只对应①的问题层。</em>是“病灶”不是“药方”，而且完全没有区块链。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>问题对策型文段里，<b>“对策”必须是选项的核心成分</b>。只讲问题（D）、只讲原因／契合性（A）的选项，一律出局——它们都只完成了论证的一半。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q10">Q10</a><a href="#q19">Q19</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q18 ============ -->
+      <article class="q" id="q18" data-model="归纳" data-k="经济带 经济发展轴 交通干线 区域协调 例子 目的倒置 标题">
+        <header class="q-head">
+          <div class="q-no">18</div>
+          <div class="q-title">
+            <h3>经济带、经济发展轴与区域协调</h3>
+            <div class="q-tags"><span class="tag m">归纳型 / 对策</span><span class="tag">对策被说成“目标”</span><span class="tag">“比如”＝真例子</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>A</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 概念</div><div class="lc">一般而言，城市群之间的交通干线分布着许多城市，聚集着大量产业和人口，从而<u>构成经济带</u>。</div></div>
+            <div class="layer sig"><div class="lt">② 意义</div><div class="lc">加强经济带规划和经济带上城市建设，是建设现代化区域发展体系和<u>促进区域协调发展的重要方面</u>。<span class="key">这是全文的目的句，后面所有动作都为它服务。</span></div></div>
+            <div class="layer act"><div class="lt">③ 对策</div><div class="lc"><u>为此，应</u>依托重要交通干线聚集经济要素，<u>形成纵向或横向的经济发展轴</u>，充分发挥其对统筹区域协调发展的作用。</div></div>
+            <div class="layer eg"><div class="lt">④ 举例</div><div class="lc"><u>比如</u>，沿海经济带、长江经济带、陇海兰新经济带和京广京哈经济带等已经集聚了大量人口、产业，城市分布也比较密集，形成了比较明显的经济发展轴，已成为承东启西、连南贯北的经济主骨架。<span class="key">逻辑与③同构：聚集要素→形成轴→带动区域。典型例子，跳过。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>中心在②③之间：<b>经济带（经济发展轴）建设的意义在于促进区域协调发展</b>。文中“经济带”与“经济发展轴”基本同构（都是交通干线聚集要素而成），所以 A 用“经济带建设”来覆盖全文没有问题。</div></div>
+          <div class="opts">
+            <div class="opt right"><div class="ol">A</div><div class="oc"><span class="tx">经济带建设对区域协调发展具有重要意义</span><span class="why">直接对应②这个目的句，且“经济带”可以兼容③的“经济发展轴”，是全文唯一没跑偏的概括。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">我国区域经济发展应以城市群建设为依托</span><span class="why"><em>偷换主体。</em>全文的主体是“经济带／经济发展轴”，“城市群”只是经济带形成的地理前提（“城市群之间的交通干线”），把背景条件当成了中心依托。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">交通干线承担着聚集经济要素的重大使命</span><span class="why"><em>手段当中心。</em>交通干线只是③里的一个介词宾语（“依托重要交通干线”），而且丢掉了“区域协调发展”这个真正的目的。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">形成经济发展轴是城市群建设的长远目标</span><span class="why"><em>两处硬伤。</em>①<b>对策被说成目标</b>：原文是“应……形成经济发展轴”，是手段／对策；②场域偷换：不是“城市群建设”，是“区域协调发展”。这是国考最经典的一组倒置。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>①<b>对策与目的绝不能互换</b>：能用“为了 A 而做 B”说通的，写成“为了 B 而做 A”就是错项。②识别真例子：④和③的逻辑完全同构（聚集要素→成轴→带动区域），所以它是例子；而 <a href="#q9">Q9</a> 里的京津冀是“还没做到、迫切需要”，那是实践，不是例子。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">对照：<a href="#q3">Q3</a><a href="#q9">Q9</a><a href="#q23">Q23</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q19 ============ -->
+      <article class="q" id="q19" data-model="问题对策" data-k="公共法律服务 均等 不平衡 依法治国 对策 带问题走">
+        <header class="q-head">
+          <div class="q-no">19</div>
+          <div class="q-title">
+            <h3>公共法律服务：对策要“带着问题走”</h3>
+            <div class="q-tags"><span class="tag m">问题—对策型</span><span class="tag">只讲意义不讲问题＝错</span><span class="tag">修饰语里藏答案</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>C</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sig"><div class="lt">① 意义</div><div class="lc">公共法律服务是全面依法治国的<u>基础性、服务性和保障性</u>工作，承担着为全民提供法律知识普及以及教育和法治文化活动等职能。</div></div>
+            <div class="layer prob"><div class="lt">② 问题</div><div class="lc"><u>随着</u>经济社会发展，人们法律意识增强，服务需求增长，<u>但</u>公共法律服务体系建设中<u>发展不平衡、设施不完善的短板日益凸显</u>，一些地区尚存在法律服务资源紧张、人才经费保障不足、公众知晓率低等问题。</div></div>
+            <div class="layer act"><div class="lt">③ 对策</div><div class="lc"><u>因此</u>，建设法治社会，<u>亟待加快建设</u>覆盖城乡、便捷高效、<u>均等普惠</u>的现代公共法律服务体系，提升法律服务的社会公信力，让人民群众共享公共法律服务成果。<span class="key">“覆盖城乡/均等普惠”这两个修饰语，就是对②“不平衡”的正面回应。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>问题＝<b>发展不平衡</b>（地区之间、城乡之间）；对策＝建设<b>均等普惠</b>的体系。中心必须带上“不平衡／均等”这层意思，否则对策就没有对准病灶。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">全面依法治国，离不开现代公共法律服务体系建设</span><span class="why"><em>两处问题。</em>①只对应①的意义层，是把“基础性、保障性”翻了个说法；②完全没回应“发展不平衡”这个具体问题，对策是空转的。<b>很多人的第一选择，因为它读起来最“正”。</b></span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">健全的公共法律服务体系有利于法律意识的增强</span><span class="why"><em>因果倒置。</em>原文是“法律意识增强 → 服务需求增长”，B 反过来说“体系健全 → 意识增强”。</span></div></div>
+            <div class="opt right"><div class="ol">C</div><div class="oc"><span class="tx">公共法律服务体系建设，要注重弥合地区发展鸿沟</span><span class="why">“地区发展鸿沟”＝②的“发展不平衡、一些地区资源紧张”，也＝③的“覆盖城乡、均等普惠”。<b>问题和对策在这一项里对上了。</b></span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">应以人民群众需求为导向，建设公共法律服务体系</span><span class="why"><em>无中生有。</em>“需求增长”只是背景描述，文段没有把“以需求为导向”作为对策提出；真正提出的对策是“均等普惠”。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>对策型题目的正确选项通常<b>“带着问题走”</b>。检验动作：把这个选项盖住，只看文段的问题层，问一句“这个对策是冲着这个问题来的吗？”<br>附带一条：<b>对策句里的修饰语常常就是答案</b>（覆盖城乡、均等普惠、精准、动态、协同）。别把它们当修辞跳过。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q10">Q10</a><a href="#q3">Q3</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q20 ============ -->
+      <article class="q" id="q20" data-model="问题对策" data-k="智慧城市 数字技术 基层治理平台 标题 智治 小切口">
+        <header class="q-head">
+          <div class="q-no">20</div>
+          <div class="q-title">
+            <h3>从“治理”到“智理”：标题题的通盘视角</h3>
+            <div class="q-tags"><span class="tag m">目标—抓手型</span><span class="tag t">设问：标题</span><span class="tag">小切口≠全局</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>A</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 背景</div><div class="lc"><u>随着</u>我国城镇化率逐步提高，城市已经成为人口集聚的主要空间。</div></div>
+            <div class="layer act"><div class="lt">② 目标+大对策</div><div class="lc"><u>要实现智慧城市的发展目标，必须</u>紧跟新一代数字技术发展趋势，找准数字技术融入市域社会治理的“小切口”，<u>促进两者深度融合</u>。<span class="key">这是“大对策”，统摄下面所有具体抓手。</span></div></div>
+            <div class="layer act"><div class="lt">③ 抓手</div><div class="lc"><u>可</u>建设区、街、社（村）三层结构的数智化基层治理平台，覆盖社区治理全域组织工作场景，有效破解基层治理“小马拉大车”的突出问题。<span class="key">这只是“小切口”的一个具体落点。</span></div></div>
+            <div class="layer sig"><div class="lt">④ 成效</div><div class="lc"><u>通过</u>建设数智化基层治理平台，加快实现市域社会管理手段、管理模式、管理理念创新，<u>推动城市治理和运行</u>从数字化到智能化再到智慧化的转型升级。<span class="key">回扣句的主语是“城市治理和运行”，不是“基层平台”。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>目标（智慧城市）→ 大对策（数字技术与治理深度融合）→ 抓手（基层智治平台）→ 成效（城市治理智慧化）。<b>中心在大对策＋城市层面</b>，不能滑到“基层平台”这个抓手。</div></div>
+          <div class="opts">
+            <div class="opt right"><div class="ol">A</div><div class="oc"><span class="tx">变“治理”为“智理”，提升城市智治水平</span><span class="why">“智理／智治”＝数字技术融入治理；“城市”守住了全局层面；作为标题也够抓人。与②④高度吻合。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">从“数字”到“数智”，打造基层治理平台</span><span class="why"><em>三处偏差。</em>①落点降级为“基层”，脱离了“城市治理／智慧城市”这个中心场域（③只是小切口）；②“从数字到数智”无据——原文是“从数字化到智能化再到智慧化”，说的是城市治理的三级跳；③把手段（平台）当成了目的。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">数字技术：提升基层治理的新手段</span><span class="why"><em>同样降级，且丢了目标。</em>“基层”不是全局，“智慧城市／智治”这个目的被删掉了。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">基层治理：从末梢发力向智慧升级</span><span class="why"><em>脱离核心对策。</em>全文最关键的词是“数字技术”，D 一个字都没提；“末梢发力”也是原文没有的。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>标题题要回答三个问题：<b>对象是谁</b>（城市，不是基层）、<b>靠什么</b>（数字技术，不是平台）、<b>为了什么</b>（智治，不是建平台）。<br><b>和 <a href="#q4">Q4</a> 对照着记：</b>Q4 用“特别是”把重心压到了具体层，因为回扣句夸的是“消费”；这里具体层之后，回扣句夸的是“城市治理整体”，所以重心回到大对策。<b>看回扣句在夸谁，是唯一标准。</b></div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">对照：<a href="#q4">Q4</a><a href="#q8">Q8</a><a href="#q21">Q21</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q21 ============ -->
+      <article class="q" id="q21" data-model="归纳" data-k="秋老虎 心肌梗死 心血管 标题 并列 呼吁 锚点 科普">
+        <header class="q-head">
+          <div class="q-no">21</div>
+          <div class="q-title">
+            <h3>“秋老虎”与心肌梗死：收束型结构</h3>
+            <div class="q-tags"><span class="tag m">归纳＋呼吁型</span><span class="tag t">设问：标题</span><span class="tag">并列原因之后的“收”</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>D</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 现象</div><div class="lc">虽然寒冷的冬季是心血管疾病的高发期，<u>但在高温闷热的“秋老虎”时节</u>，空气中湿度增高、含氧量降低，平时患有高血压、冠心病的人常会感觉不适，出现胸闷、气促、头晕等症状。<span class="key">整段被“秋老虎”这个时间框罩住了。</span></div></div>
+            <div class="layer cau"><div class="lt">② 原因</div><div class="lc"><u>另外</u>，高温天气会使人体出汗过多，血液浓缩……容易形成斑块；一旦斑块脱落，血栓形成，堵塞血管，就可发生急性心梗。</div></div>
+            <div class="layer cau"><div class="lt">③ 原因</div><div class="lc"><u>此外</u>，人在炎热夏夜往往得不到良好的睡眠，这也是心脑血管疾病的重要诱因之一。</div></div>
+            <div class="layer cau"><div class="lt">④ 原因</div><div class="lc">闷热天气还会使人情绪波动、心情烦躁，这也是冠心病突发的危险因素。</div></div>
+            <div class="layer act"><div class="lt">⑤ 呼吁</div><div class="lc"><u>在这段时间</u>，因工作劳累而缺乏休息的人，<u>尤其要警惕</u>心肌梗死突然来袭。<span class="key">并列之后必有“收”。“这段时间”把呼吁钉回了秋老虎。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>并列罗列诱因（②③④）→ <b>收束到呼吁（⑤）</b>。中心＝“这段时间（夏秋之交）要防心肌梗死”。<b>中心在“收”，不在“分”。</b></div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">“养生”尤其要“养心”</span><span class="why"><em>泛化脱靶。</em>既没有“秋老虎”这个时间锚，也没有“心肌梗死”这个具体对象，是一句可以贴到任何一篇文章上的空话。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">“秋老虎”之名因何而来</span><span class="why"><em>无中生有。</em>文段解释的是“秋老虎为什么危险”，不是“这个名字怎么来的”。只借了“秋老虎”三个字，最容易被锚点骗。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">心脑血管疾病诱因知多少</span><span class="why"><em>并列概括，丢了两样东西。</em>①丢掉呼吁（对策层），把一个“警示”写成了“科普清单”；②丢掉“秋老虎”这个时间锚。而且作为标题太平，不抓人。</span></div></div>
+            <div class="opt right"><div class="ol">D</div><div class="oc"><span class="tx">夏秋之交要预防心肌梗死</span><span class="why">锚点（夏秋之交＝秋老虎时节）＋动作（预防，对应“尤其要警惕”）＋对象（心肌梗死），三个条件全中，也符合这类科普文“标题要让人想点进去”的惯例。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>看到“另外／此外／同时”连着排三段原因，段尾却突然出现“要／应／尤其要”的呼吁——<b>那是“收”，中心在收不在分</b>。<br><b>锚点词是排除干扰的关键</b>：“这段时间”“秋老虎”“在相关准备不充分时”这类时间／条件限定，一旦原文有、选项没，基本判死。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q12">Q12</a>（事件锚）、<a href="#q13">Q13</a>（科普文体）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q22 ============ -->
+      <article class="q" id="q22" data-model="归纳" data-k="土地 规模经营 经营权 共享 权属 归纳 两种方式 都">
+        <header class="q-head">
+          <div class="q-no">22</div>
+          <div class="q-title">
+            <h3>土地适度规模经营：答案是“都”字后面</h3>
+            <div class="q-tags"><span class="tag m">归纳型（两种方式→共性）</span><span class="tag">近义概念偷换：权属/经营权</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>C</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 现象</div><div class="lc">改革开放40多年来，<u>尽管</u>我国农业劳动力绝对数量不断下降，<u>但</u>农产品产量逐年增加，土地适度规模经营不断推进，制度创新成果显著。<span class="key">提出问题：人少了，为什么农业反而更好？</span></div></div>
+            <div class="layer sta"><div class="lt">② 分述A</div><div class="lc">我国实现土地适度规模经营主要的方式有两种：一是土地经营权<u>流转</u>形成的土地适度规模经营，由农户拥有的承包权派生出租、转包、入股等方式，让第三方分享其经营权；</div></div>
+            <div class="layer sta"><div class="lt">③ 分述B</div><div class="lc">二是土地经营权<u>不流转</u>，农户将田间作业环节托转给新的服务主体，形成服务的适度规模经营。</div></div>
+            <div class="layer sig"><div class="lt">④ 归纳</div><div class="lc"><u>这两种方式都</u>形成了新条件下土地农户承包经营权的<u>共享</u>，为小农与现代农业有机衔接找到了切实可行的路径。<span class="key">“两种…都…”＝归纳信号，中心就在这一句。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>不管流转还是不流转，<b>共性都是“经营权共享”</b>。这才是作者要告诉你的那个发现。</div></div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">土地经营权的制度创新促进了农业发展</span><span class="why"><em>表述不准＋片面。</em>文段说的创新不是“经营权制度”本身，而是“经营权的<b>共享</b>”这一机制；而且它只对应①那一句，把中间两种方式和最终归纳都丢了。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">土地经营权的流转要把握好尺度和范围</span><span class="why"><em>无中生有。</em>全文没有一个字谈“尺度、范围”；而且③明确说“<b>不流转</b>”也能形成适度规模经营，B 直接把这一半否掉了。</span></div></div>
+            <div class="opt right"><div class="ol">C</div><div class="oc"><span class="tx">经营权共享是土地适度规模经营的核心特征</span><span class="why">直接对上④“这两种方式都形成了……经营权的共享”，而且“核心特征”这个词恰好表达了“共性”的意思。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">农业专业化发展离不开土地权属的制度创新</span><span class="why"><em>近义偷换。</em>“权属”指所有权归属，“经营权”是可以从承包权里派生、分享的使用权——两者不是一回事。文段强调的是“经营权共享”，<b>没有动所有权</b>。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>出现“有两种方式”“无论……还是……”然后接“都……”时，<b>答案就在“都”字后面</b>，绝不会是任何一个分支。<br>另一条：法律、经济类文段里，<b>权属／所有权／承包权／经营权／使用权</b>这几个词经常被用来做“近义偷换”，看到就放慢半秒。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q5">Q5</a><a href="#q18">Q18</a><a href="#q21">Q21</a></span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q23 ============ -->
+      <article class="q" id="q23" data-model="归纳" data-k="颠覆性技术 空袭 防御 无人机 蜂群 未来趋势 争议题">
+        <header class="q-head">
+          <div class="q-no">23</div>
+          <div class="q-title">
+            <h3>颠覆性技术与空袭：一道要“认命”的争议题</h3>
+            <div class="q-tags"><span class="tag m">总分＋趋势型</span><span class="tag" style="background:#F3EDF9;color:#6B4A96;border-color:#DCD0EC">争议题</span><span class="tag">未来趋势偏好</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>D</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer sta"><div class="lt">① 总述</div><div class="lc">颠覆性技术在军事领域的应用，使现代空袭作战向陆、海、空、天、电、网等领域发展。</div></div>
+            <div class="layer sta"><div class="lt">② 分述</div><div class="lc">电子战飞机、预警指挥机在现代空袭体系中的作用愈发重要；第四代隐身飞机投入实战大大增强了空袭体系的突防能力；空射导弹等精确制导弹药智能化水平、抗干扰能力和目标识别能力增强，作战效能大大提高。<span class="key">注意：全是“已经”发生的。</span></div></div>
+            <div class="layer act"><div class="lt">③ 趋势</div><div class="lc"><u>未来将</u>进一步提高精确制导弹药的命中精度，空袭体系的精确打击能力将进一步增强。</div></div>
+            <div class="layer prob"><div class="lt">④ 新变量</div><div class="lc"><u>同时</u>，运用小型或超小型无人机，在战场上对重要目标实施“蜂群”式打击，<u>会给重要目标的防护造成很大困难</u>。<span class="key">“造成很大困难”——这是站在防御方说的问题句。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>文中②是现状、③④是<b>未来趋势</b>。重心后移，且④把视角从“打击能力”切到了“防护困难”。</div></div>
+          <div style="background:#F5F2FB;border:1px solid #DCD0EC;border-left:3px solid #7D5BA6;border-radius:9px;padding:12px 15px;margin:14px 0 4px;font-size:13.5px;color:#4E3A6B;line-height:1.85">
+            <b style="display:block;font-size:11.5px;letter-spacing:.06em;color:#6B4A96;margin-bottom:5px">这道题的正规思路为什么会选 A，而答案却是 D</b>
+            <b>A（颠覆性技术提高了空袭作战的综合打击能力）</b>是标准的总分概括，覆盖①②，读起来毫无破绽；<b>D</b> 说的是“空中防御体系面临空前挑战”，只对应④。硬要给 D 找理由，只有两条：<br>
+            ① <b>国考偏爱“未来趋势”</b>：A 的“提高了”是已然，而文段的重心已经推到“未来将进一步……”“同时……蜂群打击”，属于尚未发生或正在发生的新趋势；<br>
+            ② <b>“造成很大困难”是问题式、防御方视角的表述</b>：如果作者是站在打击方说话，这里该写成“提升打击效能”这类成效句；写成“困难”，说明落点在“防护／防御”。
+          </div>
+          <div class="opts">
+            <div class="opt wrong"><div class="ol">A</div><div class="oc"><span class="tx">颠覆性技术提高了空袭作战的综合打击能力</span><span class="why"><em>最想选、最像正确答案的错项。</em>它只是对①②的总分概括，没有承接③的“未来”和④的“防护困难”，是“已然版本”。<span style="color:#8A5E12">（考场策略：如果这道题只剩 1 分钟，选 A 也不算离谱——但要知道自己为什么可能错。）</span></span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">军事领域的颠覆性技术研究取得突破性进展</span><span class="why"><em>无中生有。</em>全文讲的是“应用”，没有一句在讲“研究进展”。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">精确打击能力的增强提升了空袭作战的效能</span><span class="why"><em>只截了②③的一部分</em>，且同样是已然表述，把④整段丢了。</span></div></div>
+            <div class="opt right"><div class="ol">D</div><div class="oc"><span class="tx">智能化时代的空中防御体系面临着空前挑战</span><span class="why">承接了“未来＋新变量（蜂群／无人机）”，并把落点放在“防护困难”上。它是这四句话<b>逻辑终点</b>的概括。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西</b>这种题不必死磕，记住两条偏好就够了：<b>①重心往后（未来 &gt; 现状）；②问题式表述往往暗示视角（“造成困难”＝防御方）。</b><br>但更重要的是考场纪律：<b>这种题一题只有 0.8 分，别为它耗掉三分钟。</b>把时间留给 Q5、Q16、Q19 那种“方法一定管用”的题。</div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q24">Q24</a>（另一道争议题）</span></div>
+        </div>
+      </article>
+
+      <!-- ============ Q24 ============ -->
+      <article class="q" id="q24" data-model="时评观点" data-k="AI 声音 人格权 侵权 民法典 主要介绍 争议题 设问">
+        <header class="q-head">
+          <div class="q-no">24</div>
+          <div class="q-title">
+            <h3>AI 模仿人声：设问才是这道题的钥匙</h3>
+            <div class="q-tags"><span class="tag m">现象—法理—结论</span><span class="tag" style="background:#F3EDF9;color:#6B4A96;border-color:#DCD0EC">争议题</span><span class="tag t">设问：主要介绍了</span></div>
+          </div>
+          <div class="q-right">
+            <span class="ansbox">答案 <b>A</b></span>
+            <button class="mini tg">展开解析</button>
+          </div>
+        </header>
+        <div class="q-body">
+          <div class="passage">
+            <div class="layer prob"><div class="lt">① 现象</div><div class="lc"><u>随着</u>互联网的发展，网络空间中出现了许多“声音工作者”……<u>然而</u>，随着技术发展，模仿人声用 AI 生产内容逐渐普及，不仅一些具有辨识度的名人声音被滥用，许多“声音工作者”的声纹信息也遭遇侵权风险。</div></div>
+            <div class="layer thr"><div class="lt">② 法理</div><div class="lc">民法典规定，对自然人声音的保护<u>参照适用</u>肖像权保护的有关规定。</div></div>
+            <div class="layer sig"><div class="lt">③ 界定</div><div class="lc"><u>所以</u>，声音权即声音的可辨识性，具有人格属性，可以作为一项人格权益保护的条件。任何自然人的声音均应受到法律的保护，未经许可，擅自使用、许可他人使用录音制品中的声音，<u>构成侵权</u>。<span class="key">全文一半以上的篇幅在这里：法律如何界定这件事。</span></div></div>
+          </div>
+          <div class="center-line"><span class="c">中 心</span><div>现象（AI 模仿人声）→ 法律依据（参照肖像权）→ <b>界定：声音权是什么、什么行为构成侵权</b>。</div></div>
+          <div style="background:#F5F2FB;border:1px solid #DCD0EC;border-left:3px solid #7D5BA6;border-radius:9px;padding:12px 15px;margin:14px 0 4px;font-size:13.5px;color:#4E3A6B;line-height:1.85">
+            <b style="display:block;font-size:11.5px;letter-spacing:.06em;color:#6B4A96;margin-bottom:5px">这是全套里唯一一道“答案有分歧”的题，两种立场都摆出来</b>
+            <b>立场一（标准答案 A：声音权侵权行为构成要件的法律规定）</b><br>
+            · 设问是“<b>主要介绍了</b>”，属于说明性设问，问的是“这段讲了什么知识”，不是“作者主张什么”。<br>
+            · 文段②③两层（占一半以上篇幅）全在讲法律界定：可辨识性、人格属性、未经许可即构成侵权——这就是“构成要件”的内容。<br>
+            · ①只是引子，用来交代“为什么要谈这个”。<br>
+            <b>立场二（讲义主张 B：应用 AI 技术模仿人声存在侵权风险）</b><br>
+            · 国考的现象类、时评类文章高度依赖“咬住现象”，A 把具体事件抽象成法条术语，有“只见树木”的风险。<br>
+            · 原文标题确实就是围绕 AI 模仿人声侵权展开的，B 更贴近写作缘起。<br>
+            <b style="color:#8A5E12">结论：</b>标准答案按 A 记。但这道题真正值得带走的是那个判断动作——<b>先看设问动词：“意在说明”找主张，“主要介绍”找说明对象。</b>这道题如果设问换成“这段文字意在说明”，B 就会立刻变成强项；正因为是“主要介绍”，重心才落到后半段的法律界定上。
+          </div>
+          <div class="opts">
+            <div class="opt right"><div class="ol">A</div><div class="oc"><span class="tx">声音权侵权行为构成要件的法律规定</span><span class="why">对应②③，是“介绍了什么”的概括。术语略硬（文段没有逐条列要件），但方向与说明性设问一致。</span></div></div>
+            <div class="opt wrong"><div class="ol">B</div><div class="oc"><span class="tx">应用 AI 技术模仿人声存在侵权风险</span><span class="why"><em>最诱人的错项。</em>它对应①，与“咬住现象”的直觉高度吻合，也确实是文章的写作缘起；但在“主要介绍”这个设问下，它只覆盖了引子，没有覆盖占大半篇幅的法律界定。</span></div></div>
+            <div class="opt wrong"><div class="ol">C</div><div class="oc"><span class="tx">“声音工作者”职业发展中的权益危机</span><span class="why"><em>以偏概全。</em>“声音工作者”只是①里并列的两类受害主体之一（还有名人声音），而且“职业发展”原文完全没提。</span></div></div>
+            <div class="opt wrong"><div class="ol">D</div><div class="oc"><span class="tx">技术发展给人格权益保护带来挑战</span><span class="why"><em>过度拔高。</em>“人格权益”确实出现了，但文段的重心是“声音权”这个具体权益如何界定，D 把范围放大到整个人格权益，反而空了。</span></div></div>
+          </div>
+          <div class="takeaway"><b>这一题要带走的东西：设问动词是第一道筛子</b>· “意在说明／强调／想说的是” → 找观点、对策、目的；<br>· “主要介绍／讲的是／解释了” → 找说明对象，别硬找对策；<br>· “最适合做标题” → 中心动作＋锚点＋抓人；<br>· “接下来最有可能” → 顺最后话题；<br>· “××指的是” → 指代词回填。<br><span style="color:#8E2A22;font-weight:700">很多“看不懂答案”的题，其实是设问类型被忽略了。</span></div>
+          <div class="q-foot"><button class="mini mark">标记已掌握</button><span class="spacer"></span><span class="rel">同类：<a href="#q11">Q11</a><a href="#q12">Q12</a>（现象→结论型）</span></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================= SECTION 5 : 错因索引 ================= -->
+    <section id="s4">
+      <div class="sec-head"><span class="num">05</span><h2>错因索引：10 种设坑手法</h2><span class="sub">把错项对上号，比记住答案有用</span></div>
+      <p class="sec-note">国考的干扰项不是随机生成的，它是<b>按套路批量生产</b>的。下面这 10 种，覆盖了这 24 道题里几乎所有的错误选项。做题时如果能当场说出“这是第几号坑”，你就不会犹豫了。</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:34px">#</th><th style="width:150px">手法</th><th style="width:32%">怎么认出来</th><th>出现题号</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><b>只答半边</b><br><span style="font-size:11.5px;color:var(--ink3)">只讲问题/原因/意义</span></td><td>选项读着没错，但通篇在说“病”不说“药”，或只说“为什么”，不说“所以”。</td><td><a class="qs" href="#q2">2B</a><a class="qs" href="#q4">4B</a><a class="qs" href="#q10">10B</a><a class="qs" href="#q11">11C</a><a class="qs" href="#q15">15B</a><a class="qs" href="#q16">16C</a><a class="qs" href="#q16">16D</a><a class="qs" href="#q17">17A</a><a class="qs" href="#q17">17D</a></td></tr>
+            <tr><td>2</td><td><b>偷换对策动词</b><br><span style="font-size:11.5px;color:var(--ink3)">换一个字就废</span></td><td>选项的对策方向大致对，但动词被改了：“降低”变“保持合理”、“结合”变“更新”、“创造”变“观察”。</td><td><a class="qs" href="#q3">3B</a><a class="qs" href="#q5">5C</a><a class="qs" href="#q7">7C</a><a class="qs" href="#q8">8C</a></td></tr>
+            <tr><td>3</td><td><b>目的与对策倒置</b></td><td>把“为了 A 做 B”写成“为了 B 做 A”。检验法：用“为了……而……”回填原文，填不通就是倒置。</td><td><a class="qs" href="#q3">3D</a><a class="qs" href="#q9">9B</a><a class="qs" href="#q18">18D</a><a class="qs" href="#q23">23A</a></td></tr>
+            <tr><td>4</td><td><b>以偏概全</b><br><span style="font-size:11.5px;color:var(--ink3)">分支当全体</span></td><td>选项内容是原文里真实存在的，但只是“之一”“方式之一”“一方面”“有条件的城市”。</td><td><a class="qs" href="#q1">1D</a><a class="qs" href="#q2">2B</a><a class="qs" href="#q6">6C</a><a class="qs" href="#q12">12C</a><a class="qs" href="#q17">17C</a><a class="qs" href="#q22">22A</a><a class="qs" href="#q24">24C</a></td></tr>
+            <tr><td>5</td><td><b>张冠李戴</b><br><span style="font-size:11.5px;color:var(--ink3)">零件拼接</span></td><td>选项两个短语分别来自不同分支（A 分支的手段＋B 分支的成效），单看都在原文里，拼起来就错。</td><td><a class="qs" href="#q5">5D</a><a class="qs" href="#q14">14D</a><a class="qs" href="#q21">21C</a></td></tr>
+            <tr><td>6</td><td><b>无中生有</b></td><td>选项里的概念原文一次都没出现：质与量、随机切换、巨大而持久、把握尺度、突破性进展……</td><td><a class="qs" href="#q4">4A</a><a class="qs" href="#q8">8B</a><a class="qs" href="#q14">14B</a><a class="qs" href="#q15">15C</a><a class="qs" href="#q19">19D</a><a class="qs" href="#q21">21B</a><a class="qs" href="#q22">22B</a><a class="qs" href="#q23">23B</a></td></tr>
+            <tr><td>7</td><td><b>时态偷换</b><br><span style="font-size:11.5px;color:var(--ink3)">已然 / 未然</span></td><td>原文用“已”“已引进”“已经明确”，选项写成“应完善”“应明确”；或反过来把“未来将”写成“提高了”。</td><td><a class="qs" href="#q10">10A</a><a class="qs" href="#q11">11D</a><a class="qs" href="#q23">23A</a></td></tr>
+            <tr><td>8</td><td><b>场域／层级漂移</b><br><span style="font-size:11.5px;color:var(--ink3)">放大或缩小</span></td><td>把“京津冀”说成“我国”，把“城市治理”说成“基层治理”，把“水电费入征信”说成“征信指标选取”。</td><td><a class="qs" href="#q9">9B</a><a class="qs" href="#q9">9C</a><a class="qs" href="#q12">12A</a><a class="qs" href="#q20">20B</a><a class="qs" href="#q20">20C</a><a class="qs" href="#q24">24D</a></td></tr>
+            <tr><td>9</td><td><b>主体／近义概念偷换</b></td><td>“实体经济”→“企业盈利”、“经营权”→“权属”、“社会公信”→“政府公信力”、“元素”→“行星”。</td><td><a class="qs" href="#q2">2D</a><a class="qs" href="#q7">7A</a><a class="qs" href="#q17">17C</a><a class="qs" href="#q18">18B</a><a class="qs" href="#q22">22D</a></td></tr>
+            <tr><td>10</td><td><b>载体／手段当中心</b></td><td>“体系建设”“平台建构”“依托交通干线”“打造平台”——把工具当成目的来夸。</td><td><a class="qs" href="#q1">1A</a><a class="qs" href="#q6">6A</a><a class="qs" href="#q18">18C</a><a class="qs" href="#q20">20B</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="border-left:3px solid var(--acc);background:#FDF8F6">
+        <h3 style="font-size:15.5px;color:#8E2A22">如果你只剩 30 秒复查，只查这三件事</h3>
+        <ol style="margin-bottom:0">
+          <li><b>选项有没有咬住问题？</b>把对策盖住，只看问题层，问“这是冲着它来的吗”。（Q3／Q10／Q19 全靠这一条）</li>
+          <li><b>主体、场域、时态有没有被换？</b>主体是谁、在哪块地上、发生了没有——三连问。（Q2／Q9／Q11／Q20）</li>
+          <li><b>目的和对策有没有被倒过来？</b>用“为了 A 而做 B”回填一遍。（Q3／Q18）</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 6 : 考前十查 ================= -->
+    <section id="s5">
+      <div class="sec-head"><span class="num">06</span><h2>考前动作清单</h2><span class="sub">点一下打勾</span></div>
+      <p class="sec-note">这不是知识清单，是<b>动作清单</b>。考场上真正能救命的，是这些能在 30 秒内执行完的小动作。</p>
+      <div class="check" id="checklist">
+        <div class="row"><i></i><div><b>先看设问。</b>“意在说明”找主张，“主要介绍”找说明对象，“标题”找中心动作＋锚点，“接下来”顺最后话题，“指的是”回填指代。</div></div>
+        <div class="row"><i></i><div><b>读第一遍就给句子贴标签。</b>不贴标签的通读＝白读；每读完一句问自己：这是问题／对策／意义／原因／现状／举例？</div></div>
+        <div class="row"><i></i><div><b>抓住转折、结论、递进三处。</b>但／然而之后，因此／可见之后，“特别是／更重要的是”之后——中心几乎必在这三处之一。</div></div>
+        <div class="row"><i></i><div><b>有总对策选总对策；只有分对策，用问题或目的去统领。</b>不要自己二次概括分对策（Q16 的“具体问题具体分析”就是这么丢的）。</div></div>
+        <div class="row"><i></i><div><b>对策型题目，用问题验一遍。</b>对策必须对准问题；只讲意义、不讲问题的选项（如 Q19A、Q3A）优先排除。</div></div>
+        <div class="row"><i></i><div><b>三查：主体、动作、目的。</b>主体有没有被换（元素→行星）、动作有没有被换字（降低→保持）、目的有没有倒置（为了 A 做 B）。</div></div>
+        <div class="row"><i></i><div><b>看到“已／已经／已引进”，就去打“应／须”类选项。</b>时态偷换是国考的常备坑（Q10A、Q11D）。</div></div>
+        <div class="row"><i></i><div><b>看到“之一／一方面／有条件的／比如”，就防以偏概全。</b>分支不能当全体，举例不能当主体。</div></div>
+        <div class="row"><i></i><div><b>时评、科普要“咬住事件”。</b>把观点抽象成普适原则（Q12A）＝脱离现象＝空中楼阁；科普文里出现“技巧类”选项，先怀疑文体。</div></div>
+        <div class="row"><i></i><div><b>两道争议题不恋战。</b>Q23、Q24 这种，30 秒定夺，把时间留给能靠方法拿分的题。</div></div>
+      </div>
+
+      <div class="card" style="margin-top:16px;background:linear-gradient(180deg,#FFFDF8,#FBF7EE);border-color:#E7DCC4">
+        <h3 style="color:#8A5E12">最后一句话</h3>
+        <p style="margin-bottom:0">这 24 道题真正的共同点，不是“对策为王”，而是——<b>作者写每一句话都有目的，正确选项是那个唯一对得上“目的”的概括。</b><br>所以读题时永远多问一句：<b>他为什么要写这一句？</b>问多了，选项自己就会分出真假。</p>
+      </div>
+    </section>
+
+    <footer>
+      <span>中心理解 · 24题深度复盘</span>
+      <span>·</span>
+      <span>共 24 题，含 2 道争议题标注</span>
+      <span>·</span>
+      <span>答案与解析依据官方答案及讲义逐题核对</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  var qs = Array.prototype.slice.call(document.querySelectorAll('.q'));
+  var railQs = document.getElementById('railQs');
+
+  /* ---- 侧栏题号 ---- */
+  qs.forEach(function(q){
+    var a = document.createElement('a');
+    a.href = '#' + q.id;
+    a.setAttribute('data-t', q.id);
+    a.innerHTML = '<b>' + q.querySelector('.q-no').textContent + '</b>' + q.querySelector('.q-title h3').textContent;
+    railQs.appendChild(a);
+  });
+
+  /* ---- 展开 / 收起 ---- */
+  function setOpen(q, open){
+    q.classList.toggle('open', open);
+    var b = q.querySelector('.tg');
+    if(b) b.textContent = open ? '收起解析' : '展开解析';
+  }
+  qs.forEach(function(q){
+    q.querySelector('.q-head').addEventListener('click', function(){
+      setOpen(q, !q.classList.contains('open'));
+    });
+  });
+  document.getElementById('expandAll').addEventListener('click', function(){ qs.forEach(function(q){ setOpen(q, true); }); });
+  document.getElementById('collapseAll').addEventListener('click', function(){ qs.forEach(function(q){ setOpen(q, false); }); });
+
+  /* ---- 打卡 ---- */
+  var KEY = 'zxjj24_done_v1';
+  var done = {};
+  try { done = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { done = {}; }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(done)); }catch(e){} }
+  function meter(){
+    var n = 0;
+    qs.forEach(function(q){ if(done[q.id]) n++; });
+    document.getElementById('meterBar').style.width = (n / qs.length * 100) + '%';
+    document.getElementById('meterTxt').textContent = n + ' / ' + qs.length;
+  }
+  qs.forEach(function(q){
+    var btn = q.querySelector('.mark');
+    if(done[q.id]){ q.classList.add('done'); btn.classList.add('checked'); btn.textContent = '已掌握 ✓'; }
+    btn.addEventListener('click', function(){
+      if(done[q.id]){ delete done[q.id]; q.classList.remove('done'); btn.classList.remove('checked'); btn.textContent = '标记已掌握'; }
+      else { done[q.id] = 1; q.classList.add('done'); btn.classList.add('checked'); btn.textContent = '已掌握 ✓'; }
+      save(); meter();
+    });
+  });
+  document.getElementById('resetDone').addEventListener('click', function(){
+    done = {}; save(); meter();
+    qs.forEach(function(q){
+      q.classList.remove('done');
+      var b = q.querySelector('.mark'); b.classList.remove('checked'); b.textContent = '标记已掌握';
+    });
+    document.querySelectorAll('#checklist .row').forEach(function(r){ r.classList.remove('on'); });
+  });
+  meter();
+
+  /* ---- 筛选 + 搜索 ---- */
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var input = document.getElementById('search');
+  var curF = 'all', curK = '';
+  function apply(){
+    qs.forEach(function(q){
+      var okF = (curF === 'all') || (q.getAttribute('data-model') === curF);
+      var txt = q.textContent + ' ' + (q.getAttribute('data-k') || '');
+      var okK = !curK || txt.toLowerCase().indexOf(curK) > -1;
+      q.style.display = (okF && okK) ? '' : 'none';
+    });
+    Array.prototype.forEach.call(railQs.children, function(a){
+      var el = document.getElementById(a.getAttribute('data-t'));
+      a.style.display = (el && el.style.display !== 'none') ? '' : 'none';
+    });
+  }
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      curF = c.getAttribute('data-f');
+      apply();
+    });
+  });
+  input.addEventListener('input', function(){ curK = input.value.trim().toLowerCase(); apply(); });
+
+  /* ---- 清单打勾 ---- */
+  document.querySelectorAll('#checklist .row').forEach(function(r){
+    r.addEventListener('click', function(){ r.classList.toggle('on'); });
+  });
+
+  /* ---- 侧栏高亮 ---- */
+  var railLinks = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  var targets = railLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var ticking = false;
+  function spy(){
+    var idx = 0;
+    for(var i = 0; i < targets.length; i++){
+      if(targets[i] && targets[i].getBoundingClientRect().top <= 110) idx = i;
+    }
+    railLinks.forEach(function(a, i){ a.classList.toggle('active', i === idx); });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(spy); }
+  }, {passive:true});
+  spy();
+})();
+</script>
+</body>
+</html>

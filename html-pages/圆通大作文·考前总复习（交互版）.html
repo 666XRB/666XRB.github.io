@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>圆通大作文 · 17 节课考前总复习（交互版）</title>
+<style>
+:root{
+  --ink:#1c1a17; --ink2:#4a453d; --ink3:#6f675b;
+  --paper:#fbf8f1; --card:#ffffff; --line:#e3ddcf; --line2:#cfc6b2;
+  --red:#8c1f1f; --red-l:#b94141; --navy:#1e3552; --gold:#a8834a;
+  --bg-dark:#15130f;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Noto Serif SC","Noto Serif CJK SC","Source Han Serif SC","Songti SC","SimSun",serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+body.ui-sans{font-family:"Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;}
+h1,h2,h3,h4,.ui{font-family:"Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei","Heiti SC",sans-serif;}
+
+/* ---------- top bar ---------- */
+.top{position:fixed;top:0;left:0;right:0;height:58px;z-index:50;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 20px;}
+.top .brand{font-weight:700;font-size:15px;letter-spacing:.04em;color:var(--navy);white-space:nowrap;}
+.top .brand s{color:var(--red);text-decoration:none;}
+.top .sep{width:1px;height:18px;background:var(--line2);}
+.top input[type=search]{flex:1;max-width:330px;height:34px;border:1px solid var(--line2);border-radius:20px;
+  padding:0 14px;font-size:13px;outline:none;background:#fff;font-family:inherit;color:var(--ink);}
+.top input[type=search]:focus{border-color:var(--red-l);box-shadow:0 0 0 3px rgba(185,65,65,.08);}
+.top .btn{height:32px;padding:0 13px;border:1px solid var(--line2);background:#fff;border-radius:16px;
+  font-size:12.5px;color:var(--ink2);cursor:pointer;font-family:inherit;white-space:nowrap;transition:.15s;}
+.top .btn:hover{border-color:var(--red);color:var(--red);}
+.top .hint{font-size:12px;color:var(--ink3);margin-left:auto;white-space:nowrap;}
+
+/* ---------- layout ---------- */
+.wrap{display:flex;padding-top:58px;min-height:100vh;}
+.side{width:262px;flex:0 0 262px;position:sticky;top:58px;height:calc(100vh - 58px);overflow-y:auto;
+  border-right:1px solid var(--line);background:#fff;padding:18px 0 60px;}
+.side::-webkit-scrollbar{width:6px;}
+.side::-webkit-scrollbar-thumb{background:var(--line2);border-radius:3px;}
+.side .gtitle{font-size:11px;letter-spacing:.16em;color:var(--ink3);padding:14px 20px 6px;font-weight:600;}
+.side a{display:block;padding:7px 20px;font-size:13.5px;color:var(--ink2);text-decoration:none;border-left:2px solid transparent;line-height:1.5;}
+.side a:hover{background:#faf6ec;color:var(--red);}
+.side a.on{background:#fdf3f0;border-left-color:var(--red);color:var(--red);font-weight:600;}
+.side a .n{display:inline-block;width:22px;color:var(--gold);font-family:"Noto Sans SC",sans-serif;font-size:11px;}
+.side .chips{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px 4px;}
+.side .chip{font-size:11.5px;padding:3px 9px;border:1px solid var(--line2);border-radius:12px;color:var(--ink3);cursor:pointer;background:#fff;font-family:inherit;}
+.side .chip:hover{border-color:var(--red-l);color:var(--red);}
+.side .chip.on{background:var(--red);border-color:var(--red);color:#fff;}
+
+main{flex:1;min-width:0;max-width:1020px;margin:0 auto;padding:32px 34px 120px;}
+
+/* ---------- hero ---------- */
+.hero{background:linear-gradient(135deg,#1e3552 0%,#2b4a6f 55%,#3d5f86 100%);color:#fff;
+  border-radius:10px;padding:36px 40px;margin:0 0 30px;position:relative;overflow:hidden;}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;
+  border:1px solid rgba(255,255,255,.16);border-radius:50%;}
+.hero.sub{background:linear-gradient(135deg,#6b2020 0%,#8c1f1f 60%,#a83b3b 100%);}
+.hero-k{font-size:11.5px;letter-spacing:.28em;opacity:.8;margin-bottom:10px;font-family:"Noto Sans SC",sans-serif;}
+.hero h2{font-size:26px;margin:0 0 12px;font-weight:700;letter-spacing:.02em;line-height:1.4;}
+.hero p{margin:0;font-size:14.5px;line-height:1.9;opacity:.92;max-width:760px;}
+.hero b{color:#ffe6b8;}
+
+/* ---------- section ---------- */
+.sec{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 30px 24px;margin:0 0 22px;}
+.sec>h4{margin:0 0 16px;font-size:16.5px;color:var(--navy);font-weight:700;letter-spacing:.01em;
+  padding-bottom:10px;border-bottom:1px solid var(--line);}
+.sec>h4:before{content:"";display:inline-block;width:4px;height:15px;background:var(--red);margin-right:9px;vertical-align:-2px;border-radius:2px;}
+.sub-h{font-family:"Noto Sans SC",sans-serif;font-size:13.5px;font-weight:700;color:var(--red);
+  margin:22px 0 10px;padding-left:9px;border-left:3px solid var(--red-l);}
+p{margin:0 0 12px;}
+ul,ol{margin:0 0 12px;padding-left:22px;}
+li{margin:5px 0;}
+ul.tight li,ol.tight li{margin:3px 0;}
+b{font-weight:700;color:#111;}
+.mini{font-size:13.5px;color:var(--ink2);line-height:1.8;}
+.dim{color:var(--ink3);font-size:12.5px;}
+
+/* ---------- formula ---------- */
+.formula{background:#fdf7e9;border-left:4px solid var(--gold);padding:12px 16px;margin:12px 0;
+  font-family:"Noto Sans SC",sans-serif;font-size:14.5px;color:#4a3a1c;border-radius:0 6px 6px 0;letter-spacing:.01em;}
+.formula.big{font-size:15.5px;padding:14px 18px;background:#fbf6ea;border-left-color:var(--red);color:#3a2a10;}
+
+/* ---------- tip / warn ---------- */
+.tip{background:#eef4ef;border-left:4px solid #4b7a5a;padding:12px 16px;margin:14px 0;font-size:14px;color:#28402f;border-radius:0 6px 6px 0;}
+.warn{background:#fdf0ee;border-left:4px solid var(--red);padding:12px 16px;margin:14px 0;font-size:14px;color:#5c1d17;border-radius:0 6px 6px 0;}
+.warn:before,.tip:before{font-family:"Noto Sans SC",sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;display:block;margin-bottom:3px;}
+.warn:before{content:"易错 / 避坑";color:var(--red);}
+.tip:before{content:"划重点";color:#3f6b4d;}
+
+/* ---------- table ---------- */
+table.t,table.t2{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;line-height:1.75;}
+table.t th{background:#f3efe4;color:var(--navy);font-family:"Noto Sans SC",sans-serif;font-weight:700;
+  font-size:13px;text-align:left;padding:9px 12px;border:1px solid var(--line2);}
+table.t td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;}
+table.t tr:nth-child(even) td{background:#fdfcf8;}
+table.t td:first-child{color:var(--ink);}
+table.t2 td{border:1px solid var(--line);padding:9px 12px;vertical-align:top;}
+table.t2 td.k{width:110px;background:#f6f2e7;font-family:"Noto Sans SC",sans-serif;font-size:12.5px;
+  font-weight:700;color:var(--navy);white-space:nowrap;}
+
+/* ---------- flow ---------- */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:10px 0 4px;}
+.fstep{background:#f8f4e9;border:1px solid var(--line);border-radius:8px;padding:12px 12px 12px 14px;position:relative;}
+.fstep .fn{display:inline-block;width:18px;height:18px;line-height:18px;text-align:center;border-radius:50%;
+  background:var(--red);color:#fff;font-size:11px;font-family:"Noto Sans SC",sans-serif;margin-right:6px;vertical-align:1px;}
+.fstep b{display:inline;font-size:14px;font-family:"Noto Sans SC",sans-serif;color:var(--navy);}
+.fstep em{display:block;font-style:normal;font-size:12px;color:var(--ink3);margin-top:5px;line-height:1.6;}
+.farrow{display:none;}
+.page{overflow-wrap:break-word;}
+
+/* ---------- lesson card ---------- */
+.chapter{display:flex;align-items:baseline;gap:12px;margin:38px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--ink);}
+.chapter .cnum{font-family:"Noto Sans SC",sans-serif;font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700;}
+.chapter h3{margin:0;font-size:21px;letter-spacing:.02em;}
+.chapter .cdesc{font-size:13px;color:var(--ink3);margin-left:auto;}
+
+details.card{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:0 0 14px;
+  overflow:hidden;transition:box-shadow .2s,border-color .2s;}
+details.card[open]{box-shadow:0 6px 22px rgba(80,60,20,.07);border-color:var(--line2);}
+details.card>summary{list-style:none;cursor:pointer;padding:16px 22px;display:flex;align-items:center;gap:14px;
+  background:linear-gradient(180deg,#fff,#fdfbf6);}
+details.card>summary::-webkit-details-marker{display:none;}
+details.card>summary:hover{background:#fdf8ee;}
+.lno{flex:0 0 auto;width:38px;height:38px;border-radius:8px;background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:"Noto Sans SC",sans-serif;
+  font-size:15px;font-weight:700;letter-spacing:.02em;}
+details.card[open] .lno{background:var(--red);}
+.ltt{flex:1;min-width:0;}
+.ltt b{display:block;font-family:"Noto Sans SC",sans-serif;font-size:15.5px;color:#1b1b1b;font-weight:700;line-height:1.45;}
+.ltt span{display:block;font-size:12.5px;color:var(--ink3);margin-top:2px;}
+.arrow{flex:0 0 auto;width:22px;height:22px;border:1px solid var(--line2);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:11px;transition:.2s;}
+details.card[open] .arrow{transform:rotate(90deg);border-color:var(--red);color:var(--red);}
+.lbody{padding:6px 24px 24px;border-top:1px solid var(--line);}
+.hmw{background:#f7f3e8;border-radius:8px;padding:11px 14px;font-size:13.5px;color:#4b4028;margin:16px 0 4px;}
+.hmw b{color:var(--red);}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;}
+.tg{font-size:11px;padding:2px 8px;border-radius:10px;background:#f2eee3;color:var(--ink3);
+  font-family:"Noto Sans SC",sans-serif;cursor:pointer;}
+.tg:hover{background:var(--red);color:#fff;}
+
+/* ---------- essay ---------- */
+.essay{margin:16px 0 0;}
+.qbox{background:#f6f2e6;border:1px dashed var(--line2);border-radius:8px;padding:14px 16px;margin:0 0 14px;}
+.qbox .lab,.para .lab,.anchor .lab{display:inline-block;font-family:"Noto Sans SC",sans-serif;font-size:11px;
+  letter-spacing:.1em;background:var(--navy);color:#fff;padding:1px 8px;border-radius:3px;margin-right:8px;vertical-align:2px;}
+.qbox p{margin:6px 0 0;font-size:13.5px;color:#3d3527;line-height:1.8;}
+.judge{font-size:13.5px;color:#3b3428;background:#eef4ef;border-radius:6px;padding:10px 14px;margin:0 0 14px;}
+.judge b.l{color:#3f6b4d;font-family:"Noto Sans SC",sans-serif;}
+.titlerow{font-size:15px;margin:0 0 14px;padding:10px 14px;background:#fdf3f0;border-radius:6px;border-left:3px solid var(--red);}
+.titlerow .lab{display:inline-block;font-family:"Noto Sans SC",sans-serif;font-size:11px;letter-spacing:.1em;
+  background:var(--red);color:#fff;padding:1px 8px;border-radius:3px;margin-right:8px;vertical-align:2px;}
+.anchor{font-size:14.5px;line-height:1.9;margin:14px 0;padding:11px 14px;background:#fbf7ea;border-radius:6px;border:1px solid #eee4cc;}
+.anchor .lab{background:var(--gold);}
+.anchor em{font-style:normal;color:var(--red);font-weight:700;}
+.para{font-size:14.5px;line-height:1.95;margin:14px 0;padding:12px 16px;background:#fdfcf8;border:1px solid var(--line);border-radius:6px;}
+.para .lab{background:var(--ink3);}
+.para blockquote{margin:8px 0 0;padding:10px 14px;background:#f7f4ec;border-left:3px solid var(--gold);
+  font-size:13.5px;color:#413a2c;border-radius:0 4px 4px 0;}
+.plist{counter-reset:pl;list-style:none;padding:0;margin:8px 0 0;}
+.plist li{counter-increment:pl;position:relative;padding-left:26px;font-size:14px;line-height:1.85;margin:7px 0;}
+.plist li:before{content:counter(pl);position:absolute;left:0;top:4px;width:17px;height:17px;line-height:17px;
+  text-align:center;border-radius:50%;background:var(--red);color:#fff;font-size:10.5px;font-family:"Noto Sans SC",sans-serif;}
+
+blockquote{margin:12px 0;padding:12px 18px;background:#f8f5ec;border-left:3px solid var(--gold);
+  font-size:14px;color:#3f382a;line-height:1.9;border-radius:0 6px 6px 0;}
+
+/* ---------- misc ---------- */
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;}
+.ttag{display:inline-block;font-size:12.5px;padding:5px 12px;margin:4px 6px 4px 0;border:1px solid var(--line2);
+  border-radius:14px;background:#fdfaf3;color:#5a4d33;font-family:"Noto Sans SC",sans-serif;}
+.case{background:#fdfbf5;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0;}
+.case>b{display:block;font-family:"Noto Sans SC",sans-serif;font-size:13.5px;color:var(--red);margin-bottom:6px;}
+.timg{width:100%;}
+.rules{padding-left:22px;}
+.rules li{margin:9px 0;font-size:14.5px;}
+.steps{display:grid;gap:10px;margin:12px 0;}
+.step{position:relative;padding:12px 16px 12px 48px;background:#f9f6ee;border:1px solid var(--line);border-radius:8px;font-size:14px;}
+.step .sn{position:absolute;left:12px;top:12px;width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:6px;background:var(--red);color:#fff;font-size:11.5px;font-family:"Noto Sans SC",sans-serif;}
+.ladder{display:grid;gap:10px;margin:14px 0;}
+.lad{position:relative;padding:14px 18px 14px 96px;background:#fbf8f0;border:1px solid var(--line);border-radius:8px;}
+.lad .lv{position:absolute;left:14px;top:16px;font-family:"Noto Sans SC",sans-serif;font-size:12.5px;
+  font-weight:700;color:#fff;background:var(--navy);padding:3px 8px;border-radius:4px;}
+.lad b{display:block;font-family:"Noto Sans SC",sans-serif;font-size:14px;margin-bottom:2px;}
+.lad p{margin:0;font-size:13.5px;color:var(--ink2);}
+.lad em{font-style:normal;color:var(--red);}
+.pn p{font-size:14px;line-height:1.9;margin:0 0 9px;padding-left:16px;position:relative;color:#332e26;}
+.pn p:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:.7;}
+.q{color:var(--red);font-weight:600;}
+.foot{margin:60px 0 0;padding:24px 0 0;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink3);text-align:center;line-height:1.9;}
+
+#toTop{position:fixed;right:26px;bottom:26px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line2);
+  background:#fff;color:var(--ink2);font-size:16px;cursor:pointer;box-shadow:0 4px 14px rgba(80,60,20,.12);
+  opacity:0;pointer-events:none;transition:.25s;z-index:40;}
+#toTop.show{opacity:1;pointer-events:auto;}
+#toTop:hover{color:var(--red);border-color:var(--red);}
+
+/* ---------- empty ---------- */
+#nores{display:none;padding:40px;text-align:center;color:var(--ink3);font-size:14px;}
+
+/* ---------- responsive ---------- */
+@media (max-width:1280px){ .flow{grid-template-columns:repeat(3,1fr);} }
+@media (max-width:1080px){
+  .side{display:none;}
+  main{padding:24px 18px 90px;}
+  .cols2{grid-template-columns:1fr;}
+  .flow{grid-template-columns:repeat(2,1fr);gap:6px;}
+  .top .sep,.top .hint{display:none;}
+}
+@media (max-width:640px){
+  .top{height:auto;flex-wrap:wrap;padding:9px 12px;gap:8px;}
+  .top .brand{flex:1 1 100%;font-size:13.5px;}
+  .top input[type=search]{flex:1 1 auto;max-width:none;height:32px;}
+  .top .btn{height:30px;padding:0 10px;font-size:11.5px;}
+  .wrap{padding-top:104px;}
+  .side{top:104px;}
+  main{padding:18px 13px 90px;}
+  .hero{padding:24px 20px;}
+  .hero h2{font-size:21px;}
+  .chapter h3{font-size:18px;}
+  .chapter .cdesc{display:none;}
+  .sec{padding:18px 16px;}
+  .lbody{padding:4px 15px 18px;}
+  details.card>summary{padding:13px 15px;gap:10px;}
+  .lno{width:32px;height:32px;font-size:13px;}
+  .ltt b{font-size:14px;}
+  table.t,table.t2{font-size:12.5px;}
+  table.t th,table.t td,table.t2 td{padding:6px 8px;}
+  #toTop{right:14px;bottom:16px;}
+}
+
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="brand"><s>圆通大作文</s> · 考前总复习</div>
+  <div class="sep"></div>
+  <input id="q" type="search" placeholder="搜关键词：开头 / 双主题 / 轻车 / 结尾…">
+  <button class="btn" id="expandAll">全部展开</button>
+  <button class="btn" id="doPrint">打印 / 存 PDF</button>
+  <div class="hint">点标题展开 · 左侧可跳转 · 标签可筛选</div>
+</div>
+<div class="wrap">
+<aside class="side"><div class="gtitle">总纲</div><a href="#overview"><span class="n">◎</span>一页看懂大作文</a><div class="gtitle">方法论 · 01—08</div><a href="#L01"><span class="n">01</span>标题+总论点（一）</a><a href="#L02"><span class="n">02</span>标题+总论点（二）</a><a href="#L03"><span class="n">03</span>大作文开头</a><a href="#L04"><span class="n">04</span>分论点润色</a><a href="#L05"><span class="n">05</span>寻找分论点（一）</a><a href="#L06"><span class="n">06</span>寻找分论点（二）</a><a href="#L07"><span class="n">07</span>分论点论证</a><a href="#L08"><span class="n">08</span>大作文结尾</a><div class="gtitle">真题实战 · 09—17</div><a href="#L09"><span class="n">09</span>单主题实战①种树与摘果</a><a href="#L10"><span class="n">10</span>单主题实战②做好每件小事</a><a href="#L11"><span class="n">11</span>单主题实战③多样性蕴含创造力</a><a href="#L12"><span class="n">12</span>双主题实战①轻车与壮马</a><a href="#L13"><span class="n">13</span>双主题实战②往前跑与明目标</a><a href="#L14"><span class="n">14</span>双主题实战③小切口与大健康</a><a href="#L15"><span class="n">15</span>多主题实战①心路·辛路·新路</a><a href="#L16"><span class="n">16</span>多主题实战②善治·大美·乐居</a><a href="#L17"><span class="n">17</span>多主题实战③办好事·好办事·事办好</a><div class="gtitle">收束</div><a href="#summary"><span class="n">◎</span>总结 · 三分钟流程</a><a href="#jinnang"><span class="n">◎</span>考前锦囊（背诵包）</a><div class="gtitle">知识点速查</div><div class="chips"><span class="chip" data-tag="标题">标题</span><span class="chip" data-tag="总论点">总论点</span><span class="chip" data-tag="开头">开头</span><span class="chip" data-tag="分论点">分论点</span><span class="chip" data-tag="润色">润色</span><span class="chip" data-tag="论证">论证</span><span class="chip" data-tag="事例">事例</span><span class="chip" data-tag="结尾">结尾</span><span class="chip" data-tag="名言">名言</span><span class="chip" data-tag="影响">影响</span><span class="chip" data-tag="单主题">单主题</span><span class="chip" data-tag="双主题">双主题</span><span class="chip" data-tag="多主题">多主题</span><span class="chip" data-tag="ABC">ABC</span><span class="chip" data-tag="递进">递进</span><span class="chip" data-tag="辩证">辩证</span><span class="chip" data-tag="实战">实战</span><span class="chip" data-tag="素材">素材</span><span class="chip" data-tag="模板">模板</span><span class="chip" data-tag="改写">改写</span></div></aside>
+<main>
+<section id="overview">
+<div class="hero">
+  <div class="hero-k">圆通大作文 · 一页看懂</div>
+  <h2>审题定生死，框架定档次，文采定高低</h2>
+  <p>这 17 节课其实只教一件事：<b>把题干的关键词，填进一个固定的五段骨架里。</b>骨架对了，最差也是三类文；骨架＋素材，就是一类文。</p>
+</div>
+
+<div class="sec"><h4>① 一张图：大作文的流水线</h4>
+<div class="flow">
+  <div class="fstep"><span class="fn">1</span><b>审题</b><em>数关键词 → 判单/双/多主题 → 定对策与影响</em></div>
+  <div class="farrow">→</div>
+  <div class="fstep"><span class="fn">2</span><b>标题</b><em>对策＋影响（ABC 则 A＋B＋C）</em></div>
+  <div class="farrow">→</div>
+  <div class="fstep"><span class="fn">3</span><b>开头</b><em>名言＋影响＋过渡＋总论点</em></div>
+  <div class="farrow">→</div>
+  <div class="fstep"><span class="fn">4</span><b>分论点</b><em>三条，句式对齐，段首亮明</em></div>
+  <div class="farrow">→</div>
+  <div class="fstep"><span class="fn">5</span><b>论证</b><em>问题＋对策＋事例＋回扣</em></div>
+  <div class="farrow">→</div>
+  <div class="fstep"><span class="fn">6</span><b>结尾</b><em>名言＋影响＋号召（首尾呼应）</em></div>
+</div>
+</div>
+
+<div class="sec"><h4>② 五条公式（全部背下来）</h4>
+<div class="formula big">标题 ＝ 总论点 ＝ 对策 ＋ 影响</div>
+<div class="formula big">总论点放在<b>开头的最后一句</b>，就是标题改写成一句话</div>
+<div class="formula big">开头 ＝ 名言 ＋ 影响（或背景）＋ 过渡句 ＋ 总论点</div>
+<div class="formula big">分论点 ＝ 总论点 ＋ 对策 ＋ 影响（三条句式必须对齐）</div>
+<div class="formula big">论证 ＝ 名言/背景 ＋ 问题 ＋ 对策/事例（主体+对策+影响）＋ 回扣</div>
+<div class="formula big">结尾 ＝ 名言 ＋ 影响升华 ＋ 号召展望</div>
+</div>
+
+<div class="sec"><h4>③ 命题三型与对应的标题骨架</h4>
+<table class="t">
+<thead><tr><th>类型</th><th>怎么认</th><th>标题骨架</th><th>分论点骨架</th></tr></thead>
+<tbody>
+<tr><td><b>单主题</b></td><td>两词能分出「先做什么→得到什么」；或只有一个核心词</td><td>对策 ＋ 影响</td><td>三条对策（或对策+影响），从材料挖</td></tr>
+<tr><td><b>双主题</b></td><td>两词并列／辩证；或有「更」字递进</td><td>A ＋ B ＋ 领域C（ABC）<br>或 A 与 B 互促（AB）</td><td>标准ABC／题干限定型／对策变形型／AB互促</td></tr>
+<tr><td><b>多主题</b></td><td>三个及以上关键词</td><td>A ＋ B ＋ C（影响可省）</td><td>一词一条，共三条；靠逻辑定位词分层</td></tr>
+</tbody></table>
+<div class="tip"><b>信号词速查</b>：「辩证之道／关系／相辅相成／相得益彰」→ 用 AB 结构；「更／不仅…而且…」→ 标题必须写「为基／为要」；「对…的借鉴意义／针对…工作」→ 那个领域就是 C，要原样写进标题。</div>
+</div>
+
+<div class="sec"><h4>④ 阅卷人只看三眼，你把力气花在这三眼上</h4>
+<table class="t">
+<thead><tr><th>第几眼</th><th>看什么</th><th>你要做到</th></tr></thead>
+<tbody>
+<tr><td>第一眼</td><td>标题 + 每段第一句（分论点）</td><td>核心关键词<b>原词</b>出现；三条分论点句式一致</td></tr>
+<tr><td>第二眼</td><td>开头 + 结尾</td><td>开头有影响排比，结尾与开头呼应，各 200 字</td></tr>
+<tr><td>第三眼</td><td>论证段</td><td>有例子（主体+对策+影响）、有回扣句</td></tr>
+</tbody></table>
+<table class="t">
+<thead><tr><th>档次</th><th>分数（满分40）</th><th>判定</th></tr></thead>
+<tbody>
+<tr><td>一类文</td><td>31—40</td><td>标题、总论点正确，分论点论证精彩，开头结尾出色</td></tr>
+<tr><td>二类文</td><td>21—30</td><td>标题、总论点正确，结构完整</td></tr>
+<tr><td>三类文</td><td>11—20</td><td>标题、总论点基本正确，无明显硬伤</td></tr>
+<tr><td>四类文</td><td>0—10</td><td>严重跑题</td></tr>
+</tbody></table>
+<div class="warn">每年国考 <b>50% 以上</b>考生因总论点、分论点跑题落榜。「审题是根，根基不稳，地动山摇。」</div>
+</div>
+
+<div class="sec"><h4>⑤ 考场时间与字数</h4>
+<table class="t2">
+<tr><td class="k">结构</td><td>5 个自然段：开头 / 分论点一 / 分论点二 / 分论点三 / 结尾（1200 字可写 4 个分论点）</td></tr>
+<tr><td class="k">字数</td><td>开头 200 ｜ 分论点各 200 ｜ 结尾 200 ｜ 全文 1000 左右</td></tr>
+<tr><td class="k">时间</td><td>审题+标题 5 分钟 ｜ 分论点提纲 5 分钟 ｜ 写 40 分钟 ｜ 检查 5 分钟</td></tr>
+<tr><td class="k">顺序</td><td>先写分论点段（最能拿分的部分），再补开头结尾——万一时间不够，框架仍在</td></tr>
+</table>
+</div>
+
+<div class="sec"><h4>⑥ 六条铁律</h4>
+<ol class="rules">
+<li><b>关键词用原词。</b>「热爱」不写「热忱」，「万钧举」不写「伟大事业」。阅卷人靠扫词判档。</li>
+<li><b>题干是大王，材料是小王。</b>两牌合起来才是王炸；只靠材料或只靠积累都要出事。</li>
+<li><b>总论点必须落在开头最后一句。</b>放中间、放开头第一句，都算结构不清。</li>
+<li><b>三条分论点句式必须对齐。</b>一条「在…上…」、一条「以…为…」，一眼看出是硬凑。</li>
+<li><b>抽象词要在开头「翻译」。</b>里子/面子、力/理/利、点/线/面、种树/摘果——不解释就是跑题嫌疑。</li>
+<li><b>大作文是客观题。</b>内容必须来自题干和材料；个性化只体现在语言润色，不体现在自创观点。</li>
+</ol>
+</div>
+</section><div class="chapter" id="ch1"><span class="cnum">PART 01</span><h3>方法论：怎么写</h3><span class="cdesc">8 节课 · 点击展开</span></div><details class="card" id="L01" data-tags="标题|总论点|单主题"><summary><div class="lno">01</div><div class="ltt"><b>标题 + 总论点（一）</b><span>「对策 + 影响」公式与单主题标题</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>看到一个单主题题干，怎样在三分钟内定出不跑题的标题，并把标题变成开头最后一句的总论点。</div><div class="tags"><span class="tg">标题</span><span class="tg">总论点</span><span class="tg">单主题</span></div>
+<div class="sec"><h4>① 这一课的底层公式</h4>
+<div class="formula">标题 ＝ 总论点 ＝ 前半句（对策）＋ 后半句（影响）</div>
+<ul>
+<li><b>前半句（对策）</b>：从题干提取核心<b>对策词</b>，前面加动词。题干只有名词时，用万能句式「以……为笔／以……破题／以……为基」。</li>
+<li><b>后半句（影响）</b>：从题干提取核心<b>影响词</b>，前面加动词、后面加尾巴。万能尾巴：「谱写……新篇／书写……篇章／成就……业绩／绘就……新画卷」。</li>
+<li><b>位置铁律</b>：总论点必须放在<b>开头的最后一句</b>，且与标题高度一致（就是把标题改写成一句完整的话）。</li>
+</ul>
+</div>
+
+<div class="sec"><h4>② 关键词怎么取：近取原则</h4>
+<ul>
+<li>题干说「围绕……<b>主题</b>」→ 紧靠「主题」二字的词就是核心词。</li>
+<li>题干说「对『划线句子』的理解」→ 紧靠「划线句子」的词就是核心词。</li>
+<li>选词标准：<b>更规范、包容性更强</b>的词优先（有「诗书满腹」和「全民阅读」，选「全民阅读」；有「拓展人生」和「引领未来」，选「未来」）。</li>
+<li>判定属性：先问自己——这个词是「怎么做」（对策）还是「达到什么效果」（影响）？判错了，前后半句就颠倒。</li>
+</ul>
+</div>
+
+<div class="sec"><h4>③ 真题怎么套公式（这一课带着做的题）</h4>
+<table class="t">
+<thead><tr><th>真题</th><th>题眼（对策 / 影响）</th><th>老师给的标题</th></tr></thead>
+<tbody>
+<tr><td>国考·全民阅读<br><span class="mini">「诗书满腹拓展人生，全民阅读引领未来」</span></td><td>全民阅读 / 未来</td><td>《推广全民阅读 共创美好未来》<br>《以全民阅读为笔 绘就人生与时代新篇》</td></tr>
+<tr><td>山东·因为热爱，所以燃烧</td><td>热爱 / 燃烧</td><td>《以热爱为笔 谱写燃烧新篇》</td></tr>
+<tr><td>山东·众力并，则万钧举</td><td>众力并 / 万钧举</td><td>《以「众力并」破题 谱写「万钧举」新篇》</td></tr>
+<tr><td>山东·脉动的力量</td><td>脉动的力量 / 焕发蓬勃生机</td><td>《激活脉动力量 焕发蓬勃生机》</td></tr>
+<tr><td>山东·常青之道，贵在自胜</td><td>自胜 / 常青之道</td><td>《秉持自胜之心 方得常青之道》<br>《以自胜破题 绘就长青新篇章》</td></tr>
+<tr><td>天津·反向思维推动正向前行</td><td>反向思维 / 正向前行</td><td>《善用反向思维 赋能正向前行》</td></tr>
+<tr><td>山东·万物奔流，经济天下</td><td>万物奔流 / 经济天下</td><td>《促万物奔流不息 兴经济天下华章》</td></tr>
+<tr><td>天津·科技是这个时代最大的公益</td><td>科技 / 公益</td><td>《以科技之光照亮公益之路》<br>《以科技为炬 照亮公益之路》</td></tr>
+<tr><td>四川·静候风至不如勇造风口</td><td>勇造风口 / 无中生有（双对策复合）</td><td>《勇造风口破困局 无中生有开新篇》</td></tr>
+<tr><td>浙江·以「通路」谋同路</td><td>通路 / 同路</td><td>《以通路破题 谋同路新篇》</td></tr>
+<tr><td>四川·法治的根基在人民</td><td>法治扎根人民心中 / 全面依法治国</td><td>《让法治扎根人民心中 实现全面依法治国》</td></tr>
+<tr><td>浙江·「电力自由」带来产业竞争优势</td><td>电力自由 / 产业竞争优势</td><td>《以「电力自由」筑根基 赋能产业竞争新优势》</td></tr>
+<tr><td>浙江·做强生产性服务业，赋能新质生产力</td><td>做强生产性服务业 / 新质生产力</td><td>《做强生产性服务业 为新质生产力注入澎湃动能》</td></tr>
+<tr><td>山东·打造乡村振兴人才队伍</td><td>人才队伍 / 乡村振兴</td><td>《打造人才队伍 实现乡村振兴》</td></tr>
+<tr><td>综合·乡村善治「三治融合」</td><td>乡村善治 / 乡村振兴</td><td>《完善乡村善治 推动乡村振兴》</td></tr>
+<tr><td>湖北·把每件小事做好</td><td>做好每件小事 / 让阳光照亮城市角落</td><td>《做好每件小事 让阳光照亮城市角落》</td></tr>
+<tr><td>联考·「烟火气」管不好变成「火气」</td><td>烟火气（善治）/ 火气（消解）</td><td>《善治烟火气 消解民生火气》</td></tr>
+<tr><td>广东·乡村振兴关键在产业振兴</td><td>产业振兴 / 乡村振兴</td><td>《以产业振兴为要 开启乡村振兴之门》</td></tr>
+<tr><td>广东·继续做好创新这篇大文章</td><td>做好创新大文章 / 新质生产力</td><td>《做好创新大文章 推动新质生产力发展》</td></tr>
+<tr><td>广东·绿美广东生态建设</td><td>绿美生态建设 / 长远发展与民生福祉</td><td>《推进绿美广东生态建设 筑牢长远发展与民生福祉根基》</td></tr>
+<tr><td>北京·从「尝新」到「常新」</td><td>探索和实践 / 尝新到常新</td><td>《坚持探索和实践 实现从「尝新」到「常新」》</td></tr>
+<tr><td>26国考·用合适的章法处理各方关系</td><td>合适章法处理各方关系 / 长远发展</td><td>《以合适章法处理各方关系 夯实长远发展之基》</td></tr>
+<tr><td>26国考·多样性蕴含着创造力</td><td>多样性 / 创造力</td><td>《以多样性沃土为钥 育创造力繁花盛开》</td></tr>
+<tr><td>25国考·劣势转化为优势</td><td>主观能动性 / 化劣势为优势</td><td>《发挥主观能动性 化劣势为发展新优势》</td></tr>
+<tr><td>国考·事物的「互补」关系</td><td>互补 / 高质量发展（万能影响）</td><td>《善用互补之力 推动高质量发展》</td></tr>
+<tr><td>国考·挖掘旧事物价值</td><td>积极挖掘价值 / 焕发生机</td><td>《积极挖掘价值 让旧事物焕发生机》</td></tr>
+<tr><td>联考·种树与摘果</td><td>种树 / 摘果</td><td>《以「种树」破题 谱写「摘果」新篇》</td></tr>
+<tr><td>联考·种下庄稼与除草</td><td>种下金黄庄稼 / 扫除旷野杂草</td><td>《种下金黄庄稼 扫除旷野杂草》</td></tr>
+<tr><td>江苏·大学生就业观</td><td>树立正确就业观 / 万能影响</td><td>《树立正确就业观 绽放青春新光彩》</td></tr>
+<tr><td>辽宁·绝非一日之功，但必须完成</td><td>久久为功 / 万能影响</td><td>《坚持久久为功 推动高质量发展》</td></tr>
+<tr><td>国考·追寻长期价值</td><td>追寻长期价值 / 奔赴长远征程</td><td>《追寻长期价值 奔赴长远征程》</td></tr>
+</tbody></table>
+<div class="tip">这一课的真题不是让你背题，是让你背「动作」：<b>取词 → 判属性 → 加动词 → 加尾巴</b>。四步走完，任何单主题都能出标题。</div>
+</div>
+
+<div class="sec"><h4>④ 万能句式储备（背下来救急）</h4>
+<table class="t2">
+<tr><td class="k">对策句式</td><td>以……为笔 ／ 以……破题 ／ 以……为基 ／ 以……为钥 ／ 以……为要 ／ 以……为纲 ／ 以……筑基 ／ 以……铸魂</td></tr>
+<tr><td class="k">影响句式</td><td>谱写……新篇 ／ 书写……篇章 ／ 成就……业绩 ／ 绘就……新画卷 ／ 开启……之门 ／ 筑牢……之基 ／ 注入……动能 ／ 厚植……优势</td></tr>
+<tr><td class="k">过渡升华</td><td>进入新时代，奋进新征程，再创新辉煌 ／ 让……在……中成长，让……在……中前行 ／ 追风赶月莫停留，平芜尽处是春山 ／ 雄关漫道真如铁，而今迈步从头越</td></tr>
+<tr><td class="k">万能影响词（题干没给影响时用）</td><td>推动高质量发展 ／ 共创美好未来 ／ 构建发展新格局 ／ 擘画美好蓝图 ／ 开创事业新局面 ／ 谱写发展新篇章 ／ 绽放青春新光彩</td></tr>
+</table>
+</div>
+
+<div class="sec"><h4>⑤ 老师的「广东专项标题模板库」（考广东必背）</h4>
+<div class="cols2">
+<div><b>产业发展</b><ul class="tight">
+<li>以产业振兴为笔 绘就广东乡村共富新画卷</li>
+<li>以产业振兴为基 筑牢广东乡村发展压舱石</li>
+<li>以三产融合为链 串起广东农业增值全闭环</li>
+<li>以特色农业为牌 擦亮广东县域经济金名片</li>
+<li>以数字农业为翼 赋能广东现代农业加速度</li></ul>
+<b>全域振兴</b><ul class="tight">
+<li>以县域振兴为擎 驱动广东城乡融合发展局</li>
+<li>以强镇兴村为棋 走活广东区域协调一盘棋</li>
+<li>以共同富裕为向 锚定广东乡村振兴总坐标</li>
+<li>以和美乡村为标 绘就广东宜居宜业新图景</li></ul></div>
+<div><b>要素支撑</b><ul class="tight">
+<li>以人才振兴为核 激活广东乡村振兴源动力</li>
+<li>以党建引领为魂 把稳广东乡村发展方向盘</li>
+<li>以生态宜居为底 铺就广东美丽乡村新底色</li>
+<li>以文化铸魂为根 厚植广东乡村振兴软实力</li></ul>
+<b>本土特色</b><ul class="tight">
+<li>以「百千万工程」为纲 统领广东城乡融合发展局</li>
+<li>以「粤字号」品牌为媒 拓宽广东特色农业出圈路</li>
+<li>以预制菜产业为桥 打通广东农业价值转化链</li>
+<li>以海洋牧场为舟 开辟广东蓝色振兴新航道</li></ul></div>
+</div>
+</div>
+
+<div class="sec"><h4>⑥ 阅卷机制与分档（决定你策略的东西）</h4>
+<table class="t">
+<thead><tr><th>档次</th><th>分数（满分40）</th><th>判定标准</th></tr></thead>
+<tbody>
+<tr><td>一类文</td><td>31—40</td><td>标题、总论点正确，分论点论证精彩，开头结尾出色</td></tr>
+<tr><td>二类文</td><td>21—30</td><td>标题、总论点正确，结构完整</td></tr>
+<tr><td>三类文</td><td>11—20</td><td>标题、总论点基本正确，无明显硬伤</td></tr>
+<tr><td>四类文</td><td>0—10</td><td>严重跑题（标题或总论点偏离题意）</td></tr>
+</tbody></table>
+<p>阅卷顺序：<b>先扫标题 → 再扫每段第一句（分论点） → 框架没错才看开头结尾 → 只有都不错才读论证</b>。所以标题和分论点写对，就锁定了二类文的下限；跑题，直接四类。</p>
+<div class="warn">老师原话：「审题是根，根基不稳，地动山摇。」每年国考 <b>50% 以上</b>考生因总论点、分论点跑题落榜。行测错一道只丢一分，大作文跑题是断崖式下跌。</div>
+</div>
+<div class="warn">标题里必须出现题干核心词的<b>原词</b>，不要换近义词（写「热爱」不写「热忱」，写「万钧举」不写「伟大事业」）。阅卷人靠扫关键词判档。</div></div></details><details class="card" id="L02" data-tags="标题|总论点|单主题|双主题|多主题"><summary><div class="lno">02</div><div class="ltt"><b>标题 + 总论点（二）</b><span>单双主题辨析 · ABC 结构 · 递进与逆标题</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>题干给两个词、三个词时，怎么判断是单主题还是双主题／多主题，以及对应的三种标题骨架。</div><div class="tags"><span class="tg">标题</span><span class="tg">总论点</span><span class="tg">单主题</span><span class="tg">双主题</span><span class="tg">多主题</span></div>
+<div class="sec"><h4>① 先判型：单主题？双主题？</h4>
+<table class="t">
+<thead><tr><th>类型</th><th>特征</th><th>判定依据</th></tr></thead>
+<tbody>
+<tr><td>单主题</td><td>两词之间是「对策—影响」或「手段—目的」</td><td>一个词明显指向「怎么做」，另一个明显指向「达到什么效果」。如「民生小事（对策）→国家大事（影响）」</td></tr>
+<tr><td>双主题</td><td>两词并列或辩证统一</td><td>两词地位对等，无单向因果。如「困难与机遇」「变与不变」</td></tr>
+<tr><td>多主题</td><td>三个及以上关键词</td><td>如「力·理·利」「办好事·好办事·事办好」</td></tr>
+</tbody></table>
+<div class="tip">口诀：<b>能分出「先做什么、得到什么」的，是单主题；分不出的，是双主题；数出三个的，是多主题。</b>仅看题干拿不准时，回材料看这两个词是不是都在讲同一个领域的事。</div>
+</div>
+
+<div class="sec"><h4>② 三种标题骨架</h4>
+<div class="formula">单主题：对策 ＋ 影响</div>
+<div class="formula">双主题：A ＋ B ＋ 领域C（ABC 式）｜或 A 与 B 互促（AB 式）</div>
+<div class="formula">多主题：A ＋ B ＋ C（＋万能影响，可省）</div>
+<ul>
+<li><b>ABC 式的三种变体</b>（这一课最重要的分类）：<br>
+①<b>标准 ABC</b>：A对C、B对C、A+B对C —— 题干只给两个词、C 藏在材料里时用。<br>
+②<b>题干限定型 ABC</b>：题干已经把 A 对 B 的关系写成一句话（如「现代让传统更亲切鲜活，传统让现代更丰富厚重」），那就<b>直接抄原句当分论点</b>，不要自己组装。<br>
+③<b>对策变形型 ABC</b>：题干明确给了对策（如「离不开参与各方的相互成就」），第三个分论点就直接引用题干对策，不要套通用模板。</li>
+<li><b>递进关系必须写在标题上</b>：题干出现「更」「不仅……而且……」时，标题要用「为基／为要」「为根／为纲」「是基础／是关键」把它显性化。写成并列 = 逻辑错。</li>
+<li><b>逆标题技巧</b>：实在写不出高文采标题时，可以只写「核心对策 + 领域」（如《明确目标 绘就行政执法工作新画卷》），信息覆盖度低一点，但不跑题。</li>
+<li><b>多主题原则</b>：保留全部对策要素，影响要素可省；<b>严禁在标题里解释词语含义</b>（不要写《以法律之力、以事理之明、以人民之利……》）。</li>
+</ul>
+</div>
+
+<div class="sec"><h4>③ 这一课过的真题（按骨架归类）</h4>
+<table class="t">
+<thead><tr><th>真题</th><th>判定</th><th>标题示范</th></tr></thead>
+<tbody>
+<tr><td>大变局中困难与机遇同在、挑战与希望并存</td><td>双主题（并列）</td><td>《战胜困难与挑战 赢得机遇与希望》</td></tr>
+<tr><td>民生「小事」和国家「大事」</td><td><b>单</b>主题（因果递进）</td><td>《做好民生「小事」 成就国家「大事」》</td></tr>
+<tr><td>「使命」和「斗争」</td><td>单主题</td><td>《肩负时代使命 赢得斗争胜利》</td></tr>
+<tr><td>群众路线和美好生活</td><td>单主题</td><td>《坚持群众路线 铸就美好生活》</td></tr>
+<tr><td>「数字时代」「公平竞争」</td><td>单主题</td><td>《保障公平竞争 拥抱数字时代》</td></tr>
+<tr><td>一面逐新，一面念旧（联系乡村发展）</td><td>双主题 ABC</td><td>《念旧为根 逐新为要 绘就乡村发展新画卷》</td></tr>
+<tr><td>「轻车」与「壮马」（谈<b>执法工作</b>）</td><td>双主题 ABC</td><td>《驾轻车 驭壮马 绘就执法工作新篇章》</td></tr>
+<tr><td>知来处、明去处（乡村）</td><td>双主题 ABC</td><td>《知来处 明去处 绘就乡村振兴新画卷》</td></tr>
+<tr><td>治已病与治未病（有「更」字）</td><td>双主题 + 递进</td><td>《治已病为本 治未病为要 筑牢法治建设根基》</td></tr>
+<tr><td>汇聚力量、联结当下、畅通未来之路</td><td>双主题 ABC</td><td>《汇聚力量 联结当下 畅通未来之路》</td></tr>
+<tr><td>用智慧给执法「加分」，以创新促执法「乘效」</td><td>双主题 ABC</td><td>《以智慧与创新破题 为执法工作「加分」「乘效」》</td></tr>
+<tr><td>文化创新赋能新质生产力，文化创造助力新征程</td><td>双主题 ABC</td><td>《以文化创新与文化创造破题 绘就高质量发展新篇章》</td></tr>
+<tr><td>贴心服务提升执法质效、为民理念激发社会活力</td><td>双主题 ABC</td><td>《以贴心服务与为民理念破题 绘就执法工作新篇章》</td></tr>
+<tr><td>不能只一味往前跑，更关键的是明确跑的目标（行政执法）</td><td>双主题 + 递进</td><td>《以奔跑为基 以目标为重 绘就行政执法工作新画卷》</td></tr>
+<tr><td>「面子」「里子」（材料指向城市治理）</td><td>回材料后判 ABC</td><td>《做实「里子」 扮靓「面子」 提升城市治理水平》</td></tr>
+<tr><td>「变」与「不变」（材料指向文化）</td><td>回材料后判 ABC</td><td>《以变与不变破题 绘就文化发展新画卷》</td></tr>
+<tr><td>「硬设施」和「软服务」（社会治理）</td><td>双主题 ABC</td><td>《硬设施筑基 软服务润心 共绘社会治理新图景》</td></tr>
+<tr><td>创新是有风险的，但又是规避风险的最好方式</td><td>双主题 AB（辩证）</td><td>《创新：风险与机遇共生》／《以创新与风险破题 推动高质量发展》</td></tr>
+<tr><td>农民增收与农村消费提质的良性循环</td><td>双主题 ABC</td><td>《以增收赋能消费提质 以消费提质反哺增收 激活乡村发展良性循环》</td></tr>
+<tr><td>文明既容纳现代也包容传统</td><td>双主题 ABC</td><td>《传统为根 现代为叶 文明之树繁茂永存》</td></tr>
+<tr><td>文明的道路，有些有形有些无形</td><td>双主题 ABC</td><td>《有形之路筑基 无形之路铸魂 共赴文明新程》</td></tr>
+<tr><td>理论创新与实践创新良性互动</td><td>双主题 AB</td><td>《理论与实践：双向奔赴，共创未来》</td></tr>
+<tr><td>以「追求·努力·创新」为题</td><td>多主题</td><td>《追求·努力·创新》（题目已给，直接用）</td></tr>
+<tr><td>「梦想、创新、实干」</td><td>多主题</td><td>《以梦为帆 以创为桨 以实干为舟 成就伟大事业》</td></tr>
+<tr><td>守住「本分」、增强「本领」、突破创新</td><td>多主题</td><td>《守本分 强本领 促创新 迈向广阔未来》</td></tr>
+<tr><td>以「心路 辛路 新路」为题</td><td>多主题</td><td>《心路 辛路 新路》（题目已给）</td></tr>
+<tr><td>执法服务的「点、线、面」</td><td>多主题</td><td>《织密执法服务「点线面」 绘就法治民生新图景》</td></tr>
+<tr><td>「优势」「顺势」「借势」</td><td>多主题</td><td>《发挥优势 顺势而为 借力打力》</td></tr>
+<tr><td>行政执法中的「力」「理」「利」</td><td>多主题</td><td>《讲力 明理 惠民》（最稳）／《以力筑基 以理论心 以利惠民》</td></tr>
+<tr><td>社区「吹哨」要吹得准、响、久</td><td>多主题</td><td>《做好社区「吹哨」 完善社区治理》</td></tr>
+<tr><td>对「办好事」「好办事」「事办好」深入思考</td><td>多主题（递进）</td><td>《办好事为基 好办事为纲 事办好为要》</td></tr>
+</tbody></table>
+</div>
+
+<div class="sec"><h4>④ 「三好」类多主题的万能后缀表（考场上直接挑一组）</h4>
+<div class="ttag">办好事为基 · 好办事为纲 · 事办好为要</div>
+<div class="ttag">办好事为本 · 好办事为魂 · 事办好为核</div>
+<div class="ttag">办好事为根 · 好办事为干 · 事办好为冠</div>
+<div class="ttag">办好事为帆 · 好办事为桨 · 事办好为舵</div>
+<div class="ttag">办好事为砖 · 好办事为瓦 · 事办好为梁</div>
+<div class="ttag">办好事为源 · 好办事为流 · 事办好为澜</div>
+<div class="ttag">办好事为标 · 好办事为本 · 事办好为效</div>
+<div class="ttag">办好事为始 · 好办事为向 · 事办好为终</div>
+<div class="tip">同一套后缀可以套到任何三关键词题：把「办好事／好办事／事办好」替换成「守本分／强本领／促创新」即可。这就是老师的「模板可迁移」。</div>
+</div>
+<div class="warn">ABC 里最容易错的是 C。<b>C 必须严格等于题干指定的领域</b>：题干说「对执法工作的借鉴意义」，你写成「基层治理」→ 5–10 分。写之前先在草稿上圈出那个领域词。</div></div></details><details class="card" id="L03" data-tags="开头|名言|影响|背景句"><summary><div class="lno">03</div><div class="ltt"><b>大作文开头</b><span>四步法 + 分领域素材库（最值得背的一课）</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>开头大脑空白时，用「名言 → 影响 → 过渡 → 总论点」四句话凑出 200 字，且文采不掉档。</div><div class="tags"><span class="tg">开头</span><span class="tg">名言</span><span class="tg">影响</span><span class="tg">背景句</span></div>
+<div class="sec"><h4>① 开头四步法（万能骨架）</h4>
+<div class="formula">名言警句 → 影响（或背景）→ 过渡句 → 总论点</div>
+<p>老师的板书给了五种组合，字数不够就往上叠加，字数超了就砍「影响」：</p>
+<ul class="tight">
+<li>模式一：名言 ＋ 影响 ＋ 过渡 ＋ 总论点</li>
+<li>模式二：名言 ＋ <b>背景</b> ＋ 影响 ＋ 过渡 ＋ 总论点</li>
+<li>模式三：名言 ＋ 影响 ＋ <b>问题</b> ＋ 过渡 ＋ 总论点</li>
+<li>模式四：名言 ＋ 背景 ＋ 影响 ＋ 问题 ＋ 过渡 ＋ 总论点</li>
+<li>模式五：名言 ＋ 背景 ＋ 影响 ＋ <b>成绩</b> ＋ 问题 ＋ 过渡 ＋ 总论点</li>
+</ul>
+<div class="tip">四步里<b>只有两步需要提前背</b>：<b>影响句</b>（排比）和<b>过渡句</b>（励志名言）。名言直接从题干抄，总论点从标题改。所以「背素材」= 背影响句 + 背过渡句。</div>
+</div>
+
+<div class="sec"><h4>② 每一格怎么填</h4>
+<table class="t2">
+<tr><td class="k">名言警句</td><td>第一优先：抄题干原话（最不跑题）；第二优先：抄材料里的领导讲话／专家观点；第三优先：自己背的。</td></tr>
+<tr><td class="k">影响（排比）</td><td>按「五位一体」分领域储备：政治民生、经济科技、文化、生态、乡村振兴、行政执法、基层治理。每领域背 3–5 组，考场上按主题取。</td></tr>
+<tr><td class="k">背景句</td><td>两种选一种：<b>万能背景</b>「当前，世界之变、时代之变、历史之变正以前所未有的方式展开」；<b>个性化背景</b>引二十大报告／总书记讲话。不要两句都写。</td></tr>
+<tr><td class="k">过渡句</td><td>「成功学」性质，催人奋进即可。老师给了 30+ 句，背 5 句够用。</td></tr>
+<tr><td class="k">总论点</td><td>＝标题改写成一句话。加主语、加连词（「唯有……方能……」）、加修饰语。</td></tr>
+</table>
+</div>
+
+<div class="sec"><h4>③ 「影响句」怎么防撞车：排列组合法</h4>
+<p>老师准备了 <b>25 条影响素材 × 每条 3 个分句 = 75 个独立分句</b>，从中任取 3 句重组成排比，理论上能组合出海量不重复表达；再叠加 61 条名言，几乎不可能与同场考生雷同。</p>
+<div class="tip">操作法：背的时候不要背「整条」，背「分句」。考场上从记忆里抓 3 个分句拼起来即可。例：<span class="q">是增进民生福祉的核心抓手，是凝聚民心民力的关键纽带，是夯实执政根基的重要工程。</span></div>
+</div>
+
+<div class="sec"><h4>④ 双主题专用开头模板（A 与 B 关系题必用）</h4>
+<blockquote>「在当今社会快速发展的浪潮中，A 与 B 似乎成了两个截然不同的概念。但是，A 与 B 是对立关系还是统一关系，是只能孤立割裂还是相互融合促进？『A 让 B 更亲切鲜活，B 让 A 更丰富厚重。』这句话为我们提供了一个独特的视角来看待 A 与 B 之间的相互影响和共生关系，即我们应该认识到 A 与 B 虽然有区别，但是两者并不冲突，而是相辅相成、相互统一的关系，二者相得益彰，双向奔赴。」</blockquote>
+<p>把 A、B 换成「变与不变」「理论与实践」「有价与无价」「守正与创新」都能用。</p>
+</div>
+
+<div class="sec"><h4>⑤ 个性化开头：把「影响」换成「举例排比」</h4>
+<p>不想用模板时，第二步不写影响，改写<b>材料里的例子</b>。素材提取公式：<b>问题 + 主体 + 对策 + 影响</b>，三个例子用「从……到……，从……到……」串起来。</p>
+<p class="mini">示范（「智与志」题，材料里没有名言）：从打破世俗偏见、培育女儿圆梦赛场的摔跤手，到以创新智慧将奇思妙想化为现实的大学教授，再到深耕事业、实现个人与社会共赢的企业家，他们的经历无不昭示……</p>
+<p class="mini">示范（「网红城市」题）：在数字化传播的浪潮下，8D 魔幻立交、特色民俗体验、璀璨城市夜景等视觉景观，让一座座城市迅速跻身「网红城市」行列，收获了海量的关注与流量。然而，短暂的热度终究难以支撑城市的长久发展。</p>
+</div>
+
+<div class="sec"><h4>⑥ 篇幅纪律</h4>
+<div class="formula">全文 5 段：开头 200 字 ｜ 分论点各 200 字 ｜ 结尾 200 字 ｜ 总字数 1000 左右</div>
+</div>
+<div class="warn">开头别超过 250 字。四步法里「影响」和「背景」只选一个，两句都写必超字数，后面分论点就写不完了。</div></div></details><details class="card" id="L04" data-tags="分论点|润色|模板"><summary><div class="lno">04</div><div class="ltt"><b>分论点润色</b><span>三种样式 + 两字／三字／四字模板 + 比喻素材</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>分论点写出来干瘪没文采（「推动农业高质量发展，需要进行质量兴农」），怎样一句话变得有公文味。</div><div class="tags"><span class="tg">分论点</span><span class="tg">润色</span><span class="tg">模板</span></div>
+<div class="sec"><h4>① 先定文体，再润色</h4>
+<table class="t">
+<thead><tr><th>样式</th><th>结构</th><th>文体</th><th>示例</th></tr></thead>
+<tbody>
+<tr><td>样式一</td><td>总论点 + 对策</td><td>策论文</td><td>推动农业高质量发展，要走质量兴农之路。</td></tr>
+<tr><td>样式二</td><td>总论点 + 影响</td><td>政论文</td><td>做好民生小事，有利于增进人民的幸福水平。</td></tr>
+<tr><td>样式三</td><td>总论点 + 对策 + 影响</td><td>议论文</td><td>推进基层治理现代化，需坚持人民中心，提升治理温度。</td></tr>
+</tbody></table>
+<div class="tip">题干只说「写一篇议论文／一篇文章」→ <b>默认用样式三</b>（信息量最大）。题干点名「策论文」→ 只能用样式一；点名「政论文」→ 只能用样式二。</div>
+<p class="mini">互转很简单：政转策＝删掉「有利于」，改成「需要……」；策转政＝在对策后面补一句影响。</p>
+</div>
+
+<div class="sec"><h4>② 润色模板 A：介词／后缀包装（最省力）</h4>
+<p><b>两字模板</b>（接名词）：以 XXX 为先导／为抓手／为纽带／为基础／为主轴／为导向／为保障／为重点。</p>
+<p><b>三字模板</b>（接动作）：在 XXX 上做文章／谋突破／下功夫／求实效／动真格／见真章／再发力／再提升／再用心；吹响 XXX 的冲锋号／擂响 XXX 的决胜鼓／唱响 XXX 的进行曲。</p>
+<p><b>四字模板</b>：把 XXX 放在心上／抓在手上／扛在肩上。</p>
+<div class="formula">总论点 ＋ 需要在［某领域］上［三字动作］</div>
+<p class="mini">对比：原句「进行质量兴农」→「<b>需要在质量兴农上动真格</b>」。</p>
+</div>
+
+<div class="sec"><h4>③ 润色模板 B：把影响变成比喻（政论文用）</h4>
+<p><b>三字地位类</b>：奠基石、压舱石、顶梁柱、主心骨、定盘星、总抓手 ｜ 新引擎、助推器、加速器、催化剂、强心针、动力源、火车头、排头兵、领头雁 ｜ 指南针、风向标、导航仪、方向盘、指挥棒、引路人 ｜ 保护伞、防火墙、安全阀、护城河、紧箍咒、过滤网、净化器、稳定器。</p>
+<p><b>四字意象类</b>：登山之索、开山之镐、寻径之图、一把钥匙、一道良方、一袋锦囊、必由之路、必经之法、必然选择、成事之基、关键之举、永恒课题。</p>
+<div class="formula">分论点是实现 XXX 的「登山之索」</div>
+<div class="cols2"><div>
+<p class="mini">破局之钥 — 攻坚之锤 — 导航之标</p>
+<p class="mini">破浪之帆 — 拓荒之犁 — 领航之灯</p>
+<p class="mini">攀峰之梯 — 破冰之斧 — 指路之碑</p>
+<p class="mini">渡海之舟 — 破土之铲 — 导向之轮</p>
+<p class="mini">越堑之桥 — 垦荒之锄 — 明航之塔</p>
+<p class="mini">涉滩之筏 — 开岩之锤 — 指航之针</p>
+</div><div>
+<p class="mini">穿云之梯 — 破土之镐 — 导路之碑</p>
+<p class="mini">架桥之梁 — 破土之犁 — 航向之灯</p>
+<p class="mini">攀崖之链 — 开山之炮 — 导览之图</p>
+<p class="mini">穿林之斧 — 垦荒之犁 — 指北之标</p>
+<p class="mini">破雾之帆 — 开矿之机 — 导行之碑</p>
+<p class="mini">跨江之桥 — 凿岩之镐 — 指航之塔</p>
+</div></div>
+</div>
+
+<div class="sec"><h4>④ 抽象概念 50 个（直接往句尾接）</h4>
+<table class="t2">
+<tr><td class="k">地位作用</td><td>重要保障、坚强支撑、根本保证、坚实基础、强大动力、战略支撑、根本保障、重要基石、核心支撑、重要支柱、重要依托、坚实后盾、有力武器、根本遵循、行动指南</td></tr>
+<tr><td class="k">途径举措</td><td>根本途径、关键之举、必由之路、治本之策、重要举措、核心举措、根本举措、有效途径、重要抓手、根本方法、基本路径、战略举措、务实之举、长远之策、当务之急</td></tr>
+<tr><td class="k">要求条件</td><td>客观要求、内在要求、必然要求、基本要求、根本要求、时代要求、现实要求、战略要求、前提条件、必要条件、先决条件、基本前提、内在需要、迫切需要</td></tr>
+<tr><td class="k">价值意义</td><td>必然选择、战略选择、制胜之道、应有之义、题中之义</td></tr>
+</table>
+</div>
+
+<div class="sec"><h4>⑤ 议论文（样式三）的关键纪律：只润一半</h4>
+<p>「对策 + 影响」都润色会又长又乱。<b>要么润对策、留原影响；要么留原对策、润影响。</b></p>
+<p class="mini">策略 A（润对策）：做优做强制造业家底，<b>需在推动科技自强上动真格</b>，打造创新高地。</p>
+<p class="mini">策略 B（润影响）：做优做强制造业家底，推动科技自强，<b>是打造创新高地的登山之索</b>。</p>
+</div>
+
+<div class="sec"><h4>⑥ 现成组合演示（15 个主题，直接可搬）</h4>
+<div class="cols2"><div>
+<p class="mini"><b>科技创新</b>：在核心技术攻坚上破瓶颈／在创新生态构建上强协同／在成果转化应用上提质效</p>
+<p class="mini"><b>乡村振兴</b>：在产业融合发展上拓路径／在人才引育用留上建机制／在集体经济壮大上求突破</p>
+<p class="mini"><b>生态治理</b>：在污染源头防控上出实招／在碳汇能力提升上筑根基／在生态价值转化上闯新路</p>
+<p class="mini"><b>基层治理</b>：在多元主体协同上聚合力／在数字技术赋能上提质效／在矛盾化解闭环上见实效</p>
+<p class="mini"><b>民生保障</b>：在服务均等化建设上补短板／在适老化场景打造上惠民生／在特殊群体帮扶上兜底线</p>
+<p class="mini"><b>营商环境</b>：在审批流程优化上做减法／在政策精准滴灌上求精度／在市场秩序维护上严监管</p>
+<p class="mini"><b>教育公平</b>：在优质资源均衡上促流动／在教师队伍建设上提素质／在「双减」落地上强执行</p>
+<p class="mini"><b>文化传承</b>：在非遗活态保护上谋创新／在文旅融合发展上塑品牌／在文化 IP 孵化上挖潜力</p>
+</div><div>
+<p class="mini"><b>数字经济</b>：在数据要素流通上破壁垒／在关键技术攻关上勇攀峰／在网络安全防护上筑屏障</p>
+<p class="mini"><b>共同富裕</b>：在收入分配改革上动真招／在公共服务提质上惠民生／在城乡融合发展上强联动</p>
+<p class="mini"><b>区域协调</b>：在产业转移承接上优布局／在基础设施互联上强支撑／在生态补偿协同上建机制</p>
+<p class="mini"><b>粮食安全</b>：在耕地保护利用上守红线／在种业振兴攻坚上破难题／在仓储物流升级上强保障</p>
+<p class="mini"><b>养老服务</b>：在居家社区养老上建网络／在医养结合服务上促融合／在养老人才培育上搭平台</p>
+<p class="mini"><b>网络治理</b>：在内容生态净化上出重拳／在数据安全防护上织密网／在平台责任压实上立规矩</p>
+<p class="mini"><b>对外开放</b>：在规则制度型开放上勇探索／在跨境贸易便利化上提质效／在权益保障上强服务</p>
+</div></div>
+</div>
+<div class="warn">润色不是堆词。三个分论点必须<b>句式对齐、字数接近</b>（都是「在……上……」，或都是「以……为……」），一旦一个用介词结构、一个用比喻，阅卷人就看出你是在硬凑。</div></div></details><details class="card" id="L05" data-tags="分论点|单主题"><summary><div class="lno">05</div><div class="ltt"><b>寻找分论点（一）</b><span>三种定位法 + 十一道单主题真题推演</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>题干没给分论点时，从材料的哪一句里把三条对策挖出来。</div><div class="tags"><span class="tg">分论点</span><span class="tg">单主题</span></div>
+<div class="sec"><h4>① 分论点的要素和形式</h4>
+<p>要素只有两种：<b>对策</b>、<b>影响</b>。时间紧就只找对策。形式三种（对策／影响／对策+影响），与第 04 课一致。</p>
+<p>字数分配：千字文每个分论点约 200 字；1200 字文可以写四个分论点。</p>
+</div>
+
+<div class="sec"><h4>② 三种定位法（按速度排序）</h4>
+<table class="t">
+<thead><tr><th>方法</th><th>怎么做</th><th>什么时候用</th></tr></thead>
+<tbody>
+<tr><td><b>快速定位法</b></td><td>先看题干有没有现成的「动词+事物」；再看<b>材料的段首、段尾</b>（材料多为「总分总／分总」结构，规范表述都在首尾）</td><td>绝大多数题，先用这个</td></tr>
+<tr><td><b>常规定位法</b></td><td>逐段读主体部分，盯五个信号：段首句、段尾句、<b>高频词</b>、关联词、相关主体</td><td>快速法失效时（最常见）</td></tr>
+<tr><td><b>慢速定位法</b></td><td>逐句扫，把所有对策和影响都圈出来，挑最重要的三个</td><td>兜底，前两个都不行才用</td></tr>
+</tbody></table>
+<div class="tip">三个补充路径：<b>题干 → 所在材料 → 其他材料／客观小题</b>。客观小题往往是对材料的高度概括，反过来能帮你定大作文的分论点维度（第 05 课「互补」「小切口」两题都是这么破的）。</div>
+</div>
+
+<div class="sec"><h4>③ 这一课推演过的题（看「挖点」的手感）</h4>
+<table class="t">
+<thead><tr><th>真题</th><th>关键动作</th><th>推出的分论点</th></tr></thead>
+<tbody>
+<tr><td>依法治国＋以德治国（国家治理）</td><td>ABC：A对C、B对C、A+B对C</td><td>法治是刚性依托／德治是柔性保障／法治德治协同发力</td></tr>
+<tr><td>优化营商环境（<b>策论文</b>）</td><td>段首尾找「动词+事物」</td><td>提升政务服务效率／拓宽政企沟通渠道／开展专项服务活动</td></tr>
+<tr><td>追寻长期价值</td><td>段尾句四个并列主体</td><td>个人（清醒）／企业（格局）／政府（担当）／社会（热忱）—— <b>1200 字写四个</b></td></tr>
+<tr><td>以「治『慧』」为题</td><td>每个故事段尾的「规律」句</td><td>遵循自然规律／遵循文艺规律／遵循社区治理规律／遵循城市运行规律</td></tr>
+<tr><td>事物的「互补」关系</td><td>从四个客观小题反推四个互补维度</td><td>人与自然／政企／金融与实业／科普与科研</td></tr>
+<tr><td>把广东制造业家当做优做强（策论文）</td><td>扫高频词</td><td>创新（打造创新高地）／人才（建强人才梯队）／政务服务（优化营商环境）</td></tr>
+<tr><td>脉动的力量</td><td>高频词+规范表述优先（「转型」优于「调整」「转换」）</td><td>坚持创新／产业转型／优化服务</td></tr>
+<tr><td>把每件小事做好</td><td>抓<b>过渡句</b>分层；把具体案例抽象为人群</td><td>聚焦「一老一幼」／关爱青年／守护特殊群体</td></tr>
+<tr><td>为社会发展「把脉搏」、对症下药「开处方」</td><td>高频词定「把哪个脉」</td><td>把准民生之脉（幸福处方）／文化之脉（传承处方）／安全之脉（发展处方）</td></tr>
+<tr><td>以「流动与新生」为题</td><td><b>题干就是素材</b>：三个场景直接对应三条</td><td>河水流动带来新生机／路网流动创造新机遇／产业流动激荡新动能</td></tr>
+<tr><td>投入自己的领域、打磨修补、默默付出、稳步前行</td><td>补全被省略的主语 → 总论点「承担共同责任」</td><td>专注投入是基石／打磨修补是关键／默默付出是保障／稳步前行是核心</td></tr>
+</tbody></table>
+</div>
+
+<div class="sec"><h4>④ 两个高频技巧</h4>
+<ul>
+<li><b>「题干即素材」</b>：题干引导语里常藏三个并列场景（流动与新生那题），这时<b>不要再看材料</b>，直接拆题干的三个场景当三条分论点，最省时最不跑题。</li>
+<li><b>规范表述优先</b>：故事性材料（风林村、花鼓戏团、清河社区）不要逐字读，只读首段／尾段的总结句，从总结句里拿「遵循……规律」这种规范词，别从故事里硬凑。</li>
+</ul>
+</div>
+<div class="warn">国考大作文常<b>故意省略主语</b>（只给你「打磨、修补、默默付出、稳步前行」），只读后半句就会立错总论点。必须回到材料原句的完整语境，找出被藏起来的那个核心词（「承担共同责任」）。</div></div></details><details class="card" id="L06" data-tags="分论点|双主题|多主题"><summary><div class="lno">06</div><div class="ltt"><b>寻找分论点（二）</b><span>双主题／多主题的四种分论点模式</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>双主题和多主题的分论点从哪来——答案几乎全在题干里，只是要选对四种模式中的哪一种。</div><div class="tags"><span class="tg">分论点</span><span class="tg">双主题</span><span class="tg">多主题</span></div>
+<div class="sec"><h4>① 来源优先级（和第 05 课不一样！）</h4>
+<table class="t2">
+<tr><td class="k">单主题</td><td>题干（第一）→ 所在材料（第二）→ 全篇材料（第三）。<b>最难</b>，因为题干不给。</td></tr>
+<tr><td class="k">双／多主题</td><td><b>优先题干</b>。题干模糊时，才把题干和材料结合。</td></tr>
+</table>
+</div>
+
+<div class="sec"><h4>② 双主题的四种分论点模式（这一课的核心）</h4>
+<table class="t">
+<thead><tr><th>模式</th><th>什么时候用</th><th>分论点长什么样</th><th>真题</th></tr></thead>
+<tbody>
+<tr><td><b>①标准 ABC</b></td><td>题干只给 A、B 两个词，C（领域）在材料里</td><td>A 对 C ／ B 对 C ／ A+B 对 C</td><td>「变与不变」（C=文化）、「面子与里子」（C=城市）</td></tr>
+<tr><td><b>②题干限定型 ABC</b></td><td>题干已经把 A 对 B 的关系写成一句话</td><td><b>直接抄题干原句</b>当第一、二条；第三条谈结合</td><td>「现代让传统更亲切鲜活，传统让现代更丰富厚重」</td></tr>
+<tr><td><b>③对策变形型 ABC</b></td><td>题干明确给了对策（「离不开各方相互成就」）</td><td>前两条谈影响，第三条<b>直接引用题干对策</b></td><td>「硬设施」和「软服务」</td></tr>
+<tr><td><b>④AB 类</b></td><td>两词宏观、不指向具体领域（放之四海皆准）</td><td>A 对 B ／ B 对 A ／ A+B 结合</td><td>理论与实践、创新与风险、红线与红利</td></tr>
+</tbody></table>
+<div class="tip">判断口诀：<b>题干能直接看出 C 的，不看材料；看不出的，回材料找 C。</b>找到 C 就是 ABC，找不到就是 AB。</div>
+</div>
+
+<div class="sec"><h4>③ 四条真题的分论点原文（照抄就是高分）</h4>
+<div class="case"><b>创新与风险（AB）</b>
+<ul class="tight"><li>创新是有风险的（谈影响）</li><li>创新又是规避风险的最好方式（谈影响）</li><li>加强创新、规避风险，为推动高质量发展打下坚实基础（对策）</li></ul>
+<p class="mini">注意：必须出现「风险」二字，只写「勇于创新」＝缺要素＝跑题。</p></div>
+<div class="case"><b>现代与传统（题干限定型）</b>
+<ul class="tight"><li>现代让传统更亲切鲜活</li><li>传统让现代更丰富厚重</li><li>我们需要将现代科技与传统文化完美融合，助力中华文明焕发生机</li></ul>
+<p class="mini">不要自己组装成「A对C、B对C」——题干已经给了关系，抄就是最准的。</p></div>
+<div class="case"><b>智慧执法（标准 ABC）</b>
+<ul class="tight"><li>用智慧给执法加分（A对C）</li><li>以创新促执法成效（B对C）</li><li>将智慧与创新完美结合，全面提升执法质量（A+B对C）</li></ul></div>
+<div class="case"><b>面子与里子（抽象概念，需在句中解释）</b>
+<ul class="tight"><li>做实「里子」，满足市民需求，是构建人民幸福之城的登山之索</li><li>扮靓「面子」，加强市容管理，是构建人民幸福之城的开山之镐</li><li>实现「里子」与「面子」的良性互动，是构建人民幸福之城的寻径之图</li></ul>
+<p class="mini">抽象词（里子／面子／力理利／点线面）不要只在标题里出现，要在分论点里「翻译」成具体动作。</p></div>
+</div>
+
+<div class="sec"><h4>④ 多主题怎么润色（梦想·创新·实干 为例）</h4>
+<ul>
+<li><b>题干是大王，材料是小王</b>，两张牌合起来才是王炸。多主题的抽象关键词必须靠材料「翻译」成具体动作。</li>
+<li>润色法：把每个词做成「在 X 上 + 三字动作」。如「准」→ 要在「准」上谋突破；「响」→ 要在「响」上下功夫；「久」→ 要在「久」上见真章。再去材料里找对应的规范词（准=精准、响=响应、久=长久）。</li>
+<li>文体选择：多主题优先写<b>议论文</b>（对策+影响），信息量最大；写策论文也可以，但影响分会丢。</li>
+</ul>
+</div>
+
+<div class="sec"><h4>⑤ 这一课最重要的一句话</h4>
+<blockquote>大作文的核心在<b>客观性</b>。总论点、分论点、标题必须严格来源于题干和材料。个性化的文采只体现在「语言润色」上，不能体现在「内容编造」上。</blockquote>
+</div>
+<div class="warn">不要为了「显得有想法」而自创分论点维度。阅卷人手里有参考答案，你的第三条分论点只要不是材料里的词，基本不给分。</div></div></details><details class="card" id="L07" data-tags="论证|事例|改写|素材"><summary><div class="lno">07</div><div class="ltt"><b>分论点论证</b><span>三种论证法 + 首尾呼应 + 改写材料两招（治「凑字数」）</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>分论点只有一句话，后面 150 字写什么？以及怎样用材料但不被判抄袭。</div><div class="tags"><span class="tg">论证</span><span class="tg">事例</span><span class="tg">改写</span><span class="tg">素材</span></div>
+<div class="sec"><h4>① 三种论证法</h4>
+<table class="t">
+<thead><tr><th>方法</th><th>是什么</th><th>素材从哪来</th></tr></thead>
+<tbody>
+<tr><td><b>要素论证</b></td><td>往段落里放「背景／问题／成绩／原因／对策／影响」这些要素</td><td>材料原词原句，稍作改写（本质是把概括题的能力搬过来）</td></tr>
+<tr><td><b>事例论证</b></td><td>举例子。四要素：<b>问题 + 主体 + 对策 + 影响</b></td><td>材料改写，或自身积累，或客观小题的答案</td></tr>
+<tr><td><b>名言警句论证</b></td><td>段首引一句</td><td>万能名言（用得最多）／个性化名言</td></tr>
+</tbody></table>
+</div>
+
+<div class="sec"><h4>② 一个满分段落的解剖（营商环境题）</h4>
+<div class="case"><p class="mini"><b>分论点</b>：进一步优化营商环境，应拓宽政企沟通渠道。</p>
+<blockquote>「知屋漏者在宇下，知政失者在草野。」对于本省营商环境存在的问题，民营企业最有痛感，也最有发言权。要想营造更好的营商环境，各级政府应进一步拓宽政企沟通渠道，积极举办面对面协商座谈会，直接与企业家互动交流，听取问题、意见和建议，积极回应诉求和关切，并结合实际提供精准的政策支持，促进民营企业更好发展。</blockquote>
+<p class="mini">拆解：<b>名言</b> ＋ <b>要素组一</b>（问题＋影响：民企最有痛感） ＋ <b>要素组二</b>（对策＋影响：拓宽渠道→促进发展）。</p></div>
+<p>更丰富的版本（数字政府题）用了：背景／影响 → 问题 → 危害 → 对策 → 事例（主体+对策+影响） → 前景。要素越多越像范文，但考场 200 字装不下，选 3–4 个即可。</p>
+</div>
+
+<div class="sec"><h4>③ 分论点段落的万能四步（背这个）</h4>
+<div class="formula">名言／背景 → 影响（或问题） → 对策／事例（主体+对策+影响） → 回扣分论点</div>
+<p class="mini">示例（2026 国考「奋力往前跑」）：<br>
+「法者，治之端也。」<span class="dim">（名言）</span> 新时代执法场景日趋复杂。<span class="dim">（背景）</span> 传统「人海战术」「上门巡查」效率低、干扰大，已难以适配治理需求。<span class="dim">（问题）</span> 唯有主动奔跑、勇于创新，才能打破路径依赖、激活监管效能。<span class="dim">（对策）</span> E 市率先布局数字化监管，布设七千余台监控设备，搭建 AI 智能监管系统，实现全天候远程监测，一年自动识别安全隐患三千余起。<span class="dim">（事例）</span> 放眼全国，多地推行非现场监管，以无人机巡查、大数据筛查、物联网监测替代人工巡检，让执法从「被动应对」转向「主动预判」。<span class="dim">（类比拓展）</span> 这种奔跑，是拥抱科技变革的主动作为，更是行政执法顺应时代、提升效能的必然选择。<span class="dim">（回扣）</span></p>
+</div>
+
+<div class="sec"><h4>④ 结合材料 ≠ 照抄材料：两招</h4>
+<table class="t2">
+<tr><td class="k">招一 · 顺序重组</td><td>把材料的信息打乱重排，按「目的 → 做法 → 行动 → 成效」组织。原文若是「安装了设备/开发了系统/实现了监控」，你改成「围绕监管效能，先布设备、再搭系统、终成全天候监测」。</td></tr>
+<tr><td class="k">招二 · 词汇变换</td><td>动词同义替换：安装→布设，开发→搭建，监控→监测，解决→瞄准，问题→困境，优化→打造。名词抽象化：食堂／托育中心 → 「一老一幼」；林票制 → 「金融与实业」。</td></tr>
+</table>
+<div class="tip">老师原话：<b>申论是把调查出的材料内容「转化」成文章，不是复制。</b>只要动词换了、顺序换了、加上自己的评价句，就不算抄。</div>
+</div>
+
+<div class="sec"><h4>⑤ 首尾呼应（段落级）</h4>
+<p>段首句（分论点）和段尾句说同一个意思，但句式要变。四种变法：<b>加句子</b>（前面补一句名言）、<b>换句式</b>（对策句改背景句）、<b>调顺序</b>、<b>缩句</b>。关键词尽量保留，方便阅卷人认出「这是回扣」。</p>
+<p class="mini">示例：段首「驾轻车，需以厘清职责、数字赋能为钥，为执法工作松绑减负」→ 段尾「让执法人员从繁琐事务中解脱，把精力投入一线服务，实现减负增效」。</p>
+</div>
+
+<div class="sec"><h4>⑥ 素材从哪来：小题答案转化（很实用）</h4>
+<p>大作文阅卷只有约 1 分钟，阅卷人根本看不到你前面的小题。所以<b>把小题答案改写成大作文的例子</b>是零成本套利。</p>
+<p class="mini">M 县基层治理汇报提纲 → 大作文段落：M 县通过建立网格员巡查模式，优化「智慧网格」设置，构建「信访超市+外送服务」体系，充实人才资源储备，实现了基层治理水平的提升。<br>
+公式：<b>主体 + 对策（总括词前置，排比三个）+ 影响</b>。</p>
+</div>
+
+<div class="sec"><h4>⑦ 人物素材库（三个维度 × 四个方面：微观个人／中观团队／宏观国家；古今中外）</h4>
+<div class="cols2"><div>
+<p class="mini"><b>黄旭华</b>：隐功埋名三十载，研制核潜艇</p>
+<p class="mini"><b>杨根思</b>：「三个不相信」誓言</p>
+<p class="mini"><b>廖俊波</b>：带领政和县摘掉贫困帽</p>
+<p class="mini"><b>李忠凯</b>：「80 后」白发干部，32 字产业富民经</p>
+<p class="mini"><b>李保国</b>：35 年坚守太行山，「新愚公」</p>
+<p class="mini"><b>张桂梅</b>：献身教育扶贫，点燃大山女孩希望</p>
+<p class="mini"><b>黄大发</b>：「水过不去、拿命来铺」</p>
+<p class="mini"><b>黄文秀</b>：回乡奉献，把扶贫路当长征路</p>
+<p class="mini"><b>黄诗燕</b>：扎根脱贫一线，鞠躬尽瘁</p>
+<p class="mini"><b>谷文昌</b>：十四年把荒岛建成绿岛</p>
+</div><div>
+<p class="mini"><b>塞罕坝林场</b>：六位老汉躬耕沙漠成绿化奇迹（团队）</p>
+<p class="mini"><b>中国航天人</b>：从一穷二白到嫦娥探月、天问落火（国家）</p>
+<p class="mini"><b>抗疫群体</b>：全国人民上下团结（社会）</p>
+<p class="mini"><b>党史排比</b>：从嘉兴南湖红船到南昌城红旗，从瑞金红井水到长征红军被，从延安窑洞到西柏坡指挥所</p>
+<p class="mini"><b>反面</b>：《人民的名义》孙连成「不做不错」、碌碌无为</p>
+<p class="mini"><b>反面（模糊指代）</b>：部分城市急于打造网红景观，不顾水土盲目引种名贵花木，成活率低、养护费高</p>
+</div></div>
+<div class="tip">反面例子要用<b>「部分城市」「个别地区」</b>这种模糊指代，不要指名道姓，避免阅卷忌讳。</div>
+</div>
+
+<div class="sec"><h4>⑧ 实在写不出时的保命模板（三段式凑 200 字）</h4>
+<blockquote>XX 分论点，既是推动经济社会又好又快发展的重要任务，也是改善民生、实现全面协调可持续发展的必然选择，更是实现高质量发展的必由之路。<br>
+我国近些年高度重视 XXX 工作，成绩有目共睹，然而也存在一定的问题：XX、XX、XX，此类现象不胜枚举，既不利于 XX，也不利于 XX。<br>
+与此同时，我们也看到，［主体］通过［对策1］、［对策2］、［对策3］，实现了［影响］。<br>
+因此，我们需要［对策］＋［影响］，回扣分论点。</blockquote>
+<p class="mini">另有两条开头句备用：<br>「既是贯彻新发展理念的重要举措，也是响应人民群众共识和呼声的应有之义，更是关系我国经济社会发展全局的点睛之笔。」<br>「既是立足新发展阶段的核心支撑，又是构建新发展格局的内在要求，更是统筹推进『五位一体』总体布局的根本保证。」</p>
+</div>
+<div class="warn">模板只是兜底。老师强调：<b>模板的前提是总论点不跑题</b>；总论点跑题，模板写得再漂亮也是四类文。</div></div></details><details class="card" id="L08" data-tags="结尾|名言|号召"><summary><div class="lno">08</div><div class="ltt"><b>大作文结尾</b><span>首尾呼应切分法 + 主体分析 + 万能三句</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>结尾怎样做到和开头「势均力敌」，而不是重复一遍开头；以及只剩 5 分钟时怎么写。</div><div class="tags"><span class="tg">结尾</span><span class="tg">名言</span><span class="tg">号召</span></div>
+<div class="sec"><h4>① 核心方法：切分法</h4>
+<p>把开头拆成几个要素，结尾逐个回应——<b>名言换一句同领域的</b>，<b>影响换更宏大的词</b>，<b>对策换更明确的动作</b>。</p>
+<table class="t">
+<thead><tr><th>要素</th><th>开头</th><th>结尾</th></tr></thead>
+<tbody>
+<tr><td>名言</td><td>「治国有常，而利民为本。」</td><td>「民惟邦本，本固邦宁。」</td></tr>
+<tr><td>重要性</td><td>国家对社会保障的重视</td><td>社会保障是治国安邦的大问题</td></tr>
+<tr><td>影响</td><td>医疗、就业、养老</td><td>让医疗惠及群众、就业稳中向好、养老托举幸福</td></tr>
+<tr><td>对策</td><td>织密社会保障网</td><td>发展高质量、可持续的社会保障事业</td></tr>
+</tbody></table>
+<p class="mini">完整示范：「民惟邦本，本固邦宁。」社会保障是治国安邦的大问题。织密社会保障网，可以让医疗惠及群众、就业稳中向好、养老托举幸福。为此，要尽力而为，发展高质量、可持续的社会保障事业，让民生福祉普惠共享，稳稳守住亿万国民的获得感、幸福感、安全感。</p>
+</div>
+
+<div class="sec"><h4>② 影响怎么写才不空：两个工具</h4>
+<ul>
+<li><b>主体分析法</b>：微（个人）→ 中（集体／组织）→ 宏（国家／社会／政府）。问自己「这件事对谁有影响」。</li>
+<li><b>关键词化大为小</b>：别写「好」「重要」，要写具体特质。把「民生服务」拆成「医疗、就业、养老」，把「好人」拆成「负责、乐观、创新」。</li>
+</ul>
+</div>
+
+<div class="sec"><h4>③ 三句万能结尾（最后 5 分钟用）</h4>
+<div class="formula">名言警句 ＋ 影响（重要性／必要性） ＋ 号召（展望）</div>
+<blockquote><b>第一句（名言）</b>：路虽远，行则将至；事难成，做则必成。<span class="dim">（备用：犯其至难而图其至远／千淘万漉虽辛苦，吹尽黄沙始到金／日日行不怕千万里，常常做不怕千万事）</span><br>
+<b>第二句（影响）</b>：站在第二个百年奋斗目标的历史交汇点上，面向「十五五」、迈步新征程，解决好 XX 问题是夺取全面建设社会主义现代化国家新胜利的关键。<br>
+<b>第三句（号召）</b>：为此，我们要坚定信念、满怀信心，保持「风雨无阻向前进」的奋进姿态，激扬「越是艰险越向前」的精气神，葆有「踏平坎坷成大道、斗罢艰险又出发」的顽强意志，方能书写更新完美的时代篇章。</blockquote>
+<p class="mini">把「XX」换成任何主题词都能用：挖掘旧事物价值、系统观念、人工智能、共同富裕、旧物新生……</p>
+</div>
+
+<div class="sec"><h4>④ 背景缺失时的救场：举例法写背景</h4>
+<p>想不起数据、想不起政策原文时，用「古今」时间线举例。<span class="dim">（黄河题示范）</span></p>
+<blockquote>「黄河宁，天下平。」从大禹治水，到康熙帝把「河务」「漕运」刻在宫廷柱子上，再到新中国成立后开展黄河治理保护工作，中华民族历代都重视经略黄河。面对当前黄河流域存在的困难和问题，我们要持续推动黄河流域生态保护和高质量发展，让黄河成为造福人民的幸福河。</blockquote>
+<div class="warn">别把长江与黄河的诗句弄混：「长风破浪会有时」多指长江，「黄河之水天上来」才是黄河。张冠李戴是硬伤。</div>
+</div>
+
+<div class="sec"><h4>⑤ 结尾纪律</h4>
+<ul>
+<li>200 字以内，三到四句，不要展开新论点。</li>
+<li>必须出现标题里的核心词（至少 2 个），这是「回扣」的证据。</li>
+<li>不要用「综上所述」「总之」开头，太像学生作文；用名言起句。</li>
+<li>首尾呼应是<b>加分项</b>，不是必选项。写不出来就用万能三句，结构完整比强行呼应分高。</li>
+</ul>
+</div>
+<div class="warn">结尾最忌讳「另起炉灶」——突然提出开头没说过的新观点，会让阅卷人认为你结构失控。结尾只做三件事：重申、升华、号召。</div></div></details><div class="chapter" id="ch2"><span class="cnum">PART 02</span><h3>真题实战：当堂写的那篇</h3><span class="cdesc">9 节课 · 点开即真题＋范文原句</span></div><details class="card" id="L09" data-tags="单主题|实战|标题|开头|分论点|论证|结尾"><summary><div class="lno">09</div><div class="ltt"><b>单主题实战 ① 种树与摘果</b><span>人才工作 · 40 分 · 1000—1200 字</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>「而非」型题干怎么判成单主题，以及三条分论点怎样从材料里「就近」挖出来。</div><div class="tags"><span class="tg">单主题</span><span class="tg">实战</span><span class="tg">标题</span><span class="tg">开头</span><span class="tg">分论点</span><span class="tg">论证</span><span class="tg">结尾</span></div><div class="essay"><div class="qbox"><span class="lab">真题原文</span><p>「给定资料 4」中提到「我们应当把更多精力投入在『种树』，而非静待成熟再『摘果』。」请对这句话进行深入系统的思考，联系实际，自拟题目，写一篇文章。（40 分）要求：观点明确，见解深刻；参考给定资料，但不拘泥于给定资料；思路清晰，语言流畅；字数 1000—1200 字。</p></div><div class="judge"><b class="l">审题判定 · </b>题干用「而非」连接两个表述 → <b>单主题</b>。只保留正面表述（种树），忽略负面表述（静待成熟）。「种树」是过程／对策，「摘果」是结果／影响，不是并列双主题。</div><div class="titlerow"><span class="lab">标题</span>《深耕「种树」之道 谱写「摘果」新篇》</div><div class="anchor"><span class="lab">开头首句</span>「我们应当把更多精力投入在『种树』上，而非静待成熟再『摘果』。」N 县联合高校开展毕业设计行动的实践，生动诠释了这一人才培育的深刻内涵。</div><div class="para"><span class="lab">开头整段</span><blockquote>「我们应当把更多精力投入在『种树』上，而非静待成熟再『摘果』。」N 县联合高校开展毕业设计行动的实践，生动诠释了这一人才培育的深刻内涵。「摘果」是急功近利的短期索取，「种树」则是深耕细作的长远布局。深耕「种树」之道，是增进人民福祉的必经之路，是构建新发展格局的战略支撑，是实现高质量发展的强大动力。「路漫漫其修远兮，吾将上下而求索」，唯有深耕「种树」之道，以观念为基、以活动为翼、以服务为壤，方能培育人才成长的沃土，实现人才与县域的双向奔赴，为高质量发展注入持久动力。</blockquote></div><div class="para"><span class="lab">开头变体</span><div class="mini" style="margin-top:6px">另一个版本（更贴近材料）：<br>「我们应当把更多精力投入在『种树』，而非静待成熟再『摘果』。」N 县的人才工作理念，深刻道出县域人才发展的核心逻辑。「摘果」是急功近利招揽成熟人才的短视思维，「种树」是前置培育、陪伴成长、深耕土壤的长远方略。做好新时代县域人才工作，须摒弃「摘果」惯性，以「种树」思维为统领，从转变人才观念、打造品牌活动、优化服务保障三个维度发力，让青年人才扎根县域、赋能发展，为县域高质量发展注入持久动能。</div></div><div class="anchor"><span class="lab">三条分论点</span><ol class="plist"><li>深耕「种树」之道，需要转变人才观念，锚定「种树」方向。</li><li>深耕「种树」之道，需要打造品牌活动，搭建「育苗」舞台。</li><li>深耕「种树」之道，需要优化服务保障，厚植「留才」沃土。</li></ol></div><div class="para plain"><p class="cap">分论点一完整段落（学「四步走论证」的样板）：</p><blockquote>长期以来，部分县域奉行「摘果」「拿来主义」，一味以高薪、编制争抢成熟人才，却常陷入「引得来、留不住、用不好」的困境。N 县主动打破路径依赖，深刻转变人才观，将招才引智目标前移，坚持赋能青年启航，伴随其成长。早在 2015 年，该县便提出「未来人才储备计划」，通过「家燕归巢」「返家乡」等活动链接本土高校毕业生，并将眼光向外拓展，吸引全国青年流入，集纳更广阔的人才资源。因此，我们应该转变人才观念，跳出短期功利的人才误区，为县域长远发展积累源头活水。</blockquote></div><div class="para plain"><p class="cap">分论点二段落（学「以影响开头」）：</p><blockquote>品牌化的实践平台既让青年在实战中练就真本领，也为县域发展注入创意动能，打通了青年与县域的双向接口。N 县深耕人才活动品牌建设，重点打造「全国高校联合毕业设计」行动，围绕当地经济社会发展的现实需求，构建「县域出题、学子答题」的真题真做模式，将「中国毕业设计之城」的梦想照进现实。未来，县域应当打造贴合发展需求的品牌活动，推动人才资源与地方需求精准对接，让人才在品牌活动中积累经验、建立认同，为长期扎根奠定基础，让「人才之树」根系发达。</blockquote></div><div class="para plain"><p class="cap">分论点三段落（学「正反对比」）：</p><blockquote>从「初见倾心」到「扎根认同」，全方位的服务保障让青年人才愿意来、留得住、发展好，为县域人才链条筑牢稳固根基。N 县为学子配备「人才主理人」、设立高额奖励基金，以全方位保障让人才无后顾之忧，安心深耕。反观部分地区，引才时许诺优厚条件，落地后服务缺位，导致人才「来得快、走得急」。不难看出，唯有把服务做到人才心坎上，用细节关怀传递温度，才能让人才感受到归属感，主动扎根奉献，让「人才之树」汲取养分、茁壮成长。</blockquote></div><div class="anchor"><span class="lab">结尾首句</span>致治之要，首在得人；育才之要，贵在长远。</div><div class="para"><span class="lab">结尾整段</span><blockquote>致治之要，首在得人；育才之要，贵在长远。县域人才工作从来不是争抢成熟人才的短跑，而是培育青年力量的长跑。未来，唯有以观念转变为先导校准方向，以品牌活动为载体锤炼本领，以服务保障为支撑凝聚人心，持之以恒深耕人才沃土，才能让更多青年人才在县域落地生根、开花结果，为乡村振兴与县域高质量发展汇聚源源不断的青春力量。</blockquote></div><div class="sec" style="margin:16px 0 0;background:#fbf9f2"><h4>这一课的技术要点</h4><ul><li><b>比喻词的释义必须放在开头</b>：把「种树」解释为「前置培育、陪伴成长、深耕土壤」，把「摘果」解释为「急功近利、短期索取」。拿不准具体所指时，把所有合理推测都写进去，覆盖得分点。</li><li><b>分段排序按事物逻辑</b>：观念（思想先导）→ 活动（平台载体）→ 服务（基础保障）。这个顺序本身就是加分点。</li><li><b>结尾与开头「势均力敌」</b>：开头引「种树／摘果」理念，结尾引古语「致治之要，首在得人」；开头说「短视思维」，结尾说「不是短跑是长跑」；开头的三个维度在结尾用「以……为先导／为载体／为支撑」重写一遍。</li><li><b>万能影响句（经济类）</b>：是增进人民福祉的必经之路，是构建新发展格局的战略支撑，是实现高质量发展的强大动力。</li></ul></div></div><div class="warn">不要把「种树」直接翻译成「引进人才」或「搭建平台」写进标题——万一材料里「种树」指的是另一件事，就判偏题。标题保留原词，含义在开头解释。</div></div></details><details class="card" id="L10" data-tags="单主题|实战|开头|分论点|结尾|素材"><summary><div class="lno">10</div><div class="ltt"><b>单主题实战 ② 做好每件小事</b><span>民生服务 · 40 分 · 800—1000 字</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>材料里全是具体案例（食堂、托育、幸福码），怎样抽象成三条分论点，并且用「过渡句」分层。</div><div class="tags"><span class="tg">单主题</span><span class="tg">实战</span><span class="tg">开头</span><span class="tg">分论点</span><span class="tg">结尾</span><span class="tg">素材</span></div><div class="essay"><div class="qbox"><span class="lab">真题原文</span><p>「给定资料 4」中提到「我们就是要把每件小事都做好，让阳光照亮城市的每一个角落」。请深入思考这句话，参考给定资料，联系实际，自选角度，自拟题目，写一篇文章。（40 分）要求：观点明确，见解深刻；参考给定资料，但不拘泥于给定资料；思路清晰，语言流畅；总字数 800—1000 字。</p></div><div class="judge"><b class="l">审题判定 · </b>题干两句话：第一句是对策（做好每件小事），第二句是影响（照亮城市角落）。<b>单主题</b>。总论点可加一级：「办好民生小事，建设全龄友好型城市」。</div><div class="titlerow"><span class="lab">标题</span>《办好每件小事 照亮城市角落》</div><div class="anchor"><span class="lab">开头首句</span>「我们就是要把每件小事都做好，让阳光照亮城市的每一个角落。」</div><div class="para"><span class="lab">开头整段</span><blockquote>「我们就是要把每件小事都做好，让阳光照亮城市的每一个角落。」当前，我国经济社会发展进入新阶段，新时代新征程上，解决民生问题具有强烈的现实紧迫性。办好民生小事，是满足人民美好生活需要的必由之路、是建设服务型政府的必经之法、是实现高质量发展的必然选择。「风雨多经志弥坚，关山初度路犹长」，从社区食堂的烟火长队到托育中心的孩童欢笑，从居家养老的智能守护到创业青年的资金驰援，C 市将一桩桩民生小事做实做细，用点滴暖意汇聚成城市幸福的光芒。唯有深耕民生细微处，方能让发展的阳光普照全体市民。</blockquote></div><div class="anchor"><span class="lab">三条分论点</span><ol class="plist"><li>要聚焦「一老一幼」，筑牢幸福底色。</li><li>要关爱青年人才，激活城市动能。</li><li>要守护特殊群体，传递城市暖意。</li></ol></div><div class="para plain">分论点一（一老一幼）段落要点：<br>①名言：「老吾老以及人之老，幼吾幼以及人之幼」；②影响（主体分析）：这不仅是古人的道德追求，也是全社会共同的心愿，更是城市发展的重要考量；③举例：C 市建成近千家社区食堂、35 个社区养老服务综合体，装门磁／燃气报警／SOS 呼叫器，建「15 分钟托育服务圈」；④回扣：<b>「一老一幼」，一头连着「夕阳」，一头系着「朝阳」</b>。聚焦「一老一幼」，实现老有所养、幼有所育，方能让城市充满温情与活力，共筑全龄友好的美好家园。</div><div class="para plain">分论点二（青年）段落要点：<br>①影响（双向）：这不仅关乎青年的个人发展，更是城市持续繁荣的关键所在；②对策两条：加快构建与城市发展相适应的产业体系（关键一招）／强化公共服务能力、营造良好生活环境（重要保障）；③举例：杭州数字经济聚才（类比）或 C 市机器人公司获创业基金（材料）；④回扣：<b>「青年兴则城市兴，青年强则城市强。」</b></div><div class="para plain">分论点三（特殊群体）段落要点：<br>①影响：在建设全龄友好型城市的蓝图中，特殊群体是不可忽视的一笔，让特殊群体共享发展成果，是城市文明进步的标志；②对策两条：打造「幸福码」平台实施主动救助（护尊严的「无声援助」）／印发帮扶政策意见、整合多方资源（政府、社会组织、企业、公众）；③回扣：<b>「积力之所举，则无不胜也；众智之所为，则无不成也。」</b></div><div class="anchor"><span class="lab">结尾首句</span>「一件一件抓落实，一年一年接着干。」</div><div class="para"><span class="lab">结尾整段</span><blockquote>「一件一件抓落实，一年一年接着干。」全龄友好城市建设没有终点，民生改善永远在路上。从朝夕相伴的「一老一幼」，到勇毅前行的青年群体，再到需要托底的特殊人群，把每一件民生小事办实、办细、办暖，就能让城市发展更有质感，让幸福阳光照亮每一个角落，绘就人民城市共建共享的温暖图景。</blockquote></div><div class="sec" style="margin:16px 0 0;background:#fbf9f2"><h4>这一课的技术要点</h4><ul><li><b>抓过渡句分层</b>：材料第 4 段首句「民生的关注从不只是『一老一幼』，更是要让全龄人群获得幸福感」——前半句总结上文（一老一幼），后半句开启下文（青年、特殊群体）。一句话就把材料切成三段。</li><li><b>具体案例抽象化</b>：食堂／综合体／托育中心 → 「一老一幼」；创业贷款／扶持基金 → 「青年人才」；幸福码／帮扶意见 → 「特殊群体」。分论点里绝不写「食堂」「托育中心」这种具体物。</li><li><b>开头用排比举例代替空话</b>：「从社区食堂的烟火长队到托育中心的孩童欢笑，从居家养老的智能守护到创业青年的资金驰援」——三个例子一排比，画面感立刻出来。</li><li><b>民生类名言</b>：「民生无小事，枝叶总关情」（注意是「枝叶」不是「一枝一叶」）／「治国有常，而利民为本」／「风雨多经志弥坚，关山初度路犹长」。</li></ul></div></div><div class="warn">绝不照搬材料里的具体案例当分论点（食堂、托育中心、幸福码）。分论点必须是人群或领域，案例只能出现在论证段里当证据。</div></div></details><details class="card" id="L11" data-tags="单主题|实战|开头|分论点|论证|结尾"><summary><div class="lno">11</div><div class="ltt"><b>单主题实战 ③ 多样性蕴含创造力</b><span>2026 国考地市 · 35 分 · 1000—1200 字</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>材料只讲了一个科研团队，怎样把「多样性」拆成学科、视角、氛围三个维度，并拔高到社会治理层面。</div><div class="tags"><span class="tg">单主题</span><span class="tg">实战</span><span class="tg">开头</span><span class="tg">分论点</span><span class="tg">论证</span><span class="tg">结尾</span></div><div class="essay"><div class="qbox"><span class="lab">真题原文</span><p>「给定资料 5」中提到「多样性蕴含着创造力」，请你对此深入思考，参考给定资料，联系实际，自选角度，自拟题目，写一篇文章。（35 分）要求：观点明确，见解深刻；参考给定资料，但不拘泥于给定资料；思路清晰，语言顺畅；字数 1000—1200 字。</p></div><div class="judge"><b class="l">审题判定 · </b>「多样性」是状态／做法 → 对策；「创造力」是成果 → 影响。先有因后有果，<b>不能颠倒</b>。单主题。</div><div class="titlerow"><span class="lab">标题</span>《以多样性破题 绘就创造力新图景》<br><span class='mini'>进阶：《以多样性沃土为钥 育创造力繁花盛开》</span></div><div class="anchor"><span class="lab">开头首句</span>「美妙动听的器乐合奏是由多种乐器发出不同的音色并巧妙融合而产生的，多样性蕴含着创造力。」金教授这番论述揭示了一条创造力生成的普遍规律。</div><div class="para"><span class="lab">开头整段</span><blockquote>「美妙动听的器乐合奏是由多种乐器发出不同的音色并巧妙融合而产生的，多样性蕴含着创造力。」金教授这番论述揭示了一条创造力生成的普遍规律。以多样性破题，是激活各类要素潜能的强大动力，是加快构建新发展格局的战略支撑，是实现高质量发展的关键路径。「日日行，不怕千万里；常常做，不怕千万事」，当今时代各类发展难题日趋复杂，各行各业想要实现突破、求得发展，都要依靠学科、视角、氛围三重维度的多元力量激发创新活力。我们要立足多样性破题，依靠专业跨界筑牢能力底座，视角碰撞激活思维动能，包容氛围涵养成长生态，三者共同发力，方能让创新活力充分涌流。</blockquote></div><div class="anchor"><span class="lab">三条分论点</span><ol class="plist"><li>学科多样性，构筑创造之基。</li><li>视角多样性，点燃创造之火。</li><li>氛围多样性，涵养创造之壤。</li></ol></div><div class="para plain"><p class="cap">分论点一完整段落（比喻论证 + 材料案例 + 类比拓展）：</p><blockquote>学科多样性，构筑创造之基。单一学科如独木难成林，多学科交叉则如热带雨林，根系交织方能孕育旺盛生命。对个人而言，跨界学习丰富视野、培养复合能力；对团队而言，多元知识结构激发创新思维、提升核心竞争力。赵老师从考古学转向地理学，逐渐构建自己的知识体系；小马从自然地理学走向古蛋白质组学，形成独特优势——她们的转型正是学科边界消融的生动缩影。放眼国家重大工程，北斗导航系统涉及航天、通信、测绘、材料等多学科联合作战，人类基因组计划涉及生物学、化学、医学、计算机科学多学科协作。实践证明，拆除学科藩篱之处，往往是重大突破诞生之地。为此，应大力推动学科交叉平台建设，破除院系壁垒，让不同专业的研究者围绕重大问题协同攻关，在知识交汇处开辟创新疆域。</blockquote></div><div class="para plain">分论点二段落要点（正反论证 + 类比）：<br>①反面：一个组织若长期沉浸于同质化思维，便如静水不流，走向僵化；②正面：个人打破认知盲区，团队开辟新思路；③材料案例：环境考古团队打破资历与层级壁垒，每周组会鼓励各年级学生畅所欲言、大胆质疑；④类比：华为「蓝军」机制（专设团队从对立视角批判主流方案）／中国航天「双想」制度（回想隐患、预想风险）；⑤回扣：<b>多元视角不是决策的干扰，而是创新的催化剂</b>——应把「唱反调」机制化、常态化。</div><div class="para plain">分论点三段落要点（历史 + 现实双例）：<br>①核心观点：学科交融、视角碰撞必须在开放包容的土壤中才能生根发芽；②材料案例：团队始终营造开放包容的学术生态，定期学术研讨、支持国际交流；③三个类比：春秋战国百家争鸣 → 照耀华夏的思想星空；北大蔡元培「思想自由、兼容并包」→ 新思潮风起云涌；深圳「来了，就是深圳人」→ 从小渔村到创新之都；④回扣：<b>涵养兼容并包的多样性生态，便是创新之树常青的丰饶土壤</b>。</div><div class="anchor"><span class="lab">结尾首句</span>「风雨多经志弥坚，关山初度路犹长。」</div><div class="para"><span class="lab">结尾整段</span><blockquote>「风雨多经志弥坚，关山初度路犹长。」站在第二个百年奋斗目标的历史交汇点上，面向「十五五」迈出新征程，以多样性破题，是夺取全面建设社会主义现代化国家新胜利的关键。为此，我们要坚定信念、满怀信心，保持「风雨无阻向前进」的奋进姿态，激扬「越是艰险越向前」的精气神，葆有「踏平坎坷成大道、斗罢艰险又出发」的顽强意志，方能书写更新完美的时代篇章。</blockquote></div><div class="sec" style="margin:16px 0 0;background:#fbf9f2"><h4>这一课的技术要点</h4><ul><li><b>三个分论点用「基—火—壤」三个字串成意象链</b>：基（基础）→ 火（动力）→ 壤（生态），层层递进，比「一是二是三是」高一档。</li><li><b>题干要求「不拘泥于材料」，就要拔高</b>：材料只讲考古科研，论证时要接到北斗、人类基因组、华为、航天、深圳这些国家层面案例上，体现政府视角。</li><li><b>类比对象要选「公认需要协作」的</b>（北斗、航天、华为），不要选冷门或有争议的外国企业。</li><li><b>结尾没时间就套三步走</b>：名言 → 形势判断（历史交汇点／新征程） → 排比号召。</li></ul></div></div><div class="warn">不要写「学科、视角、氛围」之外的第四个维度（方法多样性、团队多样性本质上是同学科），三条足够，多写反而稀释。</div></div></details><details class="card" id="L12" data-tags="双主题|实战|ABC|标题|开头|分论点|结尾"><summary><div class="lno">12</div><div class="ltt"><b>双主题实战 ① 轻车与壮马</b><span>领域转换（基层治理→执法）· 40 分 · 800—1000 字</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>题干讲的是基层治理，但要求谈「对执法工作的借鉴意义」——这个「领域转换」是全场最大的坑。</div><div class="tags"><span class="tg">双主题</span><span class="tg">实战</span><span class="tg">ABC</span><span class="tg">标题</span><span class="tg">开头</span><span class="tg">分论点</span><span class="tg">结尾</span></div><div class="essay"><div class="qbox"><span class="lab">真题原文</span><p>「给定资料 4」提到「我们将继续按照『轻车』与『壮马』相结合的原则，持续改进和创新工作模式，努力绘就基层治理新画卷」，请深入思考这句话对执法工作的借鉴意义，联系实际，自选角度，自拟题目，写一篇文章。（40 分）要求：观点明确，见解深刻；思路清晰，语言流畅；参考给定资料，但不拘泥于给定资料；800—1000 字。</p></div><div class="judge"><b class="l">审题判定 · </b>双主题 ABC：A=轻车（减负、厘清职责、数字赋能）、B=壮马（赋能、整合资源、专业培训）、<b>C=执法工作</b>。C 取自题干「对执法工作的借鉴意义」，<b>绝不能写成基层治理</b>。</div><div class="titlerow"><span class="lab">标题</span>《以「轻车」与「壮马」破题 绘就执法工作新篇章》</div><div class="anchor"><span class="lab">开头首句</span>「我们将继续按照『轻车』与『壮马』相结合的原则，持续改进和创新工作模式，努力绘就基层治理新画卷」，其核心要义在于通过减负松绑释放活力、通过赋能增劲提升效能。</div><div class="para"><span class="lab">开头整段</span><blockquote>「我们将继续按照『轻车』与『壮马』相结合的原则，持续改进和创新工作模式，努力绘就基层治理新画卷」，其核心要义在于通过减负松绑释放活力、通过赋能增劲提升效能。这一治理智慧对执法工作具有深刻的借鉴意义。以「轻车」「壮马」破题，是打造政治文明的客观要求，是促进经济繁荣的必要条件，是保障社会和谐的重要举措。「追风赶月莫停留，平芜尽处是春山」，唯有秉持「轻车驭壮马」的理念，在厘清边界、数字赋能上谋突破，在整合资源、专业培训上求实效，方能实现执法效能与治理水平的双重提升，开创良法善治新局面。</blockquote></div><div class="anchor"><span class="lab">三条分论点</span><ol class="plist"><li>驾轻车，需以厘清职责、数字赋能为钥，为执法工作「松绑减负」。</li><li>驭壮马，需以整合资源、专业培训为基，为执法队伍「赋能增劲」。</li><li>轻车为基，壮马为翼，二者良性互动方能实现良法善治。</li></ol></div><div class="para plain"><p class="cap">分论点一（完整段落）：</p><blockquote>曾几何时，基层执法存在「九龙治水」的乱象，部门间职责边界模糊，重复执法、交叉执法问题突出，既增加了执法成本，也给群众和企业带来困扰。正如 F 市通过梳理村社职责、精简上墙事项破解「小马拉大车」难题，执法工作也需明确各部门执法权限，划定责任清单，杜绝「权责真空」与「多头管理」。同时，数字化手段是执法减负的关键支撑。F 市的「事务准入」模块与「减负码」提供了有益借鉴，执法工作可搭建智慧执法平台，整合审批、监管、处罚等流程，实现「一次采集、多方复用」，通过「一键报表」「线上备案」等功能减少纸质材料与重复劳动，让执法人员从繁琐事务中解脱，将更多精力投入到一线执法与服务中。</blockquote></div><div class="para plain"><p class="cap">分论点二（完整段落）：</p><blockquote>执法效能的提升，既需「轻装上阵」，更需「强兵劲旅」。F 市通过「多网合一」整合网格资源、健全「双报到」机制汇聚多方力量，启示执法工作应打破部门壁垒，推动跨领域、跨层级执法资源整合，建立联合执法机制，实现「一网统筹、多元联动」。此外，专业化水平是执法队伍的核心竞争力。正如 F 市为网格员提供系统培训，执法队伍也需加强法律法规、业务技能、沟通技巧等方面的常态化培训，健全考核评价机制，打造一支政治过硬、业务精通、作风优良的专业化执法队伍，让执法人员在复杂场景中既能精准执法，又能柔性服务，提升执法公信力。</blockquote></div><div class="para plain"><p class="cap">分论点三（完整段落）：</p><blockquote>厘清职责、数字赋能让执法工作更高效、更规范，整合资源、专业培训让执法队伍更强大、更专业。当「轻车」破除了执法中的形式主义、官僚主义障碍，「壮马」便能集中力量破解执法难点、堵点问题；当「壮马」具备了过硬的执法能力，「轻车」才能行稳致远，实现执法效能与群众满意度的同步提升。执法工作需把握二者的辩证关系，既要杜绝「只减不强」的形式主义减负，也要避免「只强不减」的资源浪费，让「轻车」为「壮马」松绑，让「壮马」为「轻车」护航。为此要建立「减负+强能」的长效机制，定期评估执法流程合理性与队伍能力适配度，动态优化工作模式。</blockquote></div><div class="anchor"><span class="lab">结尾首句</span>荀子有言：「法者，治之端也。」</div><div class="para"><span class="lab">结尾整段</span><blockquote>荀子有言：「法者，治之端也。」执法工作是推进法治建设的重要抓手，也是连接政府与群众的桥梁纽带。进入新时代，我们要借鉴 F 市基层治理经验，以「轻车驭壮马」的智慧破解执法难题，在减负中提质，在赋能中增效，方能让执法工作更具生命力，让法治精神深入人心，为经济社会高质量发展保驾护航，绘就良法善治的新画卷。</blockquote></div><div class="sec" style="margin:16px 0 0;background:#fbf9f2"><h4>这一课的技术要点</h4><ul><li><b>比喻词转换表</b>：轻车 = 减负／厘清界限／数字化管控；壮马 = 整合资源／协同发力／专业培训。写之前先在草稿上写好这张对应表。</li><li><b>执法类专用名言</b>（不能用万能名言）：「法者，治之端也」／「奉法者强则国强，奉法者弱则国弱」／「立善法于天下，则天下治」／「法令行则国治，法令弛则国乱」。</li><li><b>执法类万能影响句</b>：是涵养政治文明的客观要求，是推动经济繁荣的必要支撑，是维护社会和谐的重要保障。</li><li><b>第三分论点写「辩证」</b>：既防「只减不强」的形式主义减负，也防「只强不减」的资源浪费——这一句是这一课的点睛之笔，务必写上。</li></ul></div></div><div class="warn">本题最大失分点：C 写成「基层治理」＝ 审题错误 ＝ 5—10 分。题干里出现「对……的借鉴意义」「针对……工作」时，那个领域就是 C，要原样写进标题和三个分论点。</div></div></details><details class="card" id="L13" data-tags="双主题|实战|递进|开头|分论点"><summary><div class="lno">13</div><div class="ltt"><b>双主题实战 ② 往前跑与明目标</b><span>递进型（有「更」字）· 行政执法 · 35 分</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>题干有「更」字时必须把递进写进标题；以及「奔跑」这种比喻该落到哪个具体动作上。</div><div class="tags"><span class="tg">双主题</span><span class="tg">实战</span><span class="tg">递进</span><span class="tg">开头</span><span class="tg">分论点</span></div><div class="essay"><div class="qbox"><span class="lab">真题原文</span><p>「给定资料 5」中提到：「要获得真正的进步，不能只是一味往前跑，更关键的是要明确跑的目标。」请你对这句话进行深入思考，针对行政执法工作，联系实际，自选角度，自拟题目，写一篇文章。（35 分）要求：观点明确，见解深刻；参考给定资料，但不拘泥于给定资料；思路清晰，语言流畅；字数 1000—1200 字。</p></div><div class="judge"><b class="l">审题判定 · </b>「更」字 = 递进 → 双主题。A=往前跑（技术创新、数字化转型），B=明确目标（执法为民、良法善治），C=行政执法工作。标题必须出现「为基／为要」。</div><div class="titlerow"><span class="lab">标题</span>《以「往前跑」为基 以「明确目标」为要 绘就执法工作新图景》</div><div class="anchor"><span class="lab">开头首句</span>「要获得真正的进步，不能只是一味往前跑，更关键的是要明确跑的目标。」</div><div class="para"><span class="lab">开头整段</span><blockquote>常规版：「要获得真正的进步，不能只是一味往前跑，更关键的是要明确跑的目标。」这句话蕴含着深刻的实践哲理。「一味往前跑」指的是执法推进中陷入「技术至上」「效率优先」的误区，盲目数字化；「明确跑的目标」指的是牢牢记住「执法为民」「良法善治」的根本宗旨。坚持奋力奔跑与明确目标相结合，是打造政治文明的客观要求，是促进经济繁荣的必要条件，是保障社会和谐的重要举措。唯有以目标引领奔跑、以奔跑践行目标，才能推动行政执法从「管得住」向「管得好」跨越，实现高质量发展。</blockquote></div><div class="para"><span class="lab">开头变体</span><div class="mini" style="margin-top:6px">个性化版（举例切入）：<br>行政执法是法治政府建设的「最后一公里」。E 市在非现场监管试点中，曾面临 AI 系统误报、服务缺位等问题。面对挑战，E 市主动暂停盲目推进，开展调整修正，印证了「要获得真正的进步，不能只是一味往前跑，更关键的是要明确跑的目标」。奋力奔跑是执法创新的动力引擎，明确目标是执法为民的根本遵循，唯有以目标引领奔跑、以奔跑践行目标，才能推动行政执法从「管得住」向「管得好」跨越。</div></div><div class="anchor"><span class="lab">三条分论点</span><ol class="plist"><li>奋力往前跑，需要在拥抱数字时代、进行技术创新上谋突破，是行政执法与时俱进、提质增效的内生动力与必由之路。</li><li>明确跑的目标，需要在锚定执法为民、推动良法善治上动真格，是行政执法坚守初心、行稳致远的根本遵循与核心关键。</li><li>以目标引领奔跑，以奔跑践行目标，二者融合方能实现行政执法高质量发展。</li></ol></div><div class="para plain">分论点一要点：<br>①背景：传统「人海战术」「上门巡查」模式效率低、干扰大，难以适配治理需求；②影响：以数字化突破传统监管边界，打破路径依赖，激活监管效能；③例子：E 市率先布局数字化监管，布设监控设备、搭建 AI 智能监管系统；全国多地推行非现场监管，用无人机巡查、大数据筛查、物联网监测替代人工巡检；④回扣：建立智慧监管体系动态优化机制，定期校准设备参数，强化执法人员数字素养培训。</div><div class="para plain">分论点二要点：<br>①价值：行政执法的终极价值不是技术堆砌，而是规范市场秩序、服务企业发展、守护群众利益；②问题：预警失灵、服务缺位引发企业不满；③例子：E 市深入企业调研、校准系统参数、建立联络员制度，推行「线上监测+线下指导」；全国规范测速点位，推行「先提醒后处罚」柔性执法；④成效：投诉率减半、满意度近九成；⑤回扣：把市场主体满意度、群众获得感作为核心评价标尺，推动执法从「重处罚」向「重服务」转变。</div><div class="para plain">分论点三要点：<br>①辩证：往前跑是手段，明目标是方向，二者相辅相成、不可偏废；②反面警示：脱离目标的奔跑是盲目的冒进，放弃奔跑的守成是僵化的滞后；③对策：既要大胆推进数字化、智能化创新，又要以执法为民的标尺校准方向；既要保持创新冲劲，又要坚守服务初心，让执法既有力度更有温度。</div><div class="anchor"><span class="lab">结尾首句</span>方向明则步履稳，动力足则行致远。</div><div class="para"><span class="lab">结尾整段</span><blockquote>「方向明则步履稳，动力足则行致远。」在新的征程上，唯有执目标之舵、扬奋进之帆，才能不断提升行政执法现代化水平，为法治政府建设与经济社会高质量发展筑牢坚实根基。</blockquote></div><div class="sec" style="margin:16px 0 0;background:#fbf9f2"><h4>这一课的技术要点</h4><ul><li><b>识别「伪双主题」</b>：题干两个词若呈「对策—影响」关系（如「流动与新生」），实际是单主题，不要硬套 ABC。判断标准：能不能分出「先做什么、得到什么」。</li><li><b>「更」字题必须显性化递进</b>：「为基／为要」「为根／为纲」「是基础／是关键」「前提／保障」。写成并列 = 逻辑错。</li><li><b>材料四道小题可以作为分论点的例子池</b>：鲁师傅烧饼（探索创新）、毛所长林区执法（方式转变）、D 市市场监管局（执法方式变化），挑最贴的用，别全塞。</li><li><b>本题的「奔跑」要落地</b>：在开头就明确「往前跑 = 非现场监管／数字化」，否则整篇都在打空拳。</li></ul></div></div><div class="warn">题干说「针对行政执法工作」，全篇必须落在执法上。写到「基层社会治理」「政务服务」就跑偏。</div></div></details><details class="card" id="L14" data-tags="双主题|实战|辩证|开头|分论点"><summary><div class="lno">14</div><div class="ltt"><b>双主题实战 ③ 小切口与大健康</b><span>辩证之道（AB 结构）· 浙江 · 50 分 · 1000—1200 字</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>题干出现「辩证之道」四个字时，必须放弃 ABC、改用 AB 互促结构——这是最容易写错的一题。</div><div class="tags"><span class="tg">双主题</span><span class="tg">实战</span><span class="tg">辩证</span><span class="tg">开头</span><span class="tg">分论点</span></div><div class="essay"><div class="qbox"><span class="lab">真题原文</span><p>结合给定资料，围绕「健康浙江打造『小切口』与『大健康』的辩证之道」话题，联系实际，自选角度，自拟题目，写一篇讨论性文章。（50 分）要求：主旨明确，结构完整，思路清晰；论述深刻，内容充实，语言流畅；不拘泥于给定资料；1000—1200 字。</p></div><div class="judge"><b class="l">审题判定 · </b>表面有三个词（健康浙江、小切口、大健康），但题干要的是「<b>辩证之道</b>」→ 必须用 <b>AB 结构</b>：A 对 B、B 对 A、A+B 双向赋能。<b>不能</b>写成 ABC（小切口对健康领域、大健康对健康领域……），那样体现不出辩证关系。</div><div class="titlerow"><span class="lab">标题</span>《小切口与大健康：双向奔赴，共创未来》<br><span class='mini'>开头里可写「以『小切口』破题、以『大健康』筑基」</span></div><div class="anchor"><span class="lab">开头首句</span>「日日行，不怕千万里；常常做，不怕千万事。」健康中国战略的宏大蓝图下，浙江以「小切口」破题、以「大健康」筑基，走出了一条充满辩证智慧的治理之路。</div><div class="para"><span class="lab">开头整段</span><blockquote>「日日行，不怕千万里；常常做，不怕千万事。」健康中国战略的宏大蓝图下，浙江以「小切口」破题、以「大健康」筑基，走出了一条充满辩证智慧的治理之路。所谓「小切口」，是聚焦脊柱筛查、心理疏导、体重管理等具体民生痛点的精准举措；所谓「大健康」，是覆盖全人群、贯穿全周期、联动全领域的系统性健康治理格局。统筹把握好「小切口」与「大健康」的辩证之道，是满足人民群众美好生活需要的必由之路、是建设服务型政府的必经之法、是实现中华民族伟大复兴的必然选择。推进健康事业发展，既要有放眼全局的大健康视野，做好顶层设计与系统谋划；也要有落细落实的小切口功夫，把每一件民生小事办实办好，唯有把握好二者的辩证关系，以小见大、以大带小，方能不断织密民生健康保障网，为健康中国建设贡献可复制、可推广的浙江经验。</blockquote></div><div class="anchor"><span class="lab">三条分论点</span><ol class="plist"><li>「小切口」是「大健康」的具象落点，让宏大理念落地生根。（A→B）</li><li>「大健康」是「小切口」的系统统领，让单点探索形成合力。（B→A）</li><li>「小切口」与「大健康」双向赋能，循环升级。（A+B）</li></ol></div><div class="para plain"><p class="cap">分论点一（完整段落）：</p><blockquote>「天下大事，必作于细」。「小切口」是大健康的具象落点，让宏大理念落地生根。大健康绝非抽象的政策口号，必须转化为群众可感可及的具体行动。针对青少年脊柱侧弯低龄化趋势，浙江开展全省义务教育阶段普查，搭建数字化筛查平台，推行校园躺睡午休，把防控融入日常；针对居民超重肥胖问题，把体重管理门诊开进社区，用「轻燃计划」小程序陪伴居民科学减重；针对山区就医难，把巡回诊疗车开到村民家门口，实现检查、配药、医保报销一车通办。这些精准切入的「小事」，直击传统医疗服务的盲区，把预防关口前移到校园、社区与家庭，让「预防为主」的健康方针从纸面落到实处，为大健康格局筑牢最扎实的民生底盘。</blockquote></div><div class="para plain"><p class="cap">分论点二（完整段落）：</p><blockquote>「大健康」是小切口的系统统领，让单点探索形成合力。缺少系统思维的小切口治理，容易陷入「头痛医头」的碎片化困境。浙江以大健康理念统筹资源，打破部门与场景壁垒：衢江区治理青少年心理健康，不止步于校园 AI 心理检测仪，更整合市区两级专家智库，联动教育、政法、卫健等部门组建「护心联盟」，将单点检测升级为全域协同的立体防护体系；针对慢性病管理，不止于单次诊疗服务，更依托「健康数据高铁」贯通 340 多家二级及以上公立医院和 1400 多家基层医疗卫生机构，串联起上门诊疗、家庭病床实时监测、远程处方配送、长期健康随访的全周期链条。正是大健康的全局视野，让零散的便民举措串联成闭环服务网络，实现了治理效能的整体跃升。</blockquote></div><div class="para plain">分论点三要点（双向赋能）：<br>①A→B：小切口的基层实践不断为大健康体系注入鲜活经验，一个个单点服务的探索，逐步沉淀为全省统一的数字健康底座；②B→A：大健康的制度与数字底座反向赋能更多小微场景，为校园健康监测、社区慢病管理、居家康复指导提供数据支撑与技术赋能；③举例仍是「AI 检测仪 → 护心联盟」「单次诊疗 → 健康数据高铁」，但要把「小」与「大」的<b>交替转化</b>写出来；④回扣：<b>这种「基层探索—系统集成—全域赋能」的正向循环，让健康治理始终紧贴民生需求、始终保持迭代活力。</b></div><div class="anchor"><span class="lab">结尾首句</span>（结尾构句）在推进健康中国建设的征程上，既要有「致广大」的格局，也要有「尽精微」的功夫。</div><div class="para"><span class="lab">结尾整段</span><blockquote>（参考构句，按四步法补全）名言 →「小切口」与「大健康」不是大小之分，而是手段与目的、局部与全局的辩证统一 → 对策（健全基层创新常态化吸纳机制，畅通民生需求反馈渠道，推动数字健康底座向社区、乡村下沉扩容） → 号召（让更多接地气的小微探索接入大健康体系，形成微创新不断涌现、大体系持续升级的良性生态）。</blockquote></div><div class="sec" style="margin:16px 0 0;background:#fbf9f2"><h4>这一课的技术要点</h4><ul><li><b>「辩证之道」= AB 结构的信号词</b>。同类信号还有「关系」「相辅相成」「相得益彰」「辩证统一」。见到就改 AB，不要 ABC。</li><li><b>小切口 vs 大健康 的判定标准</b>：具体的、单一的、技术手段类的（一个 App、一台车、一次筛查）= 小切口；系统的、多部门协同的、制度层面的（联盟、平台、网络、体系）= 大健康。</li><li><b>用客观小题预判材料逻辑</b>：小题 1 问「举措」= 小切口；小题 2 问「体重管理 + 小程序」= 大健康统领小工具。小题问什么，大作文就写什么。</li><li><b>影响分析可用「反面论证」</b>：缺少系统思维的小切口治理，容易陷入「头痛医头」的碎片化困境。反面一写，正面价值立刻清楚。</li></ul></div></div><div class="warn">这一课最容易被「健康浙江」这个领域词带跑——它不是 C，只是背景。全篇的骨架是 A（小切口）与 B（大健康）之间怎么互相成就。</div></div></details><details class="card" id="L15" data-tags="多主题|实战|开头|分论点|结尾|素材"><summary><div class="lno">15</div><div class="ltt"><b>多主题实战 ① 心路·辛路·新路</b><span>乡村振兴 · 40 分 · 800—1000 字</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>题目已给标题时怎么写；三个字（心／辛／新）怎样各自落到一个具体对策上。</div><div class="tags"><span class="tg">多主题</span><span class="tg">实战</span><span class="tg">开头</span><span class="tg">分论点</span><span class="tg">结尾</span><span class="tg">素材</span></div><div class="essay"><div class="qbox"><span class="lab">真题原文</span><p>结合「给定资料 4」，以「心路·辛路·新路」为题，联系实际，自选角度，写一篇议论文。（40 分）要求：观点明确，见解深刻；参考给定资料，但不拘泥于给定资料；思路清晰，语言流畅；字数 800—1000 字。</p></div><div class="judge"><b class="l">审题判定 · </b>三个关键词 = 多主题。题目已给标题，<b>直接用，不要自拟</b>。三个字要翻译：心=人心／民心，辛=艰辛／辛苦，新=创新。总论点落在「实现乡村振兴」。</div><div class="titlerow"><span class="lab">标题</span>《心路 辛路 新路》（题目给定）</div><div class="anchor"><span class="lab">开头首句</span>「我的执政理念，概括起来说就是：为人民服务，担当起该担当的责任。」如今，时代在变、世界在变、历史在变、乡村也在变，为民服务的路，是「心路」，是「辛路」，也是「新路」。</div><div class="para"><span class="lab">开头整段</span><blockquote>「我的执政理念，概括起来说就是：为人民服务，担当起该担当的责任。」如今，时代在变、世界在变、历史在变、乡村也在变，为民服务的路，是「心路」，是「辛路」，也是「新路」。能否做到凝聚民心、不畏艰辛、勇于创新，是深化农村改革、增强农村发展活力的重大举措，是实现农业农村现代化的核心保证，是广袤乡村大地能否扎稳振兴之「根」的关键之举。「风雨多经志弥坚，关山初度路犹长」，只有凝聚民心、不畏艰辛、勇于创新，才能吹响乡村振兴的集结号。</blockquote></div><div class="anchor"><span class="lab">三条分论点</span><ol class="plist"><li>实现乡村振兴，需要从心出发，凝聚人心，畅通心路。</li><li>实现乡村振兴，需要从辛出发，不畏艰辛，走稳辛路。</li><li>实现乡村振兴，需要从新出发，创新方法，铺好新路。</li></ol></div><div class="para plain"><p class="cap">分论点一（完整段落）：</p><blockquote>实现乡村振兴，需要从心出发，凝聚人心，畅通心路。中国人民从来都明白，世界上没有坐享其成的好事，要想实现乡村振兴，首先需要凝聚人心、拉近民心。面对恶劣的生存环境和散了的人心，驻村第一书记赵波主动走进群众，实打实帮助群众干活，凝聚民心，赢得了村民的接纳，从而密切了干群联系，凝聚了人心。除此之外，35 年坚守太行山的「新愚公」李保国，献身教育扶贫、点燃大山女孩希望的张桂梅，用实干兑现「水过不去、拿命来铺」誓言的黄大发，回乡奉献、谱写新时代青春之歌的黄文秀，扎根脱贫一线、鞠躬尽瘁的黄诗燕等同志……正是因为他们心中有人民，解决群众急难愁盼，才做到了凝聚人心、拉近民心。凡有志之士，都应从心出发，在实现乡村振兴的伟大事业中实现人生价值。</blockquote></div><div class="para plain"><p class="cap">分论点二（完整段落）：</p><blockquote>实现乡村振兴，需要从辛出发，不畏艰辛，走稳辛路。成功不是一蹴而就的，需要历经无数的考验和挑战，特别是对于党员干部来说，其中更是有数不尽的繁琐事务，甚至是群众的误解，只有拥有足够的耐烦，才能专心致志干好事、成就事业。面对村民的修路需求，党员干部马骁不辞辛苦，主动作为，为村民解决道路难题。类似的例子不胜枚举，「四有书记」谷文昌十四年如一日，带领东山群众战天斗地，把荒岛建成绿岛；黄旭华隐姓埋名 30 载，专注于核潜艇研制工程；「当代愚公」黄大发埋头苦干一辈子，只为修好一条渠。这些楷模人物无不体现不畏艰辛积小胜为大胜、积跬步而至千里。</blockquote></div><div class="para plain"><p class="cap">分论点三（完整段落）：</p><blockquote>实现乡村振兴，需要从新出发，创新方法，铺好新路。发展新篇章已开启，时代新人必须牵住创新的「牛鼻子」。驻村工作队队长童猛摸清村情，确定养殖麻黑鸡的新发展思路，增加村民收入，提高村民的幸福感和获得感；「80 后」白发干部李忠凯面对繁重的脱贫工作，迎难而上，多次下基层调研，用自己的智慧探索总结出「山上核桃、山下花椒，林中牛羊、江中水产，江岸热果、江上旅游，甘蔗红糖、特色冬早」这 32 字的产业富民经，带领当地人民实现稳定脱贫。实践证明，只有抓住了「新」这一不二法门，才能寻得发展新机，走上现代化道路。</blockquote></div><div class="anchor"><span class="lab">结尾首句</span>「历尽天华成此景，人间万事出艰辛」。</div><div class="para"><span class="lab">结尾整段</span><blockquote>「历尽天华成此景，人间万事出艰辛」。面对困难和挑战时，我们要坚持凝聚民心、不畏艰辛、勇于创新，才能拉近民心，走稳辛路，铺好新路，为实现中华民族的伟大复兴打下坚实的基础！</blockquote></div><div class="sec" style="margin:16px 0 0;background:#fbf9f2"><h4>这一课的技术要点</h4><ul><li><b>材料要素定位法</b>：三个关键词分别对应三个材料段落，找到原文线索——「散了的人心」（第 11 段）→ 凝聚人心；「这确实是一条艰辛之路」（第 2 段）→ 不畏艰辛；「带来了新理念、新动力、新路子」（第 7 段）→ 创新方法。问题句反推成对策句。</li><li><b>「1 个材料案例 + 3 个社会素材」是标准配方</b>：每个分论点先写材料里的人（赵波／马骁／童猛），再排比三个全国典型（李保国、张桂梅、黄大发……）。这样既扣材料又不拘泥材料。</li><li><b>标题已给时，把标题三个字拆成三段的段首</b>：「从心出发…」「从辛出发…」「从新出发…」，三段结构一眼可见，阅卷人最喜欢。</li><li><b>结尾极简也行</b>：一句名言 + 三个关键词回扣 + 一句号召，60 字足够。</li></ul></div></div><div class="warn">「辛」不等于「心」，别把第二段写成又一次「凝聚人心」。三个字各管一件事：心=群众关系，辛=吃苦攻坚，新=方法创新。</div></div></details><details class="card" id="L16" data-tags="多主题|实战|开头|分论点|结尾"><summary><div class="lno">16</div><div class="ltt"><b>多主题实战 ② 善治·大美·乐居</b><span>城市治理 · 40 分 · 不少于 1000 字</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>三个关键词的材料怎么切分（几词就切几块），以及三者之间的递进关系怎么表达。</div><div class="tags"><span class="tg">多主题</span><span class="tg">实战</span><span class="tg">开头</span><span class="tg">分论点</span><span class="tg">结尾</span></div><div class="essay"><div class="qbox"><span class="lab">真题原文</span><p>深入思考「给定资料 4」中画线的句子，根据自己的感悟，结合给定资料，以「善治·大美·乐居」为话题，自选角度，自拟题目，联系实际，写一篇议论文。（40 分）要求：观点明确，见解深刻，内容充实，论证充分，思路清晰，语言流畅；参考给定资料，不拘泥于给定资料；不少于 1000 字。</p></div><div class="judge"><b class="l">审题判定 · </b>三个关键词 = 多主题。<b>题干有几个关键词，材料大概率就分成几块</b>：第一块写景（大美）、第二三块写治理（善治）、第四块写市民感受（乐居）。三者是递进：善治为径 → 大美为形 → 乐居为标。</div><div class="titlerow"><span class="lab">标题</span>《善治为径 大美为形 乐居为标》<br><span class='mini'>备选：《善治为基 大美为纲 乐居为要》</span></div><div class="anchor"><span class="lab">开头首句</span>城市是人民生活的家园，是文明赓续的载体，更是治理现代化的实践场。</div><div class="para"><span class="lab">开头整段</span><blockquote>城市是人民生活的家园，是文明赓续的载体，更是治理现代化的实践场。能否以「善治」「大美」「乐居」破题，事关人民群众的根本利益、事关政府治理能力和治理水平的提升、事关城市建设事业的成败。「追风赶月莫停留，平芜尽处是春山」，善治是实现城市发展的科学路径，大美是城市呈现的理想形态，乐居是城市治理的终极目标，三者相辅相成、层层递进，唯有以善治为径雕琢城市肌理，以大美为形勾勒城市风貌，方能最终抵达人民安居乐业的理想彼岸。</blockquote></div><div class="para"><span class="lab">开头变体</span><div class="mini" style="margin-top:6px">个性化版（举例切入）：<br>F 市以乡土绿植铺就生态底色，以智慧管护守护城市根脉，以便民公园点亮宜居生活，用生动实践诠释了城市发展的核心逻辑：善治是路径，大美是形态，乐居是归宿。……</div></div><div class="anchor"><span class="lab">三条分论点</span><ol class="plist"><li>善治为径：尊重民意、顺应规律、精准治理、科学治理、资源巧用——彰显治理智慧，是城市建设的根本路径。</li><li>大美为形：生态之美、人文之美、融合之美——承载全景之美，是城市发展的理想形态。</li><li>乐居为标：环境宜居、生活便捷、精神愉悦——锚定价值追求，是城市治理的终极目标。</li></ol></div><div class="para plain">分论点一（善治）要点：<br>①正面提炼：善治的核心，是城市治理者摒弃「拍脑袋」决策，以民主、科学、精细思维推进建设（尊重民意→民主决策；顺应规律→科学治理；精准治理→精细化管理）；②反面：「三拍」干部——拍脑袋决策、拍胸脯保证、拍屁股走人；③正面例：F 市城管不盲目引进外来花木，广征民意、调研论证、选用银杏海棠等乡土树种；园林中心推行「壮年促生长、高龄重养护」差异化方案，丝木棉 95% 以上长势好转；④反面类比：部分城市急于打造网红景观，盲目引种名贵花木，成活率低、养护费高；⑤回扣：决策问计于民、建设尊重自然、运维科技赋能，方能规避形式主义误区。</div><div class="para plain">分论点二（大美）要点：<br>①正面提炼：真正的城市大美，绝非千城一面的绿植堆砌，而是生态颜值、文化底蕴与产业价值共生的整体风貌；②三个例子：三季有花四季有绿的多层次景观（生态之美）／把 50 年以上树龄的树纳入后备资源库挂牌养护、留住城市文化记忆（人文之美）／依托古树资源打造「古树绿地」「古树公园」和森林康养基地（融合之美）；③反面：为绿化而绿化的窄化思维；④回扣：以生态塑形、以文化铸魂、以融合增值。</div><div class="para plain">分论点三（乐居）要点：<br>①正面提炼：城市的核心是人，所有治理举措与景观打造的价值，最终都要落到群众的生活幸福感上；②三个例子：F 市盘活边角空地建成 40 余座集观赏、休闲、科普于一体的社区公园／成都公园城市示范区「15 分钟宜居生活圈」／上海老旧小区改造见缝插绿、同步配套便民设施；③回扣：让绿化不仅是「远观的风景」，更是「可用的空间」。</div><div class="anchor"><span class="lab">结尾首句</span>善治筑根基，大美展风华，乐居暖民心。</div><div class="para"><span class="lab">结尾整段</span><blockquote>善治筑根基，大美展风华，乐居暖民心。F 市的实践深刻证明，城市治理是一项系统工程，善治是前行路径，大美是呈现形态，乐居是最终航向。新时代推进城市高质量发展，必须坚守以人民为中心的发展思想，以善治为笔雕琢城市细节，以大美为韵塑造城市品格，以乐居为标锚定发展方向。唯有如此，才能让每一座城市都成为有温度、有记忆、有活力、有希望的家园，让生活在其中的人们，安享生态之美、坐拥文脉之韵、乐享幸福生活。</blockquote></div><div class="sec" style="margin:16px 0 0;background:#fbf9f2"><h4>这一课的技术要点</h4><ul><li><b>三词对应三块材料</b>，切分完再动笔，绝不漏块。漏一块就是漏一个分论点，直接掉档。</li><li><b>递进词要成体系</b>：径／形／标（路径—形态—目标），或基／纲／要。三个词必须是同一套逻辑，不能混。</li><li><b>不用名言也能开头</b>：用「主体 + 影响」起手——「城市是……，是……，更是……」，三句排比，气势足够。</li><li><b>反面例子用模糊指代</b>：「部分城市」「个别地区」，不点名，避免阅卷忌讳。</li></ul></div></div><div class="warn">三个分论点如果只写成「善治很重要、大美很重要、乐居很重要」，就变成了三段平铺，没有递进。每一段结尾都要把「它在三者中的位置」点出来（路径／形态／目标）。</div></div></details><details class="card" id="L17" data-tags="多主题|实战|递进|开头|分论点|结尾"><summary><div class="lno">17</div><div class="ltt"><b>多主题实战 ③ 办好事·好办事·事办好</b><span>政务服务 · 国考 · 35 分 · 1000—1200 字</span></div><div class="arrow">▶</div></summary><div class="lbody"><div class="hmw"><b>这一课解决 · </b>三个词只差一个字，怎样拉开区分度；以及怎样给每条分论点加一个「逻辑定位」。</div><div class="tags"><span class="tg">多主题</span><span class="tg">实战</span><span class="tg">递进</span><span class="tg">开头</span><span class="tg">分论点</span><span class="tg">结尾</span></div><div class="essay"><div class="qbox"><span class="lab">真题原文</span><p>请你对「给定资料 5」中提到的「为群众办好事」「让群众感到好办事」「把群众的事办好」进行深入系统的思考，联系实际，自拟题目，写一篇文章。（35 分）要求：观点明确，见解深刻，内容充实；参考给定资料，但不拘泥于给定资料；思想清晰、语言流畅；1000—1200 字。</p></div><div class="judge"><b class="l">审题判定 · </b>三个关键词 = 多主题，且是<b>递进关系</b>：意识层面（办好事）→ 体验层面（好办事）→ 结果层面（事办好）。分论点必须来源于题干，并且<b>要给每条加一个逻辑定位词</b>：起点／路径／标尺。</div><div class="titlerow"><span class="lab">标题</span>《办好事为基 好办事为纲 事办好为要》<br><span class='mini'>备选：《办好事 好办事 事办好》（最稳，直接组合）</span></div><div class="anchor"><span class="lab">开头首句</span>「为群众办实事」「让群众感到好办事」「把群众的事办好」，这三句话看似朴素，实则蕴含着深刻的执政逻辑与为民情怀。</div><div class="para"><span class="lab">开头整段</span><blockquote>「为群众办实事」「让群众感到好办事」「把群众的事办好」，这三句话看似朴素，实则蕴含着深刻的执政逻辑与为民情怀。前者指向初心责任，中者关乎服务体验，后者落脚于实际成效，三者有机统一，共同构成新时代群众工作的核心要义。突破「办好事」「好办事」「事办好」三重境界，是解决「急难愁盼」问题的关键之举、是完善公共服务体系的必由之法、是提升群众生活品质的客观要求。「日日行，不怕千万里；常常做，不怕千万事」，从 C 市医保局周末窗口的灯火，到税费服务驿站的高效办理，再到雨霞区亮起来的路灯，这些民生场景生动诠释了为民服务的分量。在政务服务中，唯有以「办好事」为基、以「好办事」为要、以「事办好」为纲，将三者贯通起来，才能真正赢得群众的信任与支持。</blockquote></div><div class="anchor"><span class="lab">三条分论点</span><ol class="plist"><li>为群众办好事，是政务服务的初心原点，唯有锚定痛点难点、主动担当尽责，才能筑牢为民服务的立场根基。</li><li>让群众感到好办事，是政务服务的实施路径，唯有深化流程再造、加强技术赋能，才能提升便民利企的服务效能。</li><li>把群众的事办好，是政务服务的成效标尺，唯有聚焦急难愁盼、优化闭环落实，才能彰显基层治理的民生温度。</li></ol></div><div class="para plain">分论点一（完整段落骨架）：<br>①个性化影响句：<b>群众的痛点，是民生工作的「信号灯」；群众的难点，是政策发力的「坐标系」。</b><br>②材料案例（主体+对策+影响）：C 市医保局瞄准上班族「上班没空办、下班没处办」的困境，推行全局轮岗、双休日办公，对暂未办结业务主动电话跟进——<b>用干部的辛苦指数换取群众的便利指数</b>。<br>③社会类比：多地推行「早晚弹性办、午间不间断、周末不打烊」；为老年群体、残障人士开辟绿色通道、上门帮办；秋收、春节开设农民工办证专窗。<br>④本质揭示：这些举措的本质，是从「部门本位」向「群众本位」的理念转变。<br>⑤制度展望：建立常态化民生需求摸排机制，畅通线上线下诉求反馈渠道，让政务服务从「群众找上门」向「主动送上门」转变。</div><div class="para plain">分论点二（完整段落骨架）：<br>①个性化影响句：<b>群众办事的体验感，往往就藏在那些看得见、摸得着的流程细节里。</b><br>②材料案例：C 市税务部门打造「15 分钟办税服务圈」，与银行、社区、园区、商超共建社会化税费服务网点，运用远程身份核验、音视频交互实现线上协同办税——个体开店办税全程仅需十几分钟。<br>③社会类比：浙江「最多跑一次」（企业开办从数十天压缩到「一窗受理、一日办结」）；全国「一网通办」「跨省通办」（社保转移、异地就医备案、驾驶证换证）。<br>④本质揭示：<b>流程做减法、技术做加法，政务服务正从「群众跑」向「数据跑」转变。</b><br>⑤人文温度（加分点）：保留并优化线下帮办代办，兼顾老年群体，别让数字化把人变成「原子人」。<br>⑥回扣：引用「追风赶月莫停留，平芜尽处是春山」，强调政务服务是持续迭代的过程。</div><div class="para plain">分论点三（完整段落骨架）：<br>①个性化影响句（反转句式）：<b>群众的期待从不是「做了什么」，而是「做成了什么」；评价标准不在流程多规范，而在难题是否真解决。</b><br>②材料案例：雨霞区设立「办不成事」窗口，聚焦群众急难愁盼，三天点亮逸云路 32 盏路灯，做到「事事有着落、件件有回音」。<br>③社会类比：北京「接诉即办」——以 12345 热线为枢纽建立全流程闭环，小到路灯损坏、噪音扰民，大到老旧小区改造、停车难，年均解决数百万件，成为全国基层治理标杆。<br>④制度展望：健全「受理—转办—督办—反馈—评价」全周期闭环；以群众满意度为核心的考核评价，把办理成效与部门绩效、干部考核挂钩，用刚性约束倒逼担当作为。<br>⑤回扣：同上诗句。</div><div class="anchor"><span class="lab">结尾首句</span>「上坡路难走，力行则将至；顶风船难开，笃志则必达。」</div><div class="para"><span class="lab">结尾整段</span><blockquote>「上坡路难走，力行则将至；顶风船难开，笃志则必达。」从「办好事」的责任到「好办事」的体验，再到「办得好」的实效，三者共同构成衡量政务服务的「三维标尺」。这标尺上刻着群众的需求，印着群众的体验，写着群众的评价。在推进治理现代化的今天，唯有始终以这「三重门」为镜，把群众的「小事」当作「大事」来办，才能让每一项政策都充满温度，每一次服务都传递真情，在为民造福的实践中书写新时代的合格答卷。</blockquote></div><div class="sec" style="margin:16px 0 0;background:#fbf9f2"><h4>这一课的技术要点</h4><ul><li><b>「逻辑定位词」是这类题的高分钥匙</b>：起点／原点 → 路径／过程 → 标尺／终点。有了这三个词，三条分论点立刻有了层次，而不是同义反复。</li><li><b>一个字只差的三条分论点，靠对策区分</b>：办好事=锚定痛点难点 + 主动担当尽责；好办事=深化流程再造 + 加强技术赋能；事办好=聚焦急难愁盼 + 优化闭环落实。对策一换，三段就分开了。</li><li><b>「多写不扣分，少写才扣分」</b>：拿不准材料里哪个词是标准答案时，把相关词全塞进分论点（如「锚定痛点难点，主动担当尽责」），命中率更高。</li><li><b>开头直接抄题干三句话</b>——这是「绝对不跑题」的做法，能打败 60% 的考生。抄完跟一句点拨即可。</li><li><b>材料要筛</b>：专门讲企业、工会、夜市的段落通常用不上，不必通读全篇。</li></ul></div></div><div class="warn">这一题最容易写成「办好事很重要、好办事很重要、事办好很重要」三段同质。必须靠「逻辑定位（起点/路径/标尺）+ 差异化对策」把三条拉开。</div></div></details><div class="chapter" id="ch3"><span class="cnum">PART 03</span><h3>总结 · 锦囊</h3><span class="cdesc">进考场前最后翻的两页</span></div><section id="summary">
+<div class="sec"><h4>① 三分钟解题流程（进考场就按这个走）</h4>
+<div class="steps">
+<div class="step"><span class="sn">1′</span><b>数关键词。</b>题干里几个核心词？一个=单，两个=双（再判是否递进/辩证），三个=多。</div>
+<div class="step"><span class="sn">2′</span><b>判属性。</b>每个词是「对策」还是「影响」？判不出就回材料看它在讲什么。有「更」字标递进。</div>
+<div class="step"><span class="sn">3′</span><b>找 C。</b>题干有没有指定领域（「对执法工作」「联系乡村实际」）？有就是 ABC，C 必须原样用。</div>
+<div class="step"><span class="sn">4′</span><b>出标题。</b>对策＋影响，关键词原词进标题。写不出文采就用「以…破题 绘就…新篇章」。</div>
+<div class="step"><span class="sn">5′</span><b>列三条分论点。</b>优先题干，其次所在材料段首尾，最后其他材料/客观小题。句式对齐写下来。</div>
+<div class="step"><span class="sn">6′</span><b>配素材。</b>每条分论点后面默一个例子（材料里的优先），再默一句回扣句。</div>
+</div>
+<div class="tip">这三分钟的作用是：<b>把「写作文」变成「填表格」</b>。填完表格，剩下的只是把话说漂亮。</div>
+</div>
+
+<div class="sec"><h4>② 五个部件，各一句话口诀</h4>
+<table class="t">
+<thead><tr><th>部件</th><th>口诀</th><th>最容易犯的错</th></tr></thead>
+<tbody>
+<tr><td>标题</td><td>前对策、后影响，关键词原词进标题</td><td>换近义词、标题里解释词语含义</td></tr>
+<tr><td>开头</td><td>抄题干当名言，影响排比撑场面，最后一句给总论点</td><td>堆两个背景句导致超字数</td></tr>
+<tr><td>分论点</td><td>三条、对齐、段首亮明、每条带一个逻辑定位词</td><td>三条同质，只换字不换意</td></tr>
+<tr><td>论证</td><td>主体＋对策＋影响，最后一句回扣</td><td>照抄材料，或通篇讲道理没有例子</td></tr>
+<tr><td>结尾</td><td>换一句同领域名言，影响升一级，喊一句口号</td><td>另起炉灶提新观点</td></tr>
+</tbody></table>
+</div>
+
+<div class="sec"><h4>③ 十大跑题陷阱（每年都有人踩）</h4>
+<table class="t">
+<thead><tr><th>#</th><th>陷阱</th><th>怎么破</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>把 ABC 的 C 写错（题干要「执法工作」，写成「基层治理」）</td><td>审题时把领域词圈出来，抄进标题和三条分论点</td></tr>
+<tr><td>2</td><td>「辩证之道」写成 ABC 并列</td><td>见「辩证/关系」→ 立刻改 AB 结构</td></tr>
+<tr><td>3</td><td>有「更」字却写成并列</td><td>标题用「为基／为要」「是基础／是关键」显性化</td></tr>
+<tr><td>4</td><td>比喻词直接翻译成具体做法（种树→引进人才）</td><td>标题保留原词，含义放开头多维度解释</td></tr>
+<tr><td>5</td><td>只读题干后半句，漏掉被省略的主语</td><td>回材料原句补全语境（「承担共同责任」那题）</td></tr>
+<tr><td>6</td><td>抽象词（里子/面子/力理利）不解释</td><td>开头第一段就「翻译」，或写进分论点里</td></tr>
+<tr><td>7</td><td>用材料里的具体案例当分论点（食堂、托育中心、幸福码）</td><td>抽象成人群或领域，案例只做论据</td></tr>
+<tr><td>8</td><td>三条分论点都在说同一件事</td><td>每条配一个不同的「逻辑定位词」：起点/路径/标尺</td></tr>
+<tr><td>9</td><td>照抄材料被判抄袭感</td><td>动词替换＋顺序重组＋加一句自己的评价</td></tr>
+<tr><td>10</td><td>总论点不在开头最后一句</td><td>写完开头检查：最后一句是不是标题的完整陈述</td></tr>
+</tbody></table>
+</div>
+
+<div class="sec"><h4>④ 分数怎么一级一级往上加</h4>
+<div class="ladder">
+<div class="lad"><span class="lv">11—20</span><b>三类文</b><p>标题和分论点大致相关，但论证平淡、有轻微偏差。<br><em>→ 靠「框架正确」拿到的分。</em></p></div>
+<div class="lad"><span class="lv">21—30</span><b>二类文</b><p>标题、总论点正确，结构完整，三条分论点对齐，有例子。<br><em>→ 靠「标题＋分论点＋结构」拿到的分。</em></p></div>
+<div class="lad"><span class="lv">31—40</span><b>一类文</b><p>开头有影响排比，结尾首尾呼应，分论点有比喻有文采，例子不拘泥材料。<br><em>→ 靠「素材＋文采＋拔高」拿到的分。</em></p></div>
+</div>
+<div class="tip">老师给的路径很清楚：<b>先把分论点写准（保 30 分）→ 再把开头结尾写好（进高分段）→ 最后靠社会现实例子冲一类文。</b>顺序不能反。</div>
+</div>
+
+<div class="sec"><h4>⑤ 三句要记住的话</h4>
+<blockquote>「审题是根，根基不稳，地动山摇。」</blockquote>
+<blockquote>「题干是大王，材料是小王，两张牌合起来才是王炸。」</blockquote>
+<blockquote>「文无定法——但要素齐全、逻辑自洽，就是好文章。」</blockquote>
+</div>
+
+<div class="sec"><h4>⑥ 明天上考场，动手前默这五句</h4>
+<ol class="rules">
+<li>先数关键词，再动笔。</li>
+<li>题干的词，原样抄进标题。</li>
+<li>开头最后一句＝标题的完整版。</li>
+<li>三条分论点，句式一模一样，段首亮明。</li>
+<li>每段末尾回扣一句，结尾喊一句口号。</li>
+</ol>
+</div>
+</section><section id="jinnang">
+<div class="hero sub">
+  <div class="hero-k">考前锦囊 · 只用来背，不用来读</div>
+  <h2>过渡句 · 名言 · 影响句 · 分论点套路 · 结尾 · 素材用法</h2>
+  <p>使用方法：<b>不要全背。</b>每个类别挑 3—5 条记牢，会「拆句重组」比「整条背诵」有用得多。</p>
+</div>
+
+<div class="sec"><h4>锦囊一 · 万能过渡句（催人奋进类，30 句）</h4>
+<div class="pn">
+<p>冰心说过：成功的花，人们只惊羡她现时的明艳！然而当初她的芽儿，浸透了奋斗的泪泉，洒遍了牺牲的血雨。</p>
+<p>历尽天华成此景，人间万事出艰辛。</p>
+<p>艰难方显勇毅，磨砺始得玉成。</p>
+<p>惟其艰难，才更显勇毅；惟其笃行，才弥足珍贵。</p>
+<p>脚踏人间正道，何惧世事沧桑。</p>
+<p>不驰于空想，不骛于虚声。</p>
+<p>茫茫九脉流中国，纵横当有凌云笔。</p>
+<p>志之所趋，无远弗届，穷山距海，不能限也。</p>
+<p>图垂成之功者，如挽上滩之舟，莫少停一棹。</p>
+<p>正入万山圈子里，一山放过一山拦。——杨万里</p>
+<p>征程万里风正劲，重任千钧再出发。</p>
+<p>上坡路难走，力行则将至；顶风船难开，笃志则必达。</p>
+<p>风雨多经志弥坚，关山初度路犹长。</p>
+<p>物转星移几度秋，雄心壮志两峥嵘。</p>
+<p>志不求易者成，事不避难者进。</p>
+<p>守志如行路，行万里者不中道而辍。</p>
+<p>长风破浪会有时，直挂云帆济沧海。</p>
+<p>千磨万击还坚劲，任尔东西南北风。</p>
+<p>天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣。</p>
+<p>立志欲坚不欲锐，成功在久不在速。</p>
+<p>黄沙百战穿金甲，不破楼兰终不还。</p>
+<p>宝剑锋从磨砺出，梅花香自苦寒来。</p>
+<p>不经一番寒彻骨，怎得梅花扑鼻香。</p>
+<p>咬定青山不放松，立根原在破岩中。</p>
+<p>石可破也，而不可夺坚；丹可磨也，而不可夺赤。</p>
+<p>岁寒，然后知松柏之后凋也。</p>
+<p>道虽迩，不行不至；事虽小，不为不成。</p>
+<p>日日行，不怕千万里；常常做，不怕千万事。</p>
+<p>追风赶月莫停留，平芜尽处是春山。</p>
+<p>雄关漫道真如铁，而今迈步从头越。</p>
+</div>
+</div>
+
+<div class="sec"><h4>锦囊二 · 分领域名言（按主题取用）</h4>
+<table class="t">
+<thead><tr><th>领域</th><th>可用名言</th></tr></thead>
+<tbody>
+<tr><td><b>法治 / 执法</b><br><span class="mini">（执法类禁用万能名言）</span></td><td>「法者，治之端也。」（荀子）<br>「奉法者强则国强，奉法者弱则国弱。」（韩非子）<br>「立善法于天下，则天下治；立善法于一国，则一国治。」（王安石）<br>「法令行则国治，法令弛则国乱。」（王符）</td></tr>
+<tr><td><b>民生 / 政治</b></td><td>「治国有常，而利民为本。」（《淮南子》）<br>「民惟邦本，本固邦宁。」<br>「民生无小事，枝叶总关情。」<br>「政之所兴在顺民心，政之所废在逆民心。」（《管子》）<br>「衙斋卧听萧萧竹，疑是民间疾苦声。些小吾曹州县吏，一枝一叶总关情。」（郑板桥）<br>「为政之道，以顺民心为本，以厚民生为本，以安而不扰为本。」（程颐）<br>「理国要道，在于公平正直。」（《贞观政要》）<br>「不谋万世者，不足谋一时；不谋全局者，不足谋一域。」（陈澹然）<br>「君依于国，国依于民。」（《资治通鉴》）<br>「夫民者，国之根也，诚宜重其食，爱其命。」（《三国志》）</td></tr>
+<tr><td><b>文化</b></td><td>「文化兴则国运兴，文化强则民族强。」<br>「苟日新，又日新，日日新。」（《礼记》）<br>「守正不守旧，尊古不复古。」<br>「文变染乎世情，兴废系乎时序。」（刘勰）</td></tr>
+<tr><td><b>生态</b></td><td>「绿水青山就是金山银山。」<br>「黄河宁，天下平。」<br>「天人合一，道法自然。」<br>「取之有度，用之有节，则常足。」（《资治通鉴》）</td></tr>
+<tr><td><b>经济 / 科技</b></td><td>「以实为本，虚实并举。」<br>「苟利于民，不必法古；苟周于事，不必循旧。」（《淮南子》）<br>「穷则变，变则通，通则久。」（《周易》）</td></tr>
+<tr><td><b>乡村振兴</b></td><td>「民族要复兴，乡村必振兴。」<br>「没有几亿农民的富裕是不完全的富裕。」<br>「乡村治，天下安。」</td></tr>
+<tr><td><b>价值 / 奋斗</b></td><td>「志不立，天下无可成之事。」（王阳明）<br>「人生万事须自为，跬步江山即寥廓。」<br>「种一棵树最好的时间是十年前，其次就是现在。」</td></tr>
+</tbody></table>
+</div>
+
+<div class="sec"><h4>锦囊三 · 开头「影响句」素材库（按领域取 3 句拼排比）</h4>
+
+<div class="sub-h">A. 政治 / 民生类（最常用，20 组）</div>
+<div class="pn">
+<p>事关人民群众的根本利益、事关政府治理能力和治理水平的提升、事关社会主义现代化建设事业的成败。</p>
+<p>是满足人民群众美好生活需要的必由之路、是建设服务型政府的必经之法、是实现中华民族伟大复兴的必然选择。</p>
+<p>是践行以民为本理念的必然要求，是维护社会和谐稳定的坚实支撑，是夯实国家治理根基的战略部署。</p>
+<p>是增进民生幸福质感的长远之策，是破解基层治理难题的有效举措，是凝聚社会共建合力的重要纽带。</p>
+<p>既是改善民生福祉的核心要义，也是提升群众生活质量的关键之举，还是彰显社会公平正义的根本遵循。</p>
+<p>是保障基本民生需求的底线工程，是回应群众热切期盼的民心之举，是促进社会和谐稳定的坚实支撑。</p>
+<p>是破解民生领域短板的有效路径，是兜牢民生保障底线的必然要求，是实现共同富裕目标的重要举措。</p>
+<p>是解决群众「柴米油盐」的务实之举，是回应「衣食住行」的贴心之策，是守护「安危冷暖」的长远之计。</p>
+<p>是增进民生福祉的核心抓手，是凝聚民心民力的关键纽带，是夯实执政根基的重要工程。</p>
+<p>是保障特殊群体合法权益的应有之义，是兜牢困难群众基本生活的关键举措，是推进基本公共服务均等化的必然要求。</p>
+<p>是满足群众多元民生需求的必由之路，是提升民生服务供给效能的必然要求，是实现民生福祉持续增进的必然选择。</p>
+<p>是推动城乡民生均衡发展的重要抓手，是补齐区域民生服务短板的关键举措，是提升不同群体民生获得感的根本路径。</p>
+<p>事关民生政策的落地见效，事关民生服务的提质增效，事关民生改革的纵深推进。</p>
+<p>是守护群众生命健康的坚实防线，是保障群众基本生活的基础工程，是提升群众幸福质感的核心举措。</p>
+<p>是健全完善基层治理体系的应有之义，是全面提升基层治理效能的关键之举，是切实保障群众安居乐业的固本之策。</p>
+<p>是化解基层矛盾纠纷的务实举措，是维护社会和谐稳定的重要基石，是凝聚共建共治共享合力的关键路径。</p>
+<p>是破解治理「堵点」的有效路径，是打通服务「断点」的关键抓手，是消除民生「痛点」的核心举措。</p>
+<p>是推动治理资源下沉落地的务实之举，是保障基层权力规范有序运行的关键抓手，是促进治理成果公平公正共享的根本保障。</p>
+<p>是构建现代化治理格局的基础工程，是提升政府治理能力的核心支撑，是实现长治久安的战略保障。</p>
+<p>是加快数字化治理转型的重要支撑，是优化精细化治理服务的核心路径，是提升智能化治理效能的关键举措。</p>
+</div>
+
+<div class="sub-h">B. 法治 / 行政执法类（16 组）</div>
+<div class="pn">
+<p>是涵养政治文明的客观要求，是推动经济繁荣的必要支撑，是维护社会和谐的重要保障，是建设社会主义现代化强国的核心内容。</p>
+<p>是推进国家治理现代化的重要保障，是适应经济发展新常态的现实需要，是守护人民幸福安康的内在要求。</p>
+<p>是维护群众合法权益的客观要求，是守护社会和谐稳定的必要支撑，是推进法治政府建设的核心要义。</p>
+<p>全面依法治国是国家治理领域一场广泛而深刻的革命，关乎党的执政兴国，关乎人民的幸福安康，关乎党和国家的长治久安。</p>
+<p>是坚守社会公平正义价值追求的内在支撑，是完善中国特色社会主义法律体系的重要保障，是夯实国家治理现代化根基的核心工程。</p>
+<p>是规范权力运行、扎紧制度笼子的关键举措，是坚守公平正义、守护民生底线的根本保障，是厚植法治根基、推进治理现代化的重要支撑。</p>
+<p>是严守法治底线、规范行政权力运行的必然要求，是维护合法权益、彰显为民服务温度的核心路径，是夯实建设根基、推进法治政府发展的重要保障。</p>
+<p>是提升政府公信力、塑造良好形象的重要抓手，是优化营商环境、激活发展动能的关键支撑，是推进社会治理法治化、提升治理效能的根本路径。</p>
+<p>是破解执法不规范突出问题的务实举措，是回应群众法治期盼、凝聚社会民心的关键抓手，是筑牢社会长治久安根基的根本保障。</p>
+<p>是推动依法治国方略落地见效的核心支撑，是促进依法行政要求走深走实的关键举措，是彰显法治文明进步鲜明底色的时代标尺。</p>
+<p>是维护市场经济公平公正秩序的坚实保障，是激发市场主体创新创业活力的制度支撑，是畅通经济社会循环发展格局的法治依托。</p>
+<p>是化解基层矛盾纠纷、畅通多元调处的有效路径，是密切党群干群关系、凝聚基层合力的重要纽带，是提升基层治理效能、推进治理现代化的核心抓手。</p>
+<p>是守护社会公共利益、践行责任担当的内在要求，是防范化解执法风险、坚守底线思维的关键举措，是保障社会安定有序、巩固发展格局的战略支撑。</p>
+<p>是弘扬社会主义法治精神的实践载体，是厚植全社会法治信仰的关键路径，是凝聚法治中国建设磅礴力量的坚实支撑。</p>
+<p>是健全执法标准化体系的制度支撑，是提升执法工作整体效能的关键变革，是坚守执法为民初心使命的根本保障。</p>
+<p>是破解执法「温差」「落差」现实难题的迫切需要，是锚定执法公平公正核心目标的关键举措，是夯实法治国家建设基层根基的重要支撑。</p>
+</div>
+
+<div class="sub-h">C. 乡村振兴类（9 组）</div>
+<div class="pn">
+<p>关系到社会主义新农村的建设成效，关系到农业农村的现代化进程，关系到巩固拓展脱贫攻坚成果同乡村振兴的有效衔接。</p>
+<p>是深化农村改革、激发农村发展活力的重大举措，是推进农业农村现代化的重要支撑，是筑牢乡村振兴发展根基的关键之举。</p>
+<p>实施乡村振兴战略，是推动高质量发展的必然要求，是破解新时代我国社会主要矛盾的有效抓手，是健全现代社会治理格局的固本之策，是实现中华民族伟大复兴的必然要求。</p>
+<p>是推进巩固拓展脱贫攻坚成果同乡村振兴有效衔接的核心任务，是统筹缩小城乡发展差距、促进城乡融合的关键举措，是夯实农业强国建设根基命脉的根本支撑。</p>
+<p>关系到农村集体经济的发展壮大，关系到城乡融合发展的均衡协调推进，关系到全体人民共同富裕的实现进程。</p>
+<p>是激活乡村内生发展动力的核心引擎，是改善农村人居环境的关键路径，是传承乡土文化根脉的重要依托。</p>
+<p>是筑牢农业高质高效根基的核心支撑，是擦亮乡村宜居宜业底色的关键举措，是实现农民富裕富足愿景的根本保障。</p>
+<p>是破解「三农」发展瓶颈的根本之策，是提升乡村基层治理效能的战略抓手，是筑牢国家安全根基的重要支撑。</p>
+<p>关系到乡村产业体系的健全完善，关系到乡村人才队伍的引育壮大，关系到乡村治理能力的全面提升。</p>
+</div>
+
+<div class="sub-h">D. 文化类（20 组）</div>
+<div class="pn">
+<p>一代代旧事物是一个国家一个民族的灵魂，是华夏民族积淀数千年的瑰宝，是中华民族最基本的基因。</p>
+<p>一代代旧事物是延续文化根脉的强大动力，是守护文化多样性的战略支撑，是实现活态传承的必经之路。</p>
+<p>一代代旧事物是文明传承的基因密码，是精神凝聚的核心纽带，是发展赋能的不竭源泉。</p>
+<p>一代代旧事物承载历史记忆，传递价值理念，开创未来图景。</p>
+<p>积极挖掘旧事物是传承文化遗产的必然要求，是推动文化创新的关键之举，是树立文化自信的根本保障。</p>
+<p>文化可以引领时代风尚、刻写民族希望、昭示国家未来。</p>
+<p>文化是时代前进的号角，文化能代表一个时代的风貌，文化能引领一个时代的风气。</p>
+<p>是传承中华文脉历史使命的根本举措，是凝聚民族精神思想根基的有力支撑，是提升国家软实力战略布局的坚实保障。</p>
+<p>是凝聚民族精神的强大动力，是建设文化强国的战略支撑，是实现民族复兴的必经之路。</p>
+<p>文化塑造民族精神品格，凝聚时代奋进力量，托举国家复兴梦想。</p>
+<p>是滋养民众心灵的精神沃土，是涵养社会风尚的核心载体，是引领文明进步的重要旗帜。</p>
+<p>是破解文化发展瓶颈的关键路径，是激活文化产业活力的核心引擎，是提升文化影响力的战略选择。</p>
+<p>是赓续红色基因、传承精神血脉的责任所在，是守护文化根脉、弘扬传统精粹的价值追求，是包容互鉴交流、吸收世界文明的胸怀体现。</p>
+<p>文化能温润心灵、凝聚共识、汇聚伟力，文化能赋能发展、彰显特色、赢得未来。</p>
+<p>是建设文化强国的核心支撑，是满足人民精神需求的关键举措，是增强民族凝聚力的根本保障。</p>
+<p>是提升文化软实力的战略抉择，是增强国际话语权的必然要求，是展现中国良好形象的关键之举。</p>
+<p>文化是民族生存的精神根基，是国家发展的精神旗帜，是文明延续的精神纽带。</p>
+<p>是推动文化双创的动力源泉，是促进文旅融合的关键抓手，是实现文化惠民的重要载体。</p>
+<p>是培育社会主义核心价值观的实践载体，是筑牢中华民族共有精神家园的思想根基，是引领社会文明新风尚的重要支撑。</p>
+<p>是守护文化多样性的重要责任，是推动文明交流互鉴的桥梁纽带，是彰显中华文化魅力的核心路径。</p>
+</div>
+
+<div class="sub-h">E. 经济 / 科技 / 生态类</div>
+<div class="pn">
+<p>是推动经济健康发展的务实举措，是增进人民民生福祉的必由之路，是实现第二个百年奋斗目标的必然要求。</p>
+<p>是驱动经济发展的强大动力，是建设现代化经济体系的战略支撑，是实现高质量发展的关键路径。</p>
+<p>是夯实实体经济发展根基的务实举措，是充分激发市场主体活力的关键路径，是实现经济行稳致远的必然要求。</p>
+<p>是激活各类要素潜能的强大动力，是加快构建新发展格局的战略支撑，是推动经济发展范式转型的必由之路。</p>
+<p>是推动产业迭代转型升级的强大动力，是加快培育新质生产力的战略支撑，是实现高质量发展的关键路径。</p>
+<p>是推动从「既要金山银山，也要绿水青山」到「绿水青山就是金山银山」观念转变的关键之举，是转变经济发展方式的现实路径，是实现可持续发展实践的坚实保障。</p>
+<p>既是引领经济新常态的重要保障，又是体现大国担当的现实需要，更是改善民生福祉的内在要求。</p>
+<p>是守护「绿水青山」生存根基的关键支撑，是实现「双碳目标」发展转型的固本之策，是构建「人与自然和谐共生」文明形态的根本遵循。</p>
+<p>是打通「绿水青山」向「金山银山」转化路径的核心抓手，是激活生态产品价值实现机制的内生动力，是构建生态与经济协同发展格局的重要支撑。</p>
+<p>事关践行生态优先的发展导向，事关落实绿色低碳的转型路径，事关实现生态惠民的价值追求。</p>
+</div>
+
+<div class="sub-h">F. 价值观类（正面 / 反面，双主题与思辨题专用）</div>
+<div class="cols2">
+<div><b>正面</b>
+<p class="mini">是人生的指路明灯，照亮前行方向；是攻坚克难的精神铠甲，抵御外界诱惑；是安身立命的根本底色，筑牢成长根基。</p>
+<p class="mini">能涵养高尚品格，让人行得端正；能凝聚奋进力量，让人走得坚定；能指引人生航向，让人行稳致远。</p>
+<p class="mini">是迷茫时的清醒剂，让人不迷失方向；是困境时的强心针，让人不畏惧挑战；是浮躁时的定心丸，让人不随波逐流。</p>
+<p class="mini">可明辨是非曲直，不被乱象迷惑；可坚守原则底线，不被利益裹挟；可保持清醒坚定，不被浮躁干扰。</p>
+<p class="mini">让精神更有信仰，让行动更有力量，让人生更有方向。</p>
+<p class="mini">以正确价值观立身，方能行有所止；以正确价值观立业，方能事有所成；以正确价值观立心，方能心有所向。</p></div>
+<div><b>反面</b>
+<p class="mini">错误的价值观，会让人迷失方向、丧失初心；会让人急功近利、浮躁不安；会让人突破底线、误入歧途。</p>
+<p class="mini">不良的价值导向，会扭曲是非观念，混淆善恶边界；会侵蚀精神根基，动摇理想信念；会败坏社会风气，影响公平正义。</p>
+<p class="mini">功利化的价值追求，会让人变得自私自利、冷漠无情；会让人贪图安逸、畏难避事；会让人投机取巧、不愿实干。</p>
+<p class="mini">浮躁虚荣的心态，会让人沉迷表象、忽视本质；会让人盲目攀比、陷入内耗；会让人急于求成、半途而废。</p>
+<p class="mini">错误的价值取向，会消解奋斗精神，让人躺平摆烂；会弱化责任担当，让人推诿敷衍；会腐蚀道德操守，让人失德失范。</p></div>
+</div>
+</div>
+
+<div class="sec"><h4>锦囊四 · 分论点套路（三种包装 + 比喻库）</h4>
+<div class="formula">总论点 ＋ 需要在［某领域］上［三字动作］</div>
+<div class="formula">总论点 ＋ 需要我们以［某事物］为［两字定位］</div>
+<div class="formula">分论点 ＋ 是［某目标］的［四字意象］</div>
+<table class="t2">
+<tr><td class="k">两字定位</td><td>先导、抓手、纽带、基础、支撑、主轴、保障、导向、重点、核心、关键、依托、平台</td></tr>
+<tr><td class="k">三字动作</td><td>做文章、谋突破、下功夫、求实效、动真格、见真章、再提升、再发力、再用心、出实招、敢担当、善作为、抓落实、补短板、破难题、提质效、聚合力、固根基、扬优势、开新局、谋新篇</td></tr>
+<tr><td class="k">四字动作</td><td>放在心上、抓在手上、扛在肩上、久久为功、真抓实干、持续发力、精耕细作、固本强基、厚植优势、赋能升级、攻坚突破、守正创新、乘势而上、精准施策、靶向发力、破局突围、筑牢根基、擦亮底色、打造标杆、勇攀高峰、动真碰硬、争先创优</td></tr>
+<tr><td class="k">比喻气势</td><td>吹响……的冲锋号、擂响……的决胜鼓、唱响……的进行曲、打造「强引擎」、把牢「方向标」、筑牢「压舱石」、敢啃「硬骨头」、勇挑「千斤担」、甘做「铺路石」、争当「排头兵」、打好「持久战」、善弹「合奏曲」、把稳「方向盘」、立好「定盘星」、守住「生命线」</td></tr>
+</table>
+<div class="cols2"><div>
+<p class="mini"><b>意象组（每组三词，对应三条分论点）</b></p>
+<p class="mini">破局之钥 — 攻坚之锤 — 导航之标</p>
+<p class="mini">破浪之帆 — 拓荒之犁 — 领航之灯</p>
+<p class="mini">攀峰之梯 — 破冰之斧 — 指路之碑</p>
+<p class="mini">渡海之舟 — 破土之铲 — 导向之轮</p>
+<p class="mini">越堑之桥 — 垦荒之锄 — 明航之塔</p>
+<p class="mini">攀崖之链 — 开山之炮 — 导览之图</p>
+</div><div>
+<p class="mini"><b>抽象概念（接在句尾）</b></p>
+<p class="mini">重要保障 / 坚强支撑 / 根本保证 / 坚实基础 / 强大动力 / 战略支撑 / 核心支撑 / 重要依托 / 根本遵循 / 行动指南</p>
+<p class="mini">根本途径 / 关键之举 / 必由之路 / 治本之策 / 核心举措 / 有效途径 / 重要抓手 / 基本路径 / 务实之举 / 长远之策</p>
+<p class="mini">客观要求 / 内在要求 / 必然要求 / 时代要求 / 前提条件 / 必要条件 / 内在需要 / 迫切需要</p>
+<p class="mini">必然选择 / 战略选择 / 制胜之道 / 应有之义 / 题中之义</p>
+</div></div>
+</div>
+
+<div class="sec"><h4>锦囊五 · 结尾万能件（三句 + 备用句）</h4>
+<div class="formula">名言 ＋ 影响（站在第二个百年奋斗目标的历史交汇点上……）＋ 号召（排比姿态）</div>
+<div class="pn">
+<p><b>名言备选</b>：路虽远，行则将至；事难成，做则必成。／犯其至难而图其至远（苏轼《思治论》）／千淘万漉虽辛苦，吹尽黄沙始到金／日日行不怕千万里，常常做不怕千万事／沉舟侧畔千帆过，病树前头万木春。</p>
+<p><b>影响句 1</b>：站在第二个一百年奋斗目标的历史交汇点上，面向「十五五」、迈步新征程，解决好 XX 问题是夺取全面建设社会主义现代化国家新胜利的关键。</p>
+<p><b>影响句 2</b>：有效解决 XX 问题，是经济健康发展的必行之法，也是增进人民福祉的必经之路，更是夺取全面建设社会主义现代化国家新胜利的关键。</p>
+<p><b>号召 1</b>：为此，我们要坚定信念、满怀信心，保持「风雨无阻向前进」的奋进姿态，激扬「越是艰险越向前」的精气神，葆有「踏平坎坷成大道、斗罢艰险又出发」的顽强意志，方能书写更新完美的时代篇章。</p>
+<p><b>号召 2</b>：为此，我们要以「领跑者」的责任、「弄潮儿」的闯劲、「施工队」的作为，奋力拼搏，接续奋斗。</p>
+<p><b>号召 3</b>：滚石上山、爬坡过坎，只有蓄积「千磨万击还坚劲」的韧性，才能 XX，为实现中华民族伟大复兴的中国梦不断凝聚正能量。</p>
+<p><b>号召 4</b>：为此，我们必须把 XX 摆在更加重要的位置，坚定信心决心，以永不懈怠的精神状态，真抓实干、埋头苦干，向着实现第二个百年奋斗目标奋勇前进！</p>
+</div>
+</div>
+
+<div class="sec"><h4>锦囊六 · 素材怎么用（这一节是「方法」，不是「背诵」）</h4>
+
+<div class="sub-h">1. 一个公式：主体 ＋ 对策 ＋ 影响（＋问题）</div>
+<div class="formula">［谁］通过［做了什么（三个动宾并列）］，实现了［什么效果］</div>
+<p class="mini">示范：M 县通过建立网格员巡查模式、优化「智慧网格」设置、构建「信访超市+外送服务」体系，实现了基层治理水平的提升。</p>
+<p class="mini">示范：面对挑战，H 集团始终对科技创新有着不懈追求，不断加大主业投入、提高研发投入，成功研发出多项减阻技术，为中国国家队打造多类型高科技专业比赛装备，逐步成长为全球第三大体育用品集团。</p>
+
+<div class="sub-h">2. 素材从三个地方来</div>
+<table class="t2">
+<tr><td class="k">① 材料改写</td><td>最稳、最不跑题。改写两招：<b>顺序重组</b>（打乱原文，按「目的→做法→成效」重排）+ <b>词汇变换</b>（安装→布设、开发→搭建、监控→监测、解决→瞄准、问题→困境）。</td></tr>
+<tr><td class="k">② 客观小题的答案</td><td>零成本套利。把小题里的「主体+对策+影响」搬过来，改写成一句话，就是最好的例子。阅卷人看不到你的小题，不会判重复。</td></tr>
+<tr><td class="k">③ 自身积累</td><td>按「三个维度 × 四个方面」建库：维度＝微观（个人）／中观（企业、团队）／宏观（政府、社会、国家、党史）；方面＝古、今、中、外。</td></tr>
+</table>
+
+<div class="sub-h">3. 人物素材卡（背 6 个够用，其余记关键词）</div>
+<table class="t">
+<thead><tr><th>人物</th><th>一句话事迹（可直接进句子）</th><th>可论证的主题</th></tr></thead>
+<tbody>
+<tr><td>张桂梅</td><td>献身教育扶贫，点燃大山女孩希望</td><td>奉献、坚守、教育公平</td></tr>
+<tr><td>黄文秀</td><td>回乡奉献，把扶贫路当成「长征路」</td><td>青年担当、初心、基层</td></tr>
+<tr><td>黄大发</td><td>用实干兑现「水过不去、拿命来铺」的誓言</td><td>实干、坚持、啃硬骨头</td></tr>
+<tr><td>李保国</td><td>35 年坚守太行山，被称为「新愚公」</td><td>长期主义、科技助农</td></tr>
+<tr><td>黄旭华</td><td>隐功埋名三十载，研制核潜艇</td><td>奉献、隐忍、国家需要</td></tr>
+<tr><td>谷文昌</td><td>十四年如一日，把荒岛建成绿岛</td><td>久久为功、生态、为民</td></tr>
+<tr><td>李忠凯</td><td>「80 后」白发干部，总结 32 字产业富民经</td><td>扎根基层、创新方法</td></tr>
+<tr><td>塞罕坝 / 中国航天</td><td>六位老汉躬耕沙漠成绿化奇迹 ／ 从一穷二白到嫦娥探月、天问落火</td><td>团队协作、国家意志（中观/宏观）</td></tr>
+</tbody></table>
+
+<div class="sub-h">4. 反面例子怎么写才安全</div>
+<p>用<b>模糊指代</b>：「部分城市」「个别地区」「有的地方」，不点名、不举例具体单位。示范：<span class="q">反观部分地区，引才时许诺优厚条件，落地后服务缺位，导致人才「来得快、走得急」。</span></p>
+
+<div class="sub-h">5. 一句提醒</div>
+<div class="warn">素材不是越多越好。<b>三个分论点各配一个例子</b>，每个例子 2—3 行，就够了。堆四个例子反而没空间写回扣句，而回扣句才是阅卷人找的东西。</div>
+</div>
+
+<div class="sec"><h4>锦囊七 · 上考场前的最后一张清单</h4>
+<table class="t">
+<thead><tr><th>检查项</th><th>打勾</th></tr></thead>
+<tbody>
+<tr><td>标题里有题干的核心词（原词，不是近义词）</td><td>□</td></tr>
+<tr><td>标题是「对策＋影响」结构</td><td>□</td></tr>
+<tr><td>开头最后一句＝总论点＝标题的完整陈述</td><td>□</td></tr>
+<tr><td>开头有 1 句名言 + 1 组影响排比 + 1 句过渡</td><td>□</td></tr>
+<tr><td>三条分论点都在段首，句式对齐、字数接近</td><td>□</td></tr>
+<tr><td>三条分论点各有一个不同的逻辑定位词（起点/路径/标尺 之类）</td><td>□</td></tr>
+<tr><td>每条分论点都有例子（主体+对策+影响）</td><td>□</td></tr>
+<tr><td>每条分论点末尾都回扣了一句</td><td>□</td></tr>
+<tr><td>结尾换了同领域另一句名言，并回扣了标题关键词</td><td>□</td></tr>
+<tr><td>全文 5 段，字数达标，没错别字</td><td>□</td></tr>
+</tbody></table>
+<div class="tip">全部打勾，就是一篇结构完整、不跑题、有文采的文章。<b>考场上不需要完美，只需要完整。</b></div>
+</div>
+</section><div id="nores">没有匹配的内容，换个关键词试试。</div><button id="toTop" title="回到顶部">↑</button><div class="foot">圆通大作文 · 17 节课考前总复习（交互版）<br>内容整理自 01—17 节课程总结，用于考前回顾与背诵。<br>祝明天落笔有神，一次上岸。</div>
+</main>
+</div>
+<script>
+;(function(){
+  var cards=[].slice.call(document.querySelectorAll('details.card'));
+  var search=document.getElementById('q');
+  var chips=[].slice.call(document.querySelectorAll('.side .chip'));
+  var activeTag=null;
+
+  function apply(){
+    var kw=(search&&search.value||'').trim().toLowerCase();
+    var shown=0;
+    cards.forEach(function(c){
+      var txt=c.textContent.toLowerCase();
+      var okKw=!kw||txt.indexOf(kw)>-1;
+      var okTag=!activeTag||(c.dataset.tags||'').indexOf(activeTag)>-1;
+      var ok=okKw&&okTag;
+      c.style.display=ok?'':'none';
+      if(ok)shown++;
+      if(kw&&ok)c.open=true;
+    });
+    document.querySelectorAll('.chapter').forEach(function(ch){
+      var any=[].slice.call(ch.parentNode.querySelectorAll('details.card')).some(function(c){return c.style.display!=='none';});
+      ch.style.display=any?'':'none';
+    });
+    var nr=document.getElementById('nores');
+    if(nr)nr.style.display=shown?'none':'block';
+  }
+  if(search)search.addEventListener('input',apply);
+  chips.forEach(function(ch){
+    ch.addEventListener('click',function(){
+      var t=ch.dataset.tag;
+      if(activeTag===t){activeTag=null;ch.classList.remove('on');}
+      else{chips.forEach(function(x){x.classList.remove('on');});activeTag=t;ch.classList.add('on');}
+      apply();
+    });
+  });
+  document.querySelectorAll('.tg').forEach(function(g){
+    g.addEventListener('click',function(e){
+      e.preventDefault();e.stopPropagation();
+      var t=g.textContent.trim();
+      var target=[].slice.call(chips).filter(function(c){return c.dataset.tag===t;})[0];
+      if(target){target.click();window.scrollTo({top:0,behavior:'smooth'});}
+    });
+  });
+  var btnAll=document.getElementById('expandAll');
+  if(btnAll)btnAll.addEventListener('click',function(){
+    var anyClosed=cards.some(function(c){return !c.open;});
+    cards.forEach(function(c){if(c.style.display!=='none')c.open=anyClosed;});
+    btnAll.textContent=anyClosed?'全部收起':'全部展开';
+  });
+  var btnPrint=document.getElementById('doPrint');
+  if(btnPrint)btnPrint.addEventListener('click',function(){window.print();});
+
+  // scrollspy
+  var links=[].slice.call(document.querySelectorAll('.side a[href^="#"]'));
+  var targets=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));}).filter(Boolean);
+  function spy(){
+    var y=window.scrollY+120,best=null;
+    targets.forEach(function(t){if(t.offsetTop<=y)best=t;});
+    links.forEach(function(a){a.classList.remove('on');});
+    if(best){var l=links.filter(function(a){return a.getAttribute('href')==='#'+best.id;})[0];if(l)l.classList.add('on');}
+  }
+  window.addEventListener('scroll',spy,{passive:true});spy();
+  var tt=document.getElementById('toTop');
+  if(tt){
+    tt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+    window.addEventListener('scroll',function(){tt.classList.toggle('show',window.scrollY>700);},{passive:true});
+  }
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==search){e.preventDefault();search.focus();}
+  });
+})();
+</script>
+</body>
+</html>

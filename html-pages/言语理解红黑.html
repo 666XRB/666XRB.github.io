@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>言语选词填空 · 高频词红黑榜</title>
+<style>
+  :root{
+    --red:#e5484d;
+    --red-bg:#fff1f1;
+    --red-line:#ffd5d5;
+    --green:#2f9e44;
+    --green-bg:#f0fbf2;
+    --green-line:#c8ecd0;
+    --amber:#f59f00;
+    --ink:#1f2430;
+    --ink-2:#5b6474;
+    --line:#e8ebf0;
+    --bg:#f5f7fa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    padding:24px 16px 60px;
+  }
+  .wrap{max-width:900px;margin:0 auto;}
+
+  /* ---------- 头部 ---------- */
+  .hero{
+    background:linear-gradient(135deg,#1f2430 0%,#333c52 100%);
+    color:#fff;
+    border-radius:18px;
+    padding:30px 26px;
+    margin-bottom:26px;
+    box-shadow:0 12px 30px rgba(31,36,48,.18);
+  }
+  .hero h1{font-size:23px;letter-spacing:.5px;}
+  .hero .sub{margin-top:8px;font-size:13.5px;color:#b9c1d1;}
+  .legend{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;}
+  .legend span{
+    font-size:12.5px;padding:5px 12px;border-radius:999px;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+  }
+
+  /* ---------- 章节 ---------- */
+  .part-title{
+    font-size:17px;margin:34px 0 14px;padding-left:12px;
+    border-left:4px solid var(--ink);font-weight:700;
+  }
+  .part-title small{font-weight:400;color:var(--ink-2);font-size:12.5px;margin-left:8px;}
+
+  /* ---------- 卡片 ---------- */
+  .card{
+    background:#fff;border-radius:14px;padding:18px 18px 20px;
+    margin-bottom:16px;border:1px solid var(--line);
+    box-shadow:0 2px 10px rgba(31,36,48,.04);
+  }
+  .card-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+  .card-head h3{font-size:15.5px;}
+  .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+  .card.black .dot{background:var(--red);}
+  .card.green .dot{background:var(--green);}
+  .tag{
+    font-size:11.5px;padding:3px 10px;border-radius:999px;
+    border:1px solid var(--line);color:var(--ink-2);background:#fafbfc;
+  }
+  .card.black .tag{color:var(--red);border-color:var(--red-line);background:var(--red-bg);}
+  .card.green .tag{color:var(--green);border-color:var(--green-line);background:var(--green-bg);}
+
+  /* ---------- 超级黑榜标签 ---------- */
+  .chips{display:flex;flex-wrap:wrap;gap:9px;}
+  .chip{
+    display:inline-flex;align-items:baseline;gap:6px;
+    padding:7px 13px;border-radius:10px;font-size:14px;
+    background:var(--red-bg);color:#a32025;border:1px solid var(--red-line);
+  }
+  .chip b{font-weight:600;}
+  .chip em{font-style:normal;font-size:11.5px;color:#c97078;}
+
+  /* ---------- 数据行 ---------- */
+  .rows{display:flex;flex-direction:column;gap:2px;}
+  .row{
+    display:grid;
+    grid-template-columns:100px 62px 62px 1fr;
+    align-items:center;gap:10px;
+    padding:8px 6px;border-radius:8px;font-size:14px;
+  }
+  .row:nth-child(odd){background:#fafbfc;}
+  .row .w{font-weight:600;}
+  .row .n{font-size:12.5px;color:var(--ink-2);text-align:right;}
+  .row .a{font-size:12.5px;text-align:right;font-weight:600;}
+  .bar{height:9px;border-radius:99px;background:#eef1f5;overflow:hidden;}
+  .fill{height:100%;border-radius:99px;}
+  .card.black .fill{background:linear-gradient(90deg,#ff8a8a,#e5484d);}
+  .card.green .fill{background:linear-gradient(90deg,#7ed492,#2f9e44);}
+  .pct{font-size:11.5px;color:var(--ink-2);margin-left:6px;}
+
+  .note{
+    margin-top:14px;font-size:12.5px;color:var(--ink-2);
+    background:#fafbfc;border-left:3px solid var(--amber);
+    padding:10px 12px;border-radius:0 8px 8px 0;
+  }
+  .note b{color:#c47f00;}
+
+  /* ---------- 小贴士 ---------- */
+  .tips{background:#fff;border-radius:14px;border:1px solid var(--line);padding:20px;}
+  .tips li{margin:0 0 12px 20px;font-size:14px;}
+  .tips li:last-child{margin-bottom:0;}
+  .hl{background:linear-gradient(transparent 62%, #ffe9a8 62%);font-weight:600;}
+
+  footer{
+    margin-top:34px;text-align:center;font-size:12px;color:#98a0ae;line-height:1.9;
+  }
+
+  @media (max-width:560px){
+    .row{grid-template-columns:76px 52px 52px 1fr;gap:7px;font-size:13.5px;}
+    .hero h1{font-size:19px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>言语选词填空 · 高频词红黑榜</h1>
+    <p class="sub">17—26 年真题统计 · 考前最后几天，用"概率倾向"辅助排除与蒙题</p>
+    <div class="legend">
+      <span>🔴 超级黑榜：作为答案概率 0%</span>
+      <span>🟥 高频黑榜：考得多、选得少</span>
+      <span>🟢 红榜：相对更易成为答案</span>
+    </div>
+  </header>
+
+  <!-- ================= 实词 ================= -->
+  <h2 class="part-title">一、实词（"诗词"）红黑榜 <small>共 10 + 10 + 8 个高频词</small></h2>
+
+  <!-- 超级黑榜 -->
+  <div class="card black">
+    <div class="card-head">
+      <span class="dot"></span><h3>实词 · 超级黑榜</h3>
+      <span class="tag">作为答案概率 0%</span>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>展现</b><em>17次</em></span>
+      <span class="chip"><b>支持</b><em>14次</em></span>
+      <span class="chip"><b>体现</b><em>12次</em></span>
+      <span class="chip"><b>判断</b><em>12次</em></span>
+      <span class="chip"><b>助力</b><em>12次</em></span>
+      <span class="chip"><b>分析</b><em>9次</em></span>
+      <span class="chip"><b>否定</b><em>9次</em></span>
+      <span class="chip"><b>吻合</b><em>9次</em></span>
+      <span class="chip"><b>象征</b><em>9次</em></span>
+      <span class="chip"><b>途径</b><em>9次</em></span>
+    </div>
+    <div class="note">考到现在这 10 个词<b>一次都没有做过答案</b>，考场上遇到务必谨慎，能不选就不选。</div>
+  </div>
+
+  <!-- 高频黑榜 -->
+  <div class="card black">
+    <div class="card-head">
+      <span class="dot"></span><h3>实词 · 高频黑榜</h3>
+      <span class="tag">考得多 · 成答案少</span>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="w">反应</span><span class="n">17次</span><span class="a">1次</span>
+        <div class="bar"><div class="fill" style="width:5.9%"></div></div></div>
+      <div class="row"><span class="w">影响</span><span class="n">21次</span><span class="a">2次</span>
+        <div class="bar"><div class="fill" style="width:9.5%"></div></div></div>
+      <div class="row"><span class="w">发展</span><span class="n">21次</span><span class="a">2次</span>
+        <div class="bar"><div class="fill" style="width:9.5%"></div></div></div>
+      <div class="row"><span class="w">打造</span><span class="n">17次</span><span class="a">2次</span>
+        <div class="bar"><div class="fill" style="width:11.8%"></div></div></div>
+      <div class="row"><span class="w">汇聚</span><span class="n">17次</span><span class="a">2次</span>
+        <div class="bar"><div class="fill" style="width:11.8%"></div></div></div>
+      <div class="row"><span class="w">推动</span><span class="n">24次</span><span class="a">3次</span>
+        <div class="bar"><div class="fill" style="width:12.5%"></div></div></div>
+      <div class="row"><span class="w">改变</span><span class="n">29次</span><span class="a">4次</span>
+        <div class="bar"><div class="fill" style="width:13.8%"></div></div></div>
+      <div class="row"><span class="w">描绘</span><span class="n">14次</span><span class="a">2次</span>
+        <div class="bar"><div class="fill" style="width:14.3%"></div></div></div>
+      <div class="row"><span class="w">引导</span><span class="n">28次</span><span class="a">5次</span>
+        <div class="bar"><div class="fill" style="width:17.9%"></div></div></div>
+      <div class="row"><span class="w">融合</span><span class="n">28次</span><span class="a">6次</span>
+        <div class="bar"><div class="fill" style="width:21.4%"></div></div></div>
+    </div>
+    <div class="note">像 <b>影响</b> 这类词太中性，可好可坏、不精准，所以成答案率天然偏低；<b>推动 / 改变 / 引导 / 融合</b> 考查频次极高但命中率低，遇到要小心。</div>
+  </div>
+
+  <!-- 红榜 -->
+  <div class="card green">
+    <div class="card-head">
+      <span class="dot"></span><h3>实词 · 红榜</h3>
+      <span class="tag">55%—72% · 仅供参考</span>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="w">契合</span><span class="n">18次</span><span class="a">13次</span>
+        <div class="bar"><div class="fill" style="width:72.2%"></div></div></div>
+      <div class="row"><span class="w">彰显</span><span class="n">17次</span><span class="a">12次</span>
+        <div class="bar"><div class="fill" style="width:70.6%"></div></div></div>
+      <div class="row"><span class="w">赋予</span><span class="n">12次</span><span class="a">8次</span>
+        <div class="bar"><div class="fill" style="width:66.7%"></div></div></div>
+      <div class="row"><span class="w">折射</span><span class="n">11次</span><span class="a">7次</span>
+        <div class="bar"><div class="fill" style="width:63.6%"></div></div></div>
+      <div class="row"><span class="w">载体</span><span class="n">16次</span><span class="a">10次</span>
+        <div class="bar"><div class="fill" style="width:62.5%"></div></div></div>
+      <div class="row"><span class="w">承载</span><span class="n">21次</span><span class="a">12次</span>
+        <div class="bar"><div class="fill" style="width:57.1%"></div></div></div>
+      <div class="row"><span class="w">支配</span><span class="n">14次</span><span class="a">8次</span>
+        <div class="bar"><div class="fill" style="width:57.1%"></div></div></div>
+      <div class="row"><span class="w">融入</span><span class="n">20次</span><span class="a">11次</span>
+        <div class="bar"><div class="fill" style="width:55.0%"></div></div></div>
+    </div>
+    <div class="note">红榜整体正确率没有特别高（55%—72%），<b>只能做个小参考</b>，不能当铁律用。</div>
+  </div>
+
+  <!-- ================= 成语 ================= -->
+  <h2 class="part-title">二、成语红黑榜 <small>超级黑榜 + 高频黑榜 + 红榜</small></h2>
+
+  <!-- 成语超级黑榜 -->
+  <div class="card black">
+    <div class="card-head">
+      <span class="dot"></span><h3>成语 · 超级黑榜</h3>
+      <span class="tag">作为答案概率 0%</span>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>显而易见</b><em>17次</em></span>
+      <span class="chip"><b>循规蹈矩</b><em>10次</em></span>
+      <span class="chip"><b>微不足道</b><em>9次</em></span>
+      <span class="chip"><b>锱铢必较</b><em>9次</em></span>
+      <span class="chip"><b>如影随形</b><em>9次</em></span>
+      <span class="chip"><b>欣欣向荣</b><em>9次</em></span>
+      <span class="chip"><b>眼花缭乱</b><em>9次</em></span>
+      <span class="chip"><b>博采众长</b><em>9次</em></span>
+      <span class="chip"><b>独占鳌头</b><em>8次</em></span>
+      <span class="chip"><b>相映成趣</b><em>8次</em></span>
+    </div>
+    <div class="note">这几组词<b>全军覆没，从未作为答案</b>，遇到尽量避开、不要选。</div>
+  </div>
+
+  <!-- 成语高频黑榜 -->
+  <div class="card black">
+    <div class="card-head">
+      <span class="dot"></span><h3>成语 · 高频黑榜</h3>
+      <span class="tag">作为答案概率均 ≤ 20%</span>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="w">无与伦比</span><span class="n">17次</span><span class="a">1次</span>
+        <div class="bar"><div class="fill" style="width:5.9%"></div></div></div>
+      <div class="row"><span class="w">缘木求鱼</span><span class="n">15次</span><span class="a">1次</span>
+        <div class="bar"><div class="fill" style="width:6.7%"></div></div></div>
+      <div class="row"><span class="w">方兴未艾</span><span class="n">19次</span><span class="a">2次</span>
+        <div class="bar"><div class="fill" style="width:10.5%"></div></div></div>
+      <div class="row"><span class="w">南辕北辙</span><span class="n">16次</span><span class="a">2次</span>
+        <div class="bar"><div class="fill" style="width:12.5%"></div></div></div>
+      <div class="row"><span class="w">凤毛麟角</span><span class="n">15次</span><span class="a">2次</span>
+        <div class="bar"><div class="fill" style="width:13.3%"></div></div></div>
+      <div class="row"><span class="w">各有千秋</span><span class="n">14次</span><span class="a">2次</span>
+        <div class="bar"><div class="fill" style="width:14.3%"></div></div></div>
+      <div class="row"><span class="w">源远流长</span><span class="n">18次</span><span class="a">3次</span>
+        <div class="bar"><div class="fill" style="width:16.7%"></div></div></div>
+      <div class="row"><span class="w">和而不同</span><span class="n">17次</span><span class="a">3次</span>
+        <div class="bar"><div class="fill" style="width:17.6%"></div></div></div>
+      <div class="row"><span class="w">有目共睹</span><span class="n">17次</span><span class="a">3次</span>
+        <div class="bar"><div class="fill" style="width:17.6%"></div></div></div>
+      <div class="row"><span class="w">毋庸置疑</span><span class="n">16次</span><span class="a">3次</span>
+        <div class="bar"><div class="fill" style="width:18.8%"></div></div></div>
+    </div>
+    <div class="note">正确率<b>全部不超过 20%</b>，考频却不低——遇到时先把它们放到"待定/排除"一边，再作判断。</div>
+  </div>
+
+  <!-- 成语红榜 -->
+  <div class="card green">
+    <div class="card-head">
+      <span class="dot"></span><h3>成语 · 红榜</h3>
+      <span class="tag">参考性有限 · 仅供小参考</span>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="w">首屈一指</span><span class="n">11次</span><span class="a">9次</span>
+        <div class="bar"><div class="fill" style="width:81.8%"></div></div></div>
+      <div class="row"><span class="w">应运而生</span><span class="n">15次</span><span class="a">10次</span>
+        <div class="bar"><div class="fill" style="width:66.7%"></div></div></div>
+      <div class="row"><span class="w">力排众议</span><span class="n">12次</span><span class="a">8次</span>
+        <div class="bar"><div class="fill" style="width:66.7%"></div></div></div>
+      <div class="row"><span class="w">根深蒂固</span><span class="n">14次</span><span class="a">9次</span>
+        <div class="bar"><div class="fill" style="width:64.3%"></div></div></div>
+      <div class="row"><span class="w">未雨绸缪</span><span class="n">19次</span><span class="a">11次</span>
+        <div class="bar"><div class="fill" style="width:57.9%"></div></div></div>
+      <div class="row"><span class="w">本末倒置</span><span class="n">14次</span><span class="a">8次</span>
+        <div class="bar"><div class="fill" style="width:57.1%"></div></div></div>
+      <div class="row"><span class="w">举足轻重</span><span class="n">16次</span><span class="a">9次</span>
+        <div class="bar"><div class="fill" style="width:56.3%"></div></div></div>
+      <div class="row"><span class="w">层出不穷</span><span class="n">25次</span><span class="a">14次</span>
+        <div class="bar"><div class="fill" style="width:56.0%"></div></div></div>
+      <div class="row"><span class="w">不可或缺</span><span class="n">20次</span><span class="a">11次</span>
+        <div class="bar"><div class="fill" style="width:55.0%"></div></div></div>
+      <div class="row"><span class="w">潜移默化</span><span class="n">15次</span><span class="a">8次</span>
+        <div class="bar"><div class="fill" style="width:53.3%"></div></div></div>
+    </div>
+    <div class="note"><b>层出不穷</b> 25 次考查、14 次成答案，是红榜里"考频 + 命中率"综合最值得注意的一个。</div>
+  </div>
+
+  <!-- ================= 实战小贴士 ================= -->
+  <h2 class="part-title">三、实战小贴士</h2>
+  <div class="tips">
+    <ul>
+      <li><span class="hl">潜移默化 vs 耳濡目染</span>：若一道题排除后只剩这两个，统计中<b>答案 100% 是"潜移默化"</b>。</li>
+      <li><span class="hl">本末倒置</span>：含有<b>主次关系</b>，出题人常把它和"大小、轻重"类对比设置，注意主次维度的辨析。</li>
+      <li><span class="hl">影响 / 发展 / 推动</span> 这类词中性、可好可坏，不精准，因此极少成为答案——先排除。</li>
+      <li>实在不会、只能"闷"的时候，可以按黑榜优先排除、红榜优先保留的思路做倾向性选择。</li>
+      <li>红榜准确率普遍只有 55%—72%，<b>只能当参考</b>，不能替代正常的语境分析。</li>
+    </ul>
+  </div>
+
+  <footer>
+    数据来源：17—26 年真题个人统计 · 概率为经验值，仅供参考<br>
+    部分词条为录音转写，个别成语写法可能存在偏差，请以原始讲义为准<br>
+    祝各位顺利上岸 🎉
+  </footer>
+
+</div>
+</body>
+</html>
